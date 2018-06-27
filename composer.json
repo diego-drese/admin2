@@ -1,0 +1,36 @@
+{
+    "name": "aggrega/ironforge",
+    "description": "Iron Forge Project",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "Aggrega IronForge",
+        "Aggrega Iron forge",
+        "Iron forge",
+        "Ironforge"
+    ],
+    "authors": [
+        {
+            "name": "Luan Garcia",
+            "email": "luan.garcia@aggregando.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Aggrega\\Ironforge\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "aggrega\\Ironforge\\IronforgeServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5"
+    }
+}

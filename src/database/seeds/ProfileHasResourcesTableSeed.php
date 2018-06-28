@@ -1,5 +1,6 @@
 <?php
 
+namespace Aggrega\Ironforge;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 class ProfileHasResourcesTableSeed extends Seeder
@@ -13,7 +14,7 @@ class ProfileHasResourcesTableSeed extends Seeder
     public function run()
     {
 
-       $resources =  \App\Models\Resource::all('id');
+       $resources =  Resource::all('id');
        $addNews = [];
        for ($i=0; $i <= count($resources); $i++){
             $addNews[] = [

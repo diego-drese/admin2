@@ -4,18 +4,25 @@ namespace Aggrega\Ironforge;
 
 use Illuminate\Support\ServiceProvider;
 
-
-class IronforgeServiceProvider extends ServiceProvider
+class IronForgeServiceProvider extends ServiceProvider
 {
-
     /**
-     * Indicates if loading of the provider is deferred.
+     * Bootstrap the application services.
      *
-     * @var bool
+     * @return void
      */
-    protected $defer = false;
+    public function boot()
+    {
+        //
 
+        //$this->loadViewsFrom(__DIR__.'/resources', 'ironforge');
+        //$this->loadViewsFrom(__DIR__.'/resources/views/', 'Ironforge');
+       $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        //$this->mergeConfigFrom(__DIR__.'/config/laravel-logger.php', 'Ironforge');
+        //$this->publishFiles();
 
+        //$this->loadRoutesFrom(__DIR__.'/routes/web.php');
+    }
 
     /**
      * Register the application services.
@@ -24,11 +31,6 @@ class IronforgeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //$this->loadRoutesFrom(__DIR__.'/routes/web.php');
-        //$this->loadViewsFrom(__DIR__.'/resources/views/', 'Ironforge');
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-        //$this->mergeConfigFrom(__DIR__.'/config/laravel-logger.php', 'Ironforge');
-        //$this->publishFiles();
+        //
     }
-
 }

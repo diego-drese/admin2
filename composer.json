@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "aggrega\\Ironforge\\IronforgeServiceProvider"
+                "Aggrega\\Ironforge\\IronforgeServiceProvider"
             ]
         }
     },

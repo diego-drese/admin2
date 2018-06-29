@@ -1,7 +1,7 @@
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
     <div class="content-wrapper">
-        @include('layouts.backend.breadcrumb')
+        @include('Ironforge::layouts.backend.breadcrumb')
 
         <section class="content">
             <div class="row">
@@ -9,7 +9,7 @@
                     <div class="box">
                         <div class="box-body ">
                             <h3>Bem Vindo!</h3>
-                            <p class="lead text-muted">Olá {{Auth::user()->name}}, Welcome</p>
+                            <p class="lead text-muted">Olá {{Auth::User()->name}}, Welcome</p>
 
                             <h4>Get started</h4>
                             <p><a href="#" class="btn btn-primary">Primary</a></p>

@@ -26,11 +26,14 @@
         "laravel": {
             "providers": [
                 "Aggrega\\Ironforge\\IronforgeServiceProvider"
+
             ]
         }
     },
     "require": {
         "php": ">=5.5.9",
-        "illuminate/support": "~5"
+        "illuminate/support": "~5",
+        "yoeunes/toastr": "^1.0"
     }
+
 }

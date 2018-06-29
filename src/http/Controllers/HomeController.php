@@ -8,11 +8,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('Ironforge::welcome');
     }
 
     public function invalidPage(){
-        return view('404');
+        return view('Ironforge::404');
     }
 }
 

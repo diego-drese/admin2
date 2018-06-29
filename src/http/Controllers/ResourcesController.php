@@ -2,7 +2,7 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
-use Aggrega\Ironforge\Controllers\AuthIronForge;
+use Aggrega\Ironforge\Http\Controllers\AuthIronForge;
 use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -39,7 +39,7 @@ class ResourcesController extends AuthIronForge
                 ->make(true);
         }
 
-        return view('backend.resources.index');
+        return view('Ironforge::backend.resources.index');
 
 
     }
@@ -52,7 +52,7 @@ class ResourcesController extends AuthIronForge
     public function create(Resource $resource)
     {
         $parentsDefault = $this->parentsDefault;
-        return view('backend.resources.create', compact('resource','parentsDefault'));
+        return view('Ironforge::backend.resources.create', compact('resource','parentsDefault'));
     }
 
     /**
@@ -109,7 +109,7 @@ class ResourcesController extends AuthIronForge
         $parentsDefault = $this->parentsDefault;
         //dd($parent);
 
-        return view('backend.resources.edit',compact('resource','parent','parentsDefault'));
+        return view('Ironforge::backend.resources.edit',compact('resource','parent','parentsDefault'));
     }
 
     /**

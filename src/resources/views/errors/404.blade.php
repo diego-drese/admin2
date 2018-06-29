@@ -1,5 +1,5 @@
 @if(Auth::check())
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('title', 'Erro Ao Acessar Recurso')
 

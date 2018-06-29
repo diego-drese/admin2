@@ -5,6 +5,7 @@ namespace Aggrega\Ironforge\Library;
 use Aggrega\Ironforge\Profile;
 use Aggrega\Ironforge\Resource;
 use Aggrega\Ironforge\User;
+use Aggrega\Ironforge\UserIronForge;
 use Illuminate\Support\Facades\Auth;
 
 class ResouceIronForge
@@ -18,7 +19,7 @@ class ResouceIronForge
         }
 
         $auth = Auth::user();
-        $userProfiles   = User::select('profile_id')->findOrFail($auth->id);
+        $userProfiles   = UserIronForge::select('profile_id')->findOrFail($auth->id);
         $userResources = Resource::getResourcesByProfiles($userProfiles, $controller);
         if(abort_if($auth->active == 0,404,' Desculpe, não é possível acessar o sistema! Entre em contato com o administrador '))
 

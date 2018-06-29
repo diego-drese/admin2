@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     @yield('style')
-    <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet">
+    <link href="/vendor/aggrega/ironforge/laravel-package-ironforge/css/app.css" type="text/css" rel="stylesheet">
     <script src="//use.edgefonts.net/kaushan-script.js"></script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,8 +33,8 @@
             <div class="sk-circle12 sk-child"></div>
         </div>
     </div>
-    @include('layouts.backend.navbar')
-    @include('layouts.backend.menu')
+    @include('Ironforge::layouts.backend.navbar')
+    @include('Ironforge::layouts.backend.menu')
     @yield('content')
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
@@ -44,7 +44,7 @@
         reserved.
     </footer>
 </div>
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="/vendor/aggrega/ironforge/laravel-package-ironforge/js/app.js"></script>
 @yield('script')
 <script>
     window.pb = new ControllerPB();

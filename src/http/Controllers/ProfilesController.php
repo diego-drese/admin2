@@ -18,7 +18,7 @@ class ProfilesController extends AuthIronForge
     {
         $profiles = Profile::latest()->paginate(10);
 
-        return view('backend.profiles.index',compact('profiles'));
+        return view('Ironforge::backend.profiles.index',compact('profiles'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ProfilesController extends AuthIronForge
     public function create(Profile $profile)
     {
         $resources = Resource::all('name','id');
-       return view('backend.profiles.create',compact('profile','resources'));
+       return view('Ironforge::backend.profiles.create',compact('profile','resources'));
     }
 
     /**
@@ -80,7 +80,7 @@ class ProfilesController extends AuthIronForge
 
       // dd($profilesResources);
 
-       return view('backend.profiles.edit',compact('profile','resources','profilesResources'));
+       return view('Ironforge::backend.profiles.edit',compact('profile','resources','profilesResources'));
     }
 
     /**

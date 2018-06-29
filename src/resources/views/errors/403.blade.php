@@ -1,7 +1,7 @@
-@if(abort_if(Auth::user()->active == 0,404,'Desculpe, não é possível acessar o sistema! Entre em contato com o administrador'))
+@if(abort_if(Auth::UserIronForge()->active == 0,404,'Desculpe, não é possível acessar o sistema! Entre em contato com o administrador'))
 
 @elseif(Auth::check())
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('title', 'Profiles')
 <div class="content-wrapper">

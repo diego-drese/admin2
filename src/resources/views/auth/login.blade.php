@@ -1,4 +1,5 @@
-@extends('layouts.backend.login-tpl')
+
+@extends('Ironforge::layouts.backend.login-tpl')
 
 @section('content')
     <div class="login-box">
@@ -9,7 +10,8 @@
         <div class="login-box-body">
 
             <form method="POST" action="{{ route('login') }}">
-                @csrf
+
+                {{ csrf_field() }}
                 <div class="form-group has-feedback">
                     <input type="email" id="email" class="form-control" name="email" value="{{ old('email') }}"
                            placeholder="Email" required autofocus>

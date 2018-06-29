@@ -1,4 +1,4 @@
-@extends('layouts.backend.login-tpl')
+@extends('Ironforge::layouts.backend.login-tpl')
 
 @section('content')
 <div class="container">
@@ -15,7 +15,7 @@
                     @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+                        {{ csrf_field() }}
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

@@ -2,9 +2,11 @@
 
 namespace Aggrega\Ironforge;
 
+use Aggrega\Ironforge\Http\ViewComposers;
 use Illuminate\Support\ServiceProvider;
 
-class IronForgeServiceProvider extends ServiceProvider
+
+class IronforgeServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -13,15 +15,16 @@ class IronForgeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
 
-        //$this->loadViewsFrom(__DIR__.'/resources', 'ironforge');
-        //$this->loadViewsFrom(__DIR__.'/resources/views/', 'Ironforge');
-       $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-        //$this->mergeConfigFrom(__DIR__.'/config/laravel-logger.php', 'Ironforge');
-        //$this->publishFiles();
 
-        //$this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        //view()->composer('*',ViewComposers\NavigationComposer::class);
+
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'Ironforge');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        $this->publishes([
+            __DIR__ . '/public' => public_path('vendor/aggrega/ironforge/laravel-package-ironforge'),
+        ], 'public');
     }
 
     /**

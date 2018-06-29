@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Aggrega\Ironforge\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -12,7 +12,7 @@ class ConsoleController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function dashboard(){
-        return view('backend.index');
+        return view('Ironforge::backend.index');
     }
 
 }

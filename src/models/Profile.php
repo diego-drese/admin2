@@ -2,7 +2,7 @@
 
 namespace Aggrega\Ironforge;
 
-use App\User;
+use Aggrega\Ironforge\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
@@ -20,13 +20,13 @@ class Profile extends Model
 
     public function resources()
     {
-        return $this->belongsToMany(Resource::class,'profile_has_resources','profile_id','resource_id');
+        return $this->belongsToMany(\Aggrega\Ironforge\Resource::class,'profile_has_resources','profile_id','resource_id');
     }
 
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(\Aggrega\Ironforge\User::class);
     }
 
     /**

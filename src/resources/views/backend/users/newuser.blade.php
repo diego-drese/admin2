@@ -1,11 +1,11 @@
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
 @endsection
 
     <div class="content-wrapper">
-        @include('layouts.backend.breadcrumb')
+        @include('Ironforge::layouts.backend.breadcrumb')
 
         <section class="content">
             <div class="row">
@@ -18,7 +18,7 @@
                             <div class="col-md-6">
                                 <form method="post" action="{{route('users.store')}}">
                                     {{ csrf_field() }}
-                                    @include('backend.users.form')
+                                    @include('Ironforge::backend.users.form')
                                 </form>
                             </div>
                         </div>

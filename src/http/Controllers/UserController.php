@@ -3,13 +3,10 @@
 namespace Aggrega\Ironforge\Http\Controllers;
 
 
-use Aggrega\Ironforge\Controllers\AuthIronForge;
 use Aggrega\Ironforge\Profile;
-use Aggrega\Ironforge\Resource;
 use Aggrega\Ironforge\User;
+use Aggrega\Ironforge\UserIronForge;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends AuthIronForge
@@ -19,9 +16,9 @@ class UserController extends AuthIronForge
     public function index()
     {
 
-        $users = User::latest()->paginate($this->limit);
+        $users = UserIronForge::latest()->paginate($this->limit);
 //        dd(Auth::user()->profile);
-        return view('backend.users.index', compact('users'));
+        return view('Ironforge::backend.users.index', compact('users'));
     }
 
     /**
@@ -33,7 +30,7 @@ class UserController extends AuthIronForge
     {
         $profiles = Profile::all('id', 'name');
 
-        return view('backend.users.newuser', compact('profiles','user'));
+        return view('Ironforge::backend.users.newuser', compact('profiles','user'));
     }
 
     /**
@@ -83,10 +80,10 @@ class UserController extends AuthIronForge
      */
     public function edit($id)
     {
-        $user           = User::findOrFail($id);
+        $user           = UserIronForge::findOrFail($id);
         $profiles       = Profile::select('id','name')->get();
 
-        return view('backend.users.edit', compact('user', 'profiles'));
+        return view('Ironforge::backend.users.edit', compact('user', 'profiles'));
     }
 
     /**
@@ -98,7 +95,7 @@ class UserController extends AuthIronForge
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = UserIronForge::findOrFail($id);
         $dataForm = $request->all();
 
         //dd($dataForm);

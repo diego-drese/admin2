@@ -1,6 +1,6 @@
 <?php
 
-namespace Aggrega\Ironforge\Controllers;
+namespace Aggrega\Ironforge\Http\Controllers;
 
 use Aggrega\Ironforge\Library\ResouceIronForge;
 use Illuminate\Foundation\Bus\DispatchesJobs;

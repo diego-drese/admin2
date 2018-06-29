@@ -14,7 +14,7 @@ class NavigationComposer
 
     public function compose(View $view)
     {
-        if(Auth::user())
+        if(Auth::check())
         $this->composeController($view);
     }
 

@@ -49,8 +49,8 @@
 </div>
 
 
-@if($user->exists && Auth::user()->id == $user->id)
-<p>Você é: <b>{{Auth::user()->profile->name}}</b></p>
+@if($user->exists && Auth::User()->id == $user->id)
+<p>Você é: <b>{{Auth::User()->profile->name}}</b></p>
 @else
 <div class="form-group {{$errors->has('profile') ? 'has-error' : ''}}">
     <label for="active">Perfil</label>

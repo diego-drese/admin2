@@ -48,7 +48,7 @@ class RefreshRoutes extends Command
             if (array_key_exists('controller', $ctrl))
             {
                 $controllers[] = [
-                    'controllerMethod'  => str_replace("App\Http\Controllers\\",'', $ctrl['controller']),
+                    'controllerMethod'  => str_replace("Aggrega\Ironforge\Http\Controllers\\",'', $ctrl['controller']),
                     "routeName"         => $route->getName()
                 ];
             }
@@ -61,19 +61,22 @@ class RefreshRoutes extends Command
                 ->first();
 
             $name = explode('@', $controller['controllerMethod'])[0];
-            if (!$res && $name != 'PublicMethods') {
-                $res = new \Aggrega\Ironforge\Resource();
-                $res->name = $name;
-                $res->menu = '';
-                $res->is_menu = 0;
-                $res->route_name = $controller['routeName'];
-                $res->icon = '';
-                $res->controller_method = $controller['controllerMethod'];
-                $res->can_be_default = 0;
-                $res->parent_id = 0;
-                $res->order = 0;
-                $res->save();
-                $bar->advance();
+
+            if (!$res &&  !in_array($name, array('PublicMethods','Auth\LoginController','Auth\ForgotPasswordController','Auth\ResetPasswordController')) ) {
+
+                    $res = new \Aggrega\Ironforge\Resource();
+                    $res->name = $name;
+                    $res->menu = '';
+                    $res->is_menu = 0;
+                    $res->route_name = $controller['routeName'];
+                    $res->icon = '';
+                    $res->controller_method = $controller['controllerMethod'];
+                    $res->can_be_default = 0;
+                    $res->parent_id = 0;
+                    $res->order = 0;
+                    $res->save();
+                    $bar->advance();
+                }
             }
             $bar->finish();
         }

@@ -15,8 +15,52 @@ class ResourceTableSeed extends Seeder
         $this->usersResources();
         $this->profileResources();
         $this->resourcesMethods();
+        $this->ownersResource();
+        $this->forRoutes();
+    }
+
+    private function forRoutes(){
+        $resources = \Aggrega\Ironforge\Resource::all()->toArray();
+
+        $routeCollection = \Route::getRoutes();
+        $controllers= [];
+        foreach ($routeCollection as $route){
+            $ctrl = $route->getAction();
+            if (array_key_exists('controller', $ctrl))
+            {
+                $controllers[] = [
+                    'controllerMethod'  => str_replace("Aggrega\Ironforge\Http\Controllers\\",'', $ctrl['controller']),
+                    "routeName"         => $route->getName()
+                ];
+            }
+        }
+        foreach ($controllers as $key => $controller) {
+            $res = \Aggrega\Ironforge\Resource::where([
+                'controller_method' => $controller['controllerMethod'],
+                'route_name'        => $controller['routeName'],
+            ])
+            ->first();
+
+            $name = explode('@', $controller['controllerMethod'])[0];
+
+            if (!$res &&  !in_array($name, array('PublicMethods','Auth\LoginController','Auth\ForgotPasswordController','Auth\ResetPasswordController')) ) {
+
+                $res                    = new \Aggrega\Ironforge\Resource();
+                $res->name              = $name;
+                $res->menu              = '';
+                $res->is_menu           = 0;
+                $res->route_name        = $controller['routeName'];
+                $res->icon              = '';
+                $res->controller_method = $controller['controllerMethod'];
+                $res->can_be_default    = 0;
+                $res->parent_id         = 0;
+                $res->order             = 0;
+                $res->save();
+            }
+    }
 
     }
+
     private function startResources()
     {
         DB::table('resources')->insert([
@@ -258,36 +302,73 @@ class ResourceTableSeed extends Seeder
             ],
         ]);
     }
-
-}
-
-
-
-/*Get de CONTROLLERS E Methods Presentes na aplicação A Ver...{
-        $controllers = [];
-        foreach (\Illuminate\Support\Facades\Route::getRoutes()->getRoutes() as $route)
-        {
-            $action = $route->getAction();
-            if (array_key_exists('controller', $action))
-            {
-                $controllers[] = str_replace("App\Http\Controllers\\",'',$action['controller']);
-
-            }
-        }
-$recursos = [];
-        for ($i = 1;$i < count($controllers); $i++){
-            $recursos[] = [
-                'name' => $controllers[$i],
-                'alias' => $controllers[$i],
-                'Menu' => $controllers[$i],
+    private function ownersResource(){
+        DB::table('resources')->insert([
+            [
+                'name' => "Owner",
+                'menu' => 'Owner',
+                'is_menu' => 1,
+                'route_name' => 'owners.index',
+                'icon' => 'fa-bullseye',
+                'controller_method' => 'OwnerController@index',
+                'can_be_default' => 1,
+                'parent_id' => 1,
+                'order' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => "Criar Owner",
+                'menu' => 'Criar Owner',
                 'is_menu' => 0,
-                'route_name' => '',
-                'icon' => '',
-                'controller_method' => $controllers[$i],
-                'can_be_default' => 0,
-                'parent_id' => 0,
+                'route_name' => 'owners.create',
+                'icon' => 'fa-create',
+                'controller_method' => 'OwnerController@create',
+                'can_be_default' => 1,
+                'parent_id' => 18,
                 'order' => 0,
-            ];
-        }
-        DB::table('resources')->insert($recursos);
-*/
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Permissão Criar Owner',
+                'menu' => '',
+                'is_menu' => 0,
+                'route_name' => 'owners.store',
+                'icon' => 'save',
+                'controller_method' => 'OwnerController@store',
+                'can_be_default' => 0,
+                'parent_id' => 18,
+                'order' => 0,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => "Editar Owner",
+                'menu' => 'Editar Owner',
+                'is_menu' => 0,
+                'route_name' => 'owners.edit',
+                'icon' => 'save',
+                'controller_method' => 'OwnerController@edit',
+                'can_be_default' => 0,
+                'parent_id' => 18,
+                'order' => 0,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => "Permissão Atualizar Owner",
+                'menu' => '',
+                'is_menu' => 0,
+                'route_name' => 'owners.update',
+                'icon' => 'fa-save',
+                'controller_method' => 'OwnerController@update',
+                'can_be_default' => 0,
+                'parent_id' => 18,
+                'order' => 0,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]
+        ]);
+    }
+}

@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class ProfilesController extends AuthIronForge
 {
+
+    public function __construct(Request $request)
+    {
+        $this->getResourcesDefault = Resource::where('is_menu',1)->where('can_be_default',1)->get();
+
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -28,8 +36,10 @@ class ProfilesController extends AuthIronForge
      */
     public function create(Profile $profile)
     {
-        $resources = Resource::all('name','id');
-       return view('Ironforge::backend.profiles.create',compact('profile','resources'));
+        $resources = Resource::all('name','id','route_name');
+        $resourcesMenu = $this->getResourcesDefault;
+
+        return view('Ironforge::backend.profiles.create',compact('profile','resources','resourcesMenu'));
     }
 
     /**
@@ -47,8 +57,12 @@ class ProfilesController extends AuthIronForge
         ]);
 
         $profile = Profile::create($dataForm);
-        if(isset($dataForm['resources'])){
+        if(isset($dataForm['resources']))
+        {
             $profile->resources()->attach($dataForm['resources']);
+        }
+        else{
+            $profile->resources()->attach([]);
         }
 
         toastr()->success('Profile Criado com sucesso','Sucesso');
@@ -76,13 +90,12 @@ class ProfilesController extends AuthIronForge
     public function edit($id)
     {
        $profile = Profile::findOrFail($id);
-       $resources = Resource::all('name','id');
-       //Selected resources
+       $resources = Resource::all('name','id','route_name');
        $profilesResources = $profile->resources()->pluck('id')->toArray();
-
+       $resourcesMenu = $this->getResourcesDefault;
       // dd($profilesResources);
 
-       return view('Ironforge::backend.profiles.edit',compact('profile','resources','profilesResources'));
+       return view('Ironforge::backend.profiles.edit',compact('profile','resources','profilesResources','resourcesMenu'));
     }
 
     /**
@@ -97,16 +110,19 @@ class ProfilesController extends AuthIronForge
         $profile = Profile::findOrFail($id);
 
         $dataForm = $request->all();
-        //dd($dataForm);
+
         $this->validate($request, [
             'name' => 'required'
         ]);
 
         $profile->update($dataForm);
+        if(isset($dataForm['resources'])){
+            $profile->resources()->sync($dataForm['resources']);
+        }else{
+            $profile->resources()->sync([]);
+        }
 
-        $profile->resources()->sync(isset($dataForm['resources'])?$dataForm['resources']:[]);
-
-        toastr()->success('Profile Atualizado com sucesso','Sucesso');
+        toastr()->success("{$profile->name} Atualizado com sucesso",'Sucesso');
         return redirect('/console/profiles');
     }
 

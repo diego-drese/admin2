@@ -50,7 +50,9 @@ class LoginController extends Controller
     {
 
         if(Auth::User()->active === 0){
-            abort(403,'Desculpe, não é possível acessar o sistema! Entre em contato com o administrador');
+            $this->logout($request);
+            toastr()->error('Desculpe, não é possível acessar o sistema! Entre em contato com o administrador','error');
+            return redirect(route('login'));
         }
 
         $redirect = Auth::User()->resourceDefault->route_name;

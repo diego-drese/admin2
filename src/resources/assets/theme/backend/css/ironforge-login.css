@@ -1,0 +1,83 @@
+body.login-page{
+    background: linear-gradient( rgba(0, 0, 0, 0.62), rgb(10, 20, 43) ),
+    url('/login.jpg') no-repeat center;
+    background-size: cover;
+}
+
+@keyframes fade-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.login-page, .register-page{
+    background: transparent;
+    animation: fade-slide-down .9s ease-out forwards;
+
+}
+
+.login-page .login-box-body, .register-box-body {
+    background: transparent;
+    padding: 20px;
+    border-top: 0;
+    color: #fff;
+}
+
+.login-page .login-logo, .register-logo {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 0px;
+    font-weight: 300;
+    font-family: kaushan-script, cursive;
+
+}
+
+.login-page .login-logo a, .register-logo a{
+    color: #fff;
+}
+
+.login-page .has-feedback .form-control {
+    padding: 19px;
+    border-radius: 4px;
+    background: #fff;
+    border: none;
+    color: #383838;
+    font-weight: bold;
+}
+
+.login-page .btn-primary{
+    background-color: #0c1b2f;
+    border-color: #367fa9;
+    background-image: linear-gradient(145deg, rgba(46, 155, 174, 0.95) 0%, rgba(152, 119, 234, 0.95) 100%);
+    background-repeat: repeat-x;
+    padding: 9px;
+    border-radius: 6px!important;
+    border: none;
+}
+
+
+
+.login-page input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: rgb(255, 255, 255) !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.login-page .fa{
+    background: linear-gradient(145deg, rgba(46, 155, 174, 0.95) 0%, rgba(152, 119, 234, 0.95) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-page .btn-link{
+    color: #fff;
+}
+
+.login-page .icheckbox_square-blue{
+    margin-right: 6px!important;
+}

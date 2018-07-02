@@ -1,5 +1,8 @@
 <?php
 
+
+namespace Aggrega\Ironforge;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -11,7 +14,7 @@ class UserTableSeed extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         //Generate
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
 
         DB::table('users')->insert([
             [

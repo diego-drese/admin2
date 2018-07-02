@@ -1,0 +1,48 @@
+div.dataTables_wrapper div.dataTables_length select {
+  width: 60px!important;
+  display: inline-block;
+  border: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+  background: #f4f3f8!important;
+  border-radius: 50%;
+  border-color: #f4f3f8!important;
+  box-shadow: 0 0 1px 0 rgba(59, 61, 68, 0.18), 0 4px 14px rgba(44, 46, 62, 0.18);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+  background: #f4f3f8!important;
+  border-radius: 50%;
+  border-color: #f4f3f8!important;
+  color: #333!important;
+  box-shadow: 0 0 1px 0 rgba(59, 61, 68, 0.18), 0 4px 14px rgba(44, 46, 62, 0.18);
+}
+
+label, .dataTables_length label{
+  font-weight: bold!important;
+  color: #2c2e3e;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+  padding: 3px;
+  border-color: rgba(105, 105, 109, 0.31);
+}
+
+
+thead tr td{
+  color: #636470;
+  font-weight: 600;
+  font-size: 1.1em;
+  background: #F4F3F8;
+  padding: 15px;
+}
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th{
+  padding: 10px;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+  border: 1px solid rgb(244, 243, 248);
+  color: #575962;
+  padding: 11px;
+}

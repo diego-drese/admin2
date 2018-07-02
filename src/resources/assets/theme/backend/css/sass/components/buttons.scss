@@ -1,0 +1,88 @@
+.btn-primary {
+  background-color: $color-primary ;
+  border-color: $color-primary;
+  transition: all 0.2s;
+
+  &:active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      transform: translateY(1px);
+      box-shadow: 0 0.3125rem 0.625rem rgba($color-black, 0.2);
+    }
+}
+
+.btn-default {
+  background-color: $color-default;
+  border-color:$color-default;
+  transition: all 0.2s;
+
+  color: $color-white;
+    &:active,.btn-default:hover {
+      background-color: $color-default;
+      border-color: $color-default;
+      color: $color-white;
+      transform: translateY(1px);
+      box-shadow: 0 0.3125rem 0.625rem rgba($color-black, 0.2);
+    }
+}
+
+.btn-success {
+  background-color: $color-success;
+  border-color: $color-success;
+  transition: all 0.2s;
+
+  &:active{
+    background-color: rgba($color-success, .9);
+    border-color: rgba($color-success, .9);
+    transform: translateY(1px);
+    box-shadow: 0 0.3125rem 0.625rem rgba($color-black, 0.2);
+  }
+}
+
+.btn-danger {
+  background-color: $color-danger;
+  border-color: $color-danger;
+  transition: all 0.2s;
+
+  &:active{
+      background: rgba($color-danger, .9);
+      border-color: rgba($color-danger, .9);
+      transform: translateY(1px);
+      box-shadow: 0 0.3125rem 0.625rem rgba($color-black, 0.2);
+    }
+}
+
+.btn-warning {
+  background-color: $color-warning;
+  border-color: $color-warning;
+  transition: all 0.2s;
+
+  &:active{
+    background-color: $color-warning;
+    border-color: $color-warning;
+    transform: translateY(1px);
+    box-shadow: 0 0.3125rem 0.625rem rgba($color-black, 0.2);
+  }
+
+}
+
+
+.bg-red, .callout.callout-danger, .alert-danger, .alert-error, .label-danger, .modal-danger .modal-body{
+  background-color: $color-danger!important;
+  border: 1px solid $color-danger;
+}
+
+.bg-green, .callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {
+  background-color: $color-success !important;
+  border: 1px solid $color-success;
+}
+
+.bg-aqua, .callout.callout-info, .alert-info, .modal-info .modal-body {
+  background-color: $color-primary !important;
+  border: 1px solid $color-primary;
+}
+
+.bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
+  background-color: $color-warning !important;
+  border: 1px solid $color-warning;
+}

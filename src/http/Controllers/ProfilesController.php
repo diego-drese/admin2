@@ -47,7 +47,9 @@ class ProfilesController extends AuthIronForge
         ]);
 
         $profile = Profile::create($dataForm);
-        $profile->resources()->attach($dataForm['resources']);
+        if(isset($dataForm['resources'])){
+            $profile->resources()->attach($dataForm['resources']);
+        }
 
         toastr()->success('Profile Criado com sucesso','Sucesso');
         return redirect('/console/profiles');
@@ -101,7 +103,8 @@ class ProfilesController extends AuthIronForge
         ]);
 
         $profile->update($dataForm);
-        $profile->resources()->sync($dataForm['resources']);
+
+        $profile->resources()->sync(isset($dataForm['resources'])?$dataForm['resources']:[]);
 
         toastr()->success('Profile Atualizado com sucesso','Sucesso');
         return redirect('/console/profiles');

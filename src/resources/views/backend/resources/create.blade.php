@@ -1,9 +1,9 @@
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('title', 'Criar Recurso')
 
 <div class="content-wrapper">
-    @include('layouts.backend.breadcrumb')
+    @include('Ironforge::layouts.backend.breadcrumb')
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -14,7 +14,7 @@
                         <div class="col-lg-8">
                             <form method="post" action="{{route('resources.store')}}">
                                 {{csrf_field()}}
-                                @include('backend.resources.form')
+                                @include('Ironforge::backend.resources.form')
                             </form>
                         </div>
                     </div>

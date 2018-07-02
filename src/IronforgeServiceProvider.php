@@ -16,17 +16,44 @@ class IronforgeServiceProvider extends ServiceProvider
     public function boot()
     {
 
-
-        //view()->composer('*',ViewComposers\NavigationComposer::class);
-
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Ironforge');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->publishes([
             __DIR__ . '/public' => public_path('vendor/aggrega/ironforge/laravel-package-ironforge'),
         ], 'public');
+
+        //sobrecarregando o config/auth
+        $this->mergeConfigFrom(
+            __DIR__.'/config/auth.php', 'auth'
+        );
+
+        $this->mergeViewComposer();
     }
 
+    /**
+     * Merge the given configuration with the existing configuration.
+     *
+     * @param  string  $path
+     * @param  string  $key
+     * @return void
+     */
+    protected function mergeConfigFrom($path, $key)
+    {
+        $config = $this->app['config']->get($key, []);
+        $this->app['config']->set($key, array_merge(require $path, $config));
+
+    }
+    /**
+     * Merge View Navigation Composer
+     *
+     * @return void
+     */
+    protected function mergeViewComposer()
+    {
+
+        view()->composer('*',ViewComposers\NavigationComposer::class);
+    }
     /**
      * Register the application services.
      *

@@ -49,11 +49,11 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
 
-        if(Auth::UserIronForge()->active === 0){
+        if(Auth::User()->active === 0){
             abort(403,'Desculpe, não é possível acessar o sistema! Entre em contato com o administrador');
         }
 
-        $redirect = Auth::UserIronForge()->resourceDefault->route_name;
+        $redirect = Auth::User()->resourceDefault->route_name;
             if(!$redirect){
                 return redirect('console/dashboard');
             }

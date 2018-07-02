@@ -93,7 +93,7 @@
                 <h4 class="modal-title"> Fontes <i>(Duplo clique para selecionar)</i></h4>
             </div>
             <div class="modal-body">
-                @include('backend.resources.icons')
+                @include('Ironforge::backend.resources.icons')
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

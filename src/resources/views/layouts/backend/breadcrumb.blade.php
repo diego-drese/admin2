@@ -1,5 +1,6 @@
 {{--@php dd($ironForgeBreadCrumb)
 
+@endphp--}}
 <section class="content-header">
     <span class="fa fa-user-secret icon-header font-gradient"></span>
     <h1>{{$ironForgeCurrentResource->name}}</h1>
@@ -16,4 +17,4 @@
             @endif
         @endforeach
     </ol>
-</section> @endphp--}}
+</section>

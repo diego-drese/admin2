@@ -1,4 +1,4 @@
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('title', 'Editar Profile')
 
@@ -7,7 +7,7 @@
 @endsection
 
     <div class="content-wrapper">
-        @include('layouts.backend.breadcrumb')
+        @include('Ironforge::layouts.backend.breadcrumb')
 
         <section class="content">
             <div class="row">
@@ -20,7 +20,7 @@
                             <div class="col-md-6">
                                 <form method="post" action="{{route('profiles.store',$profile->id)}}">
                                     {{csrf_field()}}
-                                    @include('backend.profiles.form')
+                                    @include('Ironforge::backend.profiles.form')
                                 </form>
                             </div>
                         </div>

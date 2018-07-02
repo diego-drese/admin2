@@ -1,9 +1,9 @@
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('title', 'Perfis')
 
 <div class="content-wrapper">
-    @include('layouts.backend.breadcrumb')
+    @include('Ironforge::layouts.backend.breadcrumb')
 
     <section class="content">
         <div class="row">
@@ -11,7 +11,7 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="pull-left">
-                            @php $canAdd =  \Aggrega\Ironforge\ResouceIronForge::verifyUser('ProfilesController@create'); @endphp
+                            @php $canAdd =  Aggrega\Ironforge\Library\ResouceIronForge::verifyUser('ProfilesController@create'); @endphp
                             {{--@if($canAdd)--}}
                             <a href="{{route('profiles.create')}}" class="btn btn-success">
                                 Novo Profile <span class="fa fa-plus"></span>
@@ -39,7 +39,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @php $canEdit =  \Aggrega\Ironforge\ResouceIronForge::verifyUser('ProfilesController@edit');
+                            @php $canEdit =  Aggrega\Ironforge\Library\ResouceIronForge::verifyUser('ProfilesController@edit');
                             @endphp
                             @foreach($profiles as $profile)
 

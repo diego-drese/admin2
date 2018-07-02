@@ -26,7 +26,7 @@ class UserController extends AuthIronForge
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(User $user)
+    public function create(UserIronForge $user)
     {
         $profiles = Profile::all('id', 'name');
 

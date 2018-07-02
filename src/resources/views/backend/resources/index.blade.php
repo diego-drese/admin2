@@ -1,9 +1,9 @@
-@extends('layouts.backend.main')
+@extends('Ironforge::layouts.backend.main')
 @section('content')
 @section('title', 'Recursos')
 
 <div class="content-wrapper">
-    @include('layouts.backend.breadcrumb')
+    @include('Ironforge::layouts.backend.breadcrumb')
 
     <section class="content">
         <div class="row">
@@ -83,7 +83,7 @@
                     }
                 ],
                 "language": {
-                    "url": "{{asset('js/pt-br.json')}}"
+                    "url": '/vendor/aggrega/ironforge/laravel-package-ironforge/js/pt-br.json'
                 }
             });
         });

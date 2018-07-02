@@ -14,8 +14,7 @@ class NavigationComposer
 
     public function compose(View $view)
     {
-        if(Auth::check())
-        $this->composeController($view);
+        if(Auth::check() && isset(Route::getCurrentRoute()->getAction()['controller']) )$this->composeController($view);
     }
 
     private function composeController(View $view)

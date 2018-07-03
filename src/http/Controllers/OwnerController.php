@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Aggrega\Ironforge\Http\Controllers;
 
-use App\Models\Owner;
+use Aggrega\Ironforge\Owner;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -15,7 +15,7 @@ class OwnerController extends Controller
     public function index()
     {
         $owners = Owner::all();
-        return view('backend.owners.index', compact('owners'));
+        return view('Ironforge::backend.owners.index', compact('owners'));
     }
 
     /**
@@ -27,7 +27,7 @@ class OwnerController extends Controller
     {
 
         $userOwners = $owner->user->pluck('id')->toArray();
-        return view('backend.owners.create', compact('owner','userOwners'));
+        return view('Ironforge::backend.owners.create', compact('owner','userOwners'));
     }
 
     /**
@@ -39,6 +39,7 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
         $this->validate($request, [
             'name' => 'required'
         ]);
@@ -77,7 +78,7 @@ class OwnerController extends Controller
         $owner = Owner::findOrFail($id);
         $userOwners = $owner->user->pluck('id')->toArray();
 
-        return view('backend.owners.edit', compact('owner', 'userOwners'));
+        return view('Ironforge::backend.owners.edit', compact('owner', 'userOwners'));
     }
 
     /**
@@ -89,6 +90,7 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $owner = Owner::findOrFail($id);
         $data = $request->all();
 

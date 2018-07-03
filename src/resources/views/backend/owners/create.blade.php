@@ -15,7 +15,7 @@
                     <div class="box-body ">
                         <div class="col-md-6">
                             <form method="post" action="{{route('owners.store')}}">
-                                @csrf
+                                {{csrf_field()}}
                                 @include('Ironforge::backend.owners.form')
                             </form>
                         </div>

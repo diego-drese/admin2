@@ -15,7 +15,7 @@
                     <div class="box-body ">
                         <div class="col-md-6">
                             <form method="post" action="{{route('owners.update',$owner->id)}}">
-                                @csrf {{method_field('put')}}
+                                {{csrf_field()}} {{method_field('put')}}
                                 @include('Ironforge::backend.owners.form')
                             </form>
                         </div>

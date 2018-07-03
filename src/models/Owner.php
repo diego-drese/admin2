@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Owner extends Model
 {
-    public function users()
+    protected $fillable = ['name','desc'];
+
+    public function user()
     {
-        return $this->belongsToMany('Aggrega\Ironforge\User','user_has_owners','owner_id','user_id');
+        return $this->belongsToMany('Aggrega\Ironforge\UserIronForge','user_has_owners','owner_id','user_id');
 //            ->withPivot('user_has_owners');
     }
 

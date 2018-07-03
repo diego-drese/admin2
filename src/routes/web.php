@@ -22,6 +22,7 @@ Route::group(['prefix' => 'console',  'middleware' => ['web','auth']], function(
     Route::get('/dashboard', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@dashboard')->name('dashboard');
     Route::resource('/users','Aggrega\Ironforge\Http\Controllers\UserController');
     Route::resource('/profiles','Aggrega\Ironforge\Http\Controllers\ProfilesController');
+    Route::resource('/owners','Aggrega\Ironforge\Http\Controllers\OwnerController');
     Route::resource('/resources','Aggrega\Ironforge\Http\Controllers\ResourcesController');
 //    /** End Private Resources  */
 

@@ -20,11 +20,15 @@ class IronforgeServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Ironforge');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+
         $this->publishes([
             __DIR__ . '/public' => public_path('vendor/aggrega/ironforge/laravel-package-ironforge'),
         ], 'public');
 
-        //sobrecarregando o config/auth
+        $this->publishes([
+            __DIR__.'/config/ironforge.php' => config_path('ironforge.php'),
+        ], 'config');
+
         $this->mergeConfigFrom(
             __DIR__.'/config/auth.php', 'auth'
         );

@@ -10,8 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
-Route::group(['prefix' => 'console',  'middleware' => ['web','auth']], function() {
+
+$prefix_url = config('ironforge.prefix_url');
+
+Route::group(['prefix' => $prefix_url,  'middleware' => ['web','auth']], function() {
 
 //    /** Public Resources but logged */
     Route::get('/users/resources/{profileId}','Aggrega\Ironforge\Http\Controllers\PublicMethods@getResourcesDefault')->name('users.resourcesDefault');

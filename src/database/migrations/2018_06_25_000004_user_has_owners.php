@@ -13,9 +13,10 @@ class UserHasOwners extends Migration
      */
     public function up()
     {
+
         Schema::create('user_has_owners', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
 
             $table->bigInteger('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('restrict');

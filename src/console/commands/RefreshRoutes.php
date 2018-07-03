@@ -79,6 +79,6 @@ class RefreshRoutes extends Command
                 }
             }
             $bar->finish();
-        }
     }
+
 }

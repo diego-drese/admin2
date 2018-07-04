@@ -3,6 +3,7 @@
 namespace Aggrega\Ironforge;
 
 use Aggrega\Ironforge\Http\ViewComposers;
+use Aggrega\Ironforge\Console\Commands\RefreshRoutes;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -19,11 +20,15 @@ class IronforgeServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Ironforge');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+
         $this->publishes([
             __DIR__ . '/public' => public_path('vendor/aggrega/ironforge/laravel-package-ironforge'),
         ], 'public');
 
-        //sobrecarregando o config/auth
+        $this->publishes([
+            __DIR__.'/config/ironforge.php' => config_path('ironforge.php'),
+        ], 'config');
+
         $this->mergeConfigFrom(
             __DIR__.'/config/auth.php', 'auth'
         );
@@ -40,10 +45,13 @@ class IronforgeServiceProvider extends ServiceProvider
      */
     protected function mergeConfigFrom($path, $key)
     {
-        $config = $this->app['config']->get($key, []);
-        $this->app['config']->set($key, array_merge(require $path, $config));
 
+        $config = $this->app['config']->get($key, []);
+        $this->app['config']->set($key, array_merge($config, require $path));
     }
+
+
+
     /**
      * Merge View Navigation Composer
      *
@@ -61,6 +69,8 @@ class IronforgeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->commands([
+            RefreshRoutes::class
+        ]);
     }
 }

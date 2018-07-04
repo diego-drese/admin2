@@ -34,7 +34,8 @@
         "php": ">=5.5.9",
         "illuminate/support": "~5",
         "yoeunes/toastr": "^1.0",
-        "yajra/laravel-datatables-oracle": "^8.7"
+        "yajra/laravel-datatables-oracle": "^8.7",
+        "doctrine/dbal": "^2.7",
     }
 
 }

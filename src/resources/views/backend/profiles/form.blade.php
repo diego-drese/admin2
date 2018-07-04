@@ -11,21 +11,41 @@
     <label for="title">Recursos</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">
         @foreach($resources as $resource)
-            <option {{$profile->exists && in_array($resource->id,$profilesResources) ? 'selected="selected"' : '' }} value="{{$resource->id}}" >{{$resource->name}}</option>
+            @php $nameRoute = explode('.', $resource->route_name) @endphp
+            <option class="profilesSelect" data-route="{{$nameRoute[0]}}" {{$profile->exists && in_array($resource->id,$profilesResources) ? 'selected="selected"' : '' }} value="{{$resource->id}}" >{{$resource->name}}</option>
         @endforeach
     </select>
 </div>
 
-<button type="submit" class="btn btn-success">Salvar</button>
-
-
+<label>Clique para conceder todas as permissões:</label><br>
+@foreach($resourcesMenu as $resource)
+    @php $nameRoute = explode('.', $resource->route_name) @endphp
+    <span class="btn btn-xs btn-primary margin-top-small btnFullPermissions" id="{{$nameRoute[0]}}">
+            {{ucfirst($nameRoute[0])}}
+        </span>
+@endforeach
+<br><br>
+<button type="submit" class="btn btn-success ">Salvar</button>
 
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#selectResource').select2();
+            $(document).on('click', '.btnFullPermissions', function () {
+                var id = $(this).attr("id");
+                selectFullProfiles(id)
+            });
+            function selectFullProfiles(idMath) {
+                var list = document.querySelectorAll('.profilesSelect');
+                list.forEach(item => {
+                    var route = item.dataset.route;
+                    if(route == idMath){
+                        item.selected = true;
+                        $('#selectResource').trigger('change');
+                    }
+                });
+            }
         });
     </script>
 @endsection
-

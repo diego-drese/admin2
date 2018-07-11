@@ -14,7 +14,7 @@ class UserHasOwners extends Migration
     public function up()
     {
 
-        Schema::create('user_has_owners', function (Blueprint $table) {
+        Schema::connection('mysql')->create('user_has_owners', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned();
             //$table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
 
@@ -31,6 +31,6 @@ class UserHasOwners extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_has_owners');
+        Schema::connection('mysql')->dropIfExists('user_has_owners');
     }
 }

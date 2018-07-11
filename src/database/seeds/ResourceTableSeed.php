@@ -26,22 +26,30 @@ class ResourceTableSeed extends Seeder
         $controllers= [];
         foreach ($routeCollection as $route){
             $ctrl = $route->getAction();
+
+            if(!in_array('auth', $route->gatherMiddleware()))continue;
+
             if (array_key_exists('controller', $ctrl))
             {
                 $controllers[] = [
-                    'controllerMethod'  => str_replace("Aggrega\Ironforge\Http\Controllers\\",'', $ctrl['controller']),
-                    "routeName"         => $route->getName()
+                    'controllerMethod'  => $ctrl['controller'],
+                    "routeName"         => $route->getName(),
+                    "routePrefix"         => $route->getPrefix()
                 ];
             }
         }
         foreach ($controllers as $key => $controller) {
             $res = \Aggrega\Ironforge\Resource::where([
                 'controller_method' => $controller['controllerMethod'],
-                'route_name'        => $controller['routeName'],
             ])
             ->first();
 
-            $name = explode('@', $controller['controllerMethod'])[0];
+            //$name = explode('@', $controller['controllerMethod'])[0];
+
+            $str = explode("\\",$controller['controllerMethod']);
+
+            $name = ucfirst(str_replace('/','',$controller['routePrefix'])).' '.str_replace('@',' ',str_replace('Controller','',last($str)));
+
 
             if (!$res &&  !in_array($name, array('PublicMethods','Auth\LoginController','Auth\ForgotPasswordController','Auth\ResetPasswordController')) ) {
 

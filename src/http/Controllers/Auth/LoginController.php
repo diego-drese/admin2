@@ -36,7 +36,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+
+        $this->middleware('Aggrega\\Ironforge\\Http\\Middleware\\RedirectIfAuthenticatedIronforge')->except('logout');
     }
 
 //    public function logout(Request $request)
@@ -68,6 +69,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+
         return view('Ironforge::auth.login');
     }
 

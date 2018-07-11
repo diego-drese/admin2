@@ -22,14 +22,7 @@
             "Aggrega\\Ironforge\\": "src/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Aggrega\\Ironforge\\IronforgeServiceProvider"
 
-            ]
-        }
-    },
     "require": {
         "php": ">=5.5.9",
         "illuminate/support": "~5",

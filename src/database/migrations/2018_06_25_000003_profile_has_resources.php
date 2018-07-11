@@ -13,7 +13,7 @@ class ProfileHasResources extends Migration
      */
     public function up()
     {
-        Schema::create('profile_has_resources', function (Blueprint $table) {
+        Schema::connection('mysql')->create('profile_has_resources', function (Blueprint $table) {
             $table->bigInteger('profile_id')->unsigned();
             $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('restrict');
 
@@ -30,6 +30,6 @@ class ProfileHasResources extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile_has_resources');
+        Schema::connection('mysql')->dropIfExists('profile_has_resources');
     }
 }

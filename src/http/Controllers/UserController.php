@@ -6,11 +6,17 @@ namespace Aggrega\Ironforge\Http\Controllers;
 use Aggrega\Ironforge\Profile;
 use Aggrega\Ironforge\User;
 use Aggrega\Ironforge\UserIronForge;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class UserController extends AuthIronForge
+
+class UserController extends BaseController
 {
+
+    use ValidatesRequests;
+
     protected $limit = 10;
 
     public function index()

@@ -7,6 +7,24 @@
     @endif
 </div>
 
+<div class="form-group {{$errors->has('type') ? 'has-error' : ''}} ">
+    <label for="title">Tipo</label>
+    <input type="text" class="form-control" value="{{old('type',$owner->exists() ? $owner->type : '')}}" name="type"
+           id="type" placeholder="Tipo">
+    @if($errors->has('type'))
+        <span class="help-block">{{$errors->first('type')}}</span>
+    @endif
+</div>
+
+<div class="form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
+    <label for="title">Origem Id</label>
+    <input type="text" class="form-control" value="{{old('origin_id',$owner->exists() ? $owner->origin_id : '')}}" name="origin_id"
+           id="origin_id" placeholder="Origem Id">
+    @if($errors->has('origin_id'))
+        <span class="help-block">{{$errors->first('origin_id')}}</span>
+    @endif
+</div>
+
 <div class="form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
     <label for="title">Usuários</label><br>
     <select id="selectUsers" class="form-control" multiple="multiple"  name="users[]" placeholder="Usuário">

@@ -13,7 +13,7 @@ class UpdateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::connection('mysql')->table('users', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned()->change();
             $table->string('name','255')->change();
             $table->string('lastname','255')->nullable();
@@ -34,6 +34,6 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::connection('mysql')->dropIfExists('users');
     }
 }

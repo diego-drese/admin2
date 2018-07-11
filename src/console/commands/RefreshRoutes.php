@@ -48,15 +48,14 @@ class RefreshRoutes extends Command
             if (array_key_exists('controller', $ctrl))
             {
                 $controllers[] = [
-                    'controllerMethod'  => str_replace("Aggrega\Ironforge\Http\Controllers\\",'', $ctrl['controller']),
+                    'controllerMethod'  => $ctrl['controller'],
                     "routeName"         => $route->getName()
                 ];
             }
         }
         foreach ($controllers as $key => $controller) {
             $res = \Aggrega\Ironforge\Resource::where([
-                'controller_method' => $controller['controllerMethod'],
-                'route_name' => $controller['routeName'],
+                'controller_method' => $controller['controllerMethod']
             ])
                 ->first();
 

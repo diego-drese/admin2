@@ -1,9 +1,8 @@
 @if(Auth::check())
 @extends('Ironforge::layouts.backend.main')
+
+@section('title', 'Page not Found')
 @section('content')
-@section('title', 'Erro Ao Acessar Recurso')
-
-
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Erro ao acessar</h1>
@@ -15,7 +14,7 @@
             <h2 class="headline text-yellow"> 404</h2>
 
             <div class="error-content"><br>
-                <h3 class="left"><i class="fa fa-warning text-yellow" style="margin-top: 9px;"></i> Oops! {{$exception->getMessage()}}</h3>
+                <h3 class="left"><i class="fa fa-warning text-yellow" style="margin-top: 9px;"></i> Oops! page not found</h3>
             </div>
             <!-- /.error-content -->
         </div>

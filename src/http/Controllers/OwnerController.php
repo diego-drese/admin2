@@ -2,11 +2,15 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Owner;
 use Illuminate\Http\Request;
 
-class OwnerController extends Controller
+class OwnerController extends BaseController
 {
+
+    use ValidatesRequests;
     /**
      * Display a listing of the resource.
      *

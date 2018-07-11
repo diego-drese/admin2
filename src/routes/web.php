@@ -13,22 +13,35 @@
 
 $prefix_url = config('ironforge.prefix_url');
 
-Route::group(['prefix' => $prefix_url,  'middleware' => ['web','auth']], function() {
 
-//    /** Public Resources but logged */
-    Route::get('/users/resources/{profileId}','Aggrega\Ironforge\Http\Controllers\PublicMethods@getResourcesDefault')->name('users.resourcesDefault');
-//
-//    /** End Public Resources  */
-//
-//    /** Private Resources  */
+
+
+Route::group(['prefix' => $prefix_url,  'middleware' => ['web','auth','Aggrega\Ironforge\Http\Middleware\MiddlewareIronForge']], function() {
+
+    /** Private Resources  */
     Route::get('/dashboard', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@dashboard')->name('dashboard');
     Route::resource('/users','Aggrega\Ironforge\Http\Controllers\UserController');
     Route::resource('/profiles','Aggrega\Ironforge\Http\Controllers\ProfilesController');
     Route::resource('/owners','Aggrega\Ironforge\Http\Controllers\OwnerController');
     Route::resource('/resources','Aggrega\Ironforge\Http\Controllers\ResourcesController');
-//    /** End Private Resources  */
 
 });
+
+Route::group(['prefix' => $prefix_url,  'middleware' => ['web','auth']], function() {
+
+
+    Route::get('/users/resources/{profileId}','Aggrega\Ironforge\Http\Controllers\PublicMethods@getResourcesDefault')->name('users.resourcesDefault');
+    Route::get('/page-not-found', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@pageNotFound')->name('page404get');
+    Route::post('/page-not-found', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@pageNotFound')->name('page404post');
+    Route::get('/page-not-allowed', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@pageNotAllowed')->name('page403get');
+    Route::post('/page-not-allowed', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@pageNotAllowed')->name('page403post');
+
+    Route::get('/{page}', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@pageNotFound')->name('page404get')->where('page','.*');
+    Route::post('/{page}', 'Aggrega\Ironforge\Http\Controllers\ConsoleController@pageNotFound')->name('page404post')->where('page','.*');
+
+    Route::get('login', 'Aggrega\Ironforge\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+});
+
 //
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Aggrega\Ironforge\Http\Controllers\HomeController@index')->name('index');

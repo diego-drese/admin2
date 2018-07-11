@@ -14,5 +14,12 @@ class ConsoleController extends BaseController
     public function dashboard(){
         return view('Ironforge::backend.index');
     }
+    public function pageNotFound(){
+        return view('Ironforge::errors.404');
+    }
+
+    public function pageNotAllowed(){
+        return view('Ironforge::errors.403');
+    }
 
 }

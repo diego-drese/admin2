@@ -2,14 +2,17 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
-use Aggrega\Ironforge\Http\Controllers\AuthIronForge;
+use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Profile;
 use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class ProfilesController extends AuthIronForge
+
+class ProfilesController extends BaseController
 {
 
+    use ValidatesRequests;
     public function __construct(Request $request)
     {
         $this->getResourcesDefault = Resource::where('is_menu',1)->where('can_be_default',1)->get();

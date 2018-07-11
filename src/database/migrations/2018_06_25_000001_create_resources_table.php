@@ -13,14 +13,14 @@ class CreateResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table) {
+        Schema::connection('mysql')->create('resources', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('name','255');
 
             $table->string('menu')->index()->nullable();
             $table->boolean('is_menu')->index();
             $table->text('route_name')->nullable();
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->string('controller_method');
             $table->boolean('can_be_default')->default(0);
             $table->bigInteger('parent_id')->index();
@@ -37,6 +37,6 @@ class CreateResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
+        Schema::connection('mysql')->dropIfExists('resources');
     }
 }

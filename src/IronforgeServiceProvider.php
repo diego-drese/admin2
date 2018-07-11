@@ -69,6 +69,7 @@ class IronforgeServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
         $this->commands([
             RefreshRoutes::class
         ]);

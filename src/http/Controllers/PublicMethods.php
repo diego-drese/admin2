@@ -8,6 +8,7 @@ use Aggrega\Ironforge\UserIronForge;
 class PublicMethods extends Controller
 {
     public function getResourcesDefault($profileId){
+        
         $profile = Resource::select('*')
             ->join('profile_has_resources', 'profile_has_resources.resource_id','resources.id')
             ->where('profile_has_resources.profile_id', $profileId)

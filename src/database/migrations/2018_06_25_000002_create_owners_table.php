@@ -13,10 +13,14 @@ class CreateOwnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('owners', function (Blueprint $table) {
+        Schema::connection('mysql')->create('owners', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('name','255');
+            $table->string('type','255');
+            $table->string('origin_id','255');
             $table->text('desc');
+            $table->index('type');
+
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateOwnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('owners');
+        Schema::connection('mysql')->dropIfExists('owners');
     }
 }

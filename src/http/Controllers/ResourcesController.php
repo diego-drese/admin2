@@ -2,13 +2,16 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
-use Aggrega\Ironforge\Http\Controllers\AuthIronForge;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ResourcesController extends AuthIronForge
+class ResourcesController extends BaseController
 {
+    use ValidatesRequests;
+
 
     public function __construct(Resource $resource)
     {

@@ -15,6 +15,13 @@
             "email": "luan.garcia@aggregando.com.br"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aggrega\\Ironforge\\IronforgeServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {

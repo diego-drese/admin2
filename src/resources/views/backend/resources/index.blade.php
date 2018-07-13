@@ -7,35 +7,38 @@
 
     <section class="content">
         <div class="row">
-            <div class="col-md-12 col-xs-12">
+            <div class="col-md-12">
                 <div class="box">
-                    <div class="box-body ">
+                    <div class="box-header">
+                        <div class="pull-left">
                         @if($hasAdd)
                             <a href="{{route('ironforge.resources.create')}}">
-                                <button class="btn btn-success btn-sm margin-horizontal-small margin-bottom-small">Novo
-                                    Recurso De Menu
-                                </button>
+                                <a href="{{route('ironforge.resources.create')}}" class="btn btn-success">
+                                    Recurso De Menu <span class="fa fa-plus"></span>
+                                </a>
                             </a>
+
                         @endif
-                        <div class="row">
-                            <div class="col col-md-12 table-responsive">
-                                <table id="table_resources" class="table table-bordered table-striped dataTable table-hover"
-                                       role="grid">
-                                    <thead>
-                                    <tr class="center">
-                                        <td role="row">#</td>
-                                        <td role="row">Nome</td>
-                                        <td role="row">Menu</td>
-                                        <td>Rota</td>
-                                        <td>Icon</td>
-                                        <td role="row">Controller Method</td>
-                                        <td>Perfil</td>
-                                        <td>Criação</td>
-                                        <td>Ações</td>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body ">
+                        <div class="table-responsive">
+                            <table id="table_resources" class="table table-bordered table-striped dataTable table-hover"
+                                   role="grid">
+                                <thead>
+                                <tr class="center">
+                                    <td role="row">#</td>
+                                    <td role="row">Nome</td>
+                                    <td role="row">Menu</td>
+                                    <td>Rota</td>
+                                    <td>Icon</td>
+                                    <td role="row">Controller Method</td>
+                                    <td>Perfil</td>
+                                    <td>Criação</td>
+                                    <td>Ações</td>
+                                </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -58,6 +61,7 @@
             $('#table_resources').DataTable({
                 serverSide: true,
                 processing: true,
+                autoWidth:false,
                 ajax: '{{ route('ironforge.resources.index') }}',
                 columns: [
                     {data: "id", 'name': 'resources.id', searchable: false},

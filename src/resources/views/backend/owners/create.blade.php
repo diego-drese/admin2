@@ -1,6 +1,6 @@
 @extends('Ironforge::layouts.backend.main')
+@section('title', 'Novo Proprietário')
 @section('content')
-@section('title', 'Novo Owner')
 
 
 <div class="content-wrapper">
@@ -13,12 +13,10 @@
                     <div class="box-header">
                     </div>
                     <div class="box-body ">
-                        <div class="col-md-6">
-                            <form method="post" action="{{route('owners.store')}}">
-                                {{csrf_field()}}
-                                @include('Ironforge::backend.owners.form')
-                            </form>
-                        </div>
+                        <form method="post" action="{{route('ironforge.owner.store')}}">
+                            {{csrf_field()}}
+                            @include('Ironforge::backend.owners.form')
+                        </form>
                     </div>
                 </div>
             </div>

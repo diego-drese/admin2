@@ -40,16 +40,16 @@ class LoginController extends Controller
         $this->middleware('Aggrega\\Ironforge\\Http\\Middleware\\RedirectIfAuthenticatedIronforge')->except('logout');
     }
 
-//    public function logout(Request $request)
-//    {
-//        $this->guard()->logout();
-//        $request->session()->invalidate();
-//        return redirect('login');
-//    }
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+        $request->session()->invalidate();
+        return redirect('/login');
+    }
 
     protected function authenticated(Request $request, $user)
     {
-
+        $prefix_url = config('ironforge.prefix_url');
         if(Auth::User()->active === 0){
             $this->logout($request);
             toastr()->error('Desculpe, não é possível acessar o sistema! Entre em contato com o administrador','error');
@@ -58,7 +58,7 @@ class LoginController extends Controller
 
         $redirect = Auth::User()->resourceDefault->route_name;
             if(!$redirect){
-                return redirect('console/dashboard');
+                return redirect("$prefix_url/dashboard");
             }
         return redirect(route($redirect));
     }

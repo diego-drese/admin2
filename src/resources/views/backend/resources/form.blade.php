@@ -77,7 +77,9 @@
 
 <div>
     <br>
-    <button type="submit" class="btn btn-success">Salvar</button>
+    @if($hasSave)
+        <button type="submit" class="btn btn-success">Salvar</button>
+    @endif
 </div>
 
 

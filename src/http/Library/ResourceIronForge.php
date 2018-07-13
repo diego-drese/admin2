@@ -32,6 +32,21 @@ class ResouceIronForge
         return $userResources;
     }
 
+    public static function hasResourceByRouteName($routeName, $params = []){
+        $route          = route($routeName, $params);
+        $findResource   = Resource::where('route_name','=',$routeName)->first();
+        if($findResource == null){
+            return false;
+        }
+        $auth           = Auth::user();
+        $userProfiles   = UserIronForge::select('profile_id')->findOrFail($auth->id);
+        $userResources  = Resource::getResourcesByRouteName($userProfiles, $routeName);
+
+        if(count($userResources)){
+            return true;
+        }
+        return false;
+    }
 
 
 }

@@ -2,6 +2,7 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
+use Aggrega\Ironforge\Library\ResouceIronForge;
 use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Profile;
 use Aggrega\Ironforge\Resource;
@@ -13,8 +14,7 @@ class ProfilesController extends BaseController
 {
 
     use ValidatesRequests;
-    public function __construct(Request $request)
-    {
+    public function __construct(Request $request) {
         $this->getResourcesDefault = Resource::where('is_menu',1)->where('can_be_default',1)->get();
 
     }
@@ -25,11 +25,11 @@ class ProfilesController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $profiles = Profile::latest()->paginate(10);
-
-        return view('Ironforge::backend.profiles.index',compact('profiles'));
+    public function index(){
+        $profiles   = Profile::latest()->paginate(10);
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.edit', [1]);
+        return view('Ironforge::backend.profiles.index',compact('profiles', 'hasAdd', 'hasEdit'));
     }
 
     /**
@@ -37,12 +37,11 @@ class ProfilesController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Profile $profile)
-    {
-        $resources = Resource::all('name','id','route_name');
-        $resourcesMenu = $this->getResourcesDefault;
-
-        return view('Ironforge::backend.profiles.create',compact('profile','resources','resourcesMenu'));
+    public function create(Profile $profile) {
+        $resources      = Resource::all('name','id','route_name');
+        $resourcesMenu  = $this->getResourcesDefault;
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.store');
+        return view('Ironforge::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave'));
     }
 
     /**
@@ -51,10 +50,8 @@ class ProfilesController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $dataForm = $request->all();
-        //dd($dataForm);
         $this->validate($request, [
             'name' => 'required'
         ]);
@@ -73,16 +70,6 @@ class ProfilesController extends BaseController
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -90,15 +77,14 @@ class ProfilesController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-       $profile = Profile::findOrFail($id);
-       $resources = Resource::all('name','id','route_name');
-       $profilesResources = $profile->resources()->pluck('id')->toArray();
-       $resourcesMenu = $this->getResourcesDefault;
-      // dd($profilesResources);
+    public function edit($id) {
+       $profile             = Profile::findOrFail($id);
+       $resources           = Resource::all('name', 'id', 'route_name');
+       $profilesResources   = $profile->resources()->pluck('id')->toArray();
+       $resourcesMenu       = $this->getResourcesDefault;
+       $hasSave             = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.update',[1]);
 
-       return view('Ironforge::backend.profiles.edit',compact('profile','resources','profilesResources','resourcesMenu'));
+       return view('Ironforge::backend.profiles.edit',compact('profile','resources','profilesResources','resourcesMenu', 'hasSave'));
     }
 
     /**
@@ -108,12 +94,9 @@ class ProfilesController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $profile = Profile::findOrFail($id);
-
-        $dataForm = $request->all();
-
+    public function update(Request $request, $id) {
+        $profile    = Profile::findOrFail($id);
+        $dataForm   = $request->all();
         $this->validate($request, [
             'name' => 'required'
         ]);
@@ -126,17 +109,8 @@ class ProfilesController extends BaseController
         }
 
         toastr()->success("{$profile->name} Atualizado com sucesso",'Sucesso');
-        return redirect('/console/profiles');
+        return redirect(route('ironforge.profiles.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 }

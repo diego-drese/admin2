@@ -2,29 +2,23 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
-
+use Aggrega\Ironforge\Library\ResouceIronForge;
 use Aggrega\Ironforge\Profile;
-use Aggrega\Ironforge\User;
 use Aggrega\Ironforge\UserIronForge;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-
-class UserController extends BaseController
-{
+class UserController extends BaseController {
 
     use ValidatesRequests;
-
     protected $limit = 10;
 
-    public function index()
-    {
-
-        $users = UserIronForge::latest()->paginate($this->limit);
-//        dd(Auth::user()->profile);
-        return view('Ironforge::backend.users.index', compact('users'));
+    public function index() {
+        $users      = UserIronForge::latest()->paginate($this->limit);
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.users.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.users.edit', [1]);
+        return view('Ironforge::backend.users.index', compact('users','hasAdd', 'hasEdit'));
     }
 
     /**
@@ -32,11 +26,10 @@ class UserController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(UserIronForge $user)
-    {
-        $profiles = Profile::all('id', 'name');
-
-        return view('Ironforge::backend.users.newuser', compact('profiles','user'));
+    public function create(UserIronForge $user) {
+        $profiles   = Profile::all('id', 'name');
+        $hasSave    = ResouceIronForge::hasResourceByRouteName('ironforge.users.store');
+        return view('Ironforge::backend.users.create', compact('profiles','user', 'hasSave'));
     }
 
     /**
@@ -45,38 +38,22 @@ class UserController extends BaseController
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $dataForm = $request->all();
-        //dd($dataForm);
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'name'                  => 'required',
+            'email'                 => 'required|unique:users',
+            'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6|',
         ]);
         $dataForm['password'] = bcrypt($dataForm['password']);
-        $saveUser = $request->user()->create($dataForm);
+        $request->user()->create($dataForm);
 
-        //SAVE In PIVOT "User_has_profiles
-       // $user->profiles()->sync($dataForm['profile']);
-
-        //$saveUser->profiles()->attach($dataForm['profile']);
         toastr()->success('Usuário Criado!','Sucesso');
         return redirect('/console/users');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -84,12 +61,11 @@ class UserController extends BaseController
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $user           = UserIronForge::findOrFail($id);
         $profiles       = Profile::select('id','name')->get();
-
-        return view('Ironforge::backend.users.edit', compact('user', 'profiles'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.users.update', [1]);
+        return view('Ironforge::backend.users.edit', compact('user', 'profiles', 'hasSave'));
     }
 
     /**
@@ -99,38 +75,21 @@ class UserController extends BaseController
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $user = UserIronForge::findOrFail($id);
-        $dataForm = $request->all();
+    public function update(Request $request, $id) {
+        $user       = UserIronForge::findOrFail($id);
+        $dataForm   = $request->all();
 
-        //dd($dataForm);
         $this->validate($request, [
-            'name' => 'required',
-            'resource_default_id' => 'required',
-            'email' => 'required|unique:users,email,'.$user->id,
-            'password' => 'confirmed',
+            'name'                  => 'required',
+            'resource_default_id'   => 'required',
+            'email'                 => 'required|unique:users,email,'.$user->id,
+            'password'              => 'confirmed',
         ]);
 
         $dataForm['password'] = bcrypt($dataForm['password']);
         $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
-
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
-
         return redirect('/console/users');
     }
 
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -25,6 +25,16 @@ class Resource extends Model
             ->get();
 
     }
+    public static function getResourcesByRouteName($profiles, $routeName)
+    {
+        return self::select('resources.*')
+            ->distinct()
+            ->join('profile_has_resources', 'resource_id','resources.id')
+            ->where('route_name',$routeName)
+            ->whereIn('profile_id', $profiles)
+            ->get();
+
+    }
     public static function getResourcesByControllerMethod($ControllerMethod)  {
         return self::where('controller_method', $ControllerMethod)->first();
 
@@ -43,6 +53,12 @@ class Resource extends Model
         return self::where('id', $resource->parent_id)
             ->join('profile_has_resources', 'profile_has_resources.resource_id','resources.id')
             ->where('profile_has_resources.profile_id', $profileId)
+            ->first();
+    }
+    public static function getResourceIdByRouteName($routeName){
+        return self::where('route_name', $routeName)
+            ->orWhere('name',$routeName)
+            ->select('id')
             ->first();
     }
 

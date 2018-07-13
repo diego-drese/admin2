@@ -13,16 +13,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">
-                        <div class="box-header">
-                        </div>
-                        <div class="box-body ">
-
-                            <div class="col-md-6">
-                                <form method="post" action="{{route('profiles.store',$profile->id)}}">
-                                    {{csrf_field()}}
-                                    @include('Ironforge::backend.profiles.form')
-                                </form>
-                            </div>
+                        <div class="box-header"> </div>
+                        <div class="box-body">
+                            <form method="post" action="{{route('ironforge.profiles.store',$profile->id)}}">
+                                {{csrf_field()}}
+                                @include('Ironforge::backend.profiles.form')
+                            </form>
                         </div>
                     </div>
                 </div>

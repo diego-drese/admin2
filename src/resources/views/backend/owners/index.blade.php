@@ -1,17 +1,17 @@
 @extends('Ironforge::layouts.backend.main')
+@section('title', 'Proprietários')
 @section('content')
-@section('title', 'Owners')
 
 <div class="content-wrapper">
     @include('Ironforge::layouts.backend.breadcrumb')
 
     <section class="content">
         <div class="row">
-            <div class="col-md-8 col-sm-12 col-xs-12">
+            <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
                         <div class="pull-left">
-                            <a href="{{route('owners.create')}}" class="btn btn-success">
+                            <a href="{{route('ironforge.owner.create')}}" class="btn btn-success">
                                 Novo Owner <span class="fa fa-plus"></span>
                             </a>
                         </div>
@@ -40,7 +40,7 @@
                                     !!}
                                     </td>
                                     <td class="center">
-                                        <a href="{{route('owners.edit',$owner->id )}}"
+                                        <a href="{{route('ironforge.owner.edit',$owner->id )}}"
                                            class="btn btn-xs btn-default">Editar</a>
                                     </td>
                                 </tr>

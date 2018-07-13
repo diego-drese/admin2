@@ -57,7 +57,7 @@ class OwnerController extends BaseController
         }
 
         toastr()->success("{$owner->name} foi criado com sucesso", 'Sucesso');
-        return redirect(route('owners.index'));
+        return redirect(route('ironforge.owner.index'));
     }
 
     /**
@@ -110,7 +110,7 @@ class OwnerController extends BaseController
         }
 
         toastr()->success("{$owner->name} foi Atualizado com sucesso", 'Sucesso');
-        return redirect(route('owners.index'));
+        return redirect(route('ironforge.owner.index'));
     }
 
     /**

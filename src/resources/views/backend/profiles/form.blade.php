@@ -1,4 +1,4 @@
-<div class="form-group {{$errors->has('name') ? 'has-error' : ''}} ">
+<div class="col-md-12 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Nome</label>
     <input type="text" class="form-control" value="{{old('name',$profile->exists() ? $profile->name : '')}}" name="name"
            id="name" placeholder="Nome">
@@ -7,7 +7,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
+<div class="col-md-12 form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
     <label for="title">Recursos</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">
         @foreach($resources as $resource)
@@ -16,17 +16,22 @@
         @endforeach
     </select>
 </div>
-
+<div class="col-md-12 form-group">
 <label>Clique para conceder todas as permissões:</label><br>
 @foreach($resourcesMenu as $resource)
     @php $nameRoute = explode('.', $resource->route_name) @endphp
-    <span class="btn btn-xs btn-primary margin-top-small btnFullPermissions" id="{{$nameRoute[0]}}">
-            {{ucfirst($nameRoute[0])}}
+    @if(isset($nameRoute[1]))
+        <span class="mt-5 btn btn-xs btn-primary btnFullPermissions" id="{{$nameRoute[0]}}">
+                {{ucfirst($nameRoute[0])." ".ucfirst($nameRoute[1])}}
         </span>
+    @endif
 @endforeach
-<br><br>
-<button type="submit" class="btn btn-success ">Salvar</button>
-
+</div>
+<div class="col-md-12 form-group">
+@if($hasSave)
+    <button type="submit" class="btn btn-success ">Salvar</button>
+@endif
+</div>
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>

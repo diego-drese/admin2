@@ -36,6 +36,9 @@
         "yoeunes/toastr": "^1.0",
         "yajra/laravel-datatables-oracle": "^8.7",
         "doctrine/dbal": "^2.7"
+    },
+    "config": {
+        "sort-packages": true
     }
 
 }

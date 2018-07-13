@@ -16,9 +16,9 @@ class CreateOwnersTable extends Migration
         Schema::connection('mysql')->create('owners', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('name','255');
-            $table->string('type','255');
-            $table->string('origin_id','255');
-            $table->text('desc');
+            $table->string('type','255')->nullable();
+            $table->string('origin_id','255')->nullable();
+            $table->text('desc')->nullable();
             $table->index('type');
 
             $table->timestamps();

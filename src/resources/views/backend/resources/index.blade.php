@@ -10,11 +10,13 @@
             <div class="col-md-12 col-xs-12">
                 <div class="box">
                     <div class="box-body ">
-                        <a href="{{route('resources.create')}}">
-                            <button class="btn btn-success btn-sm margin-horizontal-small margin-bottom-small">Novo
-                                Recurso De Menu
-                            </button>
-                        </a>
+                        @if($hasAdd)
+                            <a href="{{route('ironforge.resources.create')}}">
+                                <button class="btn btn-success btn-sm margin-horizontal-small margin-bottom-small">Novo
+                                    Recurso De Menu
+                                </button>
+                            </a>
+                        @endif
                         <div class="row">
                             <div class="col col-md-12 table-responsive">
                                 <table id="table_resources" class="table table-bordered table-striped dataTable table-hover"
@@ -51,11 +53,12 @@
 @section('script')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
     <script>
+        var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {
             $('#table_resources').DataTable({
                 serverSide: true,
                 processing: true,
-                ajax: '{{ route('resources.index') }}',
+                ajax: '{{ route('ironforge.resources.index') }}',
                 columns: [
                     {data: "id", 'name': 'resources.id', searchable: false},
                     {data: "name", 'name': 'resources.name'},
@@ -77,7 +80,10 @@
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                            var edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Editar</a>';
+                            var edit_button = "";
+                            if(hasEdit=='1'){
+                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Editar</a>';
+                            }
                             return edit_button
                         }
                     }

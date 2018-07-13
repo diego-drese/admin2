@@ -2,29 +2,26 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
+use Aggrega\Ironforge\Library\ResouceIronForge;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ResourcesController extends BaseController
-{
+class ResourcesController extends BaseController {
     use ValidatesRequests;
 
 
-    public function __construct(Resource $resource)
-    {
-        $this->resource = $resource;
-        $this->parentsDefault = $this->resource->where('is_menu',1)->whereNull('route_name')->get();
-
+    public function __construct(Resource $resource) {
+        $this->resource         = $resource;
+        $this->parentsDefault   = $this->resource->where('is_menu',1)->whereNull('route_name')->get();
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request,DataTables $datatables )
-    {
+    public function index(Request $request,DataTables $datatables ) {
         if($request->ajax()){
             $query = Resource::with('profiles')->select('resources.*');
             return Datatables::of($query)
@@ -34,7 +31,7 @@ class ResourcesController extends BaseController
                     });
                 })
                 ->addColumn('edit_url', function($row){
-                    return route('resources.edit', $row->id);
+                    return route('ironforge.resources.edit', [$row->id]);
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -42,20 +39,21 @@ class ResourcesController extends BaseController
                 ->make(true);
         }
 
-        return view('Ironforge::backend.resources.index');
-
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.resources.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.resources.edit', [1]);
+        return view('Ironforge::backend.resources.index',compact('hasAdd', 'hasEdit'));
 
     }
 
-       /**
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Resource $resource)
-    {
+    public function create(Resource $resource) {
         $parentsDefault = $this->parentsDefault;
-        return view('Ironforge::backend.resources.create', compact('resource','parentsDefault'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.resources.store');
+        return view('Ironforge::backend.resources.create', compact('resource','parentsDefault', 'hasSave'));
     }
 
     /**
@@ -64,55 +62,41 @@ class ResourcesController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
 
         $this->validate($request, [
             'name' => 'required',
             'is_menu' => 'required',
         ]);
 
-        $resource = new Resource();
-        $resource->name = $request->name;
-        $resource->menu = $request->menu;
-        $resource->is_menu = $request->is_menu;
-        $resource->route_name = null;
-        $resource->icon = $request->icon;
-        $resource->controller_method = '';
-        $resource->can_be_default = $request->can_be_default ? $request->can_be_default : 0;
-        $resource->parent_id = $request->parent_id;
-        $resource->order = 0;
+        $resource                   = new Resource();
+        $resource->name             = $request->name;
+        $resource->menu             = $request->menu;
+        $resource->is_menu          = $request->is_menu;
+        $resource->route_name       = null;
+        $resource->icon             = $request->icon;
+        $resource->controller_method= '';
+        $resource->can_be_default   = $request->can_be_default ? $request->can_be_default : 0;
+        $resource->parent_id        = $request->parent_id;
+        $resource->order            = 0;
         $resource->save();
 
         toastr()->success('Recurso Criado com sucesso','Sucesso');
-        return redirect(route('resources.index'));
+        return redirect(route('ironforge.resources.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
+     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
 
-        $resource = $this->resource->findOrFail($id);
+        $resource       = $this->resource->findOrFail($id);
         $parentsDefault = $this->parentsDefault;
-        //dd($parent);
-
-        return view('Ironforge::backend.resources.edit',compact('resource','parent','parentsDefault'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.resources.update',[1]);
+        return view('Ironforge::backend.resources.edit',compact('resource','parent', 'parentsDefault', 'hasSave'));
     }
 
     /**
@@ -122,8 +106,7 @@ class ResourcesController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
 
         $resource = $this->resource->findOrFail($id);
         $dataForm = $request->all();
@@ -136,18 +119,8 @@ class ResourcesController extends BaseController
 
         $resource->update($dataForm);
         toastr()->success('Recurso Atualizado com sucesso','Sucesso');
-        return redirect(route('resources.index'));
+        return redirect(route('ironforge.resources.index'));
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -16,13 +16,10 @@
                         <div class="box-header">
                         </div>
                         <div class="box-body ">
-
-                            <div class="col-md-6">
-                                <form method="post" action="{{route('users.update',$user->id)}}">
-                                    {{csrf_field()}} {{method_field('PATCH')}}
-                                    @include('Ironforge::backend.users.form')
-                                </form>
-                            </div>
+                            <form method="post" action="{{route('ironforge.users.update', $user->id)}}">
+                                {{csrf_field()}}
+                                @include('Ironforge::backend.users.form')
+                            </form>
                         </div>
                     </div>
                 </div>

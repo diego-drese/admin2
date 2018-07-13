@@ -17,9 +17,9 @@
                         </div>
                         <div class="box-body ">
 
-                            <div class="col-md-6">
-                                <form method="post" action="{{route('profiles.update',$profile->id)}}">
-                                    {{csrf_field()}} {{method_field('PATCH')}}
+                            <div class="col-md-12">
+                                <form method="post" action="{{route('ironforge.profiles.update',$profile->id)}}">
+                                    {{csrf_field()}}
                                     @include('Ironforge::backend.profiles.form')
                                 </form>
                             </div>

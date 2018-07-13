@@ -11,12 +11,11 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="pull-left">
-                            @php $canAdd =  Aggrega\Ironforge\Library\ResouceIronForge::verifyUser('ProfilesController@create'); @endphp
-                            {{--@if($canAdd)--}}
-                            <a href="{{route('profiles.create')}}" class="btn btn-success">
-                                Novo Profile <span class="fa fa-plus"></span>
-                            </a>
-                            {{--@endif--}}
+                            @if($hasAdd)
+                                <a href="{{route('ironforge.profiles.create')}}" class="btn btn-success">
+                                    Novo Profile <span class="fa fa-plus"></span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                     <div class="box-body ">
@@ -55,11 +54,9 @@
 
 
                                     <td class="center">
-                                        {{--@if($canEdit)--}}
-                                        <a href="{{route('profiles.edit',$profile->id )}}"
-                                           class="btn btn-xs btn-default">Editar</a>
-                                        {{--@endif--}}
-                                        {{--<a href="" class="btn btn-default"></a>--}}
+                                        @if($hasEdit)
+                                            <a href="{{route('ironforge.profiles.edit',$profile->id )}}" class="btn btn-xs btn-default">Editar</a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

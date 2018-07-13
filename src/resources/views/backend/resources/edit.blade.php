@@ -11,9 +11,9 @@
                     <div class="box-header">
                     </div>
                     <div class="box-body ">
-                        <div class="col-lg-8">
-                            <form method="post" action="{{route('resources.update', $resource->id)}}">
-                                {{csrf_field()}} {{method_field('PATCH')}}
+                        <div class="col-lg-12">
+                            <form method="post" action="{{route('ironforge.resources.update', $resource->id)}}">
+                                {{csrf_field()}}
                                 @include('Ironforge::backend.resources.form')
                             </form>
                         </div>

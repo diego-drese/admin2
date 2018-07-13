@@ -1,22 +1,22 @@
 @extends('Ironforge::layouts.backend.main')
-@section('content')
 @section('title', 'Usuários')
-
+@section('content')
 <div class="content-wrapper">
     @include('Ironforge::layouts.backend.breadcrumb')
-
     <section class="content">
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
                         <div class="pull-left">
-                            <a href="{{route('users.create')}}" class="btn btn-success">
-                                Novo Usuário <span class="fa fa-plus"></span>
-                            </a>
+                            @if($hasAdd)
+                                <a href="{{route('ironforge.users.create')}}" class="btn btn-success">
+                                    Novo Usuário <span class="fa fa-plus"></span>
+                                </a>
+                            @endIf
                         </div>
                     </div>
-                    <div class="box-body ">
+                    <div class="box-body">
                         @if(session('message'))
                             <div class="alert alert-success alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
@@ -52,9 +52,11 @@
                                     <td>{{ucfirst($user->resourceDefault->name)}}</td>
                                     <td>{{$user->created_at->format('d/m/Y H:i')}}</td>
                                     <td class="center">
-                                        <a href="{{route('users.edit',$user->id)}}">
-                                            <button class="btn btn-xs btn-default">Editar</button>
-                                        </a>
+                                        @if($hasEdit)
+                                            <a href="{{route('ironforge.users.edit',$user->id)}}">
+                                                <button class="btn btn-xs btn-default">Editar</button>
+                                            </a>
+                                        @endIf
                                     </td>
                                 </tr>
                             @endforeach

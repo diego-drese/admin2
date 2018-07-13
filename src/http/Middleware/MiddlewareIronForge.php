@@ -29,8 +29,8 @@ class MiddlewareIronForge
            if($ajax){
                return response()->json(['message'=>'Recurso não cadastrado'],404);
            }
+
            return redirect("/$prefix_url/page-not-found");
-           //abort('Ironforge::errors.404','Recurso não cadastrado');
        }
 
             if(!count($resources)){

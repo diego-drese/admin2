@@ -1,4 +1,5 @@
-<div class="form-group {{$errors->has('name') ? 'has-error' : ''}} ">
+
+<div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Nome</label>
     <input type="text" class="form-control" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"
            id="name" placeholder="Nome">
@@ -7,7 +8,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('lastname') ? 'has-error' : ''}}">
+<div class="col-md-6 form-group {{$errors->has('lastname') ? 'has-error' : ''}}">
     <label for="slug">Sobrenome</label>
     <input type="text" value="{{old('lastname',$user->exists() ? $user->lastname : '')}}" name="lastname"
            class="form-control"
@@ -17,9 +18,9 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
+<div class="col-md-6 form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
     <label for="slug">Celular</label>
-    <input type="number" value="{{old('slug',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
+    <input type="text" value="{{old('slug',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
            class="form-control"
            id="cell_phone" placeholder="Numero para Contato">
     @if($errors->has('cell_phone'))
@@ -27,10 +28,9 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('active') ? 'has-error' : ''}}">
+<div class="col-md-6 form-group {{$errors->has('active') ? 'has-error' : ''}}">
     <label for="active">Status</label>
-    <select type="text" name="active" class="form-control" id="active"
-            placeholder="Status do usuário">
+    <select type="text" name="active" class="form-control" id="active" placeholder="Status do usuário">
         <option value="1">Ativo</option>
         <option value="0" {{$user->exists() && $user->active == 0 ? 'selected' : ''}}>Desativado</option>
     </select>
@@ -39,7 +39,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('email') ? 'has-error' : ''}}">
+<div class="col-md-8 form-group {{$errors->has('email') ? 'has-error' : ''}}">
     <label for="slug">Email</label>
     <input type="email" value="{{old('email',$user->email)}}" name="email" class="form-control"
            id="email" placeholder="Email">
@@ -47,31 +47,31 @@
         <span class="help-block">{{$errors->first('email')}}</span>
     @endif
 </div>
-
-
 @if($user->exists && Auth::User()->id == $user->id)
-<p>Você é: <b>{{Auth::User()->profile->name}}</b></p>
+    <div class="col-md-4 form-group">
+        <label for="active">Seu Perfil</label>
+        <input type="text" value="{{Auth::User()->profile->name}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+    </div>
 @else
-<div class="form-group {{$errors->has('profile') ? 'has-error' : ''}}">
-    <label for="active">Perfil</label>
-    <select class="form-control" id="selectProfile" name="profile_id" placeholder="Perfil">
-        @foreach ($profiles as $key => $profile)
-            <option name="profile_id"
-                    @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif
-                    value="{{$profile->id}}">{{$profile->name}} </option>
-        @endforeach
-    </select>
-</div>
+
+    <div class="col-md-4 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
+        <label for="active">Perfil</label>
+        <select class="form-control" id="selectProfile" name="profile_id" placeholder="Perfil">
+            @foreach ($profiles as $key => $profile)
+                <option name="profile_id"  @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif value="{{$profile->id}}">{{$profile->name}} </option>
+            @endforeach
+        </select>
+    </div>
 @endif
 
-<div class="form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
+<div class="col-md-4 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
     <label for="active">Pagina padrão</label>
     <select class="form-control" id="selectResourceDefault" name="resource_default_id" placeholder="Perfil">
     </select>
 </div>
 
 
-<div class="form-group {{$errors->has('password') ? 'has-error' : ''}}">
+<div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
     <label for="slug">Senha</label>
     <input type="password" name="password" class="form-control"
            id="password" placeholder="Senha" value="">
@@ -80,7 +80,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
+<div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
     <label for="slug">Confirme a Senha</label>
     <input type="password" name="password_confirmation" class="form-control"
            id="password_confirmation" placeholder="Confirme Senha" value="">
@@ -88,19 +88,22 @@
         <span class="help-block">{{$errors->first('password_confirmation')}}</span>
     @endif
 </div>
-
-<button type="submit" class="btn btn-success">Salvar</button>
+@if($hasSave)
+    <div class="clearfix"></div>
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+@endif
 
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
-
     <script>
         var selectedOption = "{{$user->exists ? $user->profile_id : 1}}";
         var resource_default_id = "{{$user->exists ? $user->resource_default_id : null}}";
 
         $(document).ready(function () {
-            $('#selectProfile').select2();
-            $('#selectResourceDefault').select2();
+            $('#selectProfile').select2({ width: '100%' });
+            $('#selectResourceDefault').select2({ width: '100%' });
 
             getResourcesByProfileId(selectedOption);
 
@@ -112,8 +115,10 @@
 
 
             function getResourcesByProfileId($id) {
+                var url = '{{route('ironforge.users.resourcesDefault', [':id'])}}';
+                url     = url.replace(':id', $id)
                 $.ajax({
-                    url: '/console/users/resources/' + $id,
+                    url: url,
                     type: "get",
                     dataType: 'json',
                     beforeSend: function () {

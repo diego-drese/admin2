@@ -1,4 +1,4 @@
-<div class="form-group {{$errors->has('name') ? 'has-error' : ''}} ">
+<div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Nome</label>
     <input type="text" class="form-control" value="{{old('name',$owner->exists() ? $owner->name : '')}}" name="name"
            id="name" placeholder="Nome">
@@ -7,7 +7,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('type') ? 'has-error' : ''}} ">
+<div class="col-md-6 form-group {{$errors->has('type') ? 'has-error' : ''}} ">
     <label for="title">Tipo</label>
     <input type="text" class="form-control" value="{{old('type',$owner->exists() ? $owner->type : '')}}" name="type"
            id="type" placeholder="Tipo">
@@ -16,7 +16,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
+<div class="col-md-6 form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
     <label for="title">Origem Id</label>
     <input type="text" class="form-control" value="{{old('origin_id',$owner->exists() ? $owner->origin_id : '')}}" name="origin_id"
            id="origin_id" placeholder="Origem Id">
@@ -25,7 +25,7 @@
     @endif
 </div>
 
-<div class="form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
+<div class="col-md-6 form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
     <label for="title">Usuários</label><br>
     <select id="selectUsers" class="form-control" multiple="multiple"  name="users[]" placeholder="Usuário">
         @php $users =  Aggrega\Ironforge\UserIronForge::all('id','name') ;@endphp
@@ -35,7 +35,7 @@
     </select>
 </div>
 
-<div class="form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
+<div class="col-md-12 form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
     <label for="title">Descrição</label>
     <textarea class="form-control" id="editor" value="" name="desc" placeholder="Texto">{{old('desc',$owner->exists() ? $owner->desc : '')}}</textarea>
 
@@ -45,9 +45,9 @@
 </div>
 
 
-
-<button type="submit" class="btn btn-success">Salvar</button>
-
+<div class="col-md-12 form-group">
+    <button type="submit" class="btn btn-success">Salvar</button>
+</div>
 
 @section('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">

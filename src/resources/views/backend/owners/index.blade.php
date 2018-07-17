@@ -1,59 +1,98 @@
 @extends('Ironforge::layouts.backend.main')
-@section('title', 'Proprietários')
+@section('title', 'Owners')
 @section('content')
 
-<div class="content-wrapper">
-    @include('Ironforge::layouts.backend.breadcrumb')
+    <div class="content-wrapper">
+        @include('Ironforge::layouts.backend.breadcrumb')
 
-    <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <div class="pull-left">
-                            <a href="{{route('ironforge.owner.create')}}" class="btn btn-success">
-                                Novo Owner <span class="fa fa-plus"></span>
-                            </a>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="pull-left">
+                                @if($hasAdd)
+                                    <a href="{{route('ironforge.owner.create')}}">
+                                        <a href="{{route('ironforge.owner.create')}}" class="btn btn-success">
+                                            Add New <span class="fa fa-plus"></span>
+                                        </a>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="box-body ">
+                            <div class="table-responsive">
+                                <table id="table_owners" class="table table-bordered table-striped dataTable table-hover"
+                                       role="grid">
+                                    <thead>
+                                    <tr class="center">
+                                        <td role="row">#</td>
+                                        <td>Name</td>
+                                        <td>Description</td>
+                                        <td>Users</td>
+                                        <td>Actions</td>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="box-body ">
-
-                        <table class="table table-active table-bordered ">
-                            <thead>
-                            <tr class="center">
-                                <td>Nome</td>
-                                <td>Descrição</td>
-                                <td>Usuários</td>
-                                <td>Ações</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($owners as $owner)
-                                <tr>
-                                    <td class="center bold">{{$owner->name}}</td>
-                                    <td>{!!  $owner->desc!!}</td>
-                                    <td>
-                                    {!!
-                                        $owner->user->map(function ($item) {
-                                           return '<span class="label label-info">'.$item->name.'</span>';
-                                        })->implode(' - ')
-                                    !!}
-                                    </td>
-                                    <td class="center">
-                                        <a href="{{route('ironforge.owner.edit',$owner->id )}}"
-                                           class="btn btn-xs btn-default">Editar</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-
-
-                    </div>
                 </div>
-                {{--{{$users->appends(Request::query())->links()}}--}}
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
+@endsection
+
+@section('style')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+@endsection
+
+@section('script')
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script>
+        var hasEdit = '{{$hasEdit}}';
+        $(document).ready(function () {
+            $('#table_owners').DataTable({
+                serverSide: true,
+                processing: true,
+                autoWidth:false,
+                ajax: '{{ route('ironforge.owner.index') }}',
+                columns: [
+                    {data: "id", 'name': 'id', searchable: false},
+                    {data: "name", 'name': 'name'},
+                    {data: "desc", 'name': 'desc'},
+                    {
+                        data: null, searchable: false, orderable: false, render: function (data) {
+
+                            if(data !== null){
+                                var span = "";
+                                var count = 1;
+                                $.each(data.user, function(k, v){
+                                    span += "<span class=\"label label-info\">" + v.name + "</span>";
+
+                                    if(count%4==0){
+                                        span += '<br/>';
+                                    }
+                                    count++;
+                                });
+                                return span;
+                            }else{
+                                return "";
+                            }
+                        }
+                    },
+                    {
+                        data: null, searchable: false, orderable: false, render: function (data) {
+                            var edit_button = "";
+                            if(hasEdit=='1'){
+                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
+                            }
+                            return edit_button
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
 @endsection

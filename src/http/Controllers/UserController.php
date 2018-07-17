@@ -8,17 +8,35 @@ use Aggrega\Ironforge\UserIronForge;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Yajra\Datatables\Datatables;
+
 
 class UserController extends BaseController {
 
     use ValidatesRequests;
-    protected $limit = 10;
 
-    public function index() {
-        $users      = UserIronForge::latest()->paginate($this->limit);
+    public function index(Request $request,DataTables $datatables ) {
+
+        if($request->ajax()){
+
+            $query = UserIronForge::select('users.*','profiles.name as profileName','resources.name as resourceName')
+            ->join('profiles','profiles.id','users.profile_id')
+            ->join('resources','resources.id','users.resource_default_id');
+
+            return Datatables::of($query)
+
+                ->addColumn('edit_url', function($row){
+                    return route('ironforge.users.edit', [$row->id]);
+                })
+                ->setRowClass(function () {
+                    return 'center';
+                })
+                ->make(true);
+        }
+
         $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.users.create');
         $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.users.edit', [1]);
-        return view('Ironforge::backend.users.index', compact('users','hasAdd', 'hasEdit'));
+        return view('Ironforge::backend.users.index', compact('hasAdd', 'hasEdit'));
     }
 
     /**

@@ -11,12 +11,6 @@ class Profile extends Model
 
     protected $fillable = ['name','user_id','profile_id'];
 
-//    public function users()
-//    {
-//        return $this->belongsToMany('App\Models\User','user_has_profiles','user_id','profile_id')
-//           ;// ->withPivot('profile_id');
-//
-//    }
 
     public function resources()
     {

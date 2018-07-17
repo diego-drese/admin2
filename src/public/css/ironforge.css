@@ -51,8 +51,12 @@
   font-size: 0.9em;
 }
 
+.skin-ironforge .sidebar-menu .treeview-menu {
+  background: #2C2E3E;
+}
+
 .skin-ironforge .sidebar-menu .treeview-menu > li > a {
-  padding: 5px 5px 5px 21px;
+  padding: 0px 5px 5px 21px;
   font-size: 13px;
   color: #b9bfef;
 }

@@ -1,7 +1,7 @@
 <div class="form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="name">Nome</label>
+    <label for="name">Name</label>
     <input type="text" class="form-control" value="{{old('name',$resource->exists() ? $resource->name : '')}}"
-           name="name" placeholder="Nome">
+           name="name" placeholder="Name">
     @if($errors->has('name'))
         <span class="help-block">{{$errors->first('name')}}</span>
     @endif
@@ -28,9 +28,9 @@
 </div>
 
 <div class="form-group {{$errors->has('parents') ? 'has-error' : ''}} ">
-    <label for="controller_method">Filho de</label>
+    <label for="controller_method">Child Of</label>
     <select class="form-control" name="parent_id" placeholder="">
-        <option value="0">Menu Raiz</option>
+        <option value="0">Menu Root</option>
         @foreach($parentsDefault as $parent)
             <option value="{{$parent->id}}" {{$resource->exists() && $resource->parent_id == $parent->id ? 'selected="selected"' : ''}}>
                 {{$parent->name}}
@@ -43,7 +43,7 @@
 </div>
 
 <div class="form-group pos-relative">
-    <label class="margin-right-small">É Menu ? </label>
+    <label class="margin-right-small">Is Menu ? </label>
     <input type="hidden" name="is_menu" value="0">
     <input type="checkbox" class="swit-box" name="is_menu" hidden="hidden"
            value="1" {{$resource->is_menu == 1 ? 'checked' : ''}} >
@@ -53,7 +53,7 @@
 
 @if($resource->route_name)
 <div class="form-group pos-relative">
-    <label class="margin-right-small">Pode ser redirecionado no login ?</label>
+    <label class="margin-right-small">Redirect after Login?</label>
     <input type="hidden" name="can_be_default" value="0">
     <input type="checkbox" class="swit-box" name="can_be_default" hidden="hidden"
            value="1" {{$resource->can_be_default == 1 ? 'checked' : ''}} >
@@ -78,7 +78,7 @@
 <div>
     <br>
     @if($hasSave)
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-success">Save</button>
     @endif
 </div>
 
@@ -92,13 +92,13 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title"> Fontes <i>(Duplo clique para selecionar)</i></h4>
+                <h4 class="modal-title"> Fontes <i>(Double click to select)</i></h4>
             </div>
             <div class="modal-body">
                 @include('Ironforge::backend.resources.icons')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
 
 

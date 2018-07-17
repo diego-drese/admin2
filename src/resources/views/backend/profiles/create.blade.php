@@ -1,6 +1,6 @@
 @extends('Ironforge::layouts.backend.main')
 @section('content')
-@section('title', 'Editar Profile')
+@section('title', 'Profile Edit')
 
 @section('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">

@@ -6,6 +6,9 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Owner;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
+use Aggrega\Ironforge\Library\ResouceIronForge;
+
 
 class OwnerController extends BaseController
 {
@@ -16,11 +19,32 @@ class OwnerController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $owners = Owner::all();
-        return view('Ironforge::backend.owners.index', compact('owners'));
+
+
+
+    public function index(Request $request,DataTables $datatables ) {
+
+        if($request->ajax()){
+
+            $query = Owner::with('user');
+
+            return Datatables::of($query)
+
+                ->addColumn('edit_url', function($row){
+                    return route('ironforge.owner.edit', [$row->id]);
+                })
+                ->setRowClass(function () {
+                    return 'center';
+                })
+                ->make(true);
+        }
+
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.owner.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.owner.edit', [1]);
+        return view('Ironforge::backend.owners.index',compact('hasAdd', 'hasEdit'));
+
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -19,8 +19,8 @@ class ResourceTableSeed extends Seeder
     {
         DB::table('resources')->insert([
             [
-                'name' => "Sistema Ironforge",
-                'menu' => 'Sistema',
+                'name' => "System Ironforge",
+                'menu' => 'System',
                 'is_menu' => 1,
                 'route_name' => null,
                 'icon' => 'fa-folder',

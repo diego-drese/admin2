@@ -8,7 +8,7 @@ use Aggrega\Ironforge\Profile;
 use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-
+use Yajra\Datatables\Datatables;
 
 class ProfilesController extends BaseController
 {
@@ -19,18 +19,33 @@ class ProfilesController extends BaseController
 
     }
 
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $profiles   = Profile::latest()->paginate(10);
+    public function index(Request $request,DataTables $datatables ) {
+
+        if($request->ajax()){
+
+            $query = Profile::with('resources');
+
+            return Datatables::of($query)
+                ->addColumn('edit_url', function($row){
+                    return route('ironforge.profiles.edit', [$row->id]);
+                })
+                ->setRowClass(function () {
+                    return 'center';
+                })
+                ->make(true);
+        }
+
         $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.create');
         $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.edit', [1]);
-        return view('Ironforge::backend.profiles.index',compact('profiles', 'hasAdd', 'hasEdit'));
+        return view('Ironforge::backend.profiles.index', compact('hasAdd', 'hasEdit'));
+
     }
+
 
     /**
      * Show the form for creating a new resource.

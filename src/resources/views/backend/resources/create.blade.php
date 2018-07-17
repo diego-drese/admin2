@@ -1,6 +1,6 @@
 @extends('Ironforge::layouts.backend.main')
 @section('content')
-@section('title', 'Criar Recurso')
+@section('title', 'Resource Create')
 
 <div class="content-wrapper">
     @include('Ironforge::layouts.backend.breadcrumb')

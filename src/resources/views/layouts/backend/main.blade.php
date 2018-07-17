@@ -38,7 +38,7 @@
     @yield('content')
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1
+            <b>Version</b> 1.0.0
         </div>
         <strong>{{date('Y')}}  Aggrega </strong> All rights
         reserved.

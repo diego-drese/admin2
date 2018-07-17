@@ -1,5 +1,5 @@
 @extends('Ironforge::layouts.backend.main')
-@section('title', 'Novo Proprietário')
+@section('title', 'New Owner')
 @section('content')
 
 

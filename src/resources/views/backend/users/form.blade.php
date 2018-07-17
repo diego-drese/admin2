@@ -1,28 +1,28 @@
 
 <div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="title">Nome</label>
+    <label for="title">Name</label>
     <input type="text" class="form-control" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"
-           id="name" placeholder="Nome">
+           id="name" placeholder="Name">
     @if($errors->has('name'))
         <span class="help-block">{{$errors->first('name')}}</span>
     @endif
 </div>
 
 <div class="col-md-6 form-group {{$errors->has('lastname') ? 'has-error' : ''}}">
-    <label for="slug">Sobrenome</label>
+    <label for="slug">Last Name</label>
     <input type="text" value="{{old('lastname',$user->exists() ? $user->lastname : '')}}" name="lastname"
            class="form-control"
-           id="lastname" placeholder="Sobrenome">
+           id="lastname" placeholder="Last Name">
     @if($errors->has('lastname'))
         <span class="help-block">{{$errors->first('lastname')}}</span>
     @endif
 </div>
 
 <div class="col-md-6 form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
-    <label for="slug">Celular</label>
+    <label for="slug">Cellphone</label>
     <input type="text" value="{{old('slug',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
            class="form-control"
-           id="cell_phone" placeholder="Numero para Contato">
+           id="cell_phone" placeholder="Cellphone">
     @if($errors->has('cell_phone'))
         <span class="help-block">{{$errors->first('cell_phone')}}</span>
     @endif
@@ -40,23 +40,23 @@
 </div>
 
 <div class="col-md-8 form-group {{$errors->has('email') ? 'has-error' : ''}}">
-    <label for="slug">Email</label>
+    <label for="slug">E-mail</label>
     <input type="email" value="{{old('email',$user->email)}}" name="email" class="form-control"
-           id="email" placeholder="Email">
+           id="email" placeholder="E-mail">
     @if($errors->has('email'))
         <span class="help-block">{{$errors->first('email')}}</span>
     @endif
 </div>
 @if($user->exists && Auth::User()->id == $user->id)
     <div class="col-md-4 form-group">
-        <label for="active">Seu Perfil</label>
+        <label for="active">My Profile</label>
         <input type="text" value="{{Auth::User()->profile->name}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
     </div>
 @else
 
     <div class="col-md-4 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
-        <label for="active">Perfil</label>
-        <select class="form-control" id="selectProfile" name="profile_id" placeholder="Perfil">
+        <label for="active">Profile</label>
+        <select class="form-control" id="selectProfile" name="profile_id" placeholder="Profile">
             @foreach ($profiles as $key => $profile)
                 <option name="profile_id"  @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif value="{{$profile->id}}">{{$profile->name}} </option>
             @endforeach
@@ -65,25 +65,25 @@
 @endif
 
 <div class="col-md-4 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
-    <label for="active">Pagina padrão</label>
-    <select class="form-control" id="selectResourceDefault" name="resource_default_id" placeholder="Perfil">
+    <label for="active">Page Default</label>
+    <select class="form-control" id="selectResourceDefault" name="resource_default_id" placeholder="Profile">
     </select>
 </div>
 
 
 <div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
-    <label for="slug">Senha</label>
+    <label for="slug">Password</label>
     <input type="password" name="password" class="form-control"
-           id="password" placeholder="Senha" value="">
+           id="password" placeholder="Password" value="">
     @if($errors->has('password'))
         <span class="help-block">{{$errors->first('password')}}</span>
     @endif
 </div>
 
 <div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
-    <label for="slug">Confirme a Senha</label>
+    <label for="slug">Confirm Password</label>
     <input type="password" name="password_confirmation" class="form-control"
-           id="password_confirmation" placeholder="Confirme Senha" value="">
+           id="password_confirmation" placeholder="Confirm Password" value="">
     @if($errors->has('password_confirmation'))
         <span class="help-block">{{$errors->first('password_confirmation')}}</span>
     @endif
@@ -91,7 +91,7 @@
 @if($hasSave)
     <div class="clearfix"></div>
     <div class="col-md-4">
-        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="submit" class="btn btn-success">Save</button>
     </div>
 @endif
 

@@ -1,6 +1,6 @@
 @extends('Ironforge::layouts.backend.main')
 @section('content')
-@section('title', 'Recursos')
+@section('title', 'Resources')
 
 <div class="content-wrapper">
     @include('Ironforge::layouts.backend.breadcrumb')
@@ -14,7 +14,7 @@
                         @if($hasAdd)
                             <a href="{{route('ironforge.resources.create')}}">
                                 <a href="{{route('ironforge.resources.create')}}" class="btn btn-success">
-                                    Recurso De Menu <span class="fa fa-plus"></span>
+                                    Resource of menu <span class="fa fa-plus"></span>
                                 </a>
                             </a>
 
@@ -28,14 +28,14 @@
                                 <thead>
                                 <tr class="center">
                                     <td role="row">#</td>
-                                    <td role="row">Nome</td>
+                                    <td role="row">Name</td>
                                     <td role="row">Menu</td>
-                                    <td>Rota</td>
+                                    <td>Rote</td>
                                     <td>Icon</td>
                                     <td role="row">Controller Method</td>
-                                    <td>Perfil</td>
-                                    <td>Criação</td>
-                                    <td>Ações</td>
+                                    <td>Profile</td>
+                                    <td>Created At</td>
+                                    <td>Actions</td>
                                 </tr>
                                 </thead>
                             </table>
@@ -86,15 +86,12 @@
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";
                             if(hasEdit=='1'){
-                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Editar</a>';
+                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
                             }
                             return edit_button
                         }
                     }
-                ],
-                "language": {
-                    "url": '/vendor/aggrega/ironforge/laravel-package-ironforge/js/pt-br.json'
-                }
+                ]
             });
         });
     </script>

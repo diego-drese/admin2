@@ -1,5 +1,5 @@
 @extends('Ironforge::layouts.backend.main')
-@section('title', 'Editar Proprietário')
+@section('title', 'Owner Edit')
 @section('content')
 
 <div class="content-wrapper">

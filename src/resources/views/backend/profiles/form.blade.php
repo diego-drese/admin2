@@ -1,14 +1,14 @@
 <div class="col-md-12 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="title">Nome</label>
+    <label for="title">Name</label>
     <input type="text" class="form-control" value="{{old('name',$profile->exists() ? $profile->name : '')}}" name="name"
-           id="name" placeholder="Nome">
+           id="name" placeholder="Name">
     @if($errors->has('name'))
         <span class="help-block">{{$errors->first('name')}}</span>
     @endif
 </div>
 
 <div class="col-md-12 form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
-    <label for="title">Recursos</label>
+    <label for="title">Resources</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">
         @foreach($resources as $resource)
             @php $nameRoute = explode('.', $resource->route_name) @endphp
@@ -17,7 +17,7 @@
     </select>
 </div>
 <div class="col-md-12 form-group">
-<label>Clique para conceder todas as permissões:</label><br>
+<label>Click to grant all permissions:</label><br>
 @foreach($resourcesMenu as $resource)
     @php $nameRoute = explode('.', $resource->route_name) @endphp
     @if(isset($nameRoute[1]))
@@ -29,7 +29,7 @@
 </div>
 <div class="col-md-12 form-group">
 @if($hasSave)
-    <button type="submit" class="btn btn-success ">Salvar</button>
+    <button type="submit" class="btn btn-success ">Save</button>
 @endif
 </div>
 @section('script')

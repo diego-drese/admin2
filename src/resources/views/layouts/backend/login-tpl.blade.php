@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login IronForge</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link href="vendor/aggrega/ironforge/laravel-package-ironforge/css/app.css" rel="stylesheet">
+    <link href="/vendor/aggrega/ironforge/laravel-package-ironforge/css/app.css" rel="stylesheet">
     <script src="//use.edgefonts.net/kaushan-script.js"></script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -14,25 +14,28 @@
     <![endif]-->
 </head>
 
-<body class="hold-transition login-page">
+<body class="skin-ironforge hold-transition login-page">
 <div id="app">
     <main>
         @yield('content')
     </main>
 </div>
 
+<script src="/vendor/aggrega/ironforge/laravel-package-ironforge/js/app.js"></script>
 
-<script src="vendor/aggrega/ironforge/laravel-package-ironforge/js/app.js" defer></script>
-<script>
-   document.onready = function (){
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' // optional
-        });
-    };
-</script>
 @yield('script')
+
+<script>
+
+      $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+      });
+
+</script>
+
+@yield('style')
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-@extends('layouts.backend.login-tpl')
+@extends('Ironforge::layouts.backend.login-tpl')
 
 @section('content')
 <div class="container">

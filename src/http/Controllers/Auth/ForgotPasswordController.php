@@ -28,5 +28,19 @@ class ForgotPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+
     }
+
+
+    //Shows form to request password reset
+    public function showLinkRequestForm()
+    {
+
+        return view('Ironforge::auth.passwords.email');
+    }
+
+
+
+
 }

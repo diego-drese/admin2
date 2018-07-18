@@ -788,7 +788,7 @@
 
 body.login-page{
     background: linear-gradient( rgba(0, 0, 0, 0.62), rgb(10, 20, 43) ),
-    url('/login.jpg') no-repeat center;
+    url('/vendor/aggrega/ironforge/laravel-package-ironforge/img/login.jpg') no-repeat center;
     background-size: cover;
 }
 

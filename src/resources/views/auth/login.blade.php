@@ -4,7 +4,8 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Iron Forge</b></a>
+            <a href="{{ route('login') }}"><span class="logo-lg">Iron Forge</span></a>
+
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -36,7 +37,7 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
-                            <label>
+                            <label class="btn btn-link">
                                 <input type="checkbox"
                                        name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
                             </label>

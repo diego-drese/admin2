@@ -4,6 +4,7 @@ namespace Aggrega\Ironforge;
 
 use Aggrega\Ironforge\Http\ViewComposers;
 use Aggrega\Ironforge\Console\Commands\RefreshRoutes;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -34,6 +35,9 @@ class IronforgeServiceProvider extends ServiceProvider
         );
 
         $this->mergeViewComposer();
+
+
+        Schema::defaultStringLength(191);
     }
 
     /**

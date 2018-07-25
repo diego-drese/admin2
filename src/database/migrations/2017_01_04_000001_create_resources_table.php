@@ -15,7 +15,7 @@ class CreateResourcesTable extends Migration
     {
         Schema::connection('mysql')->create('resources', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('name','255');
+            $table->string('name');
             $table->string('menu')->index()->nullable();
             $table->boolean('is_menu')->index();
             $table->string('route_name')->nullable();

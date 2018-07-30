@@ -30,19 +30,19 @@
 
                             <p>
                                 {{Auth::user()->name}}
-                                <small>Member since Nov. 2012</small>
+                                <small>Member since  {{Auth::user()->created_at->format('F. Y')}}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{route('ironforge.users.form-profile')}}" class="btn btn-primary btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();"
-                                   class="btn btn-default btn-flat">Sign out</a>
+                                   class="btn btn-primary btn-flat">Sign out</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}

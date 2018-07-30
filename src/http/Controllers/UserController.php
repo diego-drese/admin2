@@ -8,7 +8,9 @@ use Aggrega\Ironforge\UserIronForge;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends BaseController {
@@ -109,5 +111,62 @@ class UserController extends BaseController {
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
         return redirect('/console/users');
     }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function viewUserProfile() {
+
+        $auth = Auth::user();
+        $user = UserIronForge::findOrFail($auth->id);
+        return view('Ironforge::backend.users.edit-profile', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateUserProfile(Request $request) {
+
+        $dataForm   = $request->all();
+
+        $auth = Auth::user();
+        $user = UserIronForge::findOrFail($auth->id);
+
+        $this->validate($request, [
+            'name'                  => 'required',
+            'resource_default_id'   => 'required',
+            'email'                 => 'required|unique:users,email,'.$user->id,
+            'old_password'          => [function ($attribute, $value, $fail) use ($request, $user) {
+
+                if (!Hash::check($request->old_password, $user->password)) {
+                    $fail('Current Password dont match!');
+                }
+
+                if ($value == '') {
+                    $fail('Current Password is required!');
+                }
+
+            }],
+            'password'              => ['confirmed'],
+        ]);
+
+        $dataForm['password'] = bcrypt($dataForm['password']);
+
+        $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
+
+        toastr()->success('Usuário Atualizado com sucesso','Sucesso');
+
+        return redirect(route('ironforge.users.form-profile'));
+    }
+
+
 
 }

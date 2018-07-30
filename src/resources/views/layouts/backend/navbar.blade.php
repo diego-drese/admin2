@@ -26,8 +26,12 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" class="img-circle" alt="User Image">
 
+                            @if(Auth::user()->picture != "")
+                                <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" class="img-circle" alt="User Image">
+                            @else
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" class="img-circle" alt="User Image">
+                            @endif
                             <p>
                                 {{Auth::user()->name}}
                                 <small>Member since  {{Auth::user()->created_at->format('F. Y')}}</small>

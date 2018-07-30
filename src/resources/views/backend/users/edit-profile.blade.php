@@ -16,7 +16,7 @@
                         <div class="box-header">
                         </div>
                         <div class="box-body ">
-                            <form method="post" action="{{route('ironforge.users.update-profile')}}">
+                            <form method="post" action="{{route('ironforge.users.update-profile')}}" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 @include('Ironforge::backend.users.form-profile')
                             </form>

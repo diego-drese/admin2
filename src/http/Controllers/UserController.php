@@ -9,8 +9,11 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Hash;
+use Image;
+use App\Http\Requests;
 
 
 class UserController extends BaseController {
@@ -141,6 +144,7 @@ class UserController extends BaseController {
         $user = UserIronForge::findOrFail($auth->id);
 
         $this->validate($request, [
+            'picture'               => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'name'                  => 'required',
             'resource_default_id'   => 'required',
             'email'                 => 'required|unique:users,email,'.$user->id,
@@ -160,7 +164,36 @@ class UserController extends BaseController {
 
         $dataForm['password'] = bcrypt($dataForm['password']);
 
-        $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
+
+        if( $request->hasFile('picture')){
+
+            $image = $request->file('picture');
+
+            $input['picture'] = time().'.'.$image->getClientOriginalExtension();
+
+            $destinationPath = public_path('/thumbnail');
+
+            if(!File::isDirectory($destinationPath)){
+                File::makeDirectory($destinationPath, 0777);
+            }
+
+            $img = Image::make($image->getRealPath());
+
+            $img->resize(100, 100, function ($constraint) {
+
+                $constraint->aspectRatio();
+
+            })->save($destinationPath.'/'.$input['picture']);
+
+            $dataForm['picture'] = $input['picture'];
+        }
+
+        if( !isset($request->password) ){
+            unset($dataForm['password']);
+        }
+
+        $user->fill($dataForm);
+        $user->update($dataForm);
 
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
 

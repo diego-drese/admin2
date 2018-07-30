@@ -1,4 +1,18 @@
 
+<div class="col-md-6 form-group {{$errors->has('picture') ? 'has-error' : ''}} ">
+    <label for="title">Picture</label>
+
+
+    <br/>
+
+    <input type="file" class="form-control" value="" name="picture"
+           id="picture" placeholder="Picture">
+
+    @if($errors->has('picture'))
+        <span class="help-block">{{$errors->first('picture')}}</span>
+    @endif
+</div>
+
 <div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Name</label>
     <input type="text" class="form-control" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"

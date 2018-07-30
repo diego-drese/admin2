@@ -17,7 +17,7 @@ class UserIronForge extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','lastname','cell_phone','active', 'profile_id','resource_default_id'
+        'name', 'email', 'password','lastname','cell_phone','active', 'profile_id', 'resource_default_id', 'picture'
     ];
 
     /**

@@ -7,12 +7,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 class UserIronForge extends Authenticatable
 {
     use Notifiable;
-    use LogsActivity;
 
     protected $table = 'users';
     /**
@@ -23,8 +21,6 @@ class UserIronForge extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','lastname','cell_phone','active', 'profile_id', 'resource_default_id', 'picture'
     ];
-
-    protected static $logFillable = true;
 
     /**
      * The attributes that should be hidden for arrays.

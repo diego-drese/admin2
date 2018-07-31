@@ -120,17 +120,8 @@ class ProfilesController extends BaseController
         $profile->update($dataForm);
 
         if(isset($dataForm['resources'])){
-            activity()->performedOn(new \Aggrega\Ironforge\Resource)
-                ->causedBy(auth()->user()->id)
-                ->withProperties($dataForm['resources'])
-                ->log('remove and add resources');
             $profile->resources()->sync($dataForm['resources']);
         }else{
-
-            activity()->performedOn(new \Aggrega\Ironforge\Resource)
-                ->causedBy(auth()->user()->id)
-                ->withProperties([])
-                ->log('remove and add resources');
             $profile->resources()->sync([]);
         }
 

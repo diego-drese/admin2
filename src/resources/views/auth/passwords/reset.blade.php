@@ -3,7 +3,7 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ route('login') }}"><span class="logo-lg">{{ config('ironforge.logo_label') }}</span></a>
+            <a href="{{ route('login') }}"><span class="logo-lg">{{ \Config::get('ironforge.logo_label') }}</span></a>
 
         </div>
         <!-- /.login-logo -->

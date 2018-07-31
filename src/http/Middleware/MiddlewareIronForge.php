@@ -18,7 +18,7 @@ class MiddlewareIronForge
     {
 
         $routeArray         = app('request')->route()->getAction();
-        $prefix_url         = config('ironforge.prefix_url');
+        $prefix_url         = \Config::get('ironforge.prefix_url');
         $controllerAction   = $routeArray['controller'];
         $controller         = explode('@', $controllerAction);
         $ajax               = $request->ajax();

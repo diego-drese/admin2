@@ -4,14 +4,11 @@ namespace Aggrega\Ironforge;
 
 use Aggrega\Ironforge\User;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 class Resource extends Model
 {
-    use LogsActivity;
 
     protected $fillable = ['name','menu','is_menu','icon','can_be_default','parent_id'];
-    protected static $logFillable = true;
 
     public function profiles()
     {

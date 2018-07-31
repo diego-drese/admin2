@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login IronForge</title>
-    <link rel="icon" type="image/png" href="{{ config('ironforge.favicon') }}">
+    <link rel="icon" type="image/png" href="{{ Config::get('ironforge.favicon') }}">
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="/vendor/aggrega/ironforge/laravel-package-ironforge/css/app.css" rel="stylesheet">

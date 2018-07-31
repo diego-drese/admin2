@@ -11,7 +11,8 @@
 |
 */
 
-$prefix_url = config('ironforge.prefix_url');
+$prefix_url = Config::get('ironforge.prefix_url');
+
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth','Aggrega\Ironforge\Http\Middleware\MiddlewareIronForge']], function() {
 

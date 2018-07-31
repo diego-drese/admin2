@@ -17,9 +17,10 @@ class RedirectIfAuthenticatedIronforge
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $prefix_url         = config('ironforge.prefix_url');
+        $prefix_url         = \Config::get('ironforge.prefix_url');
         if (Auth::guard($guard)->check()) {
-            $redirect = Auth::User()->resourceDefault->route_name;
+            $redirect = '';
+            //$redirect = Auth::User()->resourceDefault->route_name;
             if($redirect){
                 return redirect(route($redirect));
             }

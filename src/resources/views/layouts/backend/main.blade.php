@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="icon" type="image/png" href="/vendor/aggrega/ironforge/laravel-package-ironforge/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ config('ironforge.favicon') }}">
 
     @yield('style')
     <link href="/vendor/aggrega/ironforge/laravel-package-ironforge/css/app.css" type="text/css" rel="stylesheet">

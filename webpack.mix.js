@@ -29,7 +29,7 @@ mix.copy('src/resources/assets/theme/backend/plugins/iCheck/square/blue.png', 's
 mix.copy('src/resources/assets/theme/backend/img/login.jpg', 'src/public/img');
 mix.copy('src/resources/assets/js/pt-br.json', 'src/public/js');
 
-mix.copy('src/resources/assets/theme/backend/img/favicon.ico', 'src/public/img');
+mix.copy('src/resources/assets/theme/backend/img/favicon.png', 'src/public/img');
 
 mix.copyDirectory('src/resources/assets/theme/backend/css/fonts', 'src/public/fonts');
 

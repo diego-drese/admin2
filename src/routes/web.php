@@ -47,8 +47,6 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth','Aggrega\
     Route::get('/owners/{profile}','Aggrega\Ironforge\Http\Controllers\OwnerController@edit')->name('ironforge.owner.edit')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.index', 'nameIronforge'=>'Owner Edit']);
     Route::post('/owners/{id}','Aggrega\Ironforge\Http\Controllers\OwnerController@update')->name('ironforge.owner.update')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.index', 'nameIronforge'=>'Owner Update']);
 
-    Route::get('/activities','Aggrega\Ironforge\Http\Controllers\ActivityController@index')->name('ironforge.activity.index');
-
 });
 
 

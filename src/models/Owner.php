@@ -3,10 +3,13 @@
 namespace Aggrega\Ironforge;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Owner extends Model
 {
     protected $fillable = ['name','desc','type','origin_id'];
+    use LogsActivity;
+    protected static $logFillable = true;
 
     public function user()
     {

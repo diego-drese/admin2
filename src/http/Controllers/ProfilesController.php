@@ -8,6 +8,7 @@ use Aggrega\Ironforge\Profile;
 use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\Datatables;
 
 class ProfilesController extends BaseController
@@ -117,9 +118,19 @@ class ProfilesController extends BaseController
         ]);
 
         $profile->update($dataForm);
+
         if(isset($dataForm['resources'])){
+            activity()->performedOn(new \Aggrega\Ironforge\Resource)
+                ->causedBy(auth()->user()->id)
+                ->withProperties($dataForm['resources'])
+                ->log('remove and add resources');
             $profile->resources()->sync($dataForm['resources']);
         }else{
+
+            activity()->performedOn(new \Aggrega\Ironforge\Resource)
+                ->causedBy(auth()->user()->id)
+                ->withProperties([])
+                ->log('remove and add resources');
             $profile->resources()->sync([]);
         }
 

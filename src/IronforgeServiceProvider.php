@@ -4,6 +4,8 @@ namespace Aggrega\Ironforge;
 
 use Aggrega\Ironforge\Http\ViewComposers;
 use Aggrega\Ironforge\Console\Commands\RefreshRoutes;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,14 +36,44 @@ class IronforgeServiceProvider extends ServiceProvider
             __DIR__.'/config/auth.php', 'auth'
         );
 
-
-
         $this->mergeViewComposer();
 
-
         Schema::defaultStringLength(191);
-    }
 
+        if(php_sapi_name()!='cli'){
+            $this->setObservers();
+        }
+
+    }
+    protected function setObservers(){
+
+        Owner::observe("Aggrega\\Ironforge\\Observers\\OwnerObserver");
+        Profile::observe("Aggrega\\Ironforge\\Observers\\ProfileObserver");
+        Resource::observe("Aggrega\\Ironforge\\Observers\\ResourcesObserver");
+        UserIronForge::observe("Aggrega\\Ironforge\\Observers\\UserIronForgeObserver");
+
+        Event::listen('log.createdRequest', function ($obj) {
+
+            $data = json_encode($obj->request,true);
+
+            $log_ = "Creating {$obj->model->getTable()} RequestData {$data} register #{$obj->model->id} for User {$obj->auth->id}#{$obj->auth->name}";
+
+            Log::info($log_);
+
+        });
+
+        Event::listen('log.updatedRequest', function ($obj) {
+
+            $data = json_encode($obj->request,true);
+
+            $log_ = "Updating {$obj->model->getTable()} RequestData {$data} register #{$obj->model->id} for User {$obj->auth->id}#{$obj->auth->name}";
+
+            Log::info($log_);
+
+        });
+
+
+    }
     /**
      * Merge the given configuration with the existing configuration.
      *

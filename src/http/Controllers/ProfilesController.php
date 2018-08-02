@@ -9,6 +9,7 @@ use Aggrega\Ironforge\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Yajra\Datatables\Datatables;
 
 class ProfilesController extends BaseController
@@ -76,9 +77,21 @@ class ProfilesController extends BaseController
         if(isset($dataForm['resources']))
         {
             $profile->resources()->attach($dataForm['resources']);
+            $obj = new \stdClass();
+            $obj->model = $profile;
+            $obj->auth = Auth::user();
+            $obj->request = $dataForm;
+
+            Event::fire('log.createdRequest', $obj);
         }
         else{
             $profile->resources()->attach([]);
+            $obj = new \stdClass();
+            $obj->model = $profile;
+            $obj->auth = Auth::user();
+            $obj->request = $dataForm;
+
+            Event::fire('log.createdRequest', $obj);
         }
 
         toastr()->success('Profile Criado com sucesso','Sucesso');
@@ -121,8 +134,22 @@ class ProfilesController extends BaseController
 
         if(isset($dataForm['resources'])){
             $profile->resources()->sync($dataForm['resources']);
+
+            $obj = new \stdClass();
+            $obj->model = $profile;
+            $obj->auth = Auth::user();
+            $obj->request = $dataForm;
+
+            Event::fire('log.updatedRequest', $obj);
+
         }else{
             $profile->resources()->sync([]);
+            $obj = new \stdClass();
+            $obj->model = $profile;
+            $obj->auth = Auth::user();
+            $obj->request = $dataForm;
+
+            Event::fire('log.updatedRequest', $obj);
         }
 
         toastr()->success("{$profile->name} Atualizado com sucesso",'Sucesso');

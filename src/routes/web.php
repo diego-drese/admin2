@@ -11,7 +11,7 @@
 |
 */
 
-$prefix_url = Config::get('ironforge.prefix_url');
+$prefix_url = \Config::get('ironforge.prefix_url');
 
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth','Aggrega\Ironforge\Http\Middleware\MiddlewareIronForge']], function() {
@@ -46,6 +46,9 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth','Aggrega\
     Route::post('/owners','Aggrega\Ironforge\Http\Controllers\OwnerController@store')->name('ironforge.owner.store')->where(['iconIronforge'=>'fa-floppy-o', 'nameIronforge'=>'Save Owner']);
     Route::get('/owners/{profile}','Aggrega\Ironforge\Http\Controllers\OwnerController@edit')->name('ironforge.owner.edit')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.index', 'nameIronforge'=>'Owner Edit']);
     Route::post('/owners/{id}','Aggrega\Ironforge\Http\Controllers\OwnerController@update')->name('ironforge.owner.update')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.index', 'nameIronforge'=>'Owner Update']);
+
+
+    Route::get('/log-view','Aggrega\Ironforge\Http\Controllers\LogViewController@index')->name('ironforge.logview.index');
 
 });
 

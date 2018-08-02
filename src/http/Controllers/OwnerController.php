@@ -6,6 +6,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Owner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Yajra\Datatables\Datatables;
 use Aggrega\Ironforge\Library\ResouceIronForge;
 
@@ -74,10 +76,30 @@ class OwnerController extends BaseController
 
 
         $owner = Owner::create($data);
+
         if (isset($data['users'])) {
+
             $owner->user()->attach($data['users']);
+
+            $obj = new \stdClass();
+            $obj->model = $owner;
+            $obj->auth = Auth::user();
+            $obj->request = $data;
+
+            Event::fire('log.createdRequest', $obj);
+
         }else{
             $owner->user()->attach([]);
+
+            $owner->user()->attach($data['users']);
+
+            $obj = new \stdClass();
+            $obj->model = $owner;
+            $obj->auth = Auth::user();
+            $obj->request = $data;
+
+            Event::fire('log.createdRequest', $obj);
+
         }
 
         toastr()->success("{$owner->name} foi criado com sucesso", 'Sucesso');
@@ -129,8 +151,24 @@ class OwnerController extends BaseController
         $owner->update($data);
         if (isset($data['users'])) {
             $owner->user()->sync($data['users']);
+
+
+            $obj = new \stdClass();
+            $obj->model = $owner;
+            $obj->auth = Auth::user();
+            $obj->request = $data;
+
+            Event::fire('log.updatedRequest', $obj);
+
         }else{
             $owner->user()->sync([]);
+
+            $obj = new \stdClass();
+            $obj->model = $owner;
+            $obj->auth = Auth::user();
+            $obj->request = $data;
+
+            Event::fire('log.updatedRequest', $obj);
         }
 
         toastr()->success("{$owner->name} foi Atualizado com sucesso", 'Sucesso');

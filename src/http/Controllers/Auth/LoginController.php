@@ -49,7 +49,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        $prefix_url = Config::get('ironforge.prefix_url');
+        $prefix_url = \Config::get('ironforge.prefix_url');
         if(Auth::User()->active === 0){
             $this->logout($request);
             toastr()->error('Desculpe, não é possível acessar o sistema! Entre em contato com o administrador','error');

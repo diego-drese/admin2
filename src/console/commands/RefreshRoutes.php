@@ -45,9 +45,9 @@ class RefreshRoutes extends Command
         
         foreach ($routeCollection as $routeLaravel){
             $action     = $routeLaravel->getAction();
-            $middleware = $action['middleware'];
+            $middleware = isset($action['middleware'])?$action['middleware']:null;
 
-            if (array_key_exists('controller', $action) && in_array('auth', $middleware))
+            if (array_key_exists('controller', $action) && !is_null($middleware) && in_array('auth', $middleware))
             {
                 $nameManeu      = ucfirst(str_replace('.', ' ', $routeLaravel->getName()));
                 $nameIronforge  = isset($routeLaravel->wheres['nameIronforge']) ? $routeLaravel->wheres['nameIronforge'] : $nameManeu;

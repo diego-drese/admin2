@@ -1,8 +1,5 @@
-{{--@php dd($ironForgeBreadCrumb)
-
-@endphp--}}
 <section class="content-header">
-    <span class="fa fa-user-secret icon-header font-gradient"></span>
+    <span class="fa {{$ironForgeCurrentResource->icon}}  font-gradient"></span>&nbsp;&nbsp;
     <h1>{{$ironForgeCurrentResource->name}}</h1>
     <ol class="breadcrumb">
         @foreach($ironForgeBreadCrumb as $key => $value)

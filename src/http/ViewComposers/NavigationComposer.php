@@ -20,17 +20,11 @@ class NavigationComposer
     private function composeController(View $view)
     {
 
-        $name                       = explode("\\", Route::getCurrentRoute()->getAction()['controller']);
-        $controllerMethod           =  end($name);
-        $ironForgeController        = explode("@", $controllerMethod);
-
-        $ironForgeController        = array_first($ironForgeController);
-
-        $ironForgeResourcesMenu    = $this->buildMenuRecursive(0,  Auth::user()->profile->id);
-        $ironForgeCurrentResource  = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
-
+        $ironForgeController        = array_first( explode("@", Route::getCurrentRoute()->getAction()['controller']));
+        $ironForgeResourcesMenu     = $this->buildMenuRecursive(0,  Auth::user()->profile->id);
+        $ironForgeCurrentResource   = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
         $ironForgeBreadCrumb        = $this->buildBreadCrumb($ironForgeCurrentResource, Auth::user()->profile->id);
-        $ironForgeController        = Route::getCurrentRoute()->getAction()['controller'];
+
         $view->with(compact('ironForgeController', 'ironForgeResourcesMenu','ironForgeBreadCrumb', 'ironForgeCurrentResource'));
     }
 
@@ -40,13 +34,12 @@ class NavigationComposer
         $menus = Resource::getItensMenuByParentAndProfile($parentID,$profileId);
 
         foreach ($menus as $key => $value) {
-            $name               = explode("\\", $value->controller_method);
-            $controllerMethod   =  end($name);
-            $ctrl               = explode("@", $controllerMethod);
+            $ctrl        = array_first( explode("@", $value->controller_method));
             $result[$key] = array(
                 'menu'          => $value->menu,
                 'route_name'    => $value->route_name,
-                'controller'    => $value->controller_method,
+                'controller'    => $ctrl,
+                'namespace'     => $value->controller_method,
                 'id'            => $value->id,
                 'icon'          => $value->icon,
                 'sub'           => $this->buildMenuRecursive($value->id, $profileId),

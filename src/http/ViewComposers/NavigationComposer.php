@@ -30,6 +30,7 @@ class NavigationComposer
         $ironForgeCurrentResource  = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
 
         $ironForgeBreadCrumb        = $this->buildBreadCrumb($ironForgeCurrentResource, Auth::user()->profile->id);
+        $ironForgeController        = Route::getCurrentRoute()->getAction()['controller'];
         $view->with(compact('ironForgeController', 'ironForgeResourcesMenu','ironForgeBreadCrumb', 'ironForgeCurrentResource'));
     }
 
@@ -43,12 +44,12 @@ class NavigationComposer
             $controllerMethod   =  end($name);
             $ctrl               = explode("@", $controllerMethod);
             $result[$key] = array(
-                'menu' => $value->menu,
-                'route_name' =>$value->route_name,
-                'controller' => $ctrl[0],
-                'id' => $value->id,
-                'icon' => $value->icon,
-                'sub' => $this->buildMenuRecursive($value->id, $profileId),
+                'menu'          => $value->menu,
+                'route_name'    => $value->route_name,
+                'controller'    => $value->controller_method,
+                'id'            => $value->id,
+                'icon'          => $value->icon,
+                'sub'           => $this->buildMenuRecursive($value->id, $profileId),
             );
         }
         return $result;

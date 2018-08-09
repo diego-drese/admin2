@@ -5,6 +5,8 @@
     $controllerReceive = $ctrl;
     $routeName = $item['route_name'] ? $item['route_name'] : '#';
     $route = $routeName != '#' ? route($routeName) : $routeName;
+
+
     $controllerLink = $item['controller'];
     $menu = $item['menu'];
     $icon = $item['icon'];

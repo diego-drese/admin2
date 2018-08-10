@@ -26,11 +26,9 @@
 <div class="col-md-6 form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
     <label for="title">Origin Id</label>
     <select id="selectOrigin" class="form-control"  name="origin_id" placeholder="Origin">
-
-        @if(is_numeric($owner->origin_id) && $owner->origin_name != "" )
-            <option {{$owner->exists()  ? 'selected="selected"' : '' }} value="{{$owner->origin_id}}">{{$owner->origin_name}}</option>
+        @if(is_string($owner->origin_id))
+            <option {{$owner->exists()  ? 'selected="selected"' : '' }} value="{{$owner->origin_id}}">{{$owner->origin_id}}</option>
         @endif
-
         <option value="">Select</option>
     </select>
 

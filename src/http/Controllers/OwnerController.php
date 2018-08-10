@@ -166,7 +166,9 @@ class OwnerController extends BaseController
         ]);
 
         if(isset($data['origin_id']) && strpos($data['origin_id'], '#') ){
+
             list($data['origin_id'],$data['origin_name']) = explode('#',$data['origin_id']);
+
         }elseif(!is_numeric($data['origin_id'])){//quando o origin id for all limpar origin_name
             $data['origin_name'] = null;
         }

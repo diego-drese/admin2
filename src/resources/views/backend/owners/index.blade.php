@@ -29,6 +29,7 @@
                                         <td role="row">#</td>
                                         <td>Name</td>
                                         <td>Type</td>
+                                        <td>Origin Id</td>
                                         <td>Description</td>
                                         <td>Users</td>
                                         <td>Actions</td>
@@ -62,6 +63,19 @@
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
                     {data: "type", 'name': 'type'},
+
+                    {
+                        data: null, searchable: false, orderable: false, render: function (data) {
+                            console.log(data);
+                            console.log(data.origin_id);
+
+                          return !isNaN(data.origin_id)?data.origin_name:data.origin_id;
+                        }
+                    },
+
+
+
+
                     {data: "desc", 'name': 'desc'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {

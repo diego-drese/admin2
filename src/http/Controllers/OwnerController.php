@@ -2,6 +2,8 @@
 
 namespace Aggrega\Ironforge\Http\Controllers;
 
+use Aggrega\CoreAggrega\Entities\Product;
+use Aggrega\Reports\Library\Report;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Aggrega\Ironforge\Owner;
@@ -22,8 +24,6 @@ class OwnerController extends BaseController
      * @return \Illuminate\Http\Response
      */
 
-
-
     public function index(Request $request,DataTables $datatables ) {
 
         if($request->ajax()){
@@ -38,6 +38,7 @@ class OwnerController extends BaseController
                 ->setRowClass(function () {
                     return 'center';
                 })
+                ->rawColumns(['desc'])
                 ->make(true);
         }
 
@@ -53,9 +54,12 @@ class OwnerController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Owner $owner)
+    public function create(Owner $owner,Request $request)
     {
-
+        if($request->ajax()){
+            //retorna o json com a lista de opcoes do type owner
+            return $this->getArrOriginIdByOwnerType($request);
+        }
         $userOwners = $owner->user->pluck('id')->toArray();
         return view('Ironforge::backend.owners.create', compact('owner','userOwners'));
     }
@@ -71,9 +75,16 @@ class OwnerController extends BaseController
         $data = $request->all();
 
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
+            'type' => 'required',
+            'origin_id' => 'required',
         ]);
 
+        if(isset($data['origin_id']) && strpos($data['origin_id'], '#') ){
+            list($data['origin_id'],$data['origin_name']) = explode('#',$data['origin_id']);
+        }elseif(!is_numeric($data['origin_id'])){
+            $data['origin_name'] = null;
+        }
 
         $owner = Owner::create($data);
 
@@ -123,8 +134,12 @@ class OwnerController extends BaseController
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
+        if($request->ajax()){
+            //retorna o json com a lista de opcoes do type owner
+            return $this->getArrOriginIdByOwnerType($request);
+        }
         $owner = Owner::findOrFail($id);
         $userOwners = $owner->user->pluck('id')->toArray();
 
@@ -145,13 +160,21 @@ class OwnerController extends BaseController
         $data = $request->all();
 
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
+            'type' => 'required',
+            'origin_id' => 'required',
         ]);
 
+        if(isset($data['origin_id']) && strpos($data['origin_id'], '#') ){
+            list($data['origin_id'],$data['origin_name']) = explode('#',$data['origin_id']);
+        }elseif(!is_numeric($data['origin_id'])){//quando o origin id for all limpar origin_name
+            $data['origin_name'] = null;
+        }
         $owner->update($data);
+
+
         if (isset($data['users'])) {
             $owner->user()->sync($data['users']);
-
 
             $obj = new \stdClass();
             $obj->model = $owner;
@@ -184,5 +207,15 @@ class OwnerController extends BaseController
     public function destroy($id)
     {
         //
+    }
+
+    private function getArrOriginIdByOwnerType($ownerType){
+
+       $ifronForgeConfigTypes = \Config::get('ironforge.owner_type');
+
+       $class = new $ifronForgeConfigTypes[$ownerType->owner_type];
+
+       return $class::getOwnerId($ownerType->owner_type);
+
     }
 }

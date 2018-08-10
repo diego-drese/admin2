@@ -9,17 +9,31 @@
 
 <div class="col-md-6 form-group {{$errors->has('type') ? 'has-error' : ''}} ">
     <label for="title">Type</label>
-    <input type="text" class="form-control" value="{{old('type',$owner->exists() ? $owner->type : '')}}" name="type"
-           id="type" placeholder="Type">
+    <select id="selectTypes" class="form-control"  name="type" placeholder="Users">
+        <option value="">Select</option>
+        @php $types =  \Illuminate\Support\Facades\Config::get('ironforge.owner_type') ;@endphp
+        @foreach($types as $key=>$type)
+            <option {{$owner->exists() && $owner->type==$key ? 'selected="selected"' : '' }} value="{{$key}}">{{$key}}</option>
+        @endforeach
+    </select>
+
     @if($errors->has('type'))
         <span class="help-block">{{$errors->first('type')}}</span>
     @endif
+
 </div>
 
 <div class="col-md-6 form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
     <label for="title">Origin Id</label>
-    <input type="text" class="form-control" value="{{old('origin_id',$owner->exists() ? $owner->origin_id : '')}}" name="origin_id"
-           id="origin_id" placeholder="Origin Id">
+    <select id="selectOrigin" class="form-control"  name="origin_id" placeholder="Origin">
+
+        @if(is_numeric($owner->origin_id) && $owner->origin_name != "" )
+            <option {{$owner->exists()  ? 'selected="selected"' : '' }} value="{{$owner->origin_id}}">{{$owner->origin_name}}</option>
+        @endif
+
+        <option value="">Select</option>
+    </select>
+
     @if($errors->has('origin_id'))
         <span class="help-block">{{$errors->first('origin_id')}}</span>
     @endif
@@ -44,9 +58,8 @@
     @endif
 </div>
 
-
 <div class="col-md-12 form-group">
-    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-success btn-save">Save</button>
 </div>
 
 @section('style')
@@ -61,7 +74,18 @@
     <script src="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/plugins/colors/trumbowyg.colors.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#selectUsers').select2();
+
+
+            $("form").submit(function() {
+                if ($("#selectOrigin").val() == "all") {
+                   if(confirm("Are you sure you want to allow access to all records?")){
+                       return true;
+                   }
+                   return false;
+                }
+            });
+
+            $('#selectUsers,#selectTypes,#selectOrigin').select2();
 
             $('#editor').trumbowyg({
                 semantic: true,
@@ -79,6 +103,28 @@
                     ['removeformat'],
                     ['fullscreen']
                 ]
+            });
+
+            $("#selectTypes").change(function () {
+
+                url = '{{ route('ironforge.owner.create') }}';
+
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: {'owner_type':this.value},
+                    dataType: 'json',
+                    success: function (json) {
+                        $('#selectOrigin').empty();
+
+                        $('#selectOrigin').append($('<option>').text('All').attr('value', 'all'));
+
+                        $.each(json, function (i, obj) {
+
+                            $('#selectOrigin').append($('<option>').text(obj.name).attr('value', obj.id+'#'+obj.name));
+                        });
+                    }
+                });
             });
 
         });

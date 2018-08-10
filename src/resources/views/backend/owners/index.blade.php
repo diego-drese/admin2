@@ -28,6 +28,7 @@
                                     <tr class="center">
                                         <td role="row">#</td>
                                         <td>Name</td>
+                                        <td>Type</td>
                                         <td>Description</td>
                                         <td>Users</td>
                                         <td>Actions</td>
@@ -60,6 +61,7 @@
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
+                    {data: "type", 'name': 'type'},
                     {data: "desc", 'name': 'desc'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {

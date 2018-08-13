@@ -26,9 +26,7 @@
 <div class="col-md-6 form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
     <label for="title">Origin Id</label>
     <select id="selectOrigin" class="form-control"  name="origin_id" placeholder="Origin">
-        @if(is_string($owner->origin_id))
-            <option {{$owner->exists()  ? 'selected="selected"' : '' }} value="{{$owner->origin_id}}">{{$owner->origin_id}}</option>
-        @endif
+        <option {{$owner->exists()  ? 'selected="selected"' : '' }} value="{{$owner->origin_id}}">{{ucfirst($owner->origin_name)}}</option>
         <option value="">Select</option>
     </select>
 
@@ -72,7 +70,6 @@
     <script src="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/plugins/colors/trumbowyg.colors.min.js"></script>
     <script>
         $(document).ready(function () {
-
 
             $("form").submit(function() {
                 if ($("#selectOrigin").val() == "all") {

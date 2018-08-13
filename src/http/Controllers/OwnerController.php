@@ -169,9 +169,10 @@ class OwnerController extends BaseController
 
             list($data['origin_id'],$data['origin_name']) = explode('#',$data['origin_id']);
 
-        }elseif(!is_numeric($data['origin_id'])){//quando o origin id for all limpar origin_name
-            $data['origin_name'] = null;
+        }elseif($data['origin_id']=='all'){//quando o origin id for all limpar origin_name
+            $data['origin_name'] = $data['origin_id'] = 'all';
         }
+
         $owner->update($data);
 
 

@@ -85,9 +85,12 @@ class IronforgeServiceProvider extends ServiceProvider
     {
 
         $config = $this->app['config']->get($key, []);
-
-        if($key=='auth'  || empty($config)){
-            $this->app['config']->set($key, array_merge($config, require $path));
+        if($key=='auth'  || !isset($config['prefix_url'])){
+            $rootArray=require $path;
+            if(!empty($config['owner_type'])){
+                $rootArray['owner_type'] = $config['owner_type'];
+            }
+            $this->app['config']->set($key, array_merge($config, $rootArray));
         }
 
     }

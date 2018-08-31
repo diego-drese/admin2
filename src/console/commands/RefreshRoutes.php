@@ -47,6 +47,9 @@ class RefreshRoutes extends Command
             $action     = $routeLaravel->getAction();
             $middleware = isset($action['middleware'])?$action['middleware']:null;
 
+            if(null!=$middleware && !is_array($middleware)){
+                $middleware = [$middleware];
+            }
             if (array_key_exists('controller', $action) && !is_null($middleware) && in_array('auth', $middleware))
             {
                 $nameManeu      = ucfirst(str_replace('.', ' ', $routeLaravel->getName()));

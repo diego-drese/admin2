@@ -32,8 +32,9 @@ class IronforgeServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/ironforge.php', 'ironforge'
         );
+
         $this->mergeConfigFrom(
-            __DIR__.'/config/auth.php', 'auth'
+            __DIR__ . '/config/providers.php', 'auth.providers'
         );
 
         $this->mergeViewComposer();

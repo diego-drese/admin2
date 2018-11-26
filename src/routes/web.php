@@ -35,14 +35,15 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth','Aggrega\
     Route::post('/resources','Aggrega\Ironforge\Http\Controllers\ResourcesController@store')->name('ironforge.resources.store')->where(['iconIronforge'=>'fa-floppy-o', 'nameIronforge'=>'Save Resource']);
     Route::get('/resources/{profile}','Aggrega\Ironforge\Http\Controllers\ResourcesController@edit')->name('ironforge.resources.edit')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.resources.index', 'nameIronforge'=>'Resource Edit']);
     Route::post('/resources/{id}','Aggrega\Ironforge\Http\Controllers\ResourcesController@update')->name('ironforge.resources.update')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.resources.index', 'nameIronforge'=>'Resource Update']);
-
     Route::get('/owners','Aggrega\Ironforge\Http\Controllers\OwnerController@index')->name('ironforge.owner.index')->where(['iconIronforge'=>'fa-registered', 'menuIronforge'=> "Owner", 'parentRouteNameIronforge' => 'System Ironforge', 'nameIronforge'=>'Owner Listing', 'isDefaultIronforge'=>'1']);
     Route::get('/owners/create','Aggrega\Ironforge\Http\Controllers\OwnerController@create')->name('ironforge.owner.create')->where(['iconIronforge'=>'fa-plus-square', 'parentRouteNameIronforge' => 'ironforge.profiles.index', 'nameIronforge'=>'Owner Create', 'isDefaultIronforge'=>'1']);
     Route::post('/owners','Aggrega\Ironforge\Http\Controllers\OwnerController@store')->name('ironforge.owner.store')->where(['iconIronforge'=>'fa-floppy-o', 'nameIronforge'=>'Save Owner']);
     Route::get('/owners/{profile}','Aggrega\Ironforge\Http\Controllers\OwnerController@edit')->name('ironforge.owner.edit')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.index', 'nameIronforge'=>'Owner Edit']);
     Route::post('/owners/{id}','Aggrega\Ironforge\Http\Controllers\OwnerController@update')->name('ironforge.owner.update')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.index', 'nameIronforge'=>'Owner Update']);
-
+    Route::post('/show-actived-origin', 'Aggrega\Ironforge\Http\Controllers\OwnerController@showActivedOrigin')->name('ironforge.owner.show-actived')->where(['iconIronforge'=>'fa-pencil-square-o ', 'parentRouteNameIronforge' => 'ironforge.owner.show-actived', 'nameIronforge'=>'Owner show actived']);
     Route::get('/log-view','Aggrega\Ironforge\Http\Controllers\LogViewController@index')->name('ironforge.logview.index');
+
+    Route::get('/updade-owner-iron', 'Aggrega\Ironforge\Http\Controllers\OwnerController@updateFieldsToJson')->name('ironforge.updateowner.update');
 
 });
 

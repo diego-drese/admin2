@@ -1,7 +1,6 @@
 <div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Name</label>
-    <input type="text" class="form-control" value="{{old('name',$owner->exists() ? $owner->name : '')}}" name="name"
-           id="name" placeholder="Name">
+    <input type="text" class="form-control" value="{{old('name',$owner->exists() ? $owner->name : '')}}" name="name" id="name" placeholder="Name">
     @if($errors->has('name'))
         <span class="help-block">{{$errors->first('name')}}</span>
     @endif
@@ -16,20 +15,24 @@
             <option {{$owner->exists() && $owner->type==$key ? 'selected="selected"' : '' }} value="{{$key}}">{{$key}}</option>
         @endforeach
     </select>
-
     @if($errors->has('type'))
         <span class="help-block">{{$errors->first('type')}}</span>
     @endif
-
 </div>
 
 <div class="col-md-6 form-group {{$errors->has('origin_id') ? 'has-error' : ''}} ">
     <label for="title">Origin Id</label>
-    <select id="selectOrigin" class="form-control"  name="origin_id" placeholder="Origin">
-        <option {{$owner->exists()  ? 'selected="selected"' : '' }} value="{{$owner->origin_id}}">{{ucfirst($owner->origin_name)}}</option>
-        <option value="">Select</option>
+    <select multiple id="selectOrigin" name="origin_id[]" placeholder="Origin" class=" form-control  select2" data-style="btn-primary">
+		@php if (count($origin_ids)) { @endphp
+        	 @foreach($origin_ids as $ko => $origin)
+        		<option {{ !empty($origin) ? 'selected="selected"' : '' }} value="{{$ko}}">{{$origin}}</option>		
+        	 @endforeach
+        @php } @endphp
     </select>
-
+    <label class="mt-checkbox tooltips" data-toggle="tooltip" title="Check here to exclude your search options." data-container="body">
+        <input type="checkbox" id="cbxCselectOriginNot" name="origin_excluding_ids" value="1"  {{ ($owner->origin_excluding_ids == true) ? 'checked' : '' }}>
+        <span></span>
+    </label>
     @if($errors->has('origin_id'))
         <span class="help-block">{{$errors->first('origin_id')}}</span>
     @endif
@@ -70,7 +73,7 @@
     <script src="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/plugins/colors/trumbowyg.colors.min.js"></script>
     <script>
         $(document).ready(function () {
-
+        	var id = '{{$id}}';
             $("form").submit(function() {
                 if ($("#selectOrigin").val() == "all") {
                    if(confirm("Are you sure you want to allow access to all records?")){
@@ -80,7 +83,7 @@
                 }
             });
 
-            $('#selectUsers,#selectTypes,#selectOrigin').select2();
+            $('#selectUsers, #selectTypes, #selectOrigin').select2();
 
             $('#editor').trumbowyg({
                 semantic: true,
@@ -100,26 +103,45 @@
                 ]
             });
 
+            var selectTypes = $("#selectTypes").val();
+            if ("" != selectTypes) {
+                //console.warn(id);
+            	$(window).bind("load", function() { 
+                    url = '{{ route('ironforge.owner.create') }}';
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        data: {'owner_type':$("#selectTypes").val(), 'owner_edit': id},
+                        dataType: 'json',
+                        success: function (json) {
+                            $('#selectOrigin').append($('<option>').text('All').attr('value', 'all'));
+                            $.each(json, function (i, obj) {
+                                $('#selectOrigin').append($('<option>').text(obj.name).attr('value', obj.id+'#'+obj.name));
+                            });
+                        }
+                    });
+               });
+            }
+            
             $("#selectTypes").change(function () {
-
-                url = '{{ route('ironforge.owner.create') }}';
-
-                $.ajax({
-                    url: url,
-                    type: 'GET',
-                    data: {'owner_type':this.value},
-                    dataType: 'json',
-                    success: function (json) {
-                        $('#selectOrigin').empty();
-
-                        $('#selectOrigin').append($('<option>').text('All').attr('value', 'all'));
-
-                        $.each(json, function (i, obj) {
-
-                            $('#selectOrigin').append($('<option>').text(obj.name).attr('value', obj.id+'#'+obj.name));
-                        });
-                    }
-                });
+            	if ("" != $("#selectTypes").val()) {
+            		url = '{{ route('ironforge.owner.create') }}';
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        data: {'owner_type':this.value},
+                        dataType: 'json',
+                        success: function (json) {
+                            $('#selectOrigin').empty();
+                            $('#selectOrigin').append($('<option>').text('All').attr('value', 'all'));
+                            $.each(json, function (i, obj) {
+                                $('#selectOrigin').append($('<option>').text(obj.name).attr('value', obj.id+'#'+obj.name));
+                            });
+                        }
+                    });
+                } else {
+                	$('#selectOrigin').empty();
+                }
             });
 
         });

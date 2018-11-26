@@ -23,8 +23,3 @@
     </section>
 </div>
 @endsection
-
-
-
-
-

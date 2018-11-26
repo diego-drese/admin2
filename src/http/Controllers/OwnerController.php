@@ -260,7 +260,9 @@ class OwnerController extends BaseController
 
        $returnAll = $class::getOwnerId($ownerType->owner_type);
 
-       $returnAll = $returnAll->toArray();
+       if (!empty($returnAll) && method_exists($returnAll, 'toArray')) {
+           $returnAll = $returnAll->toArray();
+       }
 
        /* LOAD::REMOVE selected from the remain list */
        if (isset($ownerType->owner_edit)) {

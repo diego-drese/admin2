@@ -32,7 +32,7 @@ class Owner extends Model
                     ->where('type', $type)
                     ->first();
 
-        if ($excluding->origin_excluding_ids) {
+        if (isset($excluding->origin_excluding_ids) && $excluding->origin_excluding_ids) {
             $owners = self::select('remain_list_id')
                         ->join('user_has_owners', 'user_has_owners.owner_id', 'owners.id')
                         ->where('user_has_owners.user_id', $userId)

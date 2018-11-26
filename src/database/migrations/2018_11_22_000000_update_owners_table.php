@@ -14,7 +14,7 @@ class UpdateOwnersTable extends Migration {
         Schema::connection('mysql')->table('owners', function (Blueprint $table) {
             $table->text('origin_id')->change();
 			$table->text('origin_name')->change();
-			$table->tinyInteger('origin_excluding_ids', 4)->default(0);
+			$table->tinyInteger('origin_excluding_ids')->default(0);
 			$table->text('remain_list_id')->nullable();
 			$table->text('remain_list_name')->nullable();
         });

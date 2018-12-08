@@ -1,24 +1,23 @@
 {
-    "name": "aggrega/ironforge",
-    "description": "Iron Forge Project",
+    "name": "negotiate/admin",
+    "description": "Negotiate admin PKG",
     "type": "package",
     "license": "MIT",
     "keywords": [
-        "Aggrega IronForge",
-        "Aggrega Iron forge",
-        "Iron forge",
-        "Ironforge"
+        "Negotiate Admin",
+        "Admin",
+        "Admin"
     ],
     "authors": [
         {
-            "name": "Luan Garcia",
-            "email": "luan.garcia@aggregando.com.br"
+            "name": "Diego Drese",
+            "email": "diego-neumann@hotmail.com"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Aggrega\\Ironforge\\IronforgeServiceProvider"
+                "Negotiate\\Admin\\NegotiateServiceProvider"
             ]
         }
     },
@@ -26,7 +25,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Aggrega\\Ironforge\\": "src/"
+            "Negotiate\\Admin\\": "src/"
         }
     },
 

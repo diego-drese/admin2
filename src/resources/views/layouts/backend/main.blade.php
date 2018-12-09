@@ -10,13 +10,9 @@
     <link rel="icon" type="image/png" href="{{ Config::get('admin.favicon') }}">
 
     @yield('style')
-<<<<<<< HEAD
     <link href="/vendor/negotiate/admin/css/app.css" type="text/css" rel="stylesheet">
     <script src="//use.edgefonts.net/kaushan-script.js"></script>
-=======
-    <link href="/vendor/aggrega/ironforge/laravel-package-ironforge/css/app.css" type="text/css" rel="stylesheet">
-    <script src="https://use.edgefonts.net/kaushan-script.js"></script>
->>>>>>> e75e326e3c06a39f217b5875a0cda0394f404ae3
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>

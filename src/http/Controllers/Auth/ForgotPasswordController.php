@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers\Auth;
+namespace Negotiate\Admin\Http\Controllers\Auth;
 
-use Aggrega\Ironforge\Http\Controllers\Controller;
+use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -37,7 +37,7 @@ class ForgotPasswordController extends Controller
     public function showLinkRequestForm()
     {
 
-        return view('Ironforge::auth.passwords.email');
+        return view('Admin::auth.passwords.email');
     }
 
 

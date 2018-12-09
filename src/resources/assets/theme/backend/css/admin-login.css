@@ -1,7 +1,5 @@
 body.login-page{
-    background: linear-gradient( rgba(0, 0, 0, 0.62), rgb(10, 20, 43) ),
-    url('/vendor/aggrega/ironforge/laravel-package-ironforge/img/login.jpg') no-repeat center;
-    background-size: cover;
+
 }
 
 @keyframes fade-slide-down {

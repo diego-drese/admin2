@@ -1,9 +1,9 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('content')
 @section('title', 'Resource Edit')
 
 <div class="content-wrapper">
-@include('Ironforge::layouts.backend.breadcrumb')
+@include('Admin::layouts.backend.breadcrumb')
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -12,9 +12,9 @@
                     </div>
                     <div class="box-body ">
                         <div class="col-lg-12">
-                            <form method="post" action="{{route('ironforge.resources.update', $resource->id)}}">
+                            <form method="post" action="{{route('admin.resources.update', $resource->id)}}">
                                 {{csrf_field()}}
-                                @include('Ironforge::backend.resources.form')
+                                @include('Admin::backend.resources.form')
                             </form>
                         </div>
                     </div>

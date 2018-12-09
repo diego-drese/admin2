@@ -1,7 +1,7 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('content')
     <div class="content-wrapper">
-        @include('Ironforge::layouts.backend.breadcrumb')
+        @include('Admin::layouts.backend.breadcrumb')
 
         <section class="content">
             <div class="row">

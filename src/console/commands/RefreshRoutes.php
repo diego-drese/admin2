@@ -1,6 +1,6 @@
 <?php
 
-namespace Aggrega\Ironforge\Console\Commands;
+namespace Negotiate\Admin\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +12,7 @@ class RefreshRoutes extends Command
      *
      * @var string
      */
-    protected $signature = 'ironforge:routes';
+    protected $signature = 'Negotiate:AdminRoutes';
 
     /**
      * The console command description.
@@ -53,37 +53,37 @@ class RefreshRoutes extends Command
             if (array_key_exists('controller', $action) && !is_null($middleware) && in_array('auth', $middleware))
             {
                 $nameManeu      = ucfirst(str_replace('.', ' ', $routeLaravel->getName()));
-                $nameIronforge  = isset($routeLaravel->wheres['nameIronforge']) ? $routeLaravel->wheres['nameIronforge'] : $nameManeu;
+                $nameAdmin  = isset($routeLaravel->wheres['nameAdmin']) ? $routeLaravel->wheres['nameAdmin'] : $nameManeu;
 
                 $routes[] = [
                     'controllerMethod'          => $action['controller'],
                     "routeName"                 => $routeLaravel->getName(),
-                    "nameIronforge"             => $nameIronforge,
-                    "isDefaultIronforge"        => isset($routeLaravel->wheres['isDefaultIronforge'])       ? $routeLaravel->wheres['isDefaultIronforge']      : 0,
-                    "iconIronforge"             => isset($routeLaravel->wheres['iconIronforge'])            ? $routeLaravel->wheres['iconIronforge']           : '',
-                    "menuIronforge"             => isset($routeLaravel->wheres['menuIronforge'])            ? $routeLaravel->wheres['menuIronforge']           : '',
-                    "parentRouteNameIronforge"  => isset($routeLaravel->wheres['parentRouteNameIronforge']) ? $routeLaravel->wheres['parentRouteNameIronforge']: false
+                    "nameAdmin"             => $nameAdmin,
+                    "isDefaultAdmin"        => isset($routeLaravel->wheres['isDefaultAdmin'])       ? $routeLaravel->wheres['isDefaultAdmin']      : 0,
+                    "iconAdmin"             => isset($routeLaravel->wheres['iconAdmin'])            ? $routeLaravel->wheres['iconAdmin']           : '',
+                    "menuAdmin"             => isset($routeLaravel->wheres['menuAdmin'])            ? $routeLaravel->wheres['menuAdmin']           : '',
+                    "parentRouteNameAdmin"  => isset($routeLaravel->wheres['parentRouteNameAdmin']) ? $routeLaravel->wheres['parentRouteNameAdmin']: false
                 ];
             }
         }
         foreach ($routes as $key => $route) {
 
-            $res = \Aggrega\Ironforge\Resource::where('route_name', $route['routeName'])->first();
+            $res = \Negotiate\Admin\Resource::where('route_name', $route['routeName'])->first();
 
             if (!$res) {
-                    $res = new \Aggrega\Ironforge\Resource();
-                    $res->name              = $route['nameIronforge'];
-                    $res->menu              = $route['menuIronforge'] ;
-                    $res->is_menu           = $route['menuIronforge'] ? 1 : 0;
+                    $res = new \Negotiate\Admin\Resource();
+                    $res->name              = $route['nameAdmin'];
+                    $res->menu              = $route['menuAdmin'] ;
+                    $res->is_menu           = $route['menuAdmin'] ? 1 : 0;
                     $res->route_name        = $route['routeName'];
-                    $res->icon              = $route['iconIronforge'];
+                    $res->icon              = $route['iconAdmin'];
                     $res->controller_method = $route['controllerMethod'];
-                    $res->can_be_default    = $route['isDefaultIronforge'];
+                    $res->can_be_default    = $route['isDefaultAdmin'];
                     $res->order             = 0;
 
                     /** Busca o id do parent $res */
-                    if($route['parentRouteNameIronforge']){
-                        $resParent = \Aggrega\Ironforge\Resource::getResourceIdByRouteName($route['parentRouteNameIronforge']);
+                    if($route['parentRouteNameAdmin']){
+                        $resParent = \Negotiate\Admin\Resource::getResourceIdByRouteName($route['parentRouteNameAdmin']);
                         if($resParent){
                             $res->parent_id         = $resParent->id;
                         }

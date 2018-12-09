@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers\Auth;
+namespace Negotiate\Admin\Http\Controllers\Auth;
 
-use Aggrega\Ironforge\Http\Controllers\Controller;
+use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +37,7 @@ class LoginController extends Controller
     public function __construct()
     {
 
-        $this->middleware('Aggrega\\Ironforge\\Http\\Middleware\\RedirectIfAuthenticatedIronforge')->except('logout');
+        $this->middleware('Negotiate\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedIronforge')->except('logout');
     }
 
     public function logout(Request $request)
@@ -49,7 +49,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        $prefix_url = \Config::get('ironforge.prefix_url');
+        $prefix_url = \Config::get('admin.prefix_url');
         if(Auth::User()->active === 0){
             $this->logout($request);
             toastr()->error('Desculpe, não é possível acessar o sistema! Entre em contato com o administrador','error');
@@ -70,7 +70,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
 
-        return view('Ironforge::auth.login');
+        return view('Admin::auth.login');
     }
 
 }

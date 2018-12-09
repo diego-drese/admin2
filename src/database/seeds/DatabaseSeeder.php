@@ -1,6 +1,6 @@
 <?php
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 
 use Illuminate\Database\Seeder;
 

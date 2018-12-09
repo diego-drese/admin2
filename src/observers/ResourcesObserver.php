@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Aggrega\Ironforge\Observers;
+namespace Negotiate\Admin\Observers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -20,7 +20,7 @@ class ResourcesObserver
         {
             foreach($changes as $attr => $value)
             {
-                $log_ .= "Ironforge Creating {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+                $log_ .= "Admin Creating {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
             }
 
             Log::info($log_);
@@ -39,7 +39,7 @@ class ResourcesObserver
         {
             foreach($changes as $attr => $value)
             {
-                $log_ .= "Ironforge Updated {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+                $log_ .= "Admin Updated {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
             }
 
             Log::info($log_);

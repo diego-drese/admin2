@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -19,7 +19,7 @@ class ResourceTableSeed extends Seeder
     {
         DB::table('resources')->insert([
             [
-                'name' => "System Ironforge",
+                'name' => "System Admin",
                 'menu' => 'System',
                 'is_menu' => 1,
                 'route_name' => null,

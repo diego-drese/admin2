@@ -1,17 +1,17 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
+namespace Negotiate\Admin\Http\Controllers;
 
-use Aggrega\CoreAggrega\Entities\Product;
-use Aggrega\Reports\Library\Report;
+use Negotiate\CoreAggrega\Entities\Product;
+use Negotiate\Reports\Library\Report;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Aggrega\Ironforge\Owner;
+use Negotiate\Admin\Owner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Yajra\Datatables\Datatables;
-use Aggrega\Ironforge\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResouceIronForge;
 
 
 class OwnerController extends BaseController
@@ -32,7 +32,7 @@ class OwnerController extends BaseController
 
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
-                    return route('ironforge.owner.edit', [$row->id]);
+                    return route('admin.owner.edit', [$row->id]);
                 })
                 ->addColumn('origin_id', function($row) {
                     $var     = $row->toArray();
@@ -64,10 +64,10 @@ class OwnerController extends BaseController
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.owner.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.owner.edit', [1]);
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.owner.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.owner.edit', [1]);
         
-        return view('Ironforge::backend.owners.index',compact('hasAdd', 'hasEdit'));
+        return view('Admin::backend.owners.index',compact('hasAdd', 'hasEdit'));
 
     }
 
@@ -92,7 +92,7 @@ class OwnerController extends BaseController
         $id         = "";
         $userOwners = $owner->user->pluck('id')->toArray();
 
-        return view('Ironforge::backend.owners.create', compact('id', 'owner', 'userOwners', 'origin_ids'));
+        return view('Admin::backend.owners.create', compact('id', 'owner', 'userOwners', 'origin_ids'));
     }
 
     /**
@@ -147,7 +147,7 @@ class OwnerController extends BaseController
         }
 
         toastr()->success("{$owner->name} foi criado com sucesso", 'Sucesso');
-        return redirect(route('ironforge.owner.index'));
+        return redirect(route('admin.owner.index'));
     }
 
     /**
@@ -183,7 +183,7 @@ class OwnerController extends BaseController
 
         $userOwners = $owner->user->pluck('id')->toArray();
 
-        return view('Ironforge::backend.owners.edit', compact('id', 'owner', 'userOwners', 'origin_ids'));
+        return view('Admin::backend.owners.edit', compact('id', 'owner', 'userOwners', 'origin_ids'));
     }
 
     /**
@@ -239,7 +239,7 @@ class OwnerController extends BaseController
         }
 
         toastr()->success("{$owner->name} foi Atualizado com sucesso", 'Sucesso');
-        return redirect(route('ironforge.owner.index'));
+        return redirect(route('admin.owner.index'));
     }
 
     /**
@@ -254,7 +254,7 @@ class OwnerController extends BaseController
 
     private function getArrOriginIdByOwnerType($ownerType) {
 
-       $ifronForgeConfigTypes = \Config::get('ironforge.owner_type');
+       $ifronForgeConfigTypes = \Config::get('admin.owner_type');
 
        $class = new $ifronForgeConfigTypes[$ownerType->owner_type];
 
@@ -336,7 +336,7 @@ class OwnerController extends BaseController
             return false;
         }
 
-        $ifronForgeConfigTypes = \Config::get('ironforge.owner_type');
+        $ifronForgeConfigTypes = \Config::get('admin.owner_type');
 
         $class = new $ifronForgeConfigTypes[$type];
 

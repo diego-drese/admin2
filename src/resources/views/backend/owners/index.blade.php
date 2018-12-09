@@ -1,8 +1,8 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'Owners')
 @section('content')
     <div class="content-wrapper">
-        @include('Ironforge::layouts.backend.breadcrumb')
+        @include('Admin::layouts.backend.breadcrumb')
         <section class="content">
             <div class="row">
                 <div class="col-md-12">
@@ -10,8 +10,8 @@
                         <div class="box-header">
                             <div class="pull-left">
                                 @if($hasAdd)
-                                    <a href="{{route('ironforge.owner.create')}}">
-                                        <a href="{{route('ironforge.owner.create')}}" class="btn btn-success">
+                                    <a href="{{route('admin.owner.create')}}">
+                                        <a href="{{route('admin.owner.create')}}" class="btn btn-success">
                                             Add New <span class="fa fa-plus"></span>
                                         </a>
                                     </a>
@@ -87,7 +87,7 @@
                 serverSide: true,
                 processing: true,
                 autoWidth:false,
-                ajax: '{{ route('ironforge.owner.index') }}',
+                ajax: '{{ route('admin.owner.index') }}',
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},

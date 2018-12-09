@@ -1,11 +1,11 @@
 <?php
 
-namespace Aggrega\Ironforge\Library;
+namespace Negotiate\Admin\Library;
 
-use Aggrega\Ironforge\Profile;
-use Aggrega\Ironforge\Resource;
-use Aggrega\Ironforge\User;
-use Aggrega\Ironforge\UserIronForge;
+use Negotiate\Admin\Profile;
+use Negotiate\Admin\Resource;
+use Negotiate\Admin\User;
+use Negotiate\Admin\UserIronForge;
 use Illuminate\Support\Facades\Auth;
 
 class ResouceIronForge

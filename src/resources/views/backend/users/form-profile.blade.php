@@ -138,7 +138,7 @@
 
 
             function getResourcesByProfileId($id) {
-                var url = '{{route('ironforge.users.resourcesDefault', [':id'])}}';
+                var url = '{{route('admin.users.resourcesDefault', [':id'])}}';
                 url     = url.replace(':id', $id)
                 $.ajax({
                     url: url,

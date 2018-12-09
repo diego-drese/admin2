@@ -1,9 +1,9 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
-//use Aggrega\Ironforge\Http\Controllers\AuthIronForge;
-use Aggrega\Ironforge\Resource;
-use Aggrega\Ironforge\UserIronForge;
+namespace Negotiate\Admin\Http\Controllers;
+//use Negotiate\Admin\Http\Controllers\AuthIronForge;
+use Negotiate\Admin\Resource;
+use Negotiate\Admin\UserIronForge;
 
 class PublicMethods extends Controller
 {
@@ -22,7 +22,7 @@ class PublicMethods extends Controller
     {
         $auth = Auth::user();
         $user = UserIronForge::findOrFail($auth->id);
-        return view('Ironforge::backend.authProfile.edit', compact('user'));
+        return view('Admin::backend.authProfile.edit', compact('user'));
     }
 
     public function userUpdateStore(Request $request, $id)

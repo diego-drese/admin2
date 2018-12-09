@@ -1,5 +1,5 @@
 @if(Auth::check())
-    @extends('Ironforge::layouts.backend.main')
+    @extends('Admin::layouts.backend.main')
     @section('title', 'Page not Allowed')
     @section('content')
     <div class="content-wrapper">

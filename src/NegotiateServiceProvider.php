@@ -1,16 +1,16 @@
 <?php
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 
-use Aggrega\Ironforge\Http\ViewComposers;
-use Aggrega\Ironforge\Console\Commands\RefreshRoutes;
+use Negotiate\Admin\Http\ViewComposers;
+use Negotiate\Admin\Console\Commands\RefreshRoutes;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 
-class IronforgeServiceProvider extends ServiceProvider
+class NegotiateServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -20,17 +20,17 @@ class IronforgeServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'Ironforge');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'Admin');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
         $this->publishes([
-            __DIR__ . '/public' => public_path('vendor/aggrega/ironforge/laravel-package-ironforge'),
+            __DIR__ . '/public' => public_path('vendor/negotiate/admin'),
         ], 'public');
 
 
         $this->mergeConfigFrom(
-            __DIR__.'/config/ironforge.php', 'ironforge'
+            __DIR__.'/config/admin.php', 'admin'
         );
 
         $this->mergeConfigFrom(
@@ -48,10 +48,10 @@ class IronforgeServiceProvider extends ServiceProvider
     }
     protected function setObservers(){
 
-        Owner::observe("Aggrega\\Ironforge\\Observers\\OwnerObserver");
-        Profile::observe("Aggrega\\Ironforge\\Observers\\ProfileObserver");
-        Resource::observe("Aggrega\\Ironforge\\Observers\\ResourcesObserver");
-        UserIronForge::observe("Aggrega\\Ironforge\\Observers\\UserIronForgeObserver");
+        Owner::observe("Negotiate\\Admin\\Observers\\OwnerObserver");
+        Profile::observe("Negotiate\\Admin\\Observers\\ProfileObserver");
+        Resource::observe("Negotiate\\Admin\\Observers\\ResourcesObserver");
+        UserIronForge::observe("Negotiate\\Admin\\Observers\\UserIronForgeObserver");
 
         Event::listen('log.createdRequest', function ($obj) {
 

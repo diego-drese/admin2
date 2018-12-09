@@ -1,4 +1,4 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('content')
 @section('title', 'User Edit')
 
@@ -7,7 +7,7 @@
 @endsection
 
     <div class="content-wrapper">
-         @include('Ironforge::layouts.backend.breadcrumb')
+         @include('Admin::layouts.backend.breadcrumb')
 
         <section class="content">
             <div class="row">
@@ -16,9 +16,9 @@
                         <div class="box-header">
                         </div>
                         <div class="box-body ">
-                            <form method="post" action="{{route('ironforge.users.update-profile')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('admin.users.update-profile')}}" enctype="multipart/form-data">
                                 {{csrf_field()}}
-                                @include('Ironforge::backend.users.form-profile')
+                                @include('Admin::backend.users.form-profile')
                             </form>
                         </div>
                     </div>

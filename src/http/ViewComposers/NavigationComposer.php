@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\ViewComposers;
+namespace Negotiate\Admin\Http\ViewComposers;
 
-use Aggrega\Ironforge\Resource;
+use Negotiate\Admin\Resource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;

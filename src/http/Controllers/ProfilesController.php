@@ -1,11 +1,11 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
+namespace Negotiate\Admin\Http\Controllers;
 
-use Aggrega\Ironforge\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResouceIronForge;
 use Illuminate\Routing\Controller as BaseController;
-use Aggrega\Ironforge\Profile;
-use Aggrega\Ironforge\Resource;
+use Negotiate\Admin\Profile;
+use Negotiate\Admin\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +34,7 @@ class ProfilesController extends BaseController
 
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
-                    return route('ironforge.profiles.edit', [$row->id]);
+                    return route('admin.profiles.edit', [$row->id]);
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -42,9 +42,9 @@ class ProfilesController extends BaseController
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.edit', [1]);
-        return view('Ironforge::backend.profiles.index', compact('hasAdd', 'hasEdit'));
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.profiles.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.profiles.edit', [1]);
+        return view('Admin::backend.profiles.index', compact('hasAdd', 'hasEdit'));
 
     }
 
@@ -57,8 +57,8 @@ class ProfilesController extends BaseController
     public function create(Profile $profile) {
         $resources      = Resource::all('name','id','route_name');
         $resourcesMenu  = $this->getResourcesDefault;
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.store');
-        return view('Ironforge::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.profiles.store');
+        return view('Admin::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave'));
     }
 
     /**
@@ -111,9 +111,9 @@ class ProfilesController extends BaseController
        $resources           = Resource::all('name', 'id', 'route_name');
        $profilesResources   = $profile->resources()->pluck('id')->toArray();
        $resourcesMenu       = $this->getResourcesDefault;
-       $hasSave             = ResouceIronForge::hasResourceByRouteName('ironforge.profiles.update',[1]);
+       $hasSave             = ResouceIronForge::hasResourceByRouteName('admin.profiles.update',[1]);
 
-       return view('Ironforge::backend.profiles.edit',compact('profile','resources','profilesResources','resourcesMenu', 'hasSave'));
+       return view('Admin::backend.profiles.edit',compact('profile','resources','profilesResources','resourcesMenu', 'hasSave'));
     }
 
     /**
@@ -153,7 +153,7 @@ class ProfilesController extends BaseController
         }
 
         toastr()->success("{$profile->name} Atualizado com sucesso",'Sucesso');
-        return redirect(route('ironforge.profiles.index'));
+        return redirect(route('admin.profiles.index'));
     }
 
 

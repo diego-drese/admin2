@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 use App\User;
 use Faker\Generator as Faker;
 

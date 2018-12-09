@@ -1,9 +1,9 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers\Auth;
+namespace Negotiate\Admin\Http\Controllers\Auth;
 
-use Aggrega\Ironforge\User;
-use Aggrega\Ironforge\Http\Controllers\Controller;
+use Negotiate\Admin\User;
+use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

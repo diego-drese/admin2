@@ -1,10 +1,10 @@
 {
-    "/src/public/css/ironforge.css": "/src/public/css/ironforge.css?id=6c38c6bf8069e032cace",
-    "/src/public/js/app.js": "/src/public/js/app.js?id=dc3f9246228f01de0fe6",
-    "/src/public/css/app.css": "/src/public/css/app.css?id=2400c0591d9d7906fccd",
+    "/src/public/css/admin.css": "/src/public/css/admin.css?id=b88752e6b92ce292db81",
+    "/src/public/js/app.js": "/src/public/js/app.js?id=fa48aa3c96da812edd09",
+    "/src/public/css/app.css": "/src/public/css/app.css?id=b82411792db73d4eff8f",
     "/src/public/css/blue.png": "/src/public/css/blue.png?id=753a3c0dec86d3a38d9c",
     "/src/public/img/login.jpg": "/src/public/img/login.jpg?id=9565761227e058322ce1",
-    "/src/public/js/pt-br.json": "/src/public/js/pt-br.json?id=37890a777aba664fa3ca",
+    "/src/public/js/pt-br.json": "/src/public/js/pt-br.json?id=86eb2cc5000bb2257336",
     "/src/public/img/favicon.png": "/src/public/img/favicon.png?id=252354fbce8946f2a887",
     "/src/public/img/sprite-skin-flat.png": "/src/public/img/sprite-skin-flat.png?id=96982d405cc79fd8d7bd"
 }

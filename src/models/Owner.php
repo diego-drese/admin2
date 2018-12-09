@@ -1,6 +1,6 @@
 <?php
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 use function GuzzleHttp\json_encode;
@@ -11,7 +11,7 @@ class Owner extends Model
 
     public function user()
     {
-        return $this->belongsToMany('Aggrega\Ironforge\UserIronForge','user_has_owners','owner_id','user_id');
+        return $this->belongsToMany('Negotiate\Admin\UserIronForge','user_has_owners','owner_id','user_id');
     }
 
     /**

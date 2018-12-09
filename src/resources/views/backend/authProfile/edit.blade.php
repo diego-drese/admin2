@@ -1,4 +1,4 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('content')
 @section('title', 'Editar Perfil')
 
@@ -26,7 +26,7 @@
                         <div class="col-md-12">
                             <form method="post" action="{{route('users.profileupdate',$user->id)}}">
                                 {{csrf_field()}} {{method_field('PATCH')}}
-                                @include('Ironforge::backend.authProfile.form')
+                                @include('Admin::backend.authProfile.form')
                             </form>
                         </div>
                     </div>

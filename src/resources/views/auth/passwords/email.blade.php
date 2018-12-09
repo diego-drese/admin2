@@ -1,9 +1,9 @@
-@extends('Ironforge::layouts.backend.login-tpl')
+@extends('Admin::layouts.backend.login-tpl')
 
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ route('login') }}"><span class="logo-lg">{{ \Config::get('ironforge.logo_label') }}</span></a>
+            <a href="{{ route('login') }}"><span class="logo-lg">{{ \Config::get('admin.logo_label') }}</span></a>
 
         </div>
         <!-- /.login-logo -->

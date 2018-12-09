@@ -15,15 +15,15 @@ mix.babel([
 	'src/resources/assets/theme/backend/js/bootstrap-editable.min.js',
 ],'src/public/js/app.js').version();
 
-mix.sass('src/resources/assets/theme/backend/css/sass/ironforge.scss', 'src/public/css/ironforge.css');
+mix.sass('src/resources/assets/theme/backend/css/sass/admin.scss', 'src/public/css/admin.css');
 
 mix.styles([
     'src/resources/assets/theme/backend/css/bootstrap.min.css',
     'src/resources/assets/theme/backend/plugins/font-awesome/css/font-awesome.min.css',
     'src/resources/assets/theme/backend/css/lte.min.css',
     'src/resources/assets/theme/backend/css/custom.css',
-    'src/public/css/ironforge.css',
-    'src/resources/assets/theme/backend/css/ironforge-login.css',
+    'src/public/css/admin.css',
+    'src/resources/assets/theme/backend/css/admin-login.css',
     'src/resources/assets/theme/backend/plugins/iCheck/square/blue.css',
 	'src/resources/assets/theme/backend/css/ion.rangeSlider.css',
 ],'src/public/css/app.css').version();

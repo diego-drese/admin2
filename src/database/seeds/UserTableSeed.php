@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +19,7 @@ class UserTableSeed extends Seeder
         DB::table('users')->insert([
             [
                 'name' => "Admin",
-                'lastname' => "Aggrega",
+                'lastname' => "Negotiate",
                 'cell_phone' => $faker->phoneNumber,
                 'active' => 1,
                 'profile_id' => 1,

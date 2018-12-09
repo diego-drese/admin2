@@ -1,4 +1,4 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'User Save')
 @section('style')
 
@@ -6,7 +6,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('Ironforge::layouts.backend.breadcrumb')
+        @include('Admin::layouts.backend.breadcrumb')
         <section class="content">
             <div class="row">
                 <div class="col-md-12">
@@ -14,9 +14,9 @@
                         <div class="box-header">
                         </div>
                         <div class="box-body ">
-                            <form method="post" action="{{route('ironforge.users.store')}}">
+                            <form method="post" action="{{route('admin.users.store')}}">
                                 {{ csrf_field() }}
-                                @include('Ironforge::backend.users.form')
+                                @include('Admin::backend.users.form')
                             </form>
                         </div>
                     </div>

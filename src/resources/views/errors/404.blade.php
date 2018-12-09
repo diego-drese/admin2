@@ -1,5 +1,5 @@
 @if(Auth::check())
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 
 @section('title', 'Page not Found')
 @section('content')

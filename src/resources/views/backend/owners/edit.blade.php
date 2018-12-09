@@ -1,9 +1,9 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'Owner Edit')
 @section('content')
 
 <div class="content-wrapper">
-    @include('Ironforge::layouts.backend.breadcrumb')
+    @include('Admin::layouts.backend.breadcrumb')
 
     <section class="content">
         <div class="row">
@@ -12,9 +12,9 @@
                     <div class="box-header">
                     </div>
                     <div class="box-body ">
-                        <form method="post" action="{{route('ironforge.owner.update',$owner->id)}}">
+                        <form method="post" action="{{route('admin.owner.update',$owner->id)}}">
                             {{csrf_field()}}
-                            @include('Ironforge::backend.owners.form')
+                            @include('Admin::backend.owners.form')
                         </form>
                     </div>
                 </div>

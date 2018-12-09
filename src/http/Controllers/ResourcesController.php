@@ -1,11 +1,11 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
+namespace Negotiate\Admin\Http\Controllers;
 
-use Aggrega\Ironforge\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResouceIronForge;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Aggrega\Ironforge\Resource;
+use Negotiate\Admin\Resource;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -31,7 +31,7 @@ class ResourcesController extends BaseController {
                     });
                 })
                 ->addColumn('edit_url', function($row){
-                    return route('ironforge.resources.edit', [$row->id]);
+                    return route('admin.resources.edit', [$row->id]);
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -39,9 +39,9 @@ class ResourcesController extends BaseController {
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.resources.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.resources.edit', [1]);
-        return view('Ironforge::backend.resources.index',compact('hasAdd', 'hasEdit'));
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.resources.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.resources.edit', [1]);
+        return view('Admin::backend.resources.index',compact('hasAdd', 'hasEdit'));
 
     }
 
@@ -52,8 +52,8 @@ class ResourcesController extends BaseController {
      */
     public function create(Resource $resource) {
         $parentsDefault = $this->parentsDefault;
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.resources.store');
-        return view('Ironforge::backend.resources.create', compact('resource','parentsDefault', 'hasSave'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.resources.store');
+        return view('Admin::backend.resources.create', compact('resource','parentsDefault', 'hasSave'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ResourcesController extends BaseController {
         $resource->save();
 
         toastr()->success('Recurso Criado com sucesso','Sucesso');
-        return redirect(route('ironforge.resources.index'));
+        return redirect(route('admin.resources.index'));
     }
 
      /**
@@ -95,8 +95,8 @@ class ResourcesController extends BaseController {
 
         $resource       = $this->resource->findOrFail($id);
         $parentsDefault = $this->parentsDefault;
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.resources.update',[1]);
-        return view('Ironforge::backend.resources.edit',compact('resource','parent', 'parentsDefault', 'hasSave'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.resources.update',[1]);
+        return view('Admin::backend.resources.edit',compact('resource','parent', 'parentsDefault', 'hasSave'));
     }
 
     /**
@@ -119,7 +119,7 @@ class ResourcesController extends BaseController {
 
         $resource->update($dataForm);
         toastr()->success('Recurso Atualizado com sucesso','Sucesso');
-        return redirect(route('ironforge.resources.index'));
+        return redirect(route('admin.resources.index'));
 
     }
 

@@ -95,7 +95,7 @@
                 <h4 class="modal-title"> Fontes <i>(Double click to select)</i></h4>
             </div>
             <div class="modal-body">
-                @include('Ironforge::backend.resources.icons')
+                @include('Admin::backend.resources.icons')
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

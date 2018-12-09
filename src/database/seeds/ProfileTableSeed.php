@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;

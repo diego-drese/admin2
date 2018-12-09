@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 
-use Aggrega\Ironforge\User;
+use Negotiate\Admin\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
@@ -13,13 +13,13 @@ class Profile extends Model
     public function resources()
     {
 
-        return $this->belongsToMany(\Aggrega\Ironforge\Resource::class,'profile_has_resources','profile_id','resource_id');
+        return $this->belongsToMany(\Negotiate\Admin\Resource::class,'profile_has_resources','profile_id','resource_id');
     }
 
 
     public function user()
     {
-        return $this->hasOne(\Aggrega\Ironforge\User::class);
+        return $this->hasOne(\Negotiate\Admin\User::class);
     }
 
     /**

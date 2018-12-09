@@ -1,6 +1,6 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
+namespace Negotiate\Admin\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

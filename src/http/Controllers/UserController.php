@@ -1,10 +1,10 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
+namespace Negotiate\Admin\Http\Controllers;
 
-use Aggrega\Ironforge\Library\ResouceIronForge;
-use Aggrega\Ironforge\Profile;
-use Aggrega\Ironforge\UserIronForge;
+use Negotiate\Admin\Library\ResouceIronForge;
+use Negotiate\Admin\Profile;
+use Negotiate\Admin\UserIronForge;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -31,7 +31,7 @@ class UserController extends BaseController {
             return Datatables::of($query)
 
                 ->addColumn('edit_url', function($row){
-                    return route('ironforge.users.edit', [$row->id]);
+                    return route('admin.users.edit', [$row->id]);
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -39,9 +39,9 @@ class UserController extends BaseController {
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('ironforge.users.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('ironforge.users.edit', [1]);
-        return view('Ironforge::backend.users.index', compact('hasAdd', 'hasEdit'));
+        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.users.create');
+        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.users.edit', [1]);
+        return view('Admin::backend.users.index', compact('hasAdd', 'hasEdit'));
     }
 
     /**
@@ -51,8 +51,8 @@ class UserController extends BaseController {
      */
     public function create(UserIronForge $user) {
         $profiles   = Profile::all('id', 'name');
-        $hasSave    = ResouceIronForge::hasResourceByRouteName('ironforge.users.store');
-        return view('Ironforge::backend.users.create', compact('profiles','user', 'hasSave'));
+        $hasSave    = ResouceIronForge::hasResourceByRouteName('admin.users.store');
+        return view('Admin::backend.users.create', compact('profiles','user', 'hasSave'));
     }
 
     /**
@@ -87,8 +87,8 @@ class UserController extends BaseController {
     public function edit($id) {
         $user           = UserIronForge::findOrFail($id);
         $profiles       = Profile::select('id','name')->get();
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('ironforge.users.update', [1]);
-        return view('Ironforge::backend.users.edit', compact('user', 'profiles', 'hasSave'));
+        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.users.update', [1]);
+        return view('Admin::backend.users.edit', compact('user', 'profiles', 'hasSave'));
     }
 
     /**
@@ -126,7 +126,7 @@ class UserController extends BaseController {
 
         $auth = Auth::user();
         $user = UserIronForge::findOrFail($auth->id);
-        return view('Ironforge::backend.users.edit-profile', compact('user'));
+        return view('Admin::backend.users.edit-profile', compact('user'));
     }
 
     /**
@@ -197,7 +197,7 @@ class UserController extends BaseController {
 
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
 
-        return redirect(route('ironforge.users.form-profile'));
+        return redirect(route('admin.users.form-profile'));
     }
 
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Middleware;
+namespace Negotiate\Admin\Http\Middleware;
 
-use Aggrega\Ironforge\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResouceIronForge;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -18,7 +18,7 @@ class MiddlewareIronForge
     {
 
         $routeArray         = app('request')->route()->getAction();
-        $prefix_url         = \Config::get('ironforge.prefix_url');
+        $prefix_url         = \Config::get('admin.prefix_url');
         $controllerAction   = $routeArray['controller'];
         $controller         = explode('@', $controllerAction);
         $ajax               = $request->ajax();

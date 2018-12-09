@@ -10,7 +10,7 @@
     <label for="title">Type</label>
     <select id="selectTypes" class="form-control"  name="type" placeholder="Users">
         <option value="">Select</option>
-        @php $types =  \Illuminate\Support\Facades\Config::get('ironforge.owner_type') ;@endphp
+        @php $types =  \Illuminate\Support\Facades\Config::get('admin.owner_type') ;@endphp
         @foreach($types as $key=>$type)
             <option {{$owner->exists() && $owner->type==$key ? 'selected="selected"' : '' }} value="{{$key}}">{{$key}}</option>
         @endforeach
@@ -41,7 +41,7 @@
 <div class="col-md-6 form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
     <label for="title">Users</label><br>
     <select id="selectUsers" class="form-control" multiple="multiple"  name="users[]" placeholder="Users">
-        @php $users =  Aggrega\Ironforge\UserIronForge::all('id','name') ;@endphp
+        @php $users =  Negotiate\Admin\UserIronForge::all('id','name') ;@endphp
         @foreach($users as $user)
             <option {{$owner->exists() && in_array($user->id,$userOwners) ? 'selected="selected"' : '' }} value="{{$user->id}}">{{$user->name}}</option>
         @endforeach
@@ -107,7 +107,7 @@
             if ("" != selectTypes) {
                 //console.warn(id);
             	$(window).bind("load", function() { 
-                    url = '{{ route('ironforge.owner.create') }}';
+                    url = '{{ route('admin.owner.create') }}';
                     $.ajax({
                         url: url,
                         type: 'GET',
@@ -125,7 +125,7 @@
             
             $("#selectTypes").change(function () {
             	if ("" != $("#selectTypes").val()) {
-            		url = '{{ route('ironforge.owner.create') }}';
+            		url = '{{ route('admin.owner.create') }}';
                     $.ajax({
                         url: url,
                         type: 'GET',

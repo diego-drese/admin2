@@ -1,10 +1,10 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="{{route('ironforge.dashboard')}}" class="logo">
+    <a href="{{route('admin.dashboard')}}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b><span class="fa fa-fire mini-logo font-gradient-logo"></span></b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">{{ \Config::get('ironforge.logo_label') }}</span>
+        <span class="logo-lg">{{ \Config::get('admin.logo_label') }}</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -40,7 +40,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{route('ironforge.users.form-profile')}}" class="btn btn-primary btn-flat">Profile</a>
+                                <a href="{{route('admin.users.form-profile')}}" class="btn btn-primary btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}"

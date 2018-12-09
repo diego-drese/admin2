@@ -1,15 +1,15 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers;
-//use Aggrega\Ironforge\Http\Controllers\AuthIronForge;
-use Aggrega\Ironforge\Resource;
-use Aggrega\Ironforge\UserIronForge;
+namespace Negotiate\Admin\Http\Controllers;
+//use Negotiate\Admin\Http\Controllers\AuthIronForge;
+use Negotiate\Admin\Resource;
+use Negotiate\Admin\UserIronForge;
 
 class LogViewController extends Controller
 {
     public function index()
     {
-        return view('Ironforge::backend.logview.index');
+        return view('Admin::backend.logview.index');
 
     }
 

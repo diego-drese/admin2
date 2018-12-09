@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge;
+namespace Negotiate\Admin;
 
-use Aggrega\Ironforge\Profile;
+use Negotiate\Admin\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -33,14 +33,14 @@ class UserIronForge extends Authenticatable
 
     public function owners()
     {
-        return $this->belongsToMany(\Aggrega\Ironforge\Owner::class,'user_has_owners','user_id','owner_id');
+        return $this->belongsToMany(\Negotiate\Admin\Owner::class,'user_has_owners','user_id','owner_id');
     }
 
     public function profile(){
-        return $this->belongsTo(\Aggrega\Ironforge\Profile::class);
+        return $this->belongsTo(\Negotiate\Admin\Profile::class);
     }
     public function resourceDefault(){
-        return $this->belongsTo(\Aggrega\Ironforge\Resource::class,'resource_default_id');
+        return $this->belongsTo(\Negotiate\Admin\Resource::class,'resource_default_id');
     }
 
     /**

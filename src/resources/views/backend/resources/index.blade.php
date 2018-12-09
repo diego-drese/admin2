@@ -1,9 +1,9 @@
-@extends('Ironforge::layouts.backend.main')
+@extends('Admin::layouts.backend.main')
 @section('content')
 @section('title', 'Resources')
 
 <div class="content-wrapper">
-    @include('Ironforge::layouts.backend.breadcrumb')
+    @include('Admin::layouts.backend.breadcrumb')
 
     <section class="content">
         <div class="row">
@@ -12,8 +12,8 @@
                     <div class="box-header">
                         <div class="pull-left">
                         @if($hasAdd)
-                            <a href="{{route('ironforge.resources.create')}}">
-                                <a href="{{route('ironforge.resources.create')}}" class="btn btn-success">
+                            <a href="{{route('admin.resources.create')}}">
+                                <a href="{{route('admin.resources.create')}}" class="btn btn-success">
                                     Resource of menu <span class="fa fa-plus"></span>
                                 </a>
                             </a>
@@ -62,7 +62,7 @@
                 serverSide: true,
                 processing: true,
                 autoWidth:false,
-                ajax: '{{ route('ironforge.resources.index') }}',
+                ajax: '{{ route('admin.resources.index') }}',
                 columns: [
                     {data: "id", 'name': 'resources.id', searchable: false},
                     {data: "name", 'name': 'resources.name'},

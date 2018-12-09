@@ -1,8 +1,8 @@
 <?php
 
-namespace Aggrega\Ironforge\Http\Controllers\Auth;
+namespace Negotiate\Admin\Http\Controllers\Auth;
 
-use Aggrega\Ironforge\Http\Controllers\Controller;
+use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 
@@ -41,7 +41,7 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('Ironforge::auth.passwords.reset')->with(
+        return view('Admin::auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

@@ -25,7 +25,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Admin\\Admin\\": "src/"
+            "Negotiate\\Admin\\": "src/"
         }
     },
 

@@ -17,7 +17,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Admin\\Admin\\NegotiateServiceProvider"
+                "Negotiate\\Admin\\NegotiateServiceProvider"
             ]
         }
     },

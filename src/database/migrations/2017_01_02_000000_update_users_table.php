@@ -23,6 +23,7 @@ class UpdateUsersTable extends Migration
             $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('restrict');
             $table->bigInteger('resource_default_id')->nullable();
             $table->enum('type',['user','root'])->default('user');
+            $table->bigInteger('parent_id')->default(0);
             $table->string('password','191')->change();
         });
     }

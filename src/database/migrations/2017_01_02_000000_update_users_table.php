@@ -15,15 +15,15 @@ class UpdateUsersTable extends Migration
     {
         Schema::connection('mysql')->table('users', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned()->change();
-            $table->string('name','255')->change();
-            $table->string('lastname','255')->nullable();
-            $table->string('cell_phone','255')->nullable();
+            $table->string('name','191')->change();
+            $table->string('lastname','191')->nullable();
+            $table->string('cell_phone','191')->nullable();
             $table->boolean('active')->default(1);
             $table->bigInteger('profile_id')->unsigned()->nullable();
             $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('restrict');
             $table->bigInteger('resource_default_id')->nullable();
             $table->enum('type',['user','root'])->default('user');
-            $table->string('password','255')->change();
+            $table->string('password','191')->change();
         });
     }
 

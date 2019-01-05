@@ -26,6 +26,6 @@ class UpdateOwnersTable extends Migration {
      * @return void
      */
     public function down() {
-        //Schema::connection('mysql')->dropIfExists('owners');
+        Schema::connection('mysql')->dropIfExists('owners');
     }
 }

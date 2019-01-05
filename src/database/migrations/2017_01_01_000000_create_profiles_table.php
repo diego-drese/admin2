@@ -15,7 +15,7 @@ class CreateProfilesTable extends Migration
     {
         Schema::connection('mysql')->create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('name','255');
+            $table->string('name','191');
             $table->text('desc')->nullable();
             $table->timestamps();
         });

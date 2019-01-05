@@ -14,7 +14,7 @@ class AddPicuteToUsers extends Migration
     public function up()
     {
         Schema::connection('mysql')->table('users', function (Blueprint $table) {
-            $table->string('picture','255')->nullable();
+            $table->string('picture','191')->nullable();
 
         });
     }

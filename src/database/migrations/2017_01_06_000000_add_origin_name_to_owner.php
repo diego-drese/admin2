@@ -14,7 +14,7 @@ class AddOriginNameToOwner extends Migration
     public function up()
     {
         Schema::connection('mysql')->table('owners', function (Blueprint $table) {
-            $table->string('origin_name','255')->nullable();
+            $table->string('origin_name','191')->nullable();
 
         });
     }

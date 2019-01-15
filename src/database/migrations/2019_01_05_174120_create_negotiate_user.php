@@ -24,7 +24,7 @@ class CreateNegotiateUser extends Migration
             $table->string('social_reason',191)->nullable();
             $table->string('fantasy_name',191)->nullable();
             $table->string('state_register',191)->nullable();
-            $table->string('birth_date',191)->timestamp();
+            $table->date('birth_date');
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ class CreateNegotiateUser extends Migration
      */
     public function down()
     {
-        //
+        Schema::connection('mysql')->dropIfExists('negotiate_user');
     }
 }

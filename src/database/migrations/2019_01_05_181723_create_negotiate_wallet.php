@@ -16,8 +16,8 @@ class CreateNegotiateWallet extends Migration
         Schema::create('negotiate_wallet', function (Blueprint $table) {
             $table->increments('id');
             $table->double('value', 10, 2);
-            $table->integer('id_user_negotiate')->unsigned();
-            $table->foreign('id_user_negotiate')->references('id')->on('negotiate_user')->onDelete('restrict');
+            $table->integer('negotiate_client_id')->unsigned();
+            $table->foreign('negotiate_client_id')->references('id')->on('negotiate_client')->onDelete('restrict');
             $table->timestamps();
         });
     }

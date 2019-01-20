@@ -1,10 +1,8 @@
-@extends('Admin::layouts.backend.main')
+@extends('Admin::layouts.quillpro.main')
+@section('title', 'Dashboard')
 @section('content')
     <div class="content-wrapper">
-        @include('Admin::layouts.backend.breadcrumb')
-
         <section class="content">
-            <div class="row">
                 <div class="col-xs-6">
                     <div class="box">
                         <div class="box-body ">
@@ -54,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </div>
 @endsection

@@ -1,10 +1,7 @@
-@extends('Admin::layouts.backend.main')
-@section('title', 'Owner Edit')
+@extends('Admin::layouts.quillpro.main')
+@section('title', 'Owner edit')
 @section('content')
-
 <div class="content-wrapper">
-    @include('Admin::layouts.backend.breadcrumb')
-
     <section class="content">
         <div class="row">
             <div class="col-md-12">

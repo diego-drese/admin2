@@ -1,14 +1,7 @@
-@extends('Admin::layouts.backend.main')
-@section('content')
+@extends('Admin::layouts.quillpro.main')
 @section('title', 'User Edit')
-
-@section('style')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
-@endsection
-
+@section('content')
     <div class="content-wrapper">
-         @include('Admin::layouts.backend.breadcrumb')
-
         <section class="content">
             <div class="row">
                 <div class="col-md-12">

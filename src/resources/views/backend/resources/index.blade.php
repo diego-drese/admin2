@@ -1,10 +1,8 @@
-@extends('Admin::layouts.backend.main')
-@section('content')
+@extends('Admin::layouts.quillpro.main')
 @section('title', 'Resources')
+@section('content')
 
 <div class="content-wrapper">
-    @include('Admin::layouts.backend.breadcrumb')
-
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -47,13 +45,10 @@
     </section>
 </div>
 @endsection
-
-
-@section('style')
+@section('style_head_end')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
 @endsection
-
-@section('script')
+@section('script_footer_end')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
     <script>
         var hasEdit = '{{$hasEdit}}';

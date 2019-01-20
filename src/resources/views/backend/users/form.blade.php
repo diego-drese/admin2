@@ -94,8 +94,10 @@
         <button type="submit" class="btn btn-success">Save</button>
     </div>
 @endif
-
-@section('script')
+@section('style_head_end')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+@endsection
+@section('script_footer_end')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         var selectedOption = "{{$user->exists ? $user->profile_id : 1}}";
@@ -122,17 +124,17 @@
                     type: "get",
                     dataType: 'json',
                     beforeSend: function () {
-                        window.pb.aggLoaderPB(true)
+                        window.negotiate.loader(true)
                     },
                     success: function (data) {
                         populateResourcesDefault(data);
-                        window.pb.aggLoaderPB(false)
+                        window.negotiate.loader(false)
 
                     },
                     error: function (erro) {
                         console.log(erro.responseJSON.message);
                         toastr["error"](erro.responseJSON.message, "Error");
-                        window.pb.aggLoaderPB(false)
+                        window.negotiate.loader(false)
                     }
                 })
             }

@@ -14,6 +14,9 @@ class ConsoleController extends BaseController
     public function dashboard(){
         return view('Admin::backend.index');
     }
+    public function quillpro(){
+        return view('Admin::backend.quillpro');
+    }
     public function pageNotFound(){
         return view('Admin::errors.404');
     }

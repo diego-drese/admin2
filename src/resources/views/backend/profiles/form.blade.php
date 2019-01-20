@@ -32,7 +32,10 @@
     <button type="submit" class="btn btn-success ">Save</button>
 @endif
 </div>
-@section('script')
+@section('style_head_end')
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
+@endsection
+@section('script_footer_end')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {

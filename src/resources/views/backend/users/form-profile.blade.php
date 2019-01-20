@@ -117,8 +117,11 @@
     <div class="col-md-4">
         <button type="submit" class="btn btn-success">Save</button>
     </div>
+@section('style_head_end')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+@endsection
 
-@section('script')
+@section('script_footer_end')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         var selectedOption = "{{$user->exists ? $user->profile_id : 1}}";

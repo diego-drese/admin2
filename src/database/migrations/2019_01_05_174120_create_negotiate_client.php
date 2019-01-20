@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNegotiateUser extends Migration
+class CreateNegotiateClient extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNegotiateUser extends Migration
      */
     public function up()
     {
-        Schema::create('negotiate_user', function (Blueprint $table) {
+        Schema::create('negotiate_client', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',191);
             $table->enum('type', ['CPF', 'CNPJ']);
@@ -36,6 +36,6 @@ class CreateNegotiateUser extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('negotiate_user');
+        Schema::connection('mysql')->dropIfExists('negotiate_client');
     }
 }

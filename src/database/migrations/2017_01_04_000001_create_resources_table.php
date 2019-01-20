@@ -25,7 +25,7 @@ class CreateResourcesTable extends Migration
             $table->bigInteger('parent_id')->index()->default(0);
             $table->integer('order');
             $table->timestamps();
-            $table->unique(['name','menu','route_name']);
+//            $table->unique(['name','menu','route_name']);
         });
     }
 

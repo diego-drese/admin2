@@ -45,6 +45,15 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth','Negotiat
 
     Route::get('/updade-owner-iron', 'Negotiate\Admin\Http\Controllers\OwnerController@updateFieldsToJson')->name('admin.updateowner.update');
 
+    //Negotiate User
+    Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index');
+    Route::get('/clients/create', 'Negotiate\Admin\Http\Controllers\ClientController@create')->name('admin.client.create');
+    Route::post('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@store')->name('admin.client.store');
+    Route::get('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@edit')->name('admin.client.edit');
+    Route::post('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@update')->name('admin.client.update');
+
+
+
 });
 
 

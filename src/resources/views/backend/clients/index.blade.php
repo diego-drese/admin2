@@ -1,13 +1,8 @@
-
-@extends('Admin::layouts.backend.main')
-@section('title', 'Users')
+@extends('Admin::layouts.quillpro.main')
+@section('title', 'Clients')
 @section('content')
-
     <div class="content-wrapper">
-    @include('Admin::layouts.backend.breadcrumb')
-
-    <section class="content">
-        <div class="row">
+        <section class="content">
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
@@ -27,42 +22,40 @@
                             <table id="table_users" class="table table-bordered table-striped dataTable table-hover"
                                    role="grid">
                                 <thead>
-                                    <tr class="center">
-                                        <td role="row">#</td>
-                                        <td>Name</td>
-                                        <td>E-mail</td>
-                                        <td>Profile</td>
-                                        <td>Status</td>
-                                        <td>Contact</td>
-                                        <td>Page Default</td>
-                                        <td>Created At:</td>
-                                        <td>Actions</td>
-                                    </tr>
+                                <tr class="center">
+                                    <td role="row">#</td>
+                                    <td>Name</td>
+                                    <td>E-mail</td>
+                                    <td>Profile</td>
+                                    <td>Status</td>
+                                    <td>Contact</td>
+                                    <td>Page Default</td>
+                                    <td>Created At:</td>
+                                    <td>Actions</td>
+                                </tr>
                                 </thead>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 @endsection
-
-
-@section('style')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+@section('style_head_end')
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
 @endsection
-
-@section('script')
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
+@section('script_footer_end')
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {
             $('#table_users').DataTable({
                 serverSide: true,
                 processing: true,
-                autoWidth:false,
+                autoWidth: false,
                 ajax: '{{ route('admin.users.index') }}',
                 columns: [
 
@@ -77,12 +70,12 @@
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                            var edit_button = "";
-                            if(hasEdit=='1'){
-                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
-                            }
-                            return edit_button
+                        var edit_button = "";
+                        if (hasEdit == '1') {
+                            edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
                         }
+                        return edit_button
+                    }
                     }
                 ]
             });

@@ -1,24 +1,17 @@
-@extends('Admin::layouts.backend.main')
-@section('title', 'Client Save')
-@section('style')
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
-@endsection
+@extends('Admin::layouts.quillpro.main')
+@section('title', 'Client Create')
 @section('content')
     <div class="content-wrapper">
-        @include('Admin::layouts.backend.breadcrumb')
         <section class="content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header">
-                        </div>
-                        <div class="box-body ">
-                            <form method="post" action="{{route('admin.users.store')}}">
-                                {{ csrf_field() }}
-                                @include('Admin::backend.clients.form')
-                            </form>
-                        </div>
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <div class="box-body ">
+                        <form method="post" action="{{route('admin.users.store')}}">
+                            {{ csrf_field() }}
+                            @include('Admin::backend.clients.form')
+                        </form>
                     </div>
                 </div>
             </div>

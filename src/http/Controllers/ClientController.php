@@ -16,7 +16,7 @@ use Image;
 use App\Http\Requests;
 
 
-class ClientsController extends BaseController {
+class ClientController extends BaseController {
 
     use ValidatesRequests;
 

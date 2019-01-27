@@ -1,10 +1,4 @@
 {
-    "/src/public/css/admin.css": "/src/public/css/admin.css?id=b88752e6b92ce292db81",
-    "/src/public/js/app.js": "/src/public/js/app.js?id=fa48aa3c96da812edd09",
-    "/src/public/css/app.css": "/src/public/css/app.css?id=b82411792db73d4eff8f",
-    "/src/public/css/blue.png": "/src/public/css/blue.png?id=753a3c0dec86d3a38d9c",
-    "/src/public/img/login.jpg": "/src/public/img/login.jpg?id=9565761227e058322ce1",
-    "/src/public/js/pt-br.json": "/src/public/js/pt-br.json?id=86eb2cc5000bb2257336",
-    "/src/public/img/favicon.png": "/src/public/img/favicon.png?id=252354fbce8946f2a887",
-    "/src/public/img/sprite-skin-flat.png": "/src/public/img/sprite-skin-flat.png?id=96982d405cc79fd8d7bd"
+    "/src/public/quillpro/js/app.js": "/src/public/quillpro/js/app.js?id=2534f15f720b6a01c961",
+    "/src/public/quillpro/css/app.css": "/src/public/quillpro/css/app.css?id=d6a87a243b927545c781"
 }

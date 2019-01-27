@@ -105,8 +105,14 @@
         </div>
     </div>
 </div>
-
-@section('script')
+@section('style_head_end')
+    <style>
+        .radio label{
+            padding: 0px 20px;
+        }
+    </style>
+@endsection
+@section('script_footer_end')
     <script>
         var modalBox = $('#icons-modal');
         var iconInput = $('.input-group-addon i');

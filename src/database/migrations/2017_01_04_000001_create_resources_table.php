@@ -15,17 +15,17 @@ class CreateResourcesTable extends Migration
     {
         Schema::connection('mysql')->create('resources', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('name');
-            $table->string('menu')->index()->nullable();
+            $table->string('name', '191');
+            $table->string('menu', '191')->index()->nullable();
             $table->boolean('is_menu')->index();
-            $table->string('route_name')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('controller_method');
+            $table->string('route_name', '191')->nullable();
+            $table->string('icon', '191')->nullable();
+            $table->string('controller_method', '191');
             $table->boolean('can_be_default')->default(0);
             $table->bigInteger('parent_id')->index()->default(0);
             $table->integer('order');
             $table->timestamps();
-            $table->unique(['name','menu','route_name']);
+//            $table->unique(['name','menu','route_name']);
         });
     }
 

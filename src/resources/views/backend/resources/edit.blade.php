@@ -1,9 +1,8 @@
-@extends('Admin::layouts.backend.main')
-@section('content')
+@extends('Admin::layouts.quillpro.main')
 @section('title', 'Resource Edit')
+@section('content')
 
 <div class="content-wrapper">
-@include('Admin::layouts.backend.breadcrumb')
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -23,13 +22,4 @@
         </div>
     </section>
 </div>
-@endsection
-
-
-@section('style')
-    <style>
-        .radio label{
-            padding: 0px 20px;
-        }
-    </style>
 @endsection

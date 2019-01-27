@@ -1,22 +1,17 @@
 @if(Auth::check())
-    @extends('Admin::layouts.backend.main')
+    @extends('Admin::layouts.quillpro.main')
     @section('title', 'Page not Allowed')
     @section('content')
-    <div class="content-wrapper">
-        <section class="content-header">
-        <h1>Sem permisão para acessar</h1>
-        </section>
-
-        <div class="container">
-            <div class="error-page center">
-                <h2 class="headline text-red"> 403</h2>
-
-                <div class="error-content"><br>
-                    <h3><i class="fa fa-warning text-red" style="margin-top: 9px;"></i> Oops! page not allowed</h3>
-                </div>
-                <!-- /.error-content -->
+        <div class="col-md-12 my-5 text-center">
+            <div class="text-danger">
+                <i class="batch-icon batch-icon-link-alt batch-icon-xxl"></i>
+                <i class="batch-icon batch-icon-search batch-icon-xxl"></i>
+                <i class="batch-icon batch-icon-link-alt batch-icon-xxl"></i>
             </div>
+            <h1 class="display-1">403</h1>
+            <div class="display-4 mb-3">Page Not Allowed</div>
+            <div class="lead">We can't find the page you are looking for.</div>
+            <div class="lead">Try searching for it using the search field below or you can go <a href="/">back to our homepage</a>.</div>
         </div>
-    </div>
     @endsection
 @endif

@@ -4,6 +4,8 @@ namespace Negotiate\Admin\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Negotiate\Admin\Profile;
+use Negotiate\Admin\Sequence;
 
 class RefreshRoutes extends Command
 {
@@ -56,8 +58,8 @@ class RefreshRoutes extends Command
                 $nameAdmin  = isset($routeLaravel->wheres['nameAdmin']) ? $routeLaravel->wheres['nameAdmin'] : $nameManeu;
 
                 $routes[] = [
-                    'controllerMethod'          => $action['controller'],
-                    "routeName"                 => $routeLaravel->getName(),
+                    'controllerMethod'      => $action['controller'],
+                    "routeName"             => $routeLaravel->getName(),
                     "nameAdmin"             => $nameAdmin,
                     "isDefaultAdmin"        => isset($routeLaravel->wheres['isDefaultAdmin'])       ? $routeLaravel->wheres['isDefaultAdmin']      : 0,
                     "iconAdmin"             => isset($routeLaravel->wheres['iconAdmin'])            ? $routeLaravel->wheres['iconAdmin']           : '',
@@ -66,20 +68,24 @@ class RefreshRoutes extends Command
                 ];
             }
         }
+        $resources = [];
+
         foreach ($routes as $key => $route) {
 
             $res = \Negotiate\Admin\Resource::where('route_name', $route['routeName'])->first();
 
             if (!$res) {
                     $res = new \Negotiate\Admin\Resource();
+                    $res->id                = Sequence::getSequence('resource');
                     $res->name              = $route['nameAdmin'];
                     $res->menu              = $route['menuAdmin'] ;
                     $res->is_menu           = $route['menuAdmin'] ? 1 : 0;
                     $res->route_name        = $route['routeName'];
                     $res->icon              = $route['iconAdmin'];
                     $res->controller_method = $route['controllerMethod'];
-                    $res->can_be_default    = $route['isDefaultAdmin'];
+                    $res->can_be_default    = (int)$route['isDefaultAdmin'];
                     $res->order             = 0;
+                    $res->parent_id         = 0;
 
                     /** Busca o id do parent $res */
                     if($route['parentRouteNameAdmin']){
@@ -88,20 +94,18 @@ class RefreshRoutes extends Command
                             $res->parent_id         = $resParent->id;
                         }
                     }
-
-
-
                     $res->save();
-                    /** Adiciona esse recurso ao perfil admin */
-
-                    DB::table('profile_has_resources')->insert([
-                        'profile_id'    => 1,
-                        'resource_id'   => $res->id,
-                    ]);
-
                     $bar->advance();
                 }
+                $resources[] = $res->id;
             }
+            $oldResorces    = [];
+            $currentResorces= Profile::where('id', 1)->first();
+            if(isset($currentResorces->resources_allow) && count($currentResorces->resources_allow)>0){
+                $oldResorces = $currentResorces->resources_allow;
+            }
+            $newResources = array_unique(array_merge ($resources, $oldResorces));
+            Profile::where('id',1)->update(['resources_allow'=>$newResources]);
             $bar->finish();
 
 

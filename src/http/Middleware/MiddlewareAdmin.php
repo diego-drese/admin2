@@ -2,15 +2,15 @@
 
 namespace Negotiate\Admin\Http\Middleware;
 
-use Negotiate\Admin\Library\ResouceIronForge;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Closure;
+use Negotiate\Admin\Library\ResourceAdmin;
 
 
-class MiddlewareIronForge
+class MiddlewareAdmin
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -23,7 +23,7 @@ class MiddlewareIronForge
         $controller         = explode('@', $controllerAction);
         $ajax               = $request->ajax();
         $request->headers->set('controller' , $controller);
-        $resources          = ResouceIronForge::verifyUser($controllerAction);
+        $resources          = ResourceAdmin::verifyUser($controllerAction);
 
         if($resources === false){
             if($ajax){
@@ -39,6 +39,7 @@ class MiddlewareIronForge
             }
             return redirect("/$prefix_url/page-not-allowed");
         }
+
 
         return $next($request);
     }

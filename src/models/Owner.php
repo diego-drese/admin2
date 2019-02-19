@@ -2,16 +2,18 @@
 
 namespace Negotiate\Admin;
 
-use Illuminate\Database\Eloquent\Model;
-use function GuzzleHttp\json_encode;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Owner extends Model
 {
     protected $fillable = ['name', 'desc', 'origin_excluding_ids', 'type', 'origin_id', 'origin_name', 'remain_list_id', 'remain_list_name'];
+    protected $table        = 'owner';
+    const TABLE             = 'owner';
+    protected $connection   = 'negotiate_admin';
 
     public function user()
     {
-        return $this->belongsToMany('Negotiate\Admin\UserIronForge','user_has_owners','owner_id','user_id');
+        return $this->belongsToMany('Negotiate\Admin\User','user_has_owners','owner_id','user_id');
     }
 
     /**

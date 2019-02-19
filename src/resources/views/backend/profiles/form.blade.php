@@ -39,7 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#selectResource').select2();
+            $('#selectResource').select2({ width: '100%'  });
             $(document).on('click', '.btnFullPermissions', function () {
                 var id = $(this).attr("id");
                 selectFullProfiles(id)

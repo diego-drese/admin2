@@ -43,21 +43,21 @@
 </div>
 
 <div class="form-group pos-relative">
-    <label class="margin-right-small">Is Menu ? </label>
-    <input type="hidden" name="is_menu" value="0">
-    <input type="checkbox" class="swit-box" name="is_menu" hidden="hidden"
-           value="1" {{$resource->is_menu == 1 ? 'checked' : ''}} >
-    <label class="switch" for="is_menu"></label>
+    <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" name="is_menu" id="is_menu"
+               value="1" {{$resource->is_menu == 1 ? 'checked' : ''}} >
+        <label class="custom-control-label" for="is_menu">Is Menu ?</label>
+    </div>
 </div>
 
 
 @if($resource->route_name)
 <div class="form-group pos-relative">
-    <label class="margin-right-small">Redirect after Login?</label>
-    <input type="hidden" name="can_be_default" value="0">
-    <input type="checkbox" class="swit-box" name="can_be_default" hidden="hidden"
+    <div class="custom-control custom-checkbox mb-3">
+    <input type="checkbox" class="custom-control-input" name="can_be_default" id="can_be_default"
            value="1" {{$resource->can_be_default == 1 ? 'checked' : ''}} >
-    <label class="switch" for="can_be_default"></label>
+        <label class="custom-control-label" for="can_be_default">Redirect after Login?</label>
+    </div>
 </div>
 @endif
 

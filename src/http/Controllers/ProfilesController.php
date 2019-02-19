@@ -2,7 +2,7 @@
 
 namespace Negotiate\Admin\Http\Controllers;
 
-use Negotiate\Admin\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResourceAdmin;
 use Illuminate\Routing\Controller as BaseController;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Negotiate\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 
 class ProfilesController extends BaseController
@@ -30,11 +31,19 @@ class ProfilesController extends BaseController
 
         if($request->ajax()){
 
-            $query = Profile::with('resources');
+            $query = Profile::all();
 
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
                     return route('admin.profiles.edit', [$row->id]);
+                })->addColumn('resources', function($row){
+                    $resources = Resource::whereIn('id', $row->resources_allow)->get();
+                    if($resources){
+                        return $resources->toArray();
+                    }else{
+                        return [];
+                    }
+
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -42,8 +51,8 @@ class ProfilesController extends BaseController
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.profiles.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.profiles.edit', [1]);
+        $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.profiles.create');
+        $hasEdit    = ResourceAdmin::hasResourceByRouteName('admin.profiles.edit', [1]);
         return view('Admin::backend.profiles.index', compact('hasAdd', 'hasEdit'));
 
     }
@@ -55,9 +64,9 @@ class ProfilesController extends BaseController
      * @return \Illuminate\Http\Response
      */
     public function create(Profile $profile) {
-        $resources      = Resource::all('name','id','route_name');
+        $resources      = Resource::all('name', 'id', 'route_name');
         $resourcesMenu  = $this->getResourcesDefault;
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.profiles.store');
+        $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.profiles.store');
         return view('Admin::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave'));
     }
 
@@ -72,30 +81,12 @@ class ProfilesController extends BaseController
         $this->validate($request, [
             'name' => 'required'
         ]);
-
-        $profile = Profile::create($dataForm);
-        if(isset($dataForm['resources']))
-        {
-            $profile->resources()->attach($dataForm['resources']);
-            $obj = new \stdClass();
-            $obj->model = $profile;
-            $obj->auth = Auth::user();
-            $obj->request = $dataForm;
-
-            Event::fire('log.createdRequest', $obj);
-        }
-        else{
-            $profile->resources()->attach([]);
-            $obj = new \stdClass();
-            $obj->model = $profile;
-            $obj->auth = Auth::user();
-            $obj->request = $dataForm;
-
-            Event::fire('log.createdRequest', $obj);
-        }
+        $dataForm['id'] = Sequence::getSequence('profiles');
+        $dataForm['resources_allow'] = array_map('intval', $dataForm['resources']);
+        Profile::create($dataForm);
 
         toastr()->success('Profile Criado com sucesso','Sucesso');
-        return redirect('/console/profiles');
+        return redirect(route('admin.profiles.index'));
 
     }
 
@@ -107,13 +98,13 @@ class ProfilesController extends BaseController
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-       $profile             = Profile::findOrFail($id);
+       $profile             = Profile::firstOrNew(['id'=>(int)$id]);
        $resources           = Resource::all('name', 'id', 'route_name');
-       $profilesResources   = $profile->resources()->pluck('id')->toArray();
+       $profilesResources   = $profile->resources_allow;
        $resourcesMenu       = $this->getResourcesDefault;
-       $hasSave             = ResouceIronForge::hasResourceByRouteName('admin.profiles.update',[1]);
+       $hasSave             = ResourceAdmin::hasResourceByRouteName('admin.profiles.update',[1]);
 
-       return view('Admin::backend.profiles.edit',compact('profile','resources','profilesResources','resourcesMenu', 'hasSave'));
+       return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave'));
     }
 
     /**
@@ -124,33 +115,14 @@ class ProfilesController extends BaseController
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        $profile    = Profile::findOrFail($id);
+        $profile    = Profile::firstOrNew(['id'=>(int)$id]);
         $dataForm   = $request->all();
         $this->validate($request, [
             'name' => 'required'
         ]);
-
-        $profile->update($dataForm);
-
-        if(isset($dataForm['resources'])){
-            $profile->resources()->sync($dataForm['resources']);
-
-            $obj = new \stdClass();
-            $obj->model = $profile;
-            $obj->auth = Auth::user();
-            $obj->request = $dataForm;
-
-            Event::fire('log.updatedRequest', $obj);
-
-        }else{
-            $profile->resources()->sync([]);
-            $obj = new \stdClass();
-            $obj->model = $profile;
-            $obj->auth = Auth::user();
-            $obj->request = $dataForm;
-
-            Event::fire('log.updatedRequest', $obj);
-        }
+        $dataForm['resources_allow'] = array_map('intval', $dataForm['resources']);
+        $profile->fill($dataForm);
+        $profile->save();
 
         toastr()->success("{$profile->name} Atualizado com sucesso",'Sucesso');
         return redirect(route('admin.profiles.index'));

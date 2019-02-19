@@ -2,9 +2,10 @@
 
 namespace Negotiate\Admin\Http\Controllers;
 
-use Negotiate\Admin\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResourceAdmin;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -23,12 +24,16 @@ class ResourcesController extends BaseController {
      */
     public function index(Request $request,DataTables $datatables ) {
         if($request->ajax()){
-            $query = Resource::with('profiles')->select('resources.*');
+            $query = Resource::all();
+
             return Datatables::of($query)
-                ->addColumn('profiles_name', function(Resource $resource){
-                    return $resource->profiles->map(function ($profiles) {
-                       return  $profiles->name;
-                    });
+                ->addColumn('profiles', function(Resource $resource){
+                    $profiles = Profile::where('resources_allow', $resource->id)->get();
+                    if($profiles){
+                        return $profiles->toArray();
+                    }else{
+                        return [];
+                    }
                 })
                 ->addColumn('edit_url', function($row){
                     return route('admin.resources.edit', [$row->id]);
@@ -39,8 +44,8 @@ class ResourcesController extends BaseController {
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.resources.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.resources.edit', [1]);
+        $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.resources.create');
+        $hasEdit    = ResourceAdmin::hasResourceByRouteName('admin.resources.edit', [1]);
         return view('Admin::backend.resources.index',compact('hasAdd', 'hasEdit'));
 
     }
@@ -52,7 +57,7 @@ class ResourcesController extends BaseController {
      */
     public function create(Resource $resource) {
         $parentsDefault = $this->parentsDefault;
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.resources.store');
+        $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.resources.store');
         return view('Admin::backend.resources.create', compact('resource','parentsDefault', 'hasSave'));
     }
 
@@ -72,12 +77,12 @@ class ResourcesController extends BaseController {
         $resource                   = new Resource();
         $resource->name             = $request->name;
         $resource->menu             = $request->menu;
-        $resource->is_menu          = $request->is_menu;
+        $resource->is_menu          = (int)$request->is_menu;
         $resource->route_name       = null;
         $resource->icon             = $request->icon;
         $resource->controller_method= '';
-        $resource->can_be_default   = $request->can_be_default ? $request->can_be_default : 0;
-        $resource->parent_id        = $request->parent_id;
+        $resource->can_be_default   = (int)($request->can_be_default ? $request->can_be_default : 0);
+        $resource->parent_id        = (int)$request->parent_id;
         $resource->order            = 0;
         $resource->save();
 
@@ -93,9 +98,9 @@ class ResourcesController extends BaseController {
      */
     public function edit($id) {
 
-        $resource       = $this->resource->findOrFail($id);
+        $resource       = Resource::firstOrNew(['id'=>(int)$id]);
         $parentsDefault = $this->parentsDefault;
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.resources.update',[1]);
+        $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.resources.update',[1]);
         return view('Admin::backend.resources.edit',compact('resource','parent', 'parentsDefault', 'hasSave'));
     }
 
@@ -108,15 +113,22 @@ class ResourcesController extends BaseController {
      */
     public function update(Request $request, $id) {
 
-        $resource = $this->resource->findOrFail($id);
+        $resource = Resource::firstOrNew(['id'=>(int)$id]);
         $dataForm = $request->all();
 
         //dd($dataForm);
         $this->validate($request, [
-            'name' => 'required',
-            'is_menu' => 'required',
+            'name' => 'required'
+
         ]);
 
+        if(!isset($dataForm['is_menu'])){
+            $dataForm['is_menu'] = 0;
+        }
+
+        if(!isset($dataForm['can_be_default'])){
+            $dataForm['can_be_default'] = 0;
+        }
         $resource->update($dataForm);
         toastr()->success('Recurso Atualizado com sucesso','Sucesso');
         return redirect(route('admin.resources.index'));

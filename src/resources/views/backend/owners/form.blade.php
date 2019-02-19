@@ -41,7 +41,7 @@
 <div class="col-md-6 form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
     <label for="title">Users</label><br>
     <select id="selectUsers" class="form-control" multiple="multiple"  name="users[]" placeholder="Users">
-        @php $users =  Negotiate\Admin\UserIronForge::all('id','name') ;@endphp
+        @php $users =  Negotiate\Admin\User::all('id','name') ;@endphp
         @foreach($users as $user)
             <option {{$owner->exists() && in_array($user->id,$userOwners) ? 'selected="selected"' : '' }} value="{{$user->id}}">{{$user->name}}</option>
         @endforeach

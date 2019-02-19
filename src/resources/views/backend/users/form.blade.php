@@ -50,7 +50,7 @@
 @if($user->exists && Auth::User()->id == $user->id)
     <div class="col-md-4 form-group">
         <label for="active">My Profile</label>
-        <input type="text" value="{{Auth::User()->profile->name}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+        <input type="text" value="{{$profileCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
     </div>
 @else
 
@@ -91,7 +91,7 @@
 @if($hasSave)
     <div class="clearfix"></div>
     <div class="col-md-4">
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-default">Salvar</button>
     </div>
 @endif
 @section('style_head_end')

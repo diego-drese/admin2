@@ -82,15 +82,10 @@
                 </div>
             </nav>
             <main class="main-content p-4" role="main">
-
                 <div class="row mb-4">
-                    <div class="col-md-12">
-                        <div class="card">
-                            @include('Admin::layouts.quillpro.breadcrumb')
-                            <div class="card-body">
-                                @yield('content')
-                            </div>
-                        </div>
+                    <div class="card col-md-12">
+                       @yield('content')
+
                     </div>
                 </div>
 

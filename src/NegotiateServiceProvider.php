@@ -32,6 +32,9 @@ class NegotiateServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/admin.php', 'admin'
         );
+        $this->mergeConfigFrom(
+            __DIR__.'/config/database.php', 'database.connections'
+        );
 
         $this->mergeConfigFrom(
             __DIR__ . '/config/providers.php', 'auth.providers'
@@ -51,7 +54,7 @@ class NegotiateServiceProvider extends ServiceProvider
         Owner::observe("Negotiate\\Admin\\Observers\\OwnerObserver");
         Profile::observe("Negotiate\\Admin\\Observers\\ProfileObserver");
         Resource::observe("Negotiate\\Admin\\Observers\\ResourcesObserver");
-        UserIronForge::observe("Negotiate\\Admin\\Observers\\UserIronForgeObserver");
+        User::observe("Negotiate\\Admin\\Observers\\UserIronForgeObserver");
 
         Event::listen('log.createdRequest', function ($obj) {
 
@@ -92,6 +95,12 @@ class NegotiateServiceProvider extends ServiceProvider
                 $rootArray['owner_type'] = $config['owner_type'];
             }
             $this->app['config']->set($key, array_merge($config, $rootArray));
+        }
+
+        if($key=='database.connections'){
+            if(!isset($config['negotiate_admin'])){
+                $this->app['config']->set($key, array_merge($config, require $path));
+            }
         }
 
     }

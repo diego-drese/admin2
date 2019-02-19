@@ -6,6 +6,8 @@ use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Negotiate\Admin\Resource;
+use Negotiate\Admin\User;
 
 class LoginController extends Controller
 {
@@ -56,11 +58,11 @@ class LoginController extends Controller
             return redirect(route('login'));
         }
 
-        $redirect = Auth::User()->resourceDefault->route_name;
-            if(!$redirect){
-                return redirect("$prefix_url/dashboard");
-            }
-        return redirect(route($redirect));
+        $redirect = Resource::where('id', Auth::User()->resource_default_id)->first();
+        if(!isset($redirect->route_name)){
+            return redirect("$prefix_url/dashboard");
+        }
+        return redirect(route($redirect->route_name));
     }
     /**
      * Show the application's login form.

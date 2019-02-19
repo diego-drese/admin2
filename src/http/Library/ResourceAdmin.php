@@ -2,13 +2,10 @@
 
 namespace Negotiate\Admin\Library;
 
-use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
-use Negotiate\Admin\User;
-use Negotiate\Admin\UserIronForge;
 use Illuminate\Support\Facades\Auth;
 
-class ResouceIronForge
+class ResourceAdmin
 {
     public static function verifyUser($controllerAction){
 
@@ -17,11 +14,8 @@ class ResouceIronForge
         if($findController == null){
             return false;
         }
-
-        $auth = Auth::user();
-        $userProfiles   = UserIronForge::select('profile_id')->findOrFail($auth->id);
-        $userResources = Resource::getResourcesByProfiles($userProfiles, $controller);
-        if(abort_if($auth->active == 0,404,' Desculpe, não é possível acessar o sistema! Entre em contato com o administrador '))
+        $userResources = Resource::getResourcesByProfiles(Auth::user()->profile_id, $controller);
+        if(abort_if(Auth::user()->active == 0,404,' Desculpe, não é possível acessar o sistema! Entre em contato com o administrador '))
 
         if(!$userResources){
             $userResources = [];
@@ -38,9 +32,7 @@ class ResouceIronForge
         if($findResource == null){
             return false;
         }
-        $auth           = Auth::user();
-        $userProfiles   = UserIronForge::select('profile_id')->findOrFail($auth->id);
-        $userResources  = Resource::getResourcesByRouteName($userProfiles, $routeName);
+        $userResources  = Resource::getResourcesByRouteName(Auth::user()->profile_id, $routeName);
 
         if(count($userResources)){
             return true;

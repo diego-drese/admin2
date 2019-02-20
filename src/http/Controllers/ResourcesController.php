@@ -124,11 +124,16 @@ class ResourcesController extends BaseController {
 
         if(!isset($dataForm['is_menu'])){
             $dataForm['is_menu'] = 0;
+        }else{
+            $dataForm['is_menu'] = (int)$dataForm['is_menu'];
         }
 
         if(!isset($dataForm['can_be_default'])){
             $dataForm['can_be_default'] = 0;
+        }else{
+            $dataForm['can_be_default'] = (int)$dataForm['can_be_default'];
         }
+
         $resource->update($dataForm);
         toastr()->success('Recurso Atualizado com sucesso','Sucesso');
         return redirect(route('admin.resources.index'));

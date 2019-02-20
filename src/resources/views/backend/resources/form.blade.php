@@ -43,30 +43,40 @@
 </div>
 
 <div class="form-group pos-relative">
-    <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" name="is_menu" id="is_menu"
-               value="1" {{$resource->is_menu == 1 ? 'checked' : ''}} >
-        <label class="custom-control-label" for="is_menu">Is Menu ?</label>
+    <label class="d-block">E um menu?</label>
+
+    <div class="custom-control custom-radio mb-3 float-left">
+        <input type="radio" class="custom-control-input" id="is_menu1" name="is_menu" value="1" {{$resource->is_menu == 1 ? 'checked' : ''}}>
+        <label class="custom-control-label" for="is_menu1">Sim</label>
     </div>
+    <div class="custom-control custom-radio mb-3 float-left">
+        <input type="radio" class="custom-control-input" id="is_menu2" name="is_menu" value="0" {{$resource->is_menu == 0 ? 'checked' : ''}}>
+        <label class="custom-control-label" for="is_menu2">Nao</label>
+    </div>
+    <div class="clearfix"></div>
 </div>
 
-
 @if($resource->route_name)
-<div class="form-group pos-relative">
-    <div class="custom-control custom-checkbox mb-3">
-    <input type="checkbox" class="custom-control-input" name="can_be_default" id="can_be_default"
-           value="1" {{$resource->can_be_default == 1 ? 'checked' : ''}} >
-        <label class="custom-control-label" for="can_be_default">Redirect after Login?</label>
+<div class="form-group pos-relative clearfix">
+    <label class=" d-block">Redirecionar apos o login?</label>
+    <div class="custom-control custom-radio mb-3 float-left">
+        <input type="radio" class="custom-control-input" id="can_be_default1" name="can_be_default" value="1" {{$resource->can_be_default == 1 ? 'checked' : ''}}>
+        <label class="custom-control-label" for="can_be_default1">Sim</label>
     </div>
+    <div class="custom-control custom-radio mb-3 float-left">
+        <input type="radio" class="custom-control-input" id="can_be_default2" name="can_be_default" value="0" {{$resource->can_be_default == 0 ? 'checked' : ''}}>
+        <label class="custom-control-label" for="can_be_default2">Nao</label>
+    </div>
+    <div class="clearfix"></div>
 </div>
 @endif
 
 <div class="form-group {{$errors->has('icon') ? 'has-error' : ''}} ">
     <label for="title">Icone</label>
     <div class="input-group">
-        <span class="input-group-addon select-icon color-primary font-medium"><i class="{{'fa '.$resource->icon}}"></i></span>
+        <span class="input-group-addon input-group-text select-icon color-primary font-medium btn-secondary waves-effect waves-light "><i class="{{'fa '.($resource->icon ? $resource->icon : ' fa-question-circle')}}"> </i></span>
         <input type="text" class="form-control" id="icon-select"
-               value="{{old('route_name',$resource->exists() ? $resource->icon : '')}}" name="icon"
+               value="{{old('route_name',$resource->exists() ? $resource->icon : 'fa-question-circle')}}" name="icon"
                placeholder="Selecione um Icone">
     </div>
     @if($errors->has('icon'))
@@ -78,7 +88,7 @@
 <div>
     <br>
     @if($hasSave)
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-default">Save</button>
     @endif
 </div>
 
@@ -122,15 +132,14 @@
 
         });
 
-        $(document).on('dblclick', '.fa.fa-fw', function (e) {
+        $(document).on('click', '.fa.fa-fc', function (e) {
             var classeFonte = $(this).attr('class');
-            console.log(classeFonte)
             var inputText = $('#icon-select');
 
             iconInput.removeAttr('class', '');
-            iconInput.attr('class', classeFonte);
+            iconInput.attr('class', classeFonte.replace('fa-fc btn btn-secondary waves-effect waves-light', ''));
             inputText.val('');
-            inputText.val(classeFonte.replace('fa fa-fw', ''));
+            inputText.val(classeFonte.replace('fa-fc btn btn-secondary waves-effect waves-light', ''));
 
             modalBox.modal('hide');
         });

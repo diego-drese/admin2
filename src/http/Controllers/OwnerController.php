@@ -2,8 +2,6 @@
 
 namespace Negotiate\Admin\Http\Controllers;
 
-use Negotiate\CoreAggrega\Entities\Product;
-use Negotiate\Reports\Library\Report;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Negotiate\Admin\Owner;
@@ -11,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Yajra\Datatables\Datatables;
-use Negotiate\Admin\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResourceAdmin;
 
 
 class OwnerController extends BaseController
@@ -28,7 +26,7 @@ class OwnerController extends BaseController
 
         if($request->ajax()){
 
-            $query = Owner::with('user');
+            $query = Owner::all();
 
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
@@ -64,8 +62,8 @@ class OwnerController extends BaseController
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.owner.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.owner.edit', [1]);
+        $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.owner.create');
+        $hasEdit    = ResourceAdmin::hasResourceByRouteName('admin.owner.edit', [1]);
         
         return view('Admin::backend.owners.index',compact('hasAdd', 'hasEdit'));
 

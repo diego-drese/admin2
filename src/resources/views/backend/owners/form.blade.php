@@ -41,7 +41,7 @@
 <div class="col-md-6 form-group {{$errors->has('desc') ? 'has-error' : ''}} ">
     <label for="title">Users</label><br>
     <select id="selectUsers" class="form-control" multiple="multiple"  name="users[]" placeholder="Users">
-        @php $users =  Negotiate\Admin\UserIronForge::all('id','name') ;@endphp
+        @php $users =  Negotiate\Admin\User::all('id','name') ;@endphp
         @foreach($users as $user)
             <option {{$owner->exists() && in_array($user->id,$userOwners) ? 'selected="selected"' : '' }} value="{{$user->id}}">{{$user->name}}</option>
         @endforeach
@@ -61,13 +61,13 @@
     <button type="submit" class="btn btn-success btn-save">Save</button>
 </div>
 
-@section('style')
+@section('style_head_end')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/ui/trumbowyg.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/plugins/colors/ui/trumbowyg.colors.css">
 @endsection
 
-@section('script')
+@section('script_footer_end')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script src="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/trumbowyg.min.js"></script>
     <script src="https://cdn.rawgit.com/Alex-D/Trumbowyg/v2.10.0/dist/plugins/colors/trumbowyg.colors.min.js"></script>

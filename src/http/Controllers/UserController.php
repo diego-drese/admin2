@@ -3,8 +3,11 @@
 namespace Negotiate\Admin\Http\Controllers;
 
 use Negotiate\Admin\Library\ResouceIronForge;
+use Negotiate\Admin\Library\ResourceAdmin;
 use Negotiate\Admin\Profile;
-use Negotiate\Admin\UserIronForge;
+use Negotiate\Admin\Resource;
+use Negotiate\Admin\Sequence;
+use Negotiate\Admin\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -20,18 +23,22 @@ class UserController extends BaseController {
 
     use ValidatesRequests;
 
-    public function index(Request $request,DataTables $datatables ) {
+    public function index(Request $request, DataTables $datatables ) {
 
         if($request->ajax()){
-
-            $query = UserIronForge::select('users.*','profiles.name as profileName','resources.name as resourceName')
-            ->join('profiles','profiles.id','users.profile_id')
-            ->join('resources','resources.id','users.resource_default_id');
+            $query = User::all();
 
             return Datatables::of($query)
-
                 ->addColumn('edit_url', function($row){
                     return route('admin.users.edit', [$row->id]);
+                })
+                ->addColumn('profileName', function($row){
+                    $profile = Profile::where('id', (int)$row->profile_id)->first();
+                    return $profile->name;
+                })
+                ->addColumn('resourceName', function($row){
+                    $resource = Resource::where('id', (int)$row->resource_default_id)->first();
+                    return $resource->name;
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -39,8 +46,8 @@ class UserController extends BaseController {
                 ->make(true);
         }
 
-        $hasAdd     = ResouceIronForge::hasResourceByRouteName('admin.users.create');
-        $hasEdit    = ResouceIronForge::hasResourceByRouteName('admin.users.edit', [1]);
+        $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.users.create');
+        $hasEdit    = ResourceAdmin::hasResourceByRouteName('admin.users.edit', [1]);
         return view('Admin::backend.users.index', compact('hasAdd', 'hasEdit'));
     }
 
@@ -49,9 +56,9 @@ class UserController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(UserIronForge $user) {
+    public function create(User $user) {
         $profiles   = Profile::all('id', 'name');
-        $hasSave    = ResouceIronForge::hasResourceByRouteName('admin.users.store');
+        $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.users.store');
         return view('Admin::backend.users.create', compact('profiles','user', 'hasSave'));
     }
 
@@ -63,17 +70,25 @@ class UserController extends BaseController {
      */
     public function store(Request $request) {
         $dataForm = $request->all();
+
         $this->validate($request, [
             'name'                  => 'required',
-            'email'                 => 'required|unique:users',
+            'email'                 => 'required',
             'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6|',
         ]);
+
+        if(User::where('email', $dataForm['email'])->first()){
+            toastr()->error('O email já está em uso!','Email duplicado');
+            return back()->withInput();
+        }
+
+        $data['id'] = Sequence::getSequence('users');
         $dataForm['password'] = bcrypt($dataForm['password']);
         $request->user()->create($dataForm);
 
         toastr()->success('Usuário Criado!','Sucesso');
-        return redirect('/console/users');
+        return redirect(route('admin.users.index'));
 
     }
 
@@ -85,10 +100,16 @@ class UserController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        $user           = UserIronForge::findOrFail($id);
+        $user           = User::where('id',(int)$id)->first();
         $profiles       = Profile::select('id','name')->get();
-        $hasSave        = ResouceIronForge::hasResourceByRouteName('admin.users.update', [1]);
-        return view('Admin::backend.users.edit', compact('user', 'profiles', 'hasSave'));
+        $profileCurrent = "";
+        foreach ($profiles as $profile){
+            if($profile->id == $user->profile_id){
+                $profileCurrent = $profile->name;
+            }
+        }
+        $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.users.update', [1]);
+        return view('Admin::backend.users.edit', compact('user', 'profiles', 'hasSave', 'profileCurrent'));
     }
 
     /**
@@ -99,20 +120,23 @@ class UserController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        $user       = UserIronForge::findOrFail($id);
+        $user       = User::firstOrNew(['id'=>(int)$id]);
         $dataForm   = $request->all();
 
         $this->validate($request, [
             'name'                  => 'required',
             'resource_default_id'   => 'required',
-            'email'                 => 'required|unique:users,email,'.$user->id,
+            'email'                 => 'required',
             'password'              => 'confirmed',
         ]);
-
+        if(User::where('email', $dataForm['email'])->where('id', '!=', (int)$id)->first()){
+            toastr()->error('O email já está em uso!','Email duplicado');
+            return back()->withInput();
+        }
         $dataForm['password'] = bcrypt($dataForm['password']);
         $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
-        return redirect('/console/users');
+        return redirect(route('admin.users.index'));
     }
 
 
@@ -125,7 +149,7 @@ class UserController extends BaseController {
     public function viewUserProfile() {
 
         $auth = Auth::user();
-        $user = UserIronForge::findOrFail($auth->id);
+        $user = User::firstOrNew(['id'=>(int)$auth->id]);
         return view('Admin::backend.users.edit-profile', compact('user'));
     }
 
@@ -141,13 +165,13 @@ class UserController extends BaseController {
         $dataForm   = $request->all();
 
         $auth = Auth::user();
-        $user = UserIronForge::findOrFail($auth->id);
+        $user = User::firstOrNew(['id'=>(int)$auth->id]);
 
         $this->validate($request, [
             'picture'               => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'name'                  => 'required',
             'resource_default_id'   => 'required',
-            'email'                 => 'required|unique:users,email,'.$user->id,
+            'email'                 => 'required',
             'old_password'          => [function ($attribute, $value, $fail) use ($request, $user) {
 
                 if (!Hash::check($request->old_password, $user->password)) {

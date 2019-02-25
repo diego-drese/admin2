@@ -2,36 +2,28 @@
 
 namespace Negotiate\Admin;
 
-use Negotiate\Admin\User;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Resource extends Model
 {
 
-    protected $fillable = ['name','menu','is_menu','icon','can_be_default','parent_id'];
+    protected $fillable = ['id','name','menu','is_menu','icon','can_be_default','parent_id'];
+    protected $table        = 'resource';
+    const TABLE             = 'resource';
+    protected $connection   = 'negotiate_admin';
 
-    public function profiles()
-    {
-        return $this->belongsToMany('Negotiate\Admin\Profile','profile_has_resources');
 
-    }
-    public static function getResourcesByProfiles($profiles, $controller)
-    {
-        return self::select('resources.*')
-            ->distinct()
-            ->join('profile_has_resources', 'resource_id','resources.id')
-            ->where('controller_method',$controller)
-            ->whereIn('profile_id', $profiles)
+    public static function getResourcesByProfiles($profile, $controller) {
+        $profile = Profile::where('id', (int)$profile)->first();
+        return self::whereIn('id', $profile->resources_allow)
+            ->where('controller_method', $controller)
             ->get();
-
     }
-    public static function getResourcesByRouteName($profiles, $routeName)
-    {
-        return self::select('resources.*')
-            ->distinct()
-            ->join('profile_has_resources', 'resource_id','resources.id')
-            ->where('route_name',$routeName)
-            ->whereIn('profile_id', $profiles)
+    public static function getResourcesByRouteName($profile, $routeName) {
+        $profile = Profile::where('id', (int)$profile)->first();
+        return self::select('resource.*')
+            ->where('route_name', $routeName)
+            ->whereIn('id', $profile->resources_allow)
             ->get();
 
     }
@@ -41,18 +33,18 @@ class Resource extends Model
     }
 
     public static function getItensMenuByParentAndProfile($parentID, $profileId){
-        return self::where('parent_id', $parentID)
+        $profile = Profile::where('id', (int)$profileId)->first();
+        return self::where('parent_id', (int)$parentID)
             ->where('is_menu', 1)
-            ->where('profile_has_resources.profile_id', $profileId)
+            ->whereIn('id', $profile->resources_allow)
             ->orderBy('order', 'asc')
-            ->join('profile_has_resources', 'profile_has_resources.resource_id','resources.id')
             ->get();
     }
 
     public static function buildBreadCrumb($resource, $profileId){
         return self::where('id', $resource->parent_id)
-            ->join('profile_has_resources', 'profile_has_resources.resource_id','resources.id')
-            ->where('profile_has_resources.profile_id', $profileId)
+            //->join('profile_has_resources', 'profile_has_resources.resource_id','resources.id')
+            ->where('profile_id', $profileId)
             ->first();
     }
     public static function getResourceIdByRouteName($routeName){

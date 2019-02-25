@@ -59,23 +59,31 @@
                 autoWidth:false,
                 ajax: '{{ route('admin.resources.index') }}',
                 columns: [
-                    {data: "id", 'name': 'resources.id', searchable: false},
-                    {data: "name", 'name': 'resources.name'},
-                    {data: "menu", 'name': 'resources.menu'},
-                    {data: "route_name", 'name': 'resources.route_name'},
+                    {data: "id", 'name': 'id', searchable: false},
+                    {data: "name", 'name': 'name'},
+                    {data: "menu", 'name': 'menu'},
+                    {data: "route_name", 'name': 'route_name'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var icon = `<i class="font-gradient icon-font fa ${data.icon}"></i>`;
                             return icon
                         }
                     },
-                    {data: 'controller_method', 'name': 'resources.controller_method'},
+                    {data: 'controller_method', 'name': 'controller_method'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                            return data.profiles.map((name) => name.name);
+                        if(data !== null){
+                            var span = "";
+                            $.each(data.profiles, function(k, v){
+                                span += "<span class=\"badge badge-secondary mr-1 \">" + v.name + "</span>";
+                            });
+                            return span;
+                        }else{
+                            return "";
+                        }
                         }
                     },
-                    {data: "created_at", 'name': 'resources.created_at'},
+                    {data: "created_at", 'name': 'created_at'},
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {

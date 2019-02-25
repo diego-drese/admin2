@@ -3,7 +3,6 @@
 
 namespace Negotiate\Admin;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class ProfileTableSeed extends Seeder
@@ -11,19 +10,28 @@ class ProfileTableSeed extends Seeder
 
     public function run()
     {
-        DB::table('profiles')->insert([
+        Profile::insert(
             [
+                'id'   => Sequence::getSequence(Profile::TABLE),
                 'name' => "Admin",
                 'desc' => "Perfil admin master",
+                'resources_allow' => [],
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
+            ]
+        );
+
+        Profile::insert(
             [
+                'id'   => Sequence::getSequence(Profile::TABLE),
                 'name' => "User",
                 'desc' => "Usuário do sistema",
+                'resources_allow' => [],
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
-        ]);
+            ]
+        );
+
+
     }
 }

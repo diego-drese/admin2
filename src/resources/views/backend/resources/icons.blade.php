@@ -1,475 +1,473 @@
 <section class="container fonts-modal-all">
-    <section id="web-application" class="col-md-9">
+    <section id="web-application" class="col-md-12">
         <div class="row fontawesome-icon-list ">
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-adjust"></i> fa-adjust</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-anchor"></i> fa-anchor</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-archive"></i> fa-archive</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-area-chart"></i> fa-area-chart</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-arrows"></i> fa-arrows</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-arrows-h"></i> fa-arrows-h</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-arrows-v"></i> fa-arrows-v</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-asterisk"></i> fa-asterisk</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-at"></i> fa-at</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-automobile"></i> fa-automobile
-                
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-adjust"></i>&nbsp;&nbsp; fa-adjust</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-anchor"></i>&nbsp;&nbsp; fa-anchor</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-archive"></i>&nbsp;&nbsp; fa-archive</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-area-chart"></i>&nbsp;&nbsp; fa-area-chart</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows"></i>&nbsp;&nbsp; fa-arrows</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows-h"></i>&nbsp;&nbsp; fa-arrows-h</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows-v"></i>&nbsp;&nbsp; fa-arrows-v</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-asterisk"></i>&nbsp;&nbsp; fa-asterisk</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-at"></i>&nbsp;&nbsp; fa-at</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-automobile"></i>&nbsp;&nbsp; fa-automobile</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-balance-scale"></i>&nbsp;&nbsp; fa-balance-scale</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ban"></i>&nbsp;&nbsp; fa-ban</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bank"></i>&nbsp;&nbsp; fa-bank <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-balance-scale"></i> fa-balance-scale</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-ban"></i> fa-ban</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bank"></i> fa-bank <span class="text-muted">(alias)</span>
-            </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bar-chart"></i> fa-bar-chart</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bar-chart-o"></i> fa-bar-chart-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bar-chart"></i>&nbsp;&nbsp; fa-bar-chart</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bar-chart-o"></i>&nbsp;&nbsp; fa-bar-chart-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-barcode"></i> fa-barcode</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bars"></i> fa-bars</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-0"></i> fa-battery-0
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-barcode"></i>&nbsp;&nbsp; fa-barcode</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bars"></i>&nbsp;&nbsp; fa-bars</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-0"></i>&nbsp;&nbsp; fa-battery-0
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-1"></i> fa-battery-1
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-1"></i>&nbsp;&nbsp; fa-battery-1
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-2"></i> fa-battery-2
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-2"></i>&nbsp;&nbsp; fa-battery-2
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-3"></i> fa-battery-3
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-3"></i>&nbsp;&nbsp; fa-battery-3
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-4"></i> fa-battery-4
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-4"></i>&nbsp;&nbsp; fa-battery-4
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-empty"></i> fa-battery-empty</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-full"></i> fa-battery-full</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-half"></i> fa-battery-half</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-quarter"></i> fa-battery-quarter</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-battery-three-quarters"></i>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-empty"></i>&nbsp;&nbsp; fa-battery-empty</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-full"></i>&nbsp;&nbsp; fa-battery-full</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-half"></i>&nbsp;&nbsp; fa-battery-half</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-quarter"></i>&nbsp;&nbsp; fa-battery-quarter</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-battery-three-quarters"></i>
                 fa-battery-three-quarters
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bed"></i> fa-bed</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-beer"></i> fa-beer</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bell"></i> fa-bell</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bell-o"></i> fa-bell-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bell-slash"></i> fa-bell-slash</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bell-slash-o"></i> fa-bell-slash-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bicycle"></i> fa-bicycle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-binoculars"></i> fa-binoculars</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-birthday-cake"></i> fa-birthday-cake</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bolt"></i> fa-bolt</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bomb"></i> fa-bomb</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-book"></i> fa-book</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bookmark"></i> fa-bookmark</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bookmark-o"></i> fa-bookmark-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-briefcase"></i> fa-briefcase</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bug"></i> fa-bug</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-building"></i> fa-building</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-building-o"></i> fa-building-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bullhorn"></i> fa-bullhorn</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bullseye"></i> fa-bullseye</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-bus"></i> fa-bus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cab"></i> fa-cab <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bed"></i>&nbsp;&nbsp; fa-bed</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-beer"></i>&nbsp;&nbsp; fa-beer</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bell"></i>&nbsp;&nbsp; fa-bell</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bell-o"></i>&nbsp;&nbsp; fa-bell-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bell-slash"></i>&nbsp;&nbsp; fa-bell-slash</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bell-slash-o"></i>&nbsp;&nbsp; fa-bell-slash-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bicycle"></i>&nbsp;&nbsp; fa-bicycle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-binoculars"></i>&nbsp;&nbsp; fa-binoculars</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-birthday-cake"></i>&nbsp;&nbsp; fa-birthday-cake</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bolt"></i>&nbsp;&nbsp; fa-bolt</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bomb"></i>&nbsp;&nbsp; fa-bomb</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-book"></i>&nbsp;&nbsp; fa-book</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bookmark"></i>&nbsp;&nbsp; fa-bookmark</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bookmark-o"></i>&nbsp;&nbsp; fa-bookmark-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-briefcase"></i>&nbsp;&nbsp; fa-briefcase</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bug"></i>&nbsp;&nbsp; fa-bug</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-building"></i>&nbsp;&nbsp; fa-building</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-building-o"></i>&nbsp;&nbsp; fa-building-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bullhorn"></i>&nbsp;&nbsp; fa-bullhorn</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bullseye"></i>&nbsp;&nbsp; fa-bullseye</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bus"></i>&nbsp;&nbsp; fa-bus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cab"></i>&nbsp;&nbsp; fa-cab <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calculator"></i> fa-calculator</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calendar"></i> fa-calendar</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calendar-check-o"></i> fa-calendar-check-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calculator"></i>&nbsp;&nbsp; fa-calculator</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calendar"></i>&nbsp;&nbsp; fa-calendar</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calendar-check-o"></i>&nbsp;&nbsp; fa-calendar-check-o
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calendar-minus-o"></i> fa-calendar-minus-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calendar-minus-o"></i>&nbsp;&nbsp; fa-calendar-minus-o
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calendar-o"></i> fa-calendar-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calendar-plus-o"></i> fa-calendar-plus-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-calendar-times-o"></i> fa-calendar-times-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calendar-o"></i>&nbsp;&nbsp; fa-calendar-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calendar-plus-o"></i>&nbsp;&nbsp; fa-calendar-plus-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-calendar-times-o"></i>&nbsp;&nbsp; fa-calendar-times-o
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-camera"></i> fa-camera</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-camera-retro"></i> fa-camera-retro</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-car"></i> fa-car</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-caret-square-o-down"></i>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-camera"></i>&nbsp;&nbsp; fa-camera</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-camera-retro"></i>&nbsp;&nbsp; fa-camera-retro</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-car"></i>&nbsp;&nbsp; fa-car</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-down"></i>
                 fa-caret-square-o-down
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-caret-square-o-left"></i>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-left"></i>
                 fa-caret-square-o-left
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-caret-square-o-right"></i>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-right"></i>
                 fa-caret-square-o-right
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-caret-square-o-up"></i> fa-caret-square-o-up
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-up"></i>&nbsp;&nbsp; fa-caret-square-o-up
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cart-arrow-down"></i> fa-cart-arrow-down</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cart-plus"></i> fa-cart-plus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cc"></i> fa-cc</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-certificate"></i> fa-certificate</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-check"></i> fa-check</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-check-circle"></i> fa-check-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-check-circle-o"></i> fa-check-circle-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-check-square"></i> fa-check-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-check-square-o"></i> fa-check-square-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-child"></i> fa-child</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-circle"></i> fa-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-circle-o"></i> fa-circle-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-circle-o-notch"></i> fa-circle-o-notch</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-circle-thin"></i> fa-circle-thin</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-clock-o"></i> fa-clock-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-clone"></i> fa-clone</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-close"></i> fa-close <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cart-arrow-down"></i>&nbsp;&nbsp; fa-cart-arrow-down</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cart-plus"></i>&nbsp;&nbsp; fa-cart-plus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc"></i>&nbsp;&nbsp; fa-cc</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-certificate"></i>&nbsp;&nbsp; fa-certificate</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check"></i>&nbsp;&nbsp; fa-check</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check-circle"></i>&nbsp;&nbsp; fa-check-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check-circle-o"></i>&nbsp;&nbsp; fa-check-circle-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check-square"></i>&nbsp;&nbsp; fa-check-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check-square-o"></i>&nbsp;&nbsp; fa-check-square-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-child"></i>&nbsp;&nbsp; fa-child</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle"></i>&nbsp;&nbsp; fa-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle-o"></i>&nbsp;&nbsp; fa-circle-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle-o-notch"></i>&nbsp;&nbsp; fa-circle-o-notch</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle-thin"></i>&nbsp;&nbsp; fa-circle-thin</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-clock-o"></i>&nbsp;&nbsp; fa-clock-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-clone"></i>&nbsp;&nbsp; fa-clone</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-close"></i>&nbsp;&nbsp; fa-close <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cloud"></i> fa-cloud</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cloud-download"></i> fa-cloud-download</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cloud-upload"></i> fa-cloud-upload</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-code"></i> fa-code</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-code-fork"></i> fa-code-fork</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-coffee"></i> fa-coffee</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cog"></i> fa-cog</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cogs"></i> fa-cogs</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-comment"></i> fa-comment</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-comment-o"></i> fa-comment-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-commenting"></i> fa-commenting</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-commenting-o"></i> fa-commenting-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-comments"></i> fa-comments</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-comments-o"></i> fa-comments-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-compass"></i> fa-compass</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-copyright"></i> fa-copyright</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-creative-commons"></i> fa-creative-commons
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cloud"></i>&nbsp;&nbsp; fa-cloud</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cloud-download"></i>&nbsp;&nbsp; fa-cloud-download</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cloud-upload"></i>&nbsp;&nbsp; fa-cloud-upload</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-code"></i>&nbsp;&nbsp; fa-code</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-code-fork"></i>&nbsp;&nbsp; fa-code-fork</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-coffee"></i>&nbsp;&nbsp; fa-coffee</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cog"></i>&nbsp;&nbsp; fa-cog</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cogs"></i>&nbsp;&nbsp; fa-cogs</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-comment"></i>&nbsp;&nbsp; fa-comment</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-comment-o"></i>&nbsp;&nbsp; fa-comment-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-commenting"></i>&nbsp;&nbsp; fa-commenting</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-commenting-o"></i>&nbsp;&nbsp; fa-commenting-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-comments"></i>&nbsp;&nbsp; fa-comments</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-comments-o"></i>&nbsp;&nbsp; fa-comments-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-compass"></i>&nbsp;&nbsp; fa-compass</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-copyright"></i>&nbsp;&nbsp; fa-copyright</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-creative-commons"></i>&nbsp;&nbsp; fa-creative-commons
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-credit-card"></i> fa-credit-card</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-crop"></i> fa-crop</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-crosshairs"></i> fa-crosshairs</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cube"></i> fa-cube</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cubes"></i> fa-cubes</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-cutlery"></i> fa-cutlery</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-dashboard"></i> fa-dashboard
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-credit-card"></i>&nbsp;&nbsp; fa-credit-card</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-crop"></i>&nbsp;&nbsp; fa-crop</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-crosshairs"></i>&nbsp;&nbsp; fa-crosshairs</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cube"></i>&nbsp;&nbsp; fa-cube</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cubes"></i>&nbsp;&nbsp; fa-cubes</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cutlery"></i>&nbsp;&nbsp; fa-cutlery</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-dashboard"></i>&nbsp;&nbsp; fa-dashboard
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-database"></i> fa-database</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-desktop"></i> fa-desktop</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-diamond"></i> fa-diamond</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-dot-circle-o"></i> fa-dot-circle-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-download"></i> fa-download</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-edit"></i> fa-edit <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-database"></i>&nbsp;&nbsp; fa-database</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-desktop"></i>&nbsp;&nbsp; fa-desktop</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-diamond"></i>&nbsp;&nbsp; fa-diamond</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-dot-circle-o"></i>&nbsp;&nbsp; fa-dot-circle-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-download"></i>&nbsp;&nbsp; fa-download</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-edit"></i>&nbsp;&nbsp; fa-edit <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-ellipsis-h"></i> fa-ellipsis-h</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-ellipsis-v"></i> fa-ellipsis-v</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-envelope"></i> fa-envelope</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-envelope-o"></i> fa-envelope-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-envelope-square"></i> fa-envelope-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-eraser"></i> fa-eraser</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-exchange"></i> fa-exchange</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-exclamation"></i> fa-exclamation</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-exclamation-circle"></i> fa-exclamation-circle
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ellipsis-h"></i>&nbsp;&nbsp; fa-ellipsis-h</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ellipsis-v"></i>&nbsp;&nbsp; fa-ellipsis-v</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-envelope"></i>&nbsp;&nbsp; fa-envelope</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-envelope-o"></i>&nbsp;&nbsp; fa-envelope-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-envelope-square"></i>&nbsp;&nbsp; fa-envelope-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eraser"></i>&nbsp;&nbsp; fa-eraser</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-exchange"></i>&nbsp;&nbsp; fa-exchange</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-exclamation"></i>&nbsp;&nbsp; fa-exclamation</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-exclamation-circle"></i>&nbsp;&nbsp; fa-exclamation-circle
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-exclamation-triangle"></i>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-exclamation-triangle"></i>
                 fa-exclamation-triangle
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-external-link"></i> fa-external-link</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-external-link-square"></i>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-external-link"></i>&nbsp;&nbsp; fa-external-link</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-external-link-square"></i>
                 fa-external-link-square
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-eye"></i> fa-eye</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-eye-slash"></i> fa-eye-slash</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-eyedropper"></i> fa-eyedropper</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-fax"></i> fa-fax</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-feed"></i> fa-feed <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eye"></i>&nbsp;&nbsp; fa-eye</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eye-slash"></i>&nbsp;&nbsp; fa-eye-slash</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eyedropper"></i>&nbsp;&nbsp; fa-eyedropper</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-fax"></i>&nbsp;&nbsp; fa-fax</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-feed"></i>&nbsp;&nbsp; fa-feed <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-female"></i> fa-female</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-fighter-jet"></i> fa-fighter-jet</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-archive-o"></i> fa-file-archive-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-audio-o"></i> fa-file-audio-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-code-o"></i> fa-file-code-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-excel-o"></i> fa-file-excel-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-image-o"></i> fa-file-image-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-movie-o"></i> fa-file-movie-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-female"></i>&nbsp;&nbsp; fa-female</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-fighter-jet"></i>&nbsp;&nbsp; fa-fighter-jet</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-archive-o"></i>&nbsp;&nbsp; fa-file-archive-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-audio-o"></i>&nbsp;&nbsp; fa-file-audio-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-code-o"></i>&nbsp;&nbsp; fa-file-code-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-excel-o"></i>&nbsp;&nbsp; fa-file-excel-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-image-o"></i>&nbsp;&nbsp; fa-file-image-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-movie-o"></i>&nbsp;&nbsp; fa-file-movie-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-pdf-o"></i> fa-file-pdf-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-photo-o"></i> fa-file-photo-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-pdf-o"></i>&nbsp;&nbsp; fa-file-pdf-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-photo-o"></i>&nbsp;&nbsp; fa-file-photo-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-picture-o"></i> fa-file-picture-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-picture-o"></i>&nbsp;&nbsp; fa-file-picture-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-powerpoint-o"></i> fa-file-powerpoint-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-powerpoint-o"></i>&nbsp;&nbsp; fa-file-powerpoint-o
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-sound-o"></i> fa-file-sound-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-sound-o"></i>&nbsp;&nbsp; fa-file-sound-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-video-o"></i> fa-file-video-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-word-o"></i> fa-file-word-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-file-zip-o"></i> fa-file-zip-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-video-o"></i>&nbsp;&nbsp; fa-file-video-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-word-o"></i>&nbsp;&nbsp; fa-file-word-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-zip-o"></i>&nbsp;&nbsp; fa-file-zip-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-film"></i> fa-film</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-filter"></i> fa-filter</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-fire"></i> fa-fire</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-fire-extinguisher"></i> fa-fire-extinguisher
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-film"></i>&nbsp;&nbsp; fa-film</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-filter"></i>&nbsp;&nbsp; fa-filter</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-fire"></i>&nbsp;&nbsp; fa-fire</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-fire-extinguisher"></i>&nbsp;&nbsp; fa-fire-extinguisher
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-flag"></i> fa-flag</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-flag-checkered"></i> fa-flag-checkered</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-flag-o"></i> fa-flag-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-flash"></i> fa-flash <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-flag"></i>&nbsp;&nbsp; fa-flag</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-flag-checkered"></i>&nbsp;&nbsp; fa-flag-checkered</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-flag-o"></i>&nbsp;&nbsp; fa-flag-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-flash"></i>&nbsp;&nbsp; fa-flash <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-flask"></i> fa-flask</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-folder"></i> fa-folder</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-folder-o"></i> fa-folder-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-folder-open"></i> fa-folder-open</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-folder-open-o"></i> fa-folder-open-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-frown-o"></i> fa-frown-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-futbol-o"></i> fa-futbol-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-gamepad"></i> fa-gamepad</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-gavel"></i> fa-gavel</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-gear"></i> fa-gear <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-flask"></i>&nbsp;&nbsp; fa-flask</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-folder"></i>&nbsp;&nbsp; fa-folder</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-folder-o"></i>&nbsp;&nbsp; fa-folder-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-folder-open"></i>&nbsp;&nbsp; fa-folder-open</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-folder-open-o"></i>&nbsp;&nbsp; fa-folder-open-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-frown-o"></i>&nbsp;&nbsp; fa-frown-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-futbol-o"></i>&nbsp;&nbsp; fa-futbol-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gamepad"></i>&nbsp;&nbsp; fa-gamepad</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gavel"></i>&nbsp;&nbsp; fa-gavel</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gear"></i>&nbsp;&nbsp; fa-gear <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-gears"></i> fa-gears <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gears"></i>&nbsp;&nbsp; fa-gears <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-gift"></i> fa-gift</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-glass"></i> fa-glass</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-globe"></i> fa-globe</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-graduation-cap"></i> fa-graduation-cap</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-group"></i> fa-group <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gift"></i>&nbsp;&nbsp; fa-gift</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-glass"></i>&nbsp;&nbsp; fa-glass</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-globe"></i>&nbsp;&nbsp; fa-globe</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-graduation-cap"></i>&nbsp;&nbsp; fa-graduation-cap</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-group"></i>&nbsp;&nbsp; fa-group <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-grab-o"></i> fa-hand-grab-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-grab-o"></i>&nbsp;&nbsp; fa-hand-grab-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-lizard-o"></i> fa-hand-lizard-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-paper-o"></i> fa-hand-paper-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-peace-o"></i> fa-hand-peace-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-pointer-o"></i> fa-hand-pointer-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-rock-o"></i> fa-hand-rock-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-scissors-o"></i> fa-hand-scissors-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-spock-o"></i> fa-hand-spock-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hand-stop-o"></i> fa-hand-stop-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-lizard-o"></i>&nbsp;&nbsp; fa-hand-lizard-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-paper-o"></i>&nbsp;&nbsp; fa-hand-paper-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-peace-o"></i>&nbsp;&nbsp; fa-hand-peace-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-pointer-o"></i>&nbsp;&nbsp; fa-hand-pointer-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-rock-o"></i>&nbsp;&nbsp; fa-hand-rock-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-scissors-o"></i>&nbsp;&nbsp; fa-hand-scissors-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-spock-o"></i>&nbsp;&nbsp; fa-hand-spock-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-stop-o"></i>&nbsp;&nbsp; fa-hand-stop-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hdd-o"></i> fa-hdd-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-headphones"></i> fa-headphones</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-heart"></i> fa-heart</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-heart-o"></i> fa-heart-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-heartbeat"></i> fa-heartbeat</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-history"></i> fa-history</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-home"></i> fa-home</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hotel"></i> fa-hotel <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hdd-o"></i>&nbsp;&nbsp; fa-hdd-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-headphones"></i>&nbsp;&nbsp; fa-headphones</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-heart"></i>&nbsp;&nbsp; fa-heart</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-heart-o"></i>&nbsp;&nbsp; fa-heart-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-heartbeat"></i>&nbsp;&nbsp; fa-heartbeat</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-history"></i>&nbsp;&nbsp; fa-history</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-home"></i>&nbsp;&nbsp; fa-home</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hotel"></i>&nbsp;&nbsp; fa-hotel <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass"></i> fa-hourglass</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-1"></i> fa-hourglass-1
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass"></i>&nbsp;&nbsp; fa-hourglass</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-1"></i>&nbsp;&nbsp; fa-hourglass-1
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-2"></i> fa-hourglass-2
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-2"></i>&nbsp;&nbsp; fa-hourglass-2
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-3"></i> fa-hourglass-3
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-3"></i>&nbsp;&nbsp; fa-hourglass-3
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-end"></i> fa-hourglass-end</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-half"></i> fa-hourglass-half</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-o"></i> fa-hourglass-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-hourglass-start"></i> fa-hourglass-start</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-i-cursor"></i> fa-i-cursor</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-image"></i> fa-image <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-end"></i>&nbsp;&nbsp; fa-hourglass-end</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-half"></i>&nbsp;&nbsp; fa-hourglass-half</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-o"></i>&nbsp;&nbsp; fa-hourglass-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hourglass-start"></i>&nbsp;&nbsp; fa-hourglass-start</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-i-cursor"></i>&nbsp;&nbsp; fa-i-cursor</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-image"></i>&nbsp;&nbsp; fa-image <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-inbox"></i> fa-inbox</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-industry"></i> fa-industry</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-info"></i> fa-info</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-info-circle"></i> fa-info-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-institution"></i> fa-institution
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-inbox"></i>&nbsp;&nbsp; fa-inbox</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-industry"></i>&nbsp;&nbsp; fa-industry</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-info"></i>&nbsp;&nbsp; fa-info</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-info-circle"></i>&nbsp;&nbsp; fa-info-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-institution"></i>&nbsp;&nbsp; fa-institution
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-key"></i> fa-key</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-keyboard-o"></i> fa-keyboard-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-language"></i> fa-language</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-laptop"></i> fa-laptop</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-leaf"></i> fa-leaf</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-legal"></i> fa-legal <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-key"></i>&nbsp;&nbsp; fa-key</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-keyboard-o"></i>&nbsp;&nbsp; fa-keyboard-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-language"></i>&nbsp;&nbsp; fa-language</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-laptop"></i>&nbsp;&nbsp; fa-laptop</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-leaf"></i>&nbsp;&nbsp; fa-leaf</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-legal"></i>&nbsp;&nbsp; fa-legal <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-lemon-o"></i> fa-lemon-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-level-down"></i> fa-level-down</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-level-up"></i> fa-level-up</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-life-bouy"></i> fa-life-bouy
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-lemon-o"></i>&nbsp;&nbsp; fa-lemon-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-level-down"></i>&nbsp;&nbsp; fa-level-down</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-level-up"></i>&nbsp;&nbsp; fa-level-up</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-life-bouy"></i>&nbsp;&nbsp; fa-life-bouy
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-life-buoy"></i> fa-life-buoy
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-life-buoy"></i>&nbsp;&nbsp; fa-life-buoy
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-life-ring"></i> fa-life-ring</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-life-saver"></i> fa-life-saver
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-life-ring"></i>&nbsp;&nbsp; fa-life-ring</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-life-saver"></i>&nbsp;&nbsp; fa-life-saver
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-lightbulb-o"></i> fa-lightbulb-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-line-chart"></i> fa-line-chart</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-location-arrow"></i> fa-location-arrow</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-lock"></i> fa-lock</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-magic"></i> fa-magic</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-magnet"></i> fa-magnet</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mail-forward"></i> fa-mail-forward
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-lightbulb-o"></i>&nbsp;&nbsp; fa-lightbulb-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-line-chart"></i>&nbsp;&nbsp; fa-line-chart</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-location-arrow"></i>&nbsp;&nbsp; fa-location-arrow</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-lock"></i>&nbsp;&nbsp; fa-lock</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-magic"></i>&nbsp;&nbsp; fa-magic</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-magnet"></i>&nbsp;&nbsp; fa-magnet</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mail-forward"></i>&nbsp;&nbsp; fa-mail-forward
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mail-reply"></i> fa-mail-reply
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mail-reply"></i>&nbsp;&nbsp; fa-mail-reply
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mail-reply-all"></i> fa-mail-reply-all
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mail-reply-all"></i>&nbsp;&nbsp; fa-mail-reply-all
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-male"></i> fa-male</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-map"></i> fa-map</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-map-marker"></i> fa-map-marker</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-map-o"></i> fa-map-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-map-pin"></i> fa-map-pin</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-map-signs"></i> fa-map-signs</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-meh-o"></i> fa-meh-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-microphone"></i> fa-microphone</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-microphone-slash"></i> fa-microphone-slash
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-male"></i>&nbsp;&nbsp; fa-male</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-map"></i>&nbsp;&nbsp; fa-map</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-map-marker"></i>&nbsp;&nbsp; fa-map-marker</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-map-o"></i>&nbsp;&nbsp; fa-map-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-map-pin"></i>&nbsp;&nbsp; fa-map-pin</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-map-signs"></i>&nbsp;&nbsp; fa-map-signs</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-meh-o"></i>&nbsp;&nbsp; fa-meh-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-microphone"></i>&nbsp;&nbsp; fa-microphone</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-microphone-slash"></i>&nbsp;&nbsp; fa-microphone-slash
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-minus"></i> fa-minus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-minus-circle"></i> fa-minus-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-minus-square"></i> fa-minus-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-minus-square-o"></i> fa-minus-square-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mobile"></i> fa-mobile</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mobile-phone"></i> fa-mobile-phone
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-minus"></i>&nbsp;&nbsp; fa-minus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-minus-circle"></i>&nbsp;&nbsp; fa-minus-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-minus-square"></i>&nbsp;&nbsp; fa-minus-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-minus-square-o"></i>&nbsp;&nbsp; fa-minus-square-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mobile"></i>&nbsp;&nbsp; fa-mobile</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mobile-phone"></i>&nbsp;&nbsp; fa-mobile-phone
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-money"></i> fa-money</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-moon-o"></i> fa-moon-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mortar-board"></i> fa-mortar-board
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-money"></i>&nbsp;&nbsp; fa-money</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-moon-o"></i>&nbsp;&nbsp; fa-moon-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mortar-board"></i>&nbsp;&nbsp; fa-mortar-board
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-motorcycle"></i> fa-motorcycle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-mouse-pointer"></i> fa-mouse-pointer</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-music"></i> fa-music</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-navicon"></i> fa-navicon
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-motorcycle"></i>&nbsp;&nbsp; fa-motorcycle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-mouse-pointer"></i>&nbsp;&nbsp; fa-mouse-pointer</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-music"></i>&nbsp;&nbsp; fa-music</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-navicon"></i>&nbsp;&nbsp; fa-navicon
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-newspaper-o"></i> fa-newspaper-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-object-group"></i> fa-object-group</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-object-ungroup"></i> fa-object-ungroup</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-paint-brush"></i> fa-paint-brush</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-paper-plane"></i> fa-paper-plane</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-paper-plane-o"></i> fa-paper-plane-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-paw"></i> fa-paw</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-pencil"></i> fa-pencil</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-pencil-square"></i> fa-pencil-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-pencil-square-o"></i> fa-pencil-square-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-phone"></i> fa-phone</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-phone-square"></i> fa-phone-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-photo"></i> fa-photo <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-newspaper-o"></i>&nbsp;&nbsp; fa-newspaper-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-object-group"></i>&nbsp;&nbsp; fa-object-group</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-object-ungroup"></i>&nbsp;&nbsp; fa-object-ungroup</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paint-brush"></i>&nbsp;&nbsp; fa-paint-brush</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paper-plane"></i>&nbsp;&nbsp; fa-paper-plane</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paper-plane-o"></i>&nbsp;&nbsp; fa-paper-plane-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paw"></i>&nbsp;&nbsp; fa-paw</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-pencil"></i>&nbsp;&nbsp; fa-pencil</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-pencil-square"></i>&nbsp;&nbsp; fa-pencil-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-pencil-square-o"></i>&nbsp;&nbsp; fa-pencil-square-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-phone"></i>&nbsp;&nbsp; fa-phone</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-phone-square"></i>&nbsp;&nbsp; fa-phone-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-photo"></i>&nbsp;&nbsp; fa-photo <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-picture-o"></i> fa-picture-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-pie-chart"></i> fa-pie-chart</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-plane"></i> fa-plane</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-plug"></i> fa-plug</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-plus"></i> fa-plus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-plus-circle"></i> fa-plus-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-plus-square"></i> fa-plus-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-plus-square-o"></i> fa-plus-square-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-power-off"></i> fa-power-off</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-print"></i> fa-print</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-puzzle-piece"></i> fa-puzzle-piece</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-qrcode"></i> fa-qrcode</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-question"></i> fa-question</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-question-circle"></i> fa-question-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-quote-left"></i> fa-quote-left</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-quote-right"></i> fa-quote-right</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-random"></i> fa-random</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-recycle"></i> fa-recycle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-refresh"></i> fa-refresh</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-registered"></i> fa-registered</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-remove"></i> fa-remove
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-picture-o"></i>&nbsp;&nbsp; fa-picture-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-pie-chart"></i>&nbsp;&nbsp; fa-pie-chart</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plane"></i>&nbsp;&nbsp; fa-plane</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plug"></i>&nbsp;&nbsp; fa-plug</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus"></i>&nbsp;&nbsp; fa-plus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus-circle"></i>&nbsp;&nbsp; fa-plus-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus-square"></i>&nbsp;&nbsp; fa-plus-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus-square-o"></i>&nbsp;&nbsp; fa-plus-square-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-power-off"></i>&nbsp;&nbsp; fa-power-off</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-print"></i>&nbsp;&nbsp; fa-print</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-puzzle-piece"></i>&nbsp;&nbsp; fa-puzzle-piece</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-qrcode"></i>&nbsp;&nbsp; fa-qrcode</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-question"></i>&nbsp;&nbsp; fa-question</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-question-circle"></i>&nbsp;&nbsp; fa-question-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-quote-left"></i>&nbsp;&nbsp; fa-quote-left</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-quote-right"></i>&nbsp;&nbsp; fa-quote-right</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-random"></i>&nbsp;&nbsp; fa-random</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-recycle"></i>&nbsp;&nbsp; fa-recycle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-refresh"></i>&nbsp;&nbsp; fa-refresh</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-registered"></i>&nbsp;&nbsp; fa-registered</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-remove"></i>&nbsp;&nbsp; fa-remove
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-reorder"></i> fa-reorder
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-reorder"></i>&nbsp;&nbsp; fa-reorder
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-reply"></i> fa-reply</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-reply-all"></i> fa-reply-all</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-retweet"></i> fa-retweet</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-road"></i> fa-road</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-rocket"></i> fa-rocket</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-rss"></i> fa-rss</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-rss-square"></i> fa-rss-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-search"></i> fa-search</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-search-minus"></i> fa-search-minus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-search-plus"></i> fa-search-plus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-send"></i> fa-send <span class="text-muted">(alias)</span>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-reply"></i>&nbsp;&nbsp; fa-reply</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-reply-all"></i>&nbsp;&nbsp; fa-reply-all</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-retweet"></i>&nbsp;&nbsp; fa-retweet</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-road"></i>&nbsp;&nbsp; fa-road</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rocket"></i>&nbsp;&nbsp; fa-rocket</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rss"></i>&nbsp;&nbsp; fa-rss</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rss-square"></i>&nbsp;&nbsp; fa-rss-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-search"></i>&nbsp;&nbsp; fa-search</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-search-minus"></i>&nbsp;&nbsp; fa-search-minus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-search-plus"></i>&nbsp;&nbsp; fa-search-plus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-send"></i>&nbsp;&nbsp; fa-send <span class="text-muted">(alias)</span>
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-send-o"></i> fa-send-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-send-o"></i>&nbsp;&nbsp; fa-send-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-server"></i> fa-server</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-share"></i> fa-share</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-share-alt"></i> fa-share-alt</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-share-alt-square"></i> fa-share-alt-square
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-server"></i>&nbsp;&nbsp; fa-server</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-share"></i>&nbsp;&nbsp; fa-share</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-share-alt"></i>&nbsp;&nbsp; fa-share-alt</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-share-alt-square"></i>&nbsp;&nbsp; fa-share-alt-square
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-share-square"></i> fa-share-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-share-square-o"></i> fa-share-square-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-shield"></i> fa-shield</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-ship"></i> fa-ship</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-shopping-cart"></i> fa-shopping-cart</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sign-in"></i> fa-sign-in</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sign-out"></i> fa-sign-out</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-signal"></i> fa-signal</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sitemap"></i> fa-sitemap</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sliders"></i> fa-sliders</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-smile-o"></i> fa-smile-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-soccer-ball-o"></i> fa-soccer-ball-o
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-share-square"></i>&nbsp;&nbsp; fa-share-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-share-square-o"></i>&nbsp;&nbsp; fa-share-square-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-shield"></i>&nbsp;&nbsp; fa-shield</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ship"></i>&nbsp;&nbsp; fa-ship</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-shopping-cart"></i>&nbsp;&nbsp; fa-shopping-cart</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sign-in"></i>&nbsp;&nbsp; fa-sign-in</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sign-out"></i>&nbsp;&nbsp; fa-sign-out</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-signal"></i>&nbsp;&nbsp; fa-signal</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sitemap"></i>&nbsp;&nbsp; fa-sitemap</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sliders"></i>&nbsp;&nbsp; fa-sliders</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-smile-o"></i>&nbsp;&nbsp; fa-smile-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-soccer-ball-o"></i>&nbsp;&nbsp; fa-soccer-ball-o
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort"></i> fa-sort</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-alpha-asc"></i> fa-sort-alpha-asc</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-alpha-desc"></i> fa-sort-alpha-desc</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-amount-asc"></i> fa-sort-amount-asc</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-amount-desc"></i> fa-sort-amount-desc
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort"></i>&nbsp;&nbsp; fa-sort</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-alpha-asc"></i>&nbsp;&nbsp; fa-sort-alpha-asc</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-alpha-desc"></i>&nbsp;&nbsp; fa-sort-alpha-desc</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-amount-asc"></i>&nbsp;&nbsp; fa-sort-amount-asc</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-amount-desc"></i>&nbsp;&nbsp; fa-sort-amount-desc
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-asc"></i> fa-sort-asc</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-desc"></i> fa-sort-desc</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-down"></i> fa-sort-down
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-asc"></i>&nbsp;&nbsp; fa-sort-asc</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-desc"></i>&nbsp;&nbsp; fa-sort-desc</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-down"></i>&nbsp;&nbsp; fa-sort-down
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-numeric-asc"></i> fa-sort-numeric-asc
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-numeric-asc"></i>&nbsp;&nbsp; fa-sort-numeric-asc
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-numeric-desc"></i> fa-sort-numeric-desc
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-numeric-desc"></i>&nbsp;&nbsp; fa-sort-numeric-desc
             </div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sort-up"></i> fa-sort-up
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sort-up"></i>&nbsp;&nbsp; fa-sort-up
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-space-shuttle"></i> fa-space-shuttle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-spinner"></i> fa-spinner</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-spoon"></i> fa-spoon</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-square"></i> fa-square</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-square-o"></i> fa-square-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-star"></i> fa-star</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-star-half"></i> fa-star-half</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-star-half-empty"></i> fa-star-half-empty
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-space-shuttle"></i>&nbsp;&nbsp; fa-space-shuttle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-spinner"></i>&nbsp;&nbsp; fa-spinner</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-spoon"></i>&nbsp;&nbsp; fa-spoon</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-square"></i>&nbsp;&nbsp; fa-square</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-square-o"></i>&nbsp;&nbsp; fa-square-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-star"></i>&nbsp;&nbsp; fa-star</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-star-half"></i>&nbsp;&nbsp; fa-star-half</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-star-half-empty"></i>&nbsp;&nbsp; fa-star-half-empty
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-star-half-full"></i> fa-star-half-full
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-star-half-full"></i>&nbsp;&nbsp; fa-star-half-full
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-star-half-o"></i> fa-star-half-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-star-o"></i> fa-star-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sticky-note"></i> fa-sticky-note</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sticky-note-o"></i> fa-sticky-note-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-street-view"></i> fa-street-view</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-suitcase"></i> fa-suitcase</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-sun-o"></i> fa-sun-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-support"></i> fa-support
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-star-half-o"></i>&nbsp;&nbsp; fa-star-half-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-star-o"></i>&nbsp;&nbsp; fa-star-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sticky-note"></i>&nbsp;&nbsp; fa-sticky-note</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sticky-note-o"></i>&nbsp;&nbsp; fa-sticky-note-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-street-view"></i>&nbsp;&nbsp; fa-street-view</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-suitcase"></i>&nbsp;&nbsp; fa-suitcase</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sun-o"></i>&nbsp;&nbsp; fa-sun-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-support"></i>&nbsp;&nbsp; fa-support
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tablet"></i> fa-tablet</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tachometer"></i> fa-tachometer</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tag"></i> fa-tag</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tags"></i> fa-tags</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tasks"></i> fa-tasks</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-taxi"></i> fa-taxi</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-television"></i> fa-television</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-terminal"></i> fa-terminal</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-thumb-tack"></i> fa-thumb-tack</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-thumbs-down"></i> fa-thumbs-down</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-thumbs-o-down"></i> fa-thumbs-o-down</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-thumbs-o-up"></i> fa-thumbs-o-up</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-thumbs-up"></i> fa-thumbs-up</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-ticket"></i> fa-ticket</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-times"></i> fa-times</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-times-circle"></i> fa-times-circle</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-times-circle-o"></i> fa-times-circle-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tint"></i> fa-tint</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-toggle-down"></i> fa-toggle-down
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tablet"></i>&nbsp;&nbsp; fa-tablet</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tachometer"></i>&nbsp;&nbsp; fa-tachometer</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tag"></i>&nbsp;&nbsp; fa-tag</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tags"></i>&nbsp;&nbsp; fa-tags</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tasks"></i>&nbsp;&nbsp; fa-tasks</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-taxi"></i>&nbsp;&nbsp; fa-taxi</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-television"></i>&nbsp;&nbsp; fa-television</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-terminal"></i>&nbsp;&nbsp; fa-terminal</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumb-tack"></i>&nbsp;&nbsp; fa-thumb-tack</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-down"></i>&nbsp;&nbsp; fa-thumbs-down</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-o-down"></i>&nbsp;&nbsp; fa-thumbs-o-down</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-o-up"></i>&nbsp;&nbsp; fa-thumbs-o-up</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-up"></i>&nbsp;&nbsp; fa-thumbs-up</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ticket"></i>&nbsp;&nbsp; fa-ticket</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-times"></i>&nbsp;&nbsp; fa-times</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-times-circle"></i>&nbsp;&nbsp; fa-times-circle</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-times-circle-o"></i>&nbsp;&nbsp; fa-times-circle-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tint"></i>&nbsp;&nbsp; fa-tint</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-down"></i>&nbsp;&nbsp; fa-toggle-down
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-toggle-left"></i> fa-toggle-left
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-left"></i>&nbsp;&nbsp; fa-toggle-left
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-toggle-off"></i> fa-toggle-off</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-toggle-on"></i> fa-toggle-on</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-toggle-right"></i> fa-toggle-right
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-off"></i>&nbsp;&nbsp; fa-toggle-off</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-on"></i>&nbsp;&nbsp; fa-toggle-on</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-right"></i>&nbsp;&nbsp; fa-toggle-right
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-toggle-up"></i> fa-toggle-up
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-up"></i>&nbsp;&nbsp; fa-toggle-up
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-trademark"></i> fa-trademark</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-trash"></i> fa-trash</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-trash-o"></i> fa-trash-o</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tree"></i> fa-tree</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-trophy"></i> fa-trophy</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-truck"></i> fa-truck</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tty"></i> fa-tty</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-tv"></i> fa-tv
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-trademark"></i>&nbsp;&nbsp; fa-trademark</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-trash"></i>&nbsp;&nbsp; fa-trash</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-trash-o"></i>&nbsp;&nbsp; fa-trash-o</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tree"></i>&nbsp;&nbsp; fa-tree</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-trophy"></i>&nbsp;&nbsp; fa-trophy</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-truck"></i>&nbsp;&nbsp; fa-truck</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tty"></i>&nbsp;&nbsp; fa-tty</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-tv"></i>&nbsp;&nbsp; fa-tv
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-umbrella"></i> fa-umbrella</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-university"></i> fa-university</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-unlock"></i> fa-unlock</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-unlock-alt"></i> fa-unlock-alt</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-unsorted"></i> fa-unsorted
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-umbrella"></i>&nbsp;&nbsp; fa-umbrella</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-university"></i>&nbsp;&nbsp; fa-university</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-unlock"></i>&nbsp;&nbsp; fa-unlock</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-unlock-alt"></i>&nbsp;&nbsp; fa-unlock-alt</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-unsorted"></i>&nbsp;&nbsp; fa-unsorted
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-upload"></i> fa-upload</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-user"></i> fa-user</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-user-plus"></i> fa-user-plus</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-user-secret"></i> fa-user-secret</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-user-times"></i> fa-user-times</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-users"></i> fa-users</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-video-camera"></i> fa-video-camera</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-volume-down"></i> fa-volume-down</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-volume-off"></i> fa-volume-off</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-volume-up"></i> fa-volume-up</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-warning"></i> fa-warning
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-upload"></i>&nbsp;&nbsp; fa-upload</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-user"></i>&nbsp;&nbsp; fa-user</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-user-plus"></i>&nbsp;&nbsp; fa-user-plus</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-user-secret"></i>&nbsp;&nbsp; fa-user-secret</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-user-times"></i>&nbsp;&nbsp; fa-user-times</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-users"></i>&nbsp;&nbsp; fa-users</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-video-camera"></i>&nbsp;&nbsp; fa-video-camera</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-volume-down"></i>&nbsp;&nbsp; fa-volume-down</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-volume-off"></i>&nbsp;&nbsp; fa-volume-off</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-volume-up"></i>&nbsp;&nbsp; fa-volume-up</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-warning"></i>&nbsp;&nbsp; fa-warning
                 <span class="text-muted">(alias)</span></div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-wheelchair"></i> fa-wheelchair</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-wifi"></i> fa-wifi</div>
-            <div class="col-md-2 col-sm-4"><i class="fa fa-fw fa-wrench"></i> fa-wrench</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-wheelchair"></i>&nbsp;&nbsp; fa-wheelchair</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-wifi"></i>&nbsp;&nbsp; fa-wifi</div>
+            <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-wrench"></i>&nbsp;&nbsp; fa-wrench</div>
         </div>
 
 
@@ -477,25 +475,25 @@
             <h4 class="page-header">Hand Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-grab-o"></i> fa-hand-grab-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-grab-o"></i>&nbsp;&nbsp; fa-hand-grab-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-lizard-o"></i> fa-hand-lizard-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-down"></i> fa-hand-o-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-left"></i> fa-hand-o-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-right"></i> fa-hand-o-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-up"></i> fa-hand-o-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-paper-o"></i> fa-hand-paper-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-peace-o"></i> fa-hand-peace-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-pointer-o"></i> fa-hand-pointer-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-rock-o"></i> fa-hand-rock-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-scissors-o"></i> fa-hand-scissors-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-spock-o"></i> fa-hand-spock-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-stop-o"></i> fa-hand-stop-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-lizard-o"></i>&nbsp;&nbsp; fa-hand-lizard-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-down"></i>&nbsp;&nbsp; fa-hand-o-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-left"></i>&nbsp;&nbsp; fa-hand-o-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-right"></i>&nbsp;&nbsp; fa-hand-o-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-up"></i>&nbsp;&nbsp; fa-hand-o-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-paper-o"></i>&nbsp;&nbsp; fa-hand-paper-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-peace-o"></i>&nbsp;&nbsp; fa-hand-peace-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-pointer-o"></i>&nbsp;&nbsp; fa-hand-pointer-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-rock-o"></i>&nbsp;&nbsp; fa-hand-rock-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-scissors-o"></i>&nbsp;&nbsp; fa-hand-scissors-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-spock-o"></i>&nbsp;&nbsp; fa-hand-spock-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-stop-o"></i>&nbsp;&nbsp; fa-hand-stop-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-thumbs-down"></i> fa-thumbs-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-thumbs-o-down"></i> fa-thumbs-o-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-thumbs-o-up"></i> fa-thumbs-o-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-thumbs-up"></i> fa-thumbs-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-down"></i>&nbsp;&nbsp; fa-thumbs-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-o-down"></i>&nbsp;&nbsp; fa-thumbs-o-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-o-up"></i>&nbsp;&nbsp; fa-thumbs-o-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-thumbs-up"></i>&nbsp;&nbsp; fa-thumbs-up</div>
             </div>
         </section>
 
@@ -503,29 +501,29 @@
             <h2 class="page-header">File Type Icons</h2>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file"></i> fa-file</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-archive-o"></i> fa-file-archive-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-audio-o"></i> fa-file-audio-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-code-o"></i> fa-file-code-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-excel-o"></i> fa-file-excel-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-image-o"></i> fa-file-image-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-movie-o"></i> fa-file-movie-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file"></i>&nbsp;&nbsp; fa-file</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-archive-o"></i>&nbsp;&nbsp; fa-file-archive-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-audio-o"></i>&nbsp;&nbsp; fa-file-audio-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-code-o"></i>&nbsp;&nbsp; fa-file-code-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-excel-o"></i>&nbsp;&nbsp; fa-file-excel-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-image-o"></i>&nbsp;&nbsp; fa-file-image-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-movie-o"></i>&nbsp;&nbsp; fa-file-movie-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-o"></i> fa-file-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-pdf-o"></i> fa-file-pdf-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-photo-o"></i> fa-file-photo-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-o"></i>&nbsp;&nbsp; fa-file-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-pdf-o"></i>&nbsp;&nbsp; fa-file-pdf-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-photo-o"></i>&nbsp;&nbsp; fa-file-photo-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-picture-o"></i> fa-file-picture-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-picture-o"></i>&nbsp;&nbsp; fa-file-picture-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-powerpoint-o"></i> fa-file-powerpoint-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-powerpoint-o"></i>&nbsp;&nbsp; fa-file-powerpoint-o
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-sound-o"></i> fa-file-sound-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-sound-o"></i>&nbsp;&nbsp; fa-file-sound-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-text"></i> fa-file-text</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-text-o"></i> fa-file-text-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-video-o"></i> fa-file-video-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-word-o"></i> fa-file-word-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-zip-o"></i> fa-file-zip-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-text"></i>&nbsp;&nbsp; fa-file-text</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-text-o"></i>&nbsp;&nbsp; fa-file-text-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-video-o"></i>&nbsp;&nbsp; fa-file-video-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-word-o"></i>&nbsp;&nbsp; fa-file-word-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-zip-o"></i>&nbsp;&nbsp; fa-file-zip-o
                     <span class="text-muted">(alias)</span></div>
             </div>
         </section>
@@ -534,12 +532,12 @@
             <h2 class="page-header">Spinner Icons</h2>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-circle-o-notch"></i> fa-circle-o-notch</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cog"></i> fa-cog</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-gear"></i> fa-gear <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle-o-notch"></i>&nbsp;&nbsp; fa-circle-o-notch</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cog"></i>&nbsp;&nbsp; fa-cog</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gear"></i>&nbsp;&nbsp; fa-gear <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-refresh"></i> fa-refresh</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-spinner"></i> fa-spinner</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-refresh"></i>&nbsp;&nbsp; fa-refresh</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-spinner"></i>&nbsp;&nbsp; fa-spinner</div>
             </div>
         </section>
 
@@ -547,17 +545,17 @@
             <h4 class="page-header">Form Control Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-check-square"></i> fa-check-square</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-check-square-o"></i> fa-check-square-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-circle"></i> fa-circle</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-circle-o"></i> fa-circle-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-dot-circle-o"></i> fa-dot-circle-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-minus-square"></i> fa-minus-square</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-minus-square-o"></i> fa-minus-square-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-plus-square"></i> fa-plus-square</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-plus-square-o"></i> fa-plus-square-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-square"></i> fa-square</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-square-o"></i> fa-square-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check-square"></i>&nbsp;&nbsp; fa-check-square</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-check-square-o"></i>&nbsp;&nbsp; fa-check-square-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle"></i>&nbsp;&nbsp; fa-circle</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-circle-o"></i>&nbsp;&nbsp; fa-circle-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-dot-circle-o"></i>&nbsp;&nbsp; fa-dot-circle-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-minus-square"></i>&nbsp;&nbsp; fa-minus-square</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-minus-square-o"></i>&nbsp;&nbsp; fa-minus-square-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus-square"></i>&nbsp;&nbsp; fa-plus-square</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus-square-o"></i>&nbsp;&nbsp; fa-plus-square-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-square"></i>&nbsp;&nbsp; fa-square</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-square-o"></i>&nbsp;&nbsp; fa-square-o</div>
             </div>
         </section>
 
@@ -565,17 +563,17 @@
             <h4 class="page-header">Payment Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-amex"></i> fa-cc-amex</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-diners-club"></i> fa-cc-diners-club</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-discover"></i> fa-cc-discover</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-jcb"></i> fa-cc-jcb</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-mastercard"></i> fa-cc-mastercard</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-paypal"></i> fa-cc-paypal</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-stripe"></i> fa-cc-stripe</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cc-visa"></i> fa-cc-visa</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-credit-card"></i> fa-credit-card</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-google-wallet"></i> fa-google-wallet</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-paypal"></i> fa-paypal</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-amex"></i>&nbsp;&nbsp; fa-cc-amex</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-diners-club"></i>&nbsp;&nbsp; fa-cc-diners-club</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-discover"></i>&nbsp;&nbsp; fa-cc-discover</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-jcb"></i>&nbsp;&nbsp; fa-cc-jcb</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-mastercard"></i>&nbsp;&nbsp; fa-cc-mastercard</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-paypal"></i>&nbsp;&nbsp; fa-cc-paypal</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-stripe"></i>&nbsp;&nbsp; fa-cc-stripe</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cc-visa"></i>&nbsp;&nbsp; fa-cc-visa</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-credit-card"></i>&nbsp;&nbsp; fa-credit-card</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-google-wallet"></i>&nbsp;&nbsp; fa-google-wallet</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paypal"></i>&nbsp;&nbsp; fa-paypal</div>
             </div>
         </section>
 
@@ -583,12 +581,12 @@
             <h4 class="page-header">Chart Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-area-chart"></i> fa-area-chart</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-bar-chart"></i> fa-bar-chart</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-bar-chart-o"></i> fa-bar-chart-o
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-area-chart"></i>&nbsp;&nbsp; fa-area-chart</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bar-chart"></i>&nbsp;&nbsp; fa-bar-chart</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bar-chart-o"></i>&nbsp;&nbsp; fa-bar-chart-o
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-line-chart"></i> fa-line-chart</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-pie-chart"></i> fa-pie-chart</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-line-chart"></i>&nbsp;&nbsp; fa-line-chart</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-pie-chart"></i>&nbsp;&nbsp; fa-pie-chart</div>
             </div>
         </section>
 
@@ -596,44 +594,44 @@
             <h4 class="page-header">Currency Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-bitcoin"></i> fa-bitcoin
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bitcoin"></i>&nbsp;&nbsp; fa-bitcoin
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-btc"></i> fa-btc</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cny"></i> fa-cny <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-btc"></i>&nbsp;&nbsp; fa-btc</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cny"></i>&nbsp;&nbsp; fa-cny <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-dollar"></i> fa-dollar
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-dollar"></i>&nbsp;&nbsp; fa-dollar
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-eur"></i> fa-eur</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-euro"></i> fa-euro <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eur"></i>&nbsp;&nbsp; fa-eur</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-euro"></i>&nbsp;&nbsp; fa-euro <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-gbp"></i> fa-gbp</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-gg"></i> fa-gg</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-gg-circle"></i> fa-gg-circle</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-ils"></i> fa-ils</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-inr"></i> fa-inr</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-jpy"></i> fa-jpy</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-krw"></i> fa-krw</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-money"></i> fa-money</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-rmb"></i> fa-rmb <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gbp"></i>&nbsp;&nbsp; fa-gbp</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gg"></i>&nbsp;&nbsp; fa-gg</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-gg-circle"></i>&nbsp;&nbsp; fa-gg-circle</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ils"></i>&nbsp;&nbsp; fa-ils</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-inr"></i>&nbsp;&nbsp; fa-inr</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-jpy"></i>&nbsp;&nbsp; fa-jpy</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-krw"></i>&nbsp;&nbsp; fa-krw</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-money"></i>&nbsp;&nbsp; fa-money</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rmb"></i>&nbsp;&nbsp; fa-rmb <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-rouble"></i> fa-rouble
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rouble"></i>&nbsp;&nbsp; fa-rouble
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-rub"></i> fa-rub</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-ruble"></i> fa-ruble <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rub"></i>&nbsp;&nbsp; fa-rub</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ruble"></i>&nbsp;&nbsp; fa-ruble <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-rupee"></i> fa-rupee <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rupee"></i>&nbsp;&nbsp; fa-rupee <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-shekel"></i> fa-shekel
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-shekel"></i>&nbsp;&nbsp; fa-shekel
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-sheqel"></i> fa-sheqel
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-sheqel"></i>&nbsp;&nbsp; fa-sheqel
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-try"></i> fa-try</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-turkish-lira"></i> fa-turkish-lira
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-try"></i>&nbsp;&nbsp; fa-try</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-turkish-lira"></i>&nbsp;&nbsp; fa-turkish-lira
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-usd"></i> fa-usd</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-won"></i> fa-won <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-usd"></i>&nbsp;&nbsp; fa-usd</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-won"></i>&nbsp;&nbsp; fa-won <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-yen"></i> fa-yen <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-yen"></i>&nbsp;&nbsp; fa-yen <span class="text-muted">(alias)</span>
                 </div>
             </div>
         </section>
@@ -642,63 +640,63 @@
             <h4 class="page-header">Text Editor Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-align-center"></i> fa-align-center</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-align-justify"></i> fa-align-justify</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-align-left"></i> fa-align-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-align-right"></i> fa-align-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-bold"></i> fa-bold</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chain"></i> fa-chain <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-align-center"></i>&nbsp;&nbsp; fa-align-center</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-align-justify"></i>&nbsp;&nbsp; fa-align-justify</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-align-left"></i>&nbsp;&nbsp; fa-align-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-align-right"></i>&nbsp;&nbsp; fa-align-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-bold"></i>&nbsp;&nbsp; fa-bold</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chain"></i>&nbsp;&nbsp; fa-chain <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chain-broken"></i> fa-chain-broken</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-clipboard"></i> fa-clipboard</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-columns"></i> fa-columns</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-copy"></i> fa-copy <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chain-broken"></i>&nbsp;&nbsp; fa-chain-broken</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-clipboard"></i>&nbsp;&nbsp; fa-clipboard</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-columns"></i>&nbsp;&nbsp; fa-columns</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-copy"></i>&nbsp;&nbsp; fa-copy <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-cut"></i> fa-cut <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-cut"></i>&nbsp;&nbsp; fa-cut <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-dedent"></i> fa-dedent
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-dedent"></i>&nbsp;&nbsp; fa-dedent
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-eraser"></i> fa-eraser</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file"></i> fa-file</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-o"></i> fa-file-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-text"></i> fa-file-text</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-file-text-o"></i> fa-file-text-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-files-o"></i> fa-files-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-floppy-o"></i> fa-floppy-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-font"></i> fa-font</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-header"></i> fa-header</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-indent"></i> fa-indent</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-italic"></i> fa-italic</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-link"></i> fa-link</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-list"></i> fa-list</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-list-alt"></i> fa-list-alt</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-list-ol"></i> fa-list-ol</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-list-ul"></i> fa-list-ul</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-outdent"></i> fa-outdent</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-paperclip"></i> fa-paperclip</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-paragraph"></i> fa-paragraph</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-paste"></i> fa-paste <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eraser"></i>&nbsp;&nbsp; fa-eraser</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file"></i>&nbsp;&nbsp; fa-file</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-o"></i>&nbsp;&nbsp; fa-file-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-text"></i>&nbsp;&nbsp; fa-file-text</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-file-text-o"></i>&nbsp;&nbsp; fa-file-text-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-files-o"></i>&nbsp;&nbsp; fa-files-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-floppy-o"></i>&nbsp;&nbsp; fa-floppy-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-font"></i>&nbsp;&nbsp; fa-font</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-header"></i>&nbsp;&nbsp; fa-header</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-indent"></i>&nbsp;&nbsp; fa-indent</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-italic"></i>&nbsp;&nbsp; fa-italic</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-link"></i>&nbsp;&nbsp; fa-link</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-list"></i>&nbsp;&nbsp; fa-list</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-list-alt"></i>&nbsp;&nbsp; fa-list-alt</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-list-ol"></i>&nbsp;&nbsp; fa-list-ol</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-list-ul"></i>&nbsp;&nbsp; fa-list-ul</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-outdent"></i>&nbsp;&nbsp; fa-outdent</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paperclip"></i>&nbsp;&nbsp; fa-paperclip</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paragraph"></i>&nbsp;&nbsp; fa-paragraph</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-paste"></i>&nbsp;&nbsp; fa-paste <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-repeat"></i> fa-repeat</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-rotate-left"></i> fa-rotate-left
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-repeat"></i>&nbsp;&nbsp; fa-repeat</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rotate-left"></i>&nbsp;&nbsp; fa-rotate-left
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-rotate-right"></i> fa-rotate-right
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-rotate-right"></i>&nbsp;&nbsp; fa-rotate-right
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-save"></i> fa-save <span class="text-muted">(alias)</span>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-save"></i>&nbsp;&nbsp; fa-save <span class="text-muted">(alias)</span>
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-scissors"></i> fa-scissors</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-strikethrough"></i> fa-strikethrough</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-subscript"></i> fa-subscript</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-superscript"></i> fa-superscript</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-table"></i> fa-table</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-text-height"></i> fa-text-height</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-text-width"></i> fa-text-width</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-th"></i> fa-th</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-th-large"></i> fa-th-large</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-th-list"></i> fa-th-list</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-underline"></i> fa-underline</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-undo"></i> fa-undo</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-unlink"></i> fa-unlink
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-scissors"></i>&nbsp;&nbsp; fa-scissors</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-strikethrough"></i>&nbsp;&nbsp; fa-strikethrough</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-subscript"></i>&nbsp;&nbsp; fa-subscript</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-superscript"></i>&nbsp;&nbsp; fa-superscript</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-table"></i>&nbsp;&nbsp; fa-table</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-text-height"></i>&nbsp;&nbsp; fa-text-height</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-text-width"></i>&nbsp;&nbsp; fa-text-width</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-th"></i>&nbsp;&nbsp; fa-th</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-th-large"></i>&nbsp;&nbsp; fa-th-large</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-th-list"></i>&nbsp;&nbsp; fa-th-list</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-underline"></i>&nbsp;&nbsp; fa-underline</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-undo"></i>&nbsp;&nbsp; fa-undo</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-unlink"></i>&nbsp;&nbsp; fa-unlink
                     <span class="text-muted">(alias)</span></div>
             </div>
         </section>
@@ -707,90 +705,90 @@
             <h4 class="page-header">Directional Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-double-down"></i> fa-angle-double-down
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-double-down"></i>&nbsp;&nbsp; fa-angle-double-down
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-double-left"></i> fa-angle-double-left
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-double-left"></i>&nbsp;&nbsp; fa-angle-double-left
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-double-right"></i> fa-angle-double-right
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-double-right"></i>&nbsp;&nbsp; fa-angle-double-right
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-double-up"></i> fa-angle-double-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-down"></i> fa-angle-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-left"></i> fa-angle-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-right"></i> fa-angle-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-angle-up"></i> fa-angle-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-down"></i> fa-arrow-circle-down
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-double-up"></i>&nbsp;&nbsp; fa-angle-double-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-down"></i>&nbsp;&nbsp; fa-angle-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-left"></i>&nbsp;&nbsp; fa-angle-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-right"></i>&nbsp;&nbsp; fa-angle-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-angle-up"></i>&nbsp;&nbsp; fa-angle-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-down"></i>&nbsp;&nbsp; fa-arrow-circle-down
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-left"></i> fa-arrow-circle-left
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-left"></i>&nbsp;&nbsp; fa-arrow-circle-left
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-o-down"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-o-down"></i>
                     fa-arrow-circle-o-down
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-o-left"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-o-left"></i>
                     fa-arrow-circle-o-left
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-o-right"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-o-right"></i>
                     fa-arrow-circle-o-right
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-o-up"></i> fa-arrow-circle-o-up
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-o-up"></i>&nbsp;&nbsp; fa-arrow-circle-o-up
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-right"></i> fa-arrow-circle-right
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-right"></i>&nbsp;&nbsp; fa-arrow-circle-right
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-circle-up"></i> fa-arrow-circle-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-down"></i> fa-arrow-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-left"></i> fa-arrow-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-right"></i> fa-arrow-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrow-up"></i> fa-arrow-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrows"></i> fa-arrows</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrows-alt"></i> fa-arrows-alt</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrows-h"></i> fa-arrows-h</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrows-v"></i> fa-arrows-v</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-down"></i> fa-caret-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-left"></i> fa-caret-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-right"></i> fa-caret-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-square-o-down"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-circle-up"></i>&nbsp;&nbsp; fa-arrow-circle-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-down"></i>&nbsp;&nbsp; fa-arrow-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-left"></i>&nbsp;&nbsp; fa-arrow-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-right"></i>&nbsp;&nbsp; fa-arrow-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrow-up"></i>&nbsp;&nbsp; fa-arrow-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows"></i>&nbsp;&nbsp; fa-arrows</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows-alt"></i>&nbsp;&nbsp; fa-arrows-alt</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows-h"></i>&nbsp;&nbsp; fa-arrows-h</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows-v"></i>&nbsp;&nbsp; fa-arrows-v</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-down"></i>&nbsp;&nbsp; fa-caret-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-left"></i>&nbsp;&nbsp; fa-caret-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-right"></i>&nbsp;&nbsp; fa-caret-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-down"></i>
                     fa-caret-square-o-down
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-square-o-left"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-left"></i>
                     fa-caret-square-o-left
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-square-o-right"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-right"></i>
                     fa-caret-square-o-right
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-square-o-up"></i> fa-caret-square-o-up
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-square-o-up"></i>&nbsp;&nbsp; fa-caret-square-o-up
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-caret-up"></i> fa-caret-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-circle-down"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-caret-up"></i>&nbsp;&nbsp; fa-caret-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-circle-down"></i>
                     fa-chevron-circle-down
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-circle-left"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-circle-left"></i>
                     fa-chevron-circle-left
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-circle-right"></i>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-circle-right"></i>
                     fa-chevron-circle-right
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-circle-up"></i> fa-chevron-circle-up
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-circle-up"></i>&nbsp;&nbsp; fa-chevron-circle-up
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-down"></i> fa-chevron-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-left"></i> fa-chevron-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-right"></i> fa-chevron-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-chevron-up"></i> fa-chevron-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-exchange"></i> fa-exchange</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-down"></i> fa-hand-o-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-left"></i> fa-hand-o-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-right"></i> fa-hand-o-right</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hand-o-up"></i> fa-hand-o-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-long-arrow-down"></i> fa-long-arrow-down</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-long-arrow-left"></i> fa-long-arrow-left</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-long-arrow-right"></i> fa-long-arrow-right
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-down"></i>&nbsp;&nbsp; fa-chevron-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-left"></i>&nbsp;&nbsp; fa-chevron-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-right"></i>&nbsp;&nbsp; fa-chevron-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-chevron-up"></i>&nbsp;&nbsp; fa-chevron-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-exchange"></i>&nbsp;&nbsp; fa-exchange</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-down"></i>&nbsp;&nbsp; fa-hand-o-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-left"></i>&nbsp;&nbsp; fa-hand-o-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-right"></i>&nbsp;&nbsp; fa-hand-o-right</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hand-o-up"></i>&nbsp;&nbsp; fa-hand-o-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-long-arrow-down"></i>&nbsp;&nbsp; fa-long-arrow-down</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-long-arrow-left"></i>&nbsp;&nbsp; fa-long-arrow-left</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-long-arrow-right"></i>&nbsp;&nbsp; fa-long-arrow-right
                 </div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-long-arrow-up"></i> fa-long-arrow-up</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-toggle-down"></i> fa-toggle-down
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-long-arrow-up"></i>&nbsp;&nbsp; fa-long-arrow-up</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-down"></i>&nbsp;&nbsp; fa-toggle-down
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-toggle-left"></i> fa-toggle-left
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-left"></i>&nbsp;&nbsp; fa-toggle-left
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-toggle-right"></i> fa-toggle-right
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-right"></i>&nbsp;&nbsp; fa-toggle-right
                     <span class="text-muted">(alias)</span></div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-toggle-up"></i> fa-toggle-up
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-toggle-up"></i>&nbsp;&nbsp; fa-toggle-up
                     <span class="text-muted">(alias)</span></div>
             </div>
         </section>
@@ -799,23 +797,23 @@
             <h4 class="page-header">Video Player Icons</h4>
 
             <div class="row fontawesome-icon-list">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-arrows-alt"></i> fa-arrows-alt</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-backward"></i> fa-backward</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-compress"></i> fa-compress</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-eject"></i> fa-eject</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-expand"></i> fa-expand</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-fast-backward"></i> fa-fast-backward</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-fast-forward"></i> fa-fast-forward</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-forward"></i> fa-forward</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-pause"></i> fa-pause</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-play"></i> fa-play</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-play-circle"></i> fa-play-circle</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-play-circle-o"></i> fa-play-circle-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-random"></i> fa-random</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-step-backward"></i> fa-step-backward</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-step-forward"></i> fa-step-forward</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-stop"></i> fa-stop</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-youtube-play"></i> fa-youtube-play</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-arrows-alt"></i>&nbsp;&nbsp; fa-arrows-alt</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-backward"></i>&nbsp;&nbsp; fa-backward</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-compress"></i>&nbsp;&nbsp; fa-compress</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-eject"></i>&nbsp;&nbsp; fa-eject</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-expand"></i>&nbsp;&nbsp; fa-expand</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-fast-backward"></i>&nbsp;&nbsp; fa-fast-backward</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-fast-forward"></i>&nbsp;&nbsp; fa-fast-forward</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-forward"></i>&nbsp;&nbsp; fa-forward</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-pause"></i>&nbsp;&nbsp; fa-pause</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-play"></i>&nbsp;&nbsp; fa-play</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-play-circle"></i>&nbsp;&nbsp; fa-play-circle</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-play-circle-o"></i>&nbsp;&nbsp; fa-play-circle-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-random"></i>&nbsp;&nbsp; fa-random</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-step-backward"></i>&nbsp;&nbsp; fa-step-backward</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-step-forward"></i>&nbsp;&nbsp; fa-step-forward</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-stop"></i>&nbsp;&nbsp; fa-stop</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-youtube-play"></i>&nbsp;&nbsp; fa-youtube-play</div>
             </div>
         </section>
 
@@ -823,17 +821,17 @@
             <h4 class="page-header">Medical Icons</h4>
 
             <div class="row">
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-ambulance"></i> fa-ambulance</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-h-square"></i> fa-h-square</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-heart"></i> fa-heart</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-heart-o"></i> fa-heart-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-heartbeat"></i> fa-heartbeat</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-hospital-o"></i> fa-hospital-o</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-medkit"></i> fa-medkit</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-plus-square"></i> fa-plus-square</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-stethoscope"></i> fa-stethoscope</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-user-md"></i> fa-user-md</div>
-                <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-wheelchair"></i> fa-wheelchair</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-ambulance"></i>&nbsp;&nbsp; fa-ambulance</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-h-square"></i>&nbsp;&nbsp; fa-h-square</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-heart"></i>&nbsp;&nbsp; fa-heart</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-heart-o"></i>&nbsp;&nbsp; fa-heart-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-heartbeat"></i>&nbsp;&nbsp; fa-heartbeat</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-hospital-o"></i>&nbsp;&nbsp; fa-hospital-o</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-medkit"></i>&nbsp;&nbsp; fa-medkit</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-plus-square"></i>&nbsp;&nbsp; fa-plus-square</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-stethoscope"></i>&nbsp;&nbsp; fa-stethoscope</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-user-md"></i>&nbsp;&nbsp; fa-user-md</div>
+                <div class="col-md-4 col-sm-6  input-group-text "><i class="fa fa-fc btn btn-secondary waves-effect waves-light fa-wheelchair"></i>&nbsp;&nbsp; fa-wheelchair</div>
             </div>
         </section>
     </section>

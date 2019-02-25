@@ -1,39 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNegotiateWalletTransaction extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up() {
+class CreateNegotiateWalletTransaction extends Migration {
 
-        Schema::create('negotiate_wallet_transaction', function (Blueprint $table) {
-            $table->increments('id');
-            $table->double('value', 10, 2);
-            $table->tinyInteger('type')->nullable();
-            $table->tinyInteger('status')->nullable();
-            $table->integer('reason_id')->unsigned();
-            $table->foreign('reason_id')->references('id')->on('negotiate_wallet_reason')->onDelete('restrict');
-            $table->integer('negotiate_client_id')->unsigned();
-            $table->foreign('negotiate_client_id')->references('id')->on('negotiate_client')->onDelete('restrict');
-            $table->string('token','191');
-            $table->timestamp('validate_at');
-            $table->timestamps();
-        });
+    protected $connection = 'negotiate_admin';
+
+    public function up() {
+        Schema::connection($this->connection)
+            ->table('negotiate_wallet_transaction', function (Blueprint $collection){
+                $collection->background(["id"]);
+                $collection->background(["type"]);
+                $collection->background(["negotiate_client_id"]);
+                $collection->background(["token"]);
+                $collection->background(["validate_at"]);
+                $collection->background(["created_at"]);
+                $collection->background(["updated_at"]);
+            });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down() {
-        Schema::connection('mysql')->dropIfExists('negotiate_wallet_transaction');
+        Schema::connection($this->connection)->dropIfExists('negotiate_wallet_transaction');
     }
 }

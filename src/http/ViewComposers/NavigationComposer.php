@@ -21,20 +21,20 @@ class NavigationComposer
     {
 
         $ironForgeController        = array_first( explode("@", Route::getCurrentRoute()->getAction()['controller']));
-        $ironForgeResourcesMenu     = $this->buildMenuRecursive(0,  Auth::user()->profile->id);
+        $ironForgeResourcesMenu     = $this->buildMenuRecursive(0,  Auth::user()->profile_id);
         $ironForgeCurrentResource   = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
-        $ironForgeBreadCrumb        = $this->buildBreadCrumb($ironForgeCurrentResource, Auth::user()->profile->id);
+        $ironForgeBreadCrumb        = $this->buildBreadCrumb($ironForgeCurrentResource, Auth::user()->profile_id);
 
-        $view->with(compact('ironForgeController', 'ironForgeResourcesMenu','ironForgeBreadCrumb', 'ironForgeCurrentResource'));
+        $view->with(compact('ironForgeController', 'ironForgeResourcesMenu', 'ironForgeBreadCrumb', 'ironForgeCurrentResource'));
     }
 
-    public function buildMenuRecursive($parentID = 0, $profileId)
-    {
+    public function buildMenuRecursive($parentID = 0, $profileId) {
         $result = array();
-        $menus = Resource::getItensMenuByParentAndProfile($parentID,$profileId);
+
+        $menus = Resource::getItensMenuByParentAndProfile($parentID, $profileId);
 
         foreach ($menus as $key => $value) {
-            $ctrl        = array_first( explode("@", $value->controller_method));
+            $ctrl        = array_first(explode("@", $value->controller_method));
             $result[$key] = array(
                 'menu'          => $value->menu,
                 'route_name'    => $value->route_name,

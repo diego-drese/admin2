@@ -16,39 +16,7 @@ class OwnerTableSeed extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
 
-        DB::table('owners')->insert([
-            [
-                'name' => "Claro",
-                'desc' => $faker->text(rand(50,100)),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
-            [
-                'name' => "Vivo",
-                'desc' => $faker->text(rand(50,100)),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
-            [
-                'name' => "Oi",
-                'desc' => $faker->text(rand(50,100)),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
-            [
-                'name' => "Tim",
-                'desc' => $faker->text(rand(50,100)),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
-            [
-                'name' => "TellCel",
-                'desc' => $faker->text(rand(50,100)),
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ],
-        ]);
+
     }
 }

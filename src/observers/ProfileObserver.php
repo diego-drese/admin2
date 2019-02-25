@@ -20,7 +20,11 @@ class ProfileObserver
         {
             foreach($changes as $attr => $value)
             {
-                $log_ .= "Admin Creating {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+                if(is_array($value)) {
+                    $log_ .= "Admin Creating {$model->getTable()} register #{$model->id} field $attr from '".json_encode($model->getOriginal($attr))."' to '".json_encode($model->$attr)."' for User {$userId}#{$userName} \r\n";
+                }else{
+                    $log_ .= "Admin Creating {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+                }
             }
 
             Log::info($log_);
@@ -37,9 +41,13 @@ class ProfileObserver
 
         if($changes)
         {
-            foreach($changes as $attr => $value)
-            {
-                $log_ .= "Admin Updated {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+            foreach($changes as $attr => $value) {
+                if(is_array($value)){
+                    $log_ .= "Admin Updated {$model->getTable()} register #{$model->id} field $attr from '".json_encode($model->getOriginal($attr))."' to '".json_encode($model->$attr)."' for User {$userId}#{$userName} \r\n";
+                }else{
+                    $log_ .= "Admin Updated {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+                }
+
             }
 
             Log::info($log_);

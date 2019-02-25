@@ -4,7 +4,7 @@ return [
 
     'users' => [
         'driver' => 'eloquent',
-        'model' => Negotiate\Admin\UserIronForge::class
+        'model' => Negotiate\Admin\User::class
     ]
 
 ];

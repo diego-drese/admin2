@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Illuminate\Http\Request;
+use Negotiate\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 
 class ResourcesController extends BaseController {
@@ -28,6 +29,7 @@ class ResourcesController extends BaseController {
 
             return Datatables::of($query)
                 ->addColumn('profiles', function(Resource $resource){
+
                     $profiles = Profile::where('resources_allow', $resource->id)->get();
                     if($profiles){
                         return $profiles->toArray();
@@ -75,6 +77,7 @@ class ResourcesController extends BaseController {
         ]);
 
         $resource                   = new Resource();
+        $resource->id               = Sequence::getSequence('resource');
         $resource->name             = $request->name;
         $resource->menu             = $request->menu;
         $resource->is_menu          = (int)$request->is_menu;
@@ -133,6 +136,9 @@ class ResourcesController extends BaseController {
         }else{
             $dataForm['can_be_default'] = (int)$dataForm['can_be_default'];
         }
+        $dataForm['is_menu']          = (int)$request->is_menu;
+        $dataForm['can_be_default']   = (int)$request->can_be_default;
+        $dataForm['parent_id']        = (int)$request->parent_id;
 
         $resource->update($dataForm);
         toastr()->success('Recurso Atualizado com sucesso','Sucesso');

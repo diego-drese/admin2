@@ -6,5 +6,7 @@ php artisan migrate --database=negotiate_admin
 
 php artisan db:seed --class=Negotiate\\\Admin\\\DatabaseSeeder
 
+php artisan vendor:publish --tag=public --force
+
 php artisan Negotiate:AdminRoutes
 

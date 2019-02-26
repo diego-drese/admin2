@@ -24,6 +24,7 @@ class MiddlewareAdmin
         $ajax               = $request->ajax();
         $request->headers->set('controller' , $controller);
         $resources          = ResourceAdmin::verifyUser($controllerAction);
+
         if($resources === false){
             if($ajax){
                 return response()->json(['message'=>'Recurso não cadastrado'],404);

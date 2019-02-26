@@ -17,9 +17,14 @@ class CreateNegotiateClient extends Migration{
                 $collection->background(["id_user_system"]);
                 $collection->background(["cpf"]);
                 $collection->background(["cnpj"]);
-                $collection->background(["fantasy_name"]);
+                $collection->background(["mother_name"]);
+                $collection->background(["father_name"]);
+                $collection->background(["phone"]);
+                $collection->background(["cellphone"]);
+                $collection->background(["health_plan"]);//convenio
+                $collection->background(["number_health_plan"]);//number_convenio
                 $collection->background(["state_register"]);
-                $collection->background(["state_register"]);
+                $collection->background(["birth_date"]);
                 $collection->background(["created_at"]);
                 $collection->background(["updated_at"]);
             });

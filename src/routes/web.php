@@ -12,7 +12,6 @@
 */
 
 $prefix_url = \Config::get('admin.prefix_url');
-Route::get('/dashboard', 'Negotiate\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fa-dashboard', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotiate\Admin\Http\Middleware\MiddlewareAdmin']], function() {
 

@@ -10,7 +10,7 @@ return [
         'driver' => 'mongodb',
         'host' => env('NEGOTIATE_ADMIN_DB_HOST', '127.0.0.1'),
         'port' => env('NEGOTIATE_ADMIN_DB_PORT', '27017'),
-        'database' => 'negotiate_admin',
+        'database' => env('NEGOTIATE_ADMIN_DB_NAME', 'negotiate_admin'),
         'username' => env('NEGOTIATE_ADMIN_DB_USERNAME', ''),
         'password' => env('NEGOTIATE_ADMIN_DB_PASSWORD', ''),
         'charset' => 'utf8',

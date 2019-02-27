@@ -30,7 +30,11 @@ class UserController extends BaseController {
 
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
-                    return route('admin.users.edit', [$row->id]);
+                    if(isset($row->id)){
+                        return route('admin.users.edit', [$row->id]);
+                    }else{
+                        return '';
+                    }
                 })
                 ->addColumn('profileName', function($row){
                     $profile = Profile::where('id', (int)$row->profile_id)->first();
@@ -38,7 +42,8 @@ class UserController extends BaseController {
                 })
                 ->addColumn('resourceName', function($row){
                     $resource = Resource::where('id', (int)$row->resource_default_id)->first();
-                    return $resource->name;
+                   return '';
+                    return isset($resource->name)?$resource->name:'';
                 })
                 ->setRowClass(function () {
                     return 'center';

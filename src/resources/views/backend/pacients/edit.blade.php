@@ -1,5 +1,5 @@
 @extends('Admin::layouts.quillpro.main')
-@section('title', 'Client Create')
+@section('title', 'Editar Paciente')
 @section('content')
     <div class="content-wrapper">
         <section class="content">
@@ -8,9 +8,9 @@
                     <div class="box-header">
                     </div>
                     <div class="box-body ">
-                        <form method="post" action="{{route('admin.client.store')}}">
-                            {{ csrf_field() }}
-                            @include('Admin::backend.clients.form')
+                        <form method="post" action="{{route('admin.pacient.update', $negotiatePacient->id)}}">
+                            {{csrf_field()}}
+                            @include('Admin::backend.pacients.form')
                         </form>
                     </div>
                 </div>
@@ -18,3 +18,5 @@
         </section>
     </div>
 @endsection
+
+

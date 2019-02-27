@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OwnerTableSeed::class);
         $this->call(ProfileTableSeed::class);
         $this->call(ResourceTableSeed::class);
+        $this->call(PacientTableSeed::class);
         //$this->call(ProfileHasResourcesTableSeed::class);
 
     }

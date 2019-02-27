@@ -46,13 +46,18 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/updade-owner-iron', 'Negotiate\Admin\Http\Controllers\OwnerController@updateFieldsToJson')->name('admin.updateowner.update');
 
     //Negotiate User
-    Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Clients", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clients', 'isDefaultAdmin'=>'1']);
+    Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-wheelchair', 'menuAdmin'=> "Clientes", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clientes', 'isDefaultAdmin'=>'1']);
     Route::get('/clients/create', 'Negotiate\Admin\Http\Controllers\ClientController@create')->name('admin.client.create')->where(['iconAdmin'=>'fa-plus-square', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Create', 'isDefaultAdmin'=>'1']);
     Route::post('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@store')->name('admin.client.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Client']);
     Route::get('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@edit')->name('admin.client.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Edit']);
     Route::post('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@update')->name('admin.client.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Client Update']);
 
-
+    //Negotiate Pacient
+    Route::get('/pacients', 'Negotiate\Admin\Http\Controllers\PacientController@index')->name('admin.pacient.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Pacientes", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Pacientes', 'isDefaultAdmin'=>'1']);
+    Route::get('/pacients/create', 'Negotiate\Admin\Http\Controllers\PacientController@create')->name('admin.pacient.create')->where(['iconAdmin'=>'fa-plus-square', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Pacient Create', 'isDefaultAdmin'=>'1']);
+    Route::post('/pacients', 'Negotiate\Admin\Http\Controllers\PacientController@store')->name('admin.pacient.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Pacient']);
+    Route::get('/pacients/{id}', 'Negotiate\Admin\Http\Controllers\PacientController@edit')->name('admin.pacient.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Pacient Edit']);
+    Route::post('/pacients/{id}', 'Negotiate\Admin\Http\Controllers\PacientController@update')->name('admin.pacient.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Pacient Update']);
 
 });
 

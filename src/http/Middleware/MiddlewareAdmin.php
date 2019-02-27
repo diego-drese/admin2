@@ -16,7 +16,6 @@ class MiddlewareAdmin
 
     public function handle(Request $request, Closure $next, $ability = null, $boundModelName = null)
     {
-
         $routeArray         = app('request')->route()->getAction();
         $prefix_url         = \Config::get('admin.prefix_url');
         $controllerAction   = $routeArray['controller'];

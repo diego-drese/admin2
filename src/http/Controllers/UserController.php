@@ -83,7 +83,8 @@ class UserController extends BaseController {
             return back()->withInput();
         }
 
-        $data['id'] = Sequence::getSequence('users');
+        $data['id']         = Sequence::getSequence('users');
+        $data['client_id']  = null;
         $dataForm['password'] = bcrypt($dataForm['password']);
         $request->user()->create($dataForm);
 

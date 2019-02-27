@@ -83,7 +83,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
     Route::get('/profile','Negotiate\Admin\Http\Controllers\UserController@viewUserProfile')->name('admin.users.form-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit']);
     Route::post('/profile','Negotiate\Admin\Http\Controllers\UserController@updateUserProfile')->name('admin.users.update-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit']);
 
-    Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
-    Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');
+    //Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
+    //Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');
 
 });

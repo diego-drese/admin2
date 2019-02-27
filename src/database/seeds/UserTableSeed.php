@@ -19,6 +19,7 @@ class UserTableSeed extends Seeder{
             'active' => 1,
             'profile_id' => 1,
             'resource_default_id' => 1,
+            "client_id" =>null,
             'email' => 'admin@negotiate.com.br',
             'password' => bcrypt('negotiate'),
             'type' => 'root',

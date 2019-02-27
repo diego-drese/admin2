@@ -65,7 +65,7 @@
                     {data: "route_name", 'name': 'route_name'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                            var icon = `<i class="font-gradient icon-font fa ${data.icon}"></i>`;
+                            var icon = '<i class="font-gradient icon-font fa ${data.icon}"></i>';
                             return icon
                         }
                     },

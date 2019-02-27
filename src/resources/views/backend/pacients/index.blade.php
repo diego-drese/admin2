@@ -1,5 +1,5 @@
 @extends('Admin::layouts.quillpro.main')
-@section('title', 'Clientes')
+@section('title', 'Pacientes')
 @section('content')
     <div class="content-wrapper">
         <section class="content">
@@ -8,8 +8,8 @@
                     <div class="box-header">
                         <div class="pull-left">
                             @if($hasAdd)
-                                <a href="{{route('admin.client.create')}}">
-                                    <a href="{{route('admin.client.create')}}" class="btn btn-success">
+                                <a href="{{route('admin.pacient.create')}}">
+                                    <a href="{{route('admin.pacient.create')}}" class="btn btn-success">
                                         Adicionar <span class="fa fa-plus"></span>
                                     </a>
                                 </a>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="box-body ">
                         <div class="table-responsive">
-                            <table id="table_client" class="table table-bordered table-striped dataTable table-hover"
+                            <table id="table_pacient" class="table table-bordered table-striped dataTable table-hover"
                                    role="grid">
                                 <thead>
                                 <tr class="center">
@@ -26,8 +26,7 @@
                                     <td>Nome</td>
                                     <td>E-mail</td>
                                     <td>Celular</td>
-                                    <td>Tipo</td>
-                                    <td>CPF/CNPJ</td>
+                                    <td>Convênio</td>
                                     <td>Ações</td>
                                 </tr>
                                 </thead>
@@ -49,17 +48,17 @@
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {
-            $('#table_client').DataTable({
+            $('#table_pacient').DataTable({
                 serverSide: true,
                 processing: true,
                 autoWidth: false,
-                ajax: '{{ route('admin.client.index') }}',
+                ajax: '{{ route('admin.pacient.index') }}',
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
                     {data: "email", 'name': 'email'},
                     {data: 'cellphone', 'name': 'cellphone'},
-                    {data: 'type', 'name': 'type'},
+                    {data: 'health_plan', 'name': 'health_plan'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";

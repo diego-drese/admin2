@@ -8,22 +8,15 @@ use Negotiate\Admin\NegotiateClient;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Negotiate\Admin\Resource;
 use Negotiate\Admin\Sequence;
 use Yajra\Datatables\Datatables;
-use Illuminate\Support\Facades\Hash;
-use Image;
-use App\Http\Requests;
-
-
 
 class ClientController extends BaseController {
 
     use ValidatesRequests;
 
-    public function index(Request $request,DataTables $datatables ) {
+    public function index(Request $request, DataTables $datatables ) {
 
         if($request->ajax()){
 
@@ -86,22 +79,19 @@ class ClientController extends BaseController {
             'required' => 'campo é obrigatório'
         ];
         $this->validate($request, [
-            'profile_id'                 => 'required',
             'name'                 => 'required',
-            'email'                 => 'required|email',
+            'email'                => 'required|email',
             'type'                 => 'required',
-            'type'                 => 'required',
-            'cpf'                 => 'required_if:type,==,1',
+            'cpf'                  => 'required_if:type,==,1',
             'cnpj'                 => 'required_if:type,==,2',
-            //'id_user_system'       => 'required',
-            'mother_name'       => 'required',
-            'father_name'       => 'required',
-            'cellphone'       => 'required',
-            'phone'       => 'required',
-            'health_plan'       => 'required',
-            'number_health_plan'       => 'required',
-            'password'              => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6|',
+            'cellphone'            => 'required',
+            'phone'                => 'required',
+            //'profile_id'         => 'required',
+            //'id_user_system'     => 'required',
+            //'mother_name'        => 'required',
+            //'father_name'        => 'required',
+            //'health_plan'        => 'required',
+            //'number_health_plan' => 'required',
         ],$customMessages);
 
         if(NegotiateClient::where('email', $dataForm['email'])->first()){
@@ -110,16 +100,13 @@ class ClientController extends BaseController {
         }
 
         $dataForm['id'] = Sequence::getSequence('clients');
-        $dataForm['password'] = bcrypt($dataForm['password']);
+
         if(NegotiateClient::create($dataForm)){
             toastr()->success('Usuário Criado!','Sucesso');
         }
 
         return redirect(route('admin.client.index'));
-
     }
-
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -145,17 +132,23 @@ class ClientController extends BaseController {
         $user       = NegotiateClient::firstOrNew(['id'=>(int)$id]);
         $dataForm   = $request->all();
         $this->validate($request, [
-            'name'                  => 'required',
-            //'resource_default_id'   => 'required',
-          //  'email'                 => 'required|unique:users,email,'.$request->id,
-            //'password'              => 'confirmed',
+            'name'              => 'required',
+            'email'             => 'required|email',
+            'type'              => 'required',
+            'cpf'               => 'required_if:type,==,1',
+            'cnpj'              => 'required_if:type,==,2',
+            'phone'             => 'required',
+            'cellphone'         => 'required',
+            //'profile_id'      => 'required',
+            //'id_user_system'  => 'required',
+            //'mother_name'     => 'required',
+            //'father_name'     => 'required',
+            //'health_plan'     => 'required',
+            //'number_health_plan'       => 'required',
         ]);
 
-        $dataForm['password'] = bcrypt($dataForm['password']);
-
-        if($user->update( !isset($request->password) ? $request->except(['password']) : $dataForm)){
+        if($user->update($dataForm)){
             toastr()->success('Cliente Atualizado com sucesso','Sucesso');
-            dd('x');
         };
 
         return redirect(route('admin.client.index'));

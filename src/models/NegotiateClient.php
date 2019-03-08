@@ -15,19 +15,24 @@ class NegotiateClient extends Model {
                             'type',
                             'cpf',
                             'cnpj',
-                            'mother_name',
-                            'father_name',
-                            'health_plan',
-                            'number_health_plan',
                             'profile_id',
                             'social_reason',
                             'fantasy_name',
                             'state_register',
-                            'birth_date'
                             ];
 
     protected $connection   = 'negotiate_admin';
     protected $table        = 'negotiate_client';
     const TABLE             = 'negotiate_client';
 
+    public $rules = [
+        'name'              => 'required',
+        'email'             => 'required|email',
+        'type'              => 'required',
+        'cpf'               => 'required_if:type,==,1',
+        'cnpj'              => 'required_if:type,==,2',
+        'fantasy_name'      => 'required_if:type,==,2',
+        'social_reason'     => 'required_if:type,==,2',
+        'cellphone'         => 'required',
+    ];
 }

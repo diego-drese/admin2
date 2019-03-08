@@ -75,24 +75,12 @@ class ClientController extends BaseController {
 
         $dataForm = $request->all();
 
+        $negotiateClient =  new NegotiateClient;
+
         $customMessages = [
             'required' => 'campo é obrigatório'
         ];
-        $this->validate($request, [
-            'name'                 => 'required',
-            'email'                => 'required|email',
-            'type'                 => 'required',
-            'cpf'                  => 'required_if:type,==,1',
-            'cnpj'                 => 'required_if:type,==,2',
-            'cellphone'            => 'required',
-            'phone'                => 'required',
-            //'profile_id'         => 'required',
-            //'id_user_system'     => 'required',
-            //'mother_name'        => 'required',
-            //'father_name'        => 'required',
-            //'health_plan'        => 'required',
-            //'number_health_plan' => 'required',
-        ],$customMessages);
+        $this->validate($request, $negotiateClient->rules,$customMessages);
 
         if(NegotiateClient::where('email', $dataForm['email'])->first()){
             toastr()->error('O email já está em uso!','Email duplicado');
@@ -131,21 +119,7 @@ class ClientController extends BaseController {
 
         $user       = NegotiateClient::firstOrNew(['id'=>(int)$id]);
         $dataForm   = $request->all();
-        $this->validate($request, [
-            'name'              => 'required',
-            'email'             => 'required|email',
-            'type'              => 'required',
-            'cpf'               => 'required_if:type,==,1',
-            'cnpj'              => 'required_if:type,==,2',
-            'phone'             => 'required',
-            'cellphone'         => 'required',
-            //'profile_id'      => 'required',
-            //'id_user_system'  => 'required',
-            //'mother_name'     => 'required',
-            //'father_name'     => 'required',
-            //'health_plan'     => 'required',
-            //'number_health_plan'       => 'required',
-        ]);
+        $this->validate($request,$user->rules );
 
         if($user->update($dataForm)){
             toastr()->success('Cliente Atualizado com sucesso','Sucesso');

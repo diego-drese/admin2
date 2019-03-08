@@ -1,5 +1,5 @@
 @extends('Admin::layouts.quillpro.main')
-@section('title', 'Client Create')
+@section('title', 'Criar Cliente')
 @section('content')
     <div class="content-wrapper">
         <section class="content">

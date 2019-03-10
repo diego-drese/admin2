@@ -4,6 +4,7 @@ namespace Negotiate\Admin\Http\Controllers;
 
 use Negotiate\Admin\Library\ResouceIronForge;
 use Negotiate\Admin\Library\ResourceAdmin;
+use Negotiate\Admin\NegotiateClient;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Negotiate\Admin\Sequence;
@@ -63,8 +64,9 @@ class UserController extends BaseController {
      */
     public function create(User $user) {
         $profiles   = Profile::all('id', 'name');
+        $clients    = NegotiateClient::all('id', 'name');
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.users.store');
-        return view('Admin::backend.users.create', compact('profiles','user', 'hasSave'));
+        return view('Admin::backend.users.create', compact('profiles','user','clients', 'hasSave'));
     }
 
     /**
@@ -108,14 +110,20 @@ class UserController extends BaseController {
     public function edit($id) {
         $user           = User::where('id',(int)$id)->first();
         $profiles       = Profile::select('id','name')->get();
+        $clients   = NegotiateClient::all('id', 'name');
         $profileCurrent = "";
         foreach ($profiles as $profile){
             if($profile->id == $user->profile_id){
                 $profileCurrent = $profile->name;
             }
         }
+        foreach ($clients as $client){
+            if($client->id == $user->client_id){
+                $clientCurrent = $client->name;
+            }
+        }
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.users.update', [1]);
-        return view('Admin::backend.users.edit', compact('user', 'profiles', 'hasSave', 'profileCurrent'));
+        return view('Admin::backend.users.edit', compact('user', 'clients','profiles', 'hasSave', 'profileCurrent','clientCurrent'));
     }
 
     /**

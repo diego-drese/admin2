@@ -1,5 +1,5 @@
 @extends('Admin::layouts.quillpro.main')
-@section('title', 'Clients')
+@section('title', 'Clientes')
 @section('content')
     <div class="content-wrapper">
         <section class="content">
@@ -8,30 +8,27 @@
                     <div class="box-header">
                         <div class="pull-left">
                             @if($hasAdd)
-                                <a href="{{route('admin.users.create')}}">
-                                    <a href="{{route('admin.users.create')}}" class="btn btn-success">
-                                        Add New <span class="fa fa-plus"></span>
+                                <a href="{{route('admin.client.create')}}">
+                                    <a href="{{route('admin.client.create')}}" class="btn btn-success">
+                                        Adicionar <span class="fa fa-plus"></span>
                                     </a>
                                 </a>
-
                             @endif
                         </div>
                     </div>
                     <div class="box-body ">
                         <div class="table-responsive">
-                            <table id="table_users" class="table table-bordered table-striped dataTable table-hover"
+                            <table id="table_client" class="table table-bordered table-striped dataTable table-hover"
                                    role="grid">
                                 <thead>
                                 <tr class="center">
                                     <td role="row">#</td>
-                                    <td>Name</td>
+                                    <td>Nome</td>
                                     <td>E-mail</td>
-                                    <td>Profile</td>
-                                    <td>Status</td>
-                                    <td>Contact</td>
-                                    <td>Page Default</td>
-                                    <td>Created At:</td>
-                                    <td>Actions</td>
+                                    <td>Celular</td>
+                                    <td>Tipo</td>
+                                    <td>CPF/CNPJ</td>
+                                    <td>Ações</td>
                                 </tr>
                                 </thead>
                             </table>
@@ -52,28 +49,34 @@
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {
-            $('#table_users').DataTable({
+            $('#table_client').DataTable({
                 serverSide: true,
                 processing: true,
                 autoWidth: false,
-                ajax: '{{ route('admin.users.index') }}',
+                ajax: '{{ route('admin.client.index') }}',
                 columns: [
-
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
                     {data: "email", 'name': 'email'},
-                    {data: "profileName", 'name': 'profileName'},
-                    {data: 'active', 'name': 'active'},
-                    {data: 'cell_phone', 'name': 'cell_phone'},
-                    {data: "resourceName", 'name': 'resourceName'},
-                    {data: "created_at", 'name': 'created_at'},
-
+                    {data: 'cellphone', 'name': 'cellphone'},
+                    {data: 'type', 'name': 'type'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                        var edit_button = "";
-                        if (hasEdit == '1') {
-                            edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
+                            var edit_button = "";
+                            if(data.type==1){
+                                return data.cpf;
+                            }else{
+                                return data.cnpj;
+                            }
                         }
+                    },
+                    {data: "created_at", 'name': 'created_at'},
+                    {
+                        data: null, searchable: false, orderable: false, render: function (data) {
+                        //var edit_button = "";
+                        //if (hasEdit == '1') {
+                          var  edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
+                        //}
                         return edit_button
                     }
                     }

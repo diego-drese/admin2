@@ -1,3 +1,19 @@
+@if($user->exists && Auth::User()->id == $user->id)
+    <div class="col-md-4 form-group">
+        <label for="active">Meu Cliente</label>
+        <input type="text" value="{{clientCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+    </div>
+@else
+
+    <div class="col-md-4 form-group {{$errors->has('client_id') ? 'has-error' : ''}}">
+        <label for="active">Cliente</label>
+        <select class="form-control" id="selectProfile" name="client_id" placeholder="Cliente">
+            @foreach ($clients as $key => $client)
+                <option name="client_id"  @if($client->exists){{$user->client_id==$client->id ? 'selected="selected"' : ''}} @endif value="{{$client->id}}">{{$client->name}} </option>
+            @endforeach
+        </select>
+    </div>
+@endif
 
 <div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Name</label>

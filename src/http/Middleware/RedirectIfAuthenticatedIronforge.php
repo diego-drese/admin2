@@ -18,6 +18,7 @@ class RedirectIfAuthenticatedIronforge
     public function handle($request, Closure $next, $guard = null)
     {
         $prefix_url         = \Config::get('admin.prefix_url');
+
         if (Auth::guard($guard)->check()) {
             $redirect = '';
             //$redirect = Auth::User()->resourceDefault->route_name;

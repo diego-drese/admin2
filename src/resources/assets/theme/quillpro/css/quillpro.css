@@ -19,7 +19,8 @@ body {
     font-size: 12px;
     font-weight: 400;
     line-height: 1.618;
-    letter-spacing: 0.03em; }
+
+    }
 
 a:not(.btn) {
     color: #07a7e3;

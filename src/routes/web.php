@@ -12,7 +12,6 @@
 */
 
 $prefix_url = \Config::get('admin.prefix_url');
-Route::get('/dashboard', 'Negotiate\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fa-dashboard', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotiate\Admin\Http\Middleware\MiddlewareAdmin']], function() {
 
@@ -47,13 +46,11 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/updade-owner-iron', 'Negotiate\Admin\Http\Controllers\OwnerController@updateFieldsToJson')->name('admin.updateowner.update');
 
     //Negotiate User
-    Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Clients", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clients', 'isDefaultAdmin'=>'1']);
+    Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Clientes", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clientes', 'isDefaultAdmin'=>'1']);
     Route::get('/clients/create', 'Negotiate\Admin\Http\Controllers\ClientController@create')->name('admin.client.create')->where(['iconAdmin'=>'fa-plus-square', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Create', 'isDefaultAdmin'=>'1']);
     Route::post('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@store')->name('admin.client.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Client']);
     Route::get('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@edit')->name('admin.client.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Edit']);
     Route::post('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@update')->name('admin.client.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Client Update']);
-
-
 
 });
 
@@ -84,7 +81,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
     Route::get('/profile','Negotiate\Admin\Http\Controllers\UserController@viewUserProfile')->name('admin.users.form-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit']);
     Route::post('/profile','Negotiate\Admin\Http\Controllers\UserController@updateUserProfile')->name('admin.users.update-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit']);
 
-    Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
-    Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');
+    //Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
+    //Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');
 
 });

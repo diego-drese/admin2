@@ -59,13 +59,13 @@
                 autoWidth:false,
                 ajax: '{{ route('admin.resources.index') }}',
                 columns: [
-                    {data: "id", 'name': 'id', searchable: false},
+                    {data: "id", 'name': 'name', searchable: false},
                     {data: "name", 'name': 'name'},
                     {data: "menu", 'name': 'menu'},
                     {data: "route_name", 'name': 'route_name'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                            var icon = `<i class="font-gradient icon-font fa ${data.icon}"></i>`;
+                            var icon = '<i class="font-gradient icon-font fa ${data.icon}"></i>';
                             return icon
                         }
                     },

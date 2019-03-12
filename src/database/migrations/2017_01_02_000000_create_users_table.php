@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration {
                 $collection->background(["active"]);
                 $collection->background(["type"]);
                 $collection->background(["picture"]);
+                $collection->background(["client_id"]);
                 $collection->background(["owners"]);
                 $collection->background(["created_at"]);
                 $collection->background(["updated_at"]);
@@ -23,6 +24,6 @@ class CreateUsersTable extends Migration {
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('users');
+       // Schema::connection($this->connection)->dropIfExists('users');
     }
 }

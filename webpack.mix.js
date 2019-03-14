@@ -28,7 +28,9 @@ mix.styles([
     'src/resources/assets/theme/quillpro/css/quillpro.css',
 ],'src/public/quillpro/css/app.css').version();
 
-
+mix.styles([
+	'src/resources/assets/theme/backend/css/default.css',
+],'src/public/backend/theme/css/app.css').version();
 
 mix.copyDirectory('src/resources/assets/theme/quillpro/fonts', 'src/public/quillpro/fonts');
 mix.copyDirectory('src/resources/assets/theme/quillpro/img', 'src/public/quillpro/img');

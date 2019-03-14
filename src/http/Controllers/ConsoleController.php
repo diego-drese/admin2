@@ -17,6 +17,9 @@ class ConsoleController extends BaseController
     public function quillpro(){
         return view('Admin::backend.quillpro');
     }
+    public function newTheme(){
+        return view('Admin::backend.new_theme');
+    }
     public function pageNotFound(){
         return view('Admin::errors.404');
     }

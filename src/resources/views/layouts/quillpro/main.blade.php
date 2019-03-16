@@ -63,12 +63,12 @@
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
                                 <li>
                                     <a class="dropdown-item" href="mail-inbox.html">
-                                        Messages
+                                        Mensagens
                                         <span class="badge badge-danger badge-pill float-right">3</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.users.form-profile')}}" class="dropdown-item">Profile</a>
+                                        <a href="{{route('admin.users.form-profile')}}" class="dropdown-item">Perfil</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
@@ -94,7 +94,7 @@
                 <div class="row mb-4">
                     <div class="col-md-12">
                         <footer>
-                            Powered by - <a href="https://negotiate.com" target="_blank" style="font-weight:300;color:#ffffff;background:#1d1d1d;padding:0 3px;"><span style="color:#ffa733;font-weight:bold">Negotiate</span></a>
+                           Desenvolvido por - <a href="https://negotiate.com" target="_blank" style="font-weight:300;color:#ffffff;background:#1d1d1d;padding:0 3px;"><span style="color:#ffa733;font-weight:bold">Negotiate</span></a>
                         </footer>
                     </div>
                 </div>

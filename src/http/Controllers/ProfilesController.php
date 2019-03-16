@@ -67,7 +67,9 @@ class ProfilesController extends BaseController
         $resources      = Resource::all('name', 'id', 'route_name');
         $resourcesMenu  = $this->getResourcesDefault;
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.profiles.store');
-        return view('Admin::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave'));
+
+        $negotiateProfileTypes = \Config::get('admin.profile_type');
+        return view('Admin::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave','negotiateProfileTypes'));
     }
 
     /**
@@ -103,8 +105,8 @@ class ProfilesController extends BaseController
        $profilesResources   = $profile->resources_allow;
        $resourcesMenu       = $this->getResourcesDefault;
        $hasSave             = ResourceAdmin::hasResourceByRouteName('admin.profiles.update',[1]);
-
-       return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave'));
+       $negotiateProfileTypes = \Config::get('admin.profile_type');
+       return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave','negotiateProfileTypes'));
     }
 
     /**

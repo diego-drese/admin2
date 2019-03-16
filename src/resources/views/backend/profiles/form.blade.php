@@ -7,9 +7,20 @@
     @endif
 </div>
 
+<div class="col-md-12 form-group {{$errors->has('type_user') ? 'has-error' : ''}} ">
+    <label for="title">Type User</label>
+    <select class="form-control " id="selectTypeUser" name="type_user">
+        <option>Selecione</option>
+        @foreach($negotiateProfileTypes as $key=>$type_user)
+            <option {{isset($profile->exists) && $key==$profile->type_user ? 'selected="selected"' : '' }} value="{{$key}}">{{$type_user}}</option>
+        @endforeach
+    </select>
+</div>
+
 <div class="col-md-12 form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
     <label for="title">Resources</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">
+        <option>Selecione</option>
         @foreach($resources as $resource)
             @php $nameRoute = explode('.', $resource->route_name) @endphp
             <option class="profilesSelect" data-route="{{$nameRoute[0]}}" {{$profile->exists && in_array($resource->id,$profilesResources) ? 'selected="selected"' : '' }} value="{{$resource->id}}" >{{$resource->name}}</option>

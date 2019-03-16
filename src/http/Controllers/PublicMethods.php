@@ -2,6 +2,7 @@
 
 namespace Negotiate\Admin\Http\Controllers;
 //use Negotiate\Admin\Http\Controllers\AuthIronForge;
+use Illuminate\Support\Facades\Auth;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Negotiate\Admin\User;
@@ -9,10 +10,21 @@ use Negotiate\Admin\User;
 class PublicMethods extends Controller
 {
     public function getResourcesDefault($profileId){
-        $profile = Profile::where('id', (int)$profileId)->first();
-        $resources = Resource::whereIn('id', $profile->resources_allow)
-            ->where('can_be_default', 1)
-            ->get();
+
+        $auth = Auth::user();
+        if($auth->client_id){
+            $negotiateProfileTypes = \Config::get('admin.profile_type');
+            $profile       = Profile::where('type_user', key($negotiateProfileTypes) )->where('id', (int)$profileId)->first();
+            $resources = Resource::whereIn('id', $profile->resources_allow)
+                ->where('can_be_default', 1)
+                ->where('menu','!=', '')
+                ->get();
+        }else{
+            $profile = Profile::where('id', (int)$profileId)->first();
+            $resources = Resource::whereIn('id', $profile->resources_allow)
+                ->where('can_be_default', 1)
+                ->get();
+        }
 
         return response()->json($resources);
     }

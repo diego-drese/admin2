@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class Profile extends Model
 {
 
-    protected $fillable     = ['id', 'name', 'desc', 'resources_allow'];
+    protected $fillable     = ['id', 'name', 'desc', 'resources_allow','type_user'];
     protected $connection   = 'negotiate_admin';
     protected $table        = 'profile';
     const TABLE             = 'profile';

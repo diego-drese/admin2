@@ -35,6 +35,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password', 'remember_token',
     ];
 
+    public $rules = [
+        'cell_phone'            => 'required',
+        'resource_default_id'   => 'required',
+        'name'                  => 'required',
+        'email'                 => 'required',
+        'password'              => 'required|min:6|confirmed',
+        'password_confirmation' => 'required|min:6|',
+        'profile_id'            => 'required',
+        'client_id'             => 'required',
+
+    ];
     public function owners()
     {
         return $this->belongsToMany(\Negotiate\Admin\Owner::class,'user_has_owners','user_id','owner_id');
@@ -60,6 +71,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function getQueueableRelations()
     {
         // TODO: Implement getQueueableRelations() method.
+    }
+
+    public function createUser(){
+
+
+
+
     }
 }
 

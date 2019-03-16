@@ -90,7 +90,7 @@ class NegotiateServiceProvider extends ServiceProvider
 
         $config = $this->app['config']->get($key, []);
 
-        if($key=='auth'  && !isset($config['owner_type'])){
+        if($key=='admin'  && !isset($config['owner_type'])){
             $rootArray=require $path;
             if(!empty($config['owner_type'])){
                 $rootArray['owner_type'] = $config['owner_type'];
@@ -98,10 +98,13 @@ class NegotiateServiceProvider extends ServiceProvider
             $this->app['config']->set($key, array_merge($config, $rootArray));
         }
 
-        if ($key == 'database.connections' && !isset($config['negotiate_admin'])) {
+        if($key=='admin'  && !isset($config['profile_type'])){
             $this->app['config']->set($key, array_merge($config, require $path));
         }
 
+        if ($key == 'database.connections' && !isset($config['negotiate_admin'])) {
+            $this->app['config']->set($key, array_merge($config, require $path));
+        }
 
         if ($key == 'auth.providers') {
             $this->app['config']->set($key, array_merge($config, require $path));

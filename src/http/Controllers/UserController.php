@@ -52,8 +52,8 @@ class UserController extends BaseController {
                 ->make(true);
         }
 
-        $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.users.create');
-        $hasEdit    = ResourceAdmin::hasResourceByRouteName('admin.users.edit', [1]);
+        $hasAdd     = 1;//ResourceAdmin::hasResourceByRouteName('admin.users.create');
+        $hasEdit    = 1;//ResourceAdmin::hasResourceByRouteName('admin.users.edit', [1]);
         return view('Admin::backend.users.index', compact('hasAdd', 'hasEdit'));
     }
 
@@ -90,9 +90,8 @@ class UserController extends BaseController {
             return back()->withInput();
         }
 
-        $data['id']         = Sequence::getSequence('users');
-        $data['client_id']  = null;
-        $dataForm['password'] = bcrypt($dataForm['password']);
+        $dataForm['id']         = Sequence::getSequence('users');
+        $dataForm['password']   = bcrypt($dataForm['password']);
         $request->user()->create($dataForm);
 
         toastr()->success('Usuário Criado!','Sucesso');

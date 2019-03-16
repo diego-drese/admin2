@@ -1,11 +1,11 @@
 @if($user->exists && Auth::User()->id == $user->id)
-    <div class="col-md-4 form-group">
+    <div class="col-md-6 form-group">
         <label for="active">Meu Cliente</label>
-        <input type="text" value="{{clientCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+        <input type="text" value="{{@$clientCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
     </div>
 @else
 
-    <div class="col-md-4 form-group {{$errors->has('client_id') ? 'has-error' : ''}}">
+    <div class="col-md-6 form-group {{$errors->has('client_id') ? 'has-error' : ''}}">
         <label for="active">Cliente</label>
         <select class="form-control" id="selectProfile" name="client_id" placeholder="Cliente">
             @foreach ($clients as $key => $client)
@@ -36,7 +36,7 @@
 
 <div class="col-md-6 form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
     <label for="slug">Cellphone</label>
-    <input type="text" value="{{old('slug',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
+    <input type="text" value="{{old('cell_phone',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
            class="form-control"
            id="cell_phone" placeholder="Cellphone">
     @if($errors->has('cell_phone'))
@@ -64,13 +64,13 @@
     @endif
 </div>
 @if($user->exists && Auth::User()->id == $user->id)
-    <div class="col-md-4 form-group">
+    <div class="col-md-6 form-group">
         <label for="active">My Profile</label>
         <input type="text" value="{{$profileCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
     </div>
 @else
 
-    <div class="col-md-4 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
+    <div class="col-md-6 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
         <label for="active">Profile</label>
         <select class="form-control" id="selectProfile" name="profile_id" placeholder="Profile">
             @foreach ($profiles as $key => $profile)
@@ -80,14 +80,14 @@
     </div>
 @endif
 
-<div class="col-md-4 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
+<div class="col-md-6 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
     <label for="active">Page Default</label>
     <select class="form-control" id="selectResourceDefault" name="resource_default_id" placeholder="Profile">
     </select>
 </div>
 
 
-<div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
+<div class="col-md-6 form-group {{$errors->has('password') ? 'has-error' : ''}}">
     <label for="slug">Password</label>
     <input type="password" name="password" class="form-control"
            id="password" placeholder="Password" value="">
@@ -96,7 +96,7 @@
     @endif
 </div>
 
-<div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
+<div class="col-md-6 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
     <label for="slug">Confirm Password</label>
     <input type="password" name="password_confirmation" class="form-control"
            id="password_confirmation" placeholder="Confirm Password" value="">
@@ -106,7 +106,7 @@
 </div>
 @if($hasSave)
     <div class="clearfix"></div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <button type="submit" class="btn btn-default">Salvar</button>
     </div>
 @endif

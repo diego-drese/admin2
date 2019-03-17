@@ -6,4 +6,5 @@ return [
     'logo_label' => env('NEGOTIATE_ADMIN_LOGO_LABEL', 'Negotiate'),
     'profile_type' => [],
     'owner_type' => [],
+    "cache_prefix" => 'negotiate'
 ];

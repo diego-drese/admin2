@@ -16,7 +16,7 @@ if(count($item['sub'])) {
 }
 ?>
 <li class="sidebar-item">
-    <a id="menu-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent': ''}} {{$controllerLink == $controllerReceive ? 'active activeMenu': ''}}" href="{{$route}}">
+    <a id="menu-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent has-arrow': ''}} {{$controllerLink == $controllerReceive ? 'active activeMenu': ''}}" href="{{$route}}">
         <i class="fa {{$icon}}"></i>
         {{$menu}}
     </a>
@@ -35,7 +35,7 @@ if(count($item['sub'])) {
     }
 
     foreach ($ironForgeResourcesMenu as $item) {
-        echo "<ul id=\"sidebarnav\" class=\"nav nav-pills flex-column\" >";
+        echo "<ul id=\"sidebarnav\" class=\"nav nav-pills  flex-column\" >";
             create_menu($item, $idCurrent, $ctrl);
         echo "</ul>";
     }

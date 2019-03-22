@@ -16,14 +16,14 @@ if(count($item['sub'])) {
 }
 ?>
 <li class="sidebar-item">
-    <a id="menu-{{$id}}" class="sidebar-link {{$children ? 'nav-parent': ''}} {{$controllerLink == $controllerReceive ? 'active activeMenu': ''}}" href="{{$route}}">
+    <a id="menu-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent': ''}} {{$controllerLink == $controllerReceive ? 'active activeMenu': ''}}" href="{{$route}}">
         <i class="fa {{$icon}}"></i>
         {{$menu}}
     </a>
 
     <?php
     if($children){
-        echo "<ul aria-expanded=\"false\" class=\"collapse  first-level\" style=\"display:none\">";
+        echo "<ul aria-expanded=\"false\" class=\"collapse  first-level\" >";
         foreach ($children as $child) {
             create_menu($child, $idCurrent, $ctrl);
         }
@@ -39,14 +39,6 @@ if(count($item['sub'])) {
             create_menu($item, $idCurrent, $ctrl);
         echo "</ul>";
     }
-
-
-
-
-
-
-
-
 
 
 

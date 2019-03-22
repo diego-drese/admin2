@@ -11,7 +11,6 @@ class CreateSequence extends Migration {
     public function up() {
         Schema::connection($this->connection)
             ->table('sequence', function (Blueprint $collection){
-                //$collection->background(["_id"]);
                 $collection->background(["sequence"]);
             });
     }

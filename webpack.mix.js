@@ -2,38 +2,43 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('./')
 
+
+
 mix.babel([
-    'src/resources/assets/theme/quillpro/js/jquery-3.1.1.min.js',
-    'src/resources/assets/theme/quillpro/js/popper.min.js',
-    'src/resources/assets/theme/quillpro/js/bootstrap.min.js',
-    'src/resources/assets/theme/quillpro/js/mdb.min.js',
-    'src/resources/assets/theme/quillpro/js/velocity.min.js',
-	'src/resources/assets/theme/quillpro/js/velocity.ui.min.js',
-    'src/resources/assets/theme/quillpro/js/jquery.mCustomScrollbar.concat.min.js',
-	'src/resources/assets/theme/quillpro/js/jquery.visible.min.js',
-	'src/resources/assets/theme/quillpro/js/ie10-viewport-bug-workaround.js',
-	'src/resources/assets/theme/quillpro/js/holder.min.js',
-	'src/resources/assets/theme/quillpro/js/toastr.js',
-	'src/resources/assets/theme/quillpro/js/scripts.js',
-],'src/public/quillpro/js/app.js').version();
+    'src/resources/assets/theme/nice-admin/libs/jquery/dist/jquery.min.js',
+    'src/resources/assets/theme/nice-admin/libs/popper.js/dist/umd/popper.min.js',
+    'src/resources/assets/theme/nice-admin/libs/bootstrap/dist/js/bootstrap.min.js',
+    'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
+    'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
+    'src/resources/assets/theme/nice-admin/dist/js/app-style-switcher.js',
+    'src/resources/assets/theme/nice-admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/sparkline/sparkline.js',
+    'src/resources/assets/theme/nice-admin/dist/js/waves.js',
+    'src/resources/assets/theme/nice-admin/dist/js/sidebarmenu.js',
+    'src/resources/assets/theme/nice-admin/dist/js/custom.min.js',
+    'src/resources/assets/theme/nice-admin/libs/chartist/dist/chartist.min.js',
+    'src/resources/assets/theme/nice-admin/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/c3/d3.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-world-mill-en.js',
+    'src/resources/assets/theme/nice-admin/dist/js/pages/dashboards/dashboard1.js',
+],'src/public/nice-admin/js/app.js').version();
 
 
 mix.styles([
-    'src/resources/assets/theme/quillpro/css/batch-icons.css',
-    'src/resources/assets/theme/quillpro/css/bootstrap.min.css',
-    'src/resources/assets/theme/quillpro/css/mdb.min.css',
-    'src/resources/assets/theme/quillpro/css/jquery.mCustomScrollbar.min.css',
-    'src/resources/assets/theme/quillpro/css/hamburgers.css',
-    'src/resources/assets/theme/quillpro/css/font-awesome.min.css',
-    'src/resources/assets/theme/quillpro/css/quillpro.css',
-],'src/public/quillpro/css/app.css').version();
+    'src/resources/assets/theme/nice-admin/libs/chartist/dist/chartist.min.css',
+    'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
+    'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css',
+    'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
+],'src/public/nice-admin/css/app.css').version();
 
-mix.styles([
-	'src/resources/assets/theme/backend/css/default.css',
-],'src/public/backend/theme/css/app.css').version();
+// mix.styles([
+// 	'src/resources/assets/theme/nice-admin/css/default.css',
+// ],'src/public/backend/theme/css/app.css').version();
 
-mix.copyDirectory('src/resources/assets/theme/quillpro/fonts', 'src/public/quillpro/fonts');
-mix.copyDirectory('src/resources/assets/theme/quillpro/img', 'src/public/quillpro/img');
+mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'src/public/nice-admin/css/icons');
+mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'src/public/nice-admin/assets/images');
 
 mix.autoload({
     'jquery': ['jQuery', '$','jquery'],

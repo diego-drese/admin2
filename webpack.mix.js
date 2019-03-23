@@ -7,6 +7,7 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/popper.js/dist/umd/popper.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap/dist/js/bootstrap.min.js',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.js',
+    'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.all.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.min.js',
     'src/resources/assets/theme/nice-admin/libs/select2/dist/js/select2.min.js',
@@ -36,6 +37,7 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
     'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css',
     'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.css',
+    'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.min.css',
     'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/app.css').version();

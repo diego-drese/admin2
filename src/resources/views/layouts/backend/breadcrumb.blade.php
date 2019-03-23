@@ -1,3 +1,4 @@
+@if(!trim($__env->yieldContent('hideBreadCrumb')))
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-5 align-self-center">
@@ -27,3 +28,4 @@
         </div>
     </div>
 </div>
+@endif

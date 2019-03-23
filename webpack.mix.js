@@ -35,7 +35,7 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/chartist/dist/chartist.min.css',
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
     'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css',
-    'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.js',
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.css',
     'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/app.css').version();

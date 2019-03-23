@@ -8,10 +8,16 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/vendor/negotiate/admin/nice-admin/assets/images/favicon.png">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/app.css">
     @yield('style_head_start')
-
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/app.css">
     @yield('style_head_end')
+
+    @yield('script_head_start')
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/app.js"></script>
+    @yield('script_head_end')
+
+
+
 </head>
 
 <body>
@@ -279,8 +285,12 @@
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/2.jpg" alt="user" class="rounded-circle" width="40">
-                            <span class="m-l-5 font-medium d-none d-sm-inline-block">Jonathan Doe <i class="mdi mdi-chevron-down"></i></span>
+                            @if(Auth::user()->picture != "")
+                                <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" class="rounded-circle" width="40">
+                            @else
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" class="rounded-circle" width="40">
+                            @endif
+                            <span class="m-l-5 font-medium d-none d-sm-inline-block">{{Auth::user()->name}}<i class="mdi mdi-chevron-down"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow">
@@ -288,16 +298,20 @@
                                 </span>
                             <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                 <div class="">
-                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/2.jpg" alt="user" class="rounded-circle" width="60">
+                                    @if(Auth::user()->picture != "")
+                                        <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" class="rounded-circle" width="60">
+                                    @else
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" class="rounded-circle" width="60">
+                                    @endif
                                 </div>
                                 <div class="m-l-10">
-                                    <h4 class="m-b-0">Jonathan Doe</h4>
-                                    <p class=" m-b-0">jon@gmail.com</p>
+                                    <h4 class="m-b-0">{{Auth::user()->name}}</h4>
+                                    <p class=" m-b-0">{{Auth::user()->email}}</p>
                                 </div>
                             </div>
                             <div class="profile-dis scrollable">
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="{{route('admin.users.form-profile')}}">
+                                    <i class="ti-user m-r-5 m-l-5"></i>Perfil</a>
                                 <a class="dropdown-item" href="javascript:void(0)">
                                     <i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)">
@@ -306,9 +320,12 @@
                                 <a class="dropdown-item" href="javascript:void(0)">
                                     <i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </div>
                             <div class="p-l-30 p-10">
                                 <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a>
@@ -378,17 +395,16 @@
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 
+<!-- ============================================================== -->
+<!-- All Js -->
+<!-- ============================================================== -->
+@yield('script_footer_start')
 
-    <!-- ============================================================== -->
-    <!-- All Js -->
-    <!-- ============================================================== -->
-   @yield('script_footer_start')
 
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/app.js"></script>
-	<script type="text/javascript">
-    	//window.negotiate = new NegotiateController();
-	</script>
-	@yield('script_footer_end')
+<script type="text/javascript">
+    //window.negotiate = new NegotiateController();
+</script>
+@yield('script_footer_end')
 </body>
 
 </html>

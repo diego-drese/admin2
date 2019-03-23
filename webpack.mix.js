@@ -9,6 +9,8 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap/dist/js/bootstrap.min.js',
     'src/resources/assets/theme/nice-admin/libs/popper.js/dist/umd/popper.min.js',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.js',
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/js/select2.min.js',
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/js/i18n/pt-BR.js',
 
     'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
@@ -32,6 +34,7 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/chartist/dist/chartist.min.css',
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
     'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css',
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.css',
     'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/app.css').version();

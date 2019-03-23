@@ -7,6 +7,9 @@
             <div class="d-flex align-items-center justify-content-end">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Home</a>
+                        </li>
                         @foreach($ironForgeBreadCrumb as $key => $value)
                             @if($value['route_name'] && isset($ironForgeBreadCrumb[$key+1]))
                                 <li class="breadcrumb-item">

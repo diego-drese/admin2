@@ -8929,7 +8929,7 @@ sidebar navigation
         font-style: normal;
         width: 35px;
         line-height: 25px;
-        font-size: 20px;
+        font-size: 14px;
         color: #fff;
         display: inline-block;
         text-align: center; }
@@ -14391,3 +14391,6 @@ File: scss
 @media (max-width: 991.98px) {
   .do-block {
     display: block !important; } }
+.dataTables_filter{
+  float:right;
+}

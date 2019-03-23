@@ -18,7 +18,7 @@ if(count($item['sub'])) {
 <li class="sidebar-item">
     <a id="menu-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent has-arrow': ''}} {{$controllerLink == $controllerReceive ? 'active activeMenu': ''}}" href="{{$route}}">
         <i class="fa {{$icon}}"></i>
-        {{$menu}}
+        <span class="hide-menu">{{$menu}}</span>
     </a>
 
     <?php

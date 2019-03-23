@@ -75,6 +75,18 @@
                     <i class="ti-more"></i>
                 </a>
             </div>
+
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none" href="#">
+                    <img src="/vendor/negotiate/admin/quillpro/img/negotiate-1.png" width="145" height="32.3" alt="Negotiate">
+                </a>
+                <button class="hamburger hamburger--slider" type="button" data-target=".sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Sidebar">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+                </button>
+            </nav>
             <!-- ============================================================== -->
             <!-- End Logo -->
             <!-- ============================================================== -->
@@ -91,23 +103,7 @@
                     <!-- ============================================================== -->
                     <!-- Search -->
                     <!-- ============================================================== -->
-                    <li class="nav-item search-box">
-                        <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
-                            <div class="d-flex align-items-center">
-                                <i class="mdi mdi-magnify font-20 mr-1"></i>
-                                <div class="ml-1 d-none d-sm-block">
-                                    <span>Search</span>
-                                </div>
-                            </div>
-                        </a>
-                        <form class="app-search position-absolute">
-                            <input type="text" class="form-control" placeholder="Search &amp; enter">
-                            <a class="srh-btn">
-                                <i class="ti-close"></i>
-                            </a>
-                        </form>
-                    </li>
-                </ul>
+                  </ul>
                 <!-- ============================================================== -->
                 <!-- Right side toggle and nav items -->
                 <!-- ============================================================== -->
@@ -198,80 +194,80 @@
                     <!-- ============================================================== -->
                     <!-- Comment -->
                     <!-- ============================================================== -->
-                    <li class="nav-item dropdown border-right">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="mdi mdi-bell-outline font-22"></i>
-                            <span class="badge badge-pill badge-info noti">3</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
-                                <span class="with-arrow">
-                                    <span class="bg-primary"></span>
-                                </span>
-                            <ul class="list-style-none">
-                                <li>
-                                    <div class="drop-title bg-primary text-white">
-                                        <h4 class="m-b-0 m-t-5">4 New</h4>
-                                        <span class="font-light">Notifications</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="message-center notifications">
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)" class="message-item">
-                                                <span class="btn btn-danger btn-circle">
-                                                    <i class="fa fa-link"></i>
-                                                </span>
-                                            <div class="mail-contnet">
-                                                <h5 class="message-title">Luanch Admin</h5>
-                                                <span class="mail-desc">Just see the my new admin!</span>
-                                                <span class="time">9:30 AM</span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)" class="message-item">
-                                                <span class="btn btn-success btn-circle">
-                                                    <i class="ti-calendar"></i>
-                                                </span>
-                                            <div class="mail-contnet">
-                                                <h5 class="message-title">Event today</h5>
-                                                <span class="mail-desc">Just a reminder that you have event</span>
-                                                <span class="time">9:10 AM</span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)" class="message-item">
-                                                <span class="btn btn-info btn-circle">
-                                                    <i class="ti-settings"></i>
-                                                </span>
-                                            <div class="mail-contnet">
-                                                <h5 class="message-title">Settings</h5>
-                                                <span class="mail-desc">You can customize this template as you want</span>
-                                                <span class="time">9:08 AM</span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)" class="message-item">
-                                                <span class="btn btn-primary btn-circle">
-                                                    <i class="ti-user"></i>
-                                                </span>
-                                            <div class="mail-contnet">
-                                                <h5 class="message-title">Pavan kumar</h5>
-                                                <span class="mail-desc">Just see the my admin!</span>
-                                                <span class="time">9:02 AM</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-center m-b-5 text-dark" href="javascript:void(0);">
-                                        <strong>Check all notifications</strong>
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- ============================================================== -->
+                    {{--<li class="nav-item dropdown border-right">--}}
+                        {{--<a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                            {{--<i class="mdi mdi-bell-outline font-22"></i>--}}
+                            {{--<span class="badge badge-pill badge-info noti">3</span>--}}
+                        {{--</a>--}}
+                        {{--<div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">--}}
+                                {{--<span class="with-arrow">--}}
+                                    {{--<span class="bg-primary"></span>--}}
+                                {{--</span>--}}
+                            {{--<ul class="list-style-none">--}}
+                                {{--<li>--}}
+                                    {{--<div class="drop-title bg-primary text-white">--}}
+                                        {{--<h4 class="m-b-0 m-t-5">4 New</h4>--}}
+                                        {{--<span class="font-light">Notifications</span>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<div class="message-center notifications">--}}
+                                        {{--<!-- Message -->--}}
+                                        {{--<a href="javascript:void(0)" class="message-item">--}}
+                                                {{--<span class="btn btn-danger btn-circle">--}}
+                                                    {{--<i class="fa fa-link"></i>--}}
+                                                {{--</span>--}}
+                                            {{--<div class="mail-contnet">--}}
+                                                {{--<h5 class="message-title">Luanch Admin</h5>--}}
+                                                {{--<span class="mail-desc">Just see the my new admin!</span>--}}
+                                                {{--<span class="time">9:30 AM</span>--}}
+                                            {{--</div>--}}
+                                        {{--</a>--}}
+                                        {{--<!-- Message -->--}}
+                                        {{--<a href="javascript:void(0)" class="message-item">--}}
+                                                {{--<span class="btn btn-success btn-circle">--}}
+                                                    {{--<i class="ti-calendar"></i>--}}
+                                                {{--</span>--}}
+                                            {{--<div class="mail-contnet">--}}
+                                                {{--<h5 class="message-title">Event today</h5>--}}
+                                                {{--<span class="mail-desc">Just a reminder that you have event</span>--}}
+                                                {{--<span class="time">9:10 AM</span>--}}
+                                            {{--</div>--}}
+                                        {{--</a>--}}
+                                        {{--<!-- Message -->--}}
+                                        {{--<a href="javascript:void(0)" class="message-item">--}}
+                                                {{--<span class="btn btn-info btn-circle">--}}
+                                                    {{--<i class="ti-settings"></i>--}}
+                                                {{--</span>--}}
+                                            {{--<div class="mail-contnet">--}}
+                                                {{--<h5 class="message-title">Settings</h5>--}}
+                                                {{--<span class="mail-desc">You can customize this template as you want</span>--}}
+                                                {{--<span class="time">9:08 AM</span>--}}
+                                            {{--</div>--}}
+                                        {{--</a>--}}
+                                        {{--<!-- Message -->--}}
+                                        {{--<a href="javascript:void(0)" class="message-item">--}}
+                                                {{--<span class="btn btn-primary btn-circle">--}}
+                                                    {{--<i class="ti-user"></i>--}}
+                                                {{--</span>--}}
+                                            {{--<div class="mail-contnet">--}}
+                                                {{--<h5 class="message-title">Pavan kumar</h5>--}}
+                                                {{--<span class="mail-desc">Just see the my admin!</span>--}}
+                                                {{--<span class="time">9:02 AM</span>--}}
+                                            {{--</div>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a class="nav-link text-center m-b-5 text-dark" href="javascript:void(0);">--}}
+                                        {{--<strong>Check all notifications</strong>--}}
+                                        {{--<i class="fa fa-angle-right"></i>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
+                    {{--<!-- ============================================================== -->--}}
                     <!-- End Comment -->
                     <!-- ============================================================== -->
                     <!-- ============================================================== -->
@@ -279,8 +275,12 @@
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/2.jpg" alt="user" class="rounded-circle" width="40">
-                            <span class="m-l-5 font-medium d-none d-sm-inline-block">Jonathan Doe <i class="mdi mdi-chevron-down"></i></span>
+                            @if(Auth::user()->picture != "")
+                                <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
+                            @else
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" width="44" height="44">
+                            @endif
+                            <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow">
@@ -288,30 +288,27 @@
                                 </span>
                             <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                 <div class="">
-                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/2.jpg" alt="user" class="rounded-circle" width="60">
+                                    @if(Auth::user()->picture != "")
+                                        <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
+                                    @else
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" width="44" height="44">
+                                    @endif
                                 </div>
                                 <div class="m-l-10">
-                                    <h4 class="m-b-0">Jonathan Doe</h4>
-                                    <p class=" m-b-0">jon@gmail.com</p>
+                                    <h4 class="m-b-0"> {{Auth::user()->name}}</h4>
+                                    <p class=" m-b-0"> {{Auth::user()->email}}</p>
                                 </div>
                             </div>
                             <div class="profile-dis scrollable">
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                                <a class="dropdown-item" href="{{route('admin.users.form-profile')}}">
+                                    <i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
+                                    <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                     <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
-                            </div>
-                            <div class="p-l-30 p-10">
-                                <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a>
                             </div>
                         </div>
                     </li>
@@ -334,7 +331,7 @@
         <div class="scroll-sidebar">
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
-    @include('Admin::layouts.backend.menu')
+                @include('Admin::layouts.backend.menu')
             </nav>
             <!-- End Sidebar navigation -->
         </div>
@@ -351,15 +348,15 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        @include('Admin::layouts.backend.breadcrumb')
-        <!-- ============================================================== -->
+    @include('Admin::layouts.backend.breadcrumb')
+    <!-- ============================================================== -->
         <!-- End Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-                @yield('content')
+            @yield('content')
         </div>
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
@@ -368,7 +365,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            All Rights Reserved by  xtream admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            Desenvolvido por <a href="https://negotiate.com.br" target="_blank" >Negotiate</a> SoftwareHouse
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
@@ -379,16 +376,18 @@
 <!-- End Wrapper -->
 
 
-    <!-- ============================================================== -->
-    <!-- All Js -->
-    <!-- ============================================================== -->
-   @yield('script_footer_start')
+<!-- ============================================================== -->
+<!-- All Js -->
+<!-- ============================================================== -->
+@yield('script_footer_start')
 
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/app.js"></script>
-	<script type="text/javascript">
-    	//window.negotiate = new NegotiateController();
-	</script>
-	@yield('script_footer_end')
+<script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/app.js"></script>
+<script type="text/javascript">
+    //window.negotiate = new NegotiateController();
+</script>
+@yield('script_footer_end')
+@toastr_render
+
 </body>
 
 </html>

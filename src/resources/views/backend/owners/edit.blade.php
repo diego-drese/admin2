@@ -1,4 +1,4 @@
-@extends('Admin::layouts.quillpro.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'Owner edit')
 @section('content')
 <div class="content-wrapper">

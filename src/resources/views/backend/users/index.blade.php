@@ -1,8 +1,8 @@
-@extends('Admin::layouts.quillpro.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'Users')
 @section('content')
     <div class="card-header">
-        @include('Admin::layouts.quillpro.breadcrumb')
+        @include('Admin::layouts.backend.breadcrumb')
         <div class="pull-right">
             @if($hasAdd)
                 <a href="{{route('admin.users.create')}}">
@@ -34,16 +34,7 @@
 @endsection
 
 
-@section('style_head_end')
-    <link rel="stylesheet" type="text/css" href="https://base5builder.com/livedemo/quillpro/v1.7/html/assets/plugins/datatables/css/responsive.dataTables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://base5builder.com/livedemo/quillpro/v1.7/html/assets/plugins/datatables/css/responsive.bootstrap4.min.css"/>
-    {{--https://base5builder.com/livedemo/quillpro/v1.7/html/assets/plugins/datatables/css/responsive.bootstrap4.min.css--}}
-@endsection
-
 @section('script_footer_end')
-    <script type="text/javascript" src="https://base5builder.com/livedemo/quillpro/v1.7/html/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://base5builder.com/livedemo/quillpro/v1.7/html/assets/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="https://base5builder.com/livedemo/quillpro/v1.7/html/assets/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {

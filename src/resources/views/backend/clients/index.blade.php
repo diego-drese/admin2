@@ -1,4 +1,4 @@
-@extends('Admin::layouts.quillpro.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'Clientes')
 @section('content')
     <div class="content-wrapper">
@@ -39,13 +39,7 @@
         </section>
     </div>
 @endsection
-@section('style_head_end')
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
-@endsection
 @section('script_footer_end')
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {

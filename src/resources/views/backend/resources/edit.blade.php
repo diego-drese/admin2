@@ -1,8 +1,8 @@
-@extends('Admin::layouts.quillpro.main')
+@extends('Admin::layouts.backend.main')
 @section('title', 'Resource Edit')
 @section('content')
     <div class="card-header">
-        @include('Admin::layouts.quillpro.breadcrumb')
+        @include('Admin::layouts.backend.breadcrumb')
         <div class="pull-right">
             <button type="submit" class="btn btn-default"  form="form-resource">Salvar</button>
         </div>

@@ -51,7 +51,6 @@ class NegotiateServiceProvider extends ServiceProvider
     }
     protected function setObservers(){
 
-        Owner::observe("Negotiate\\Admin\\Observers\\OwnerObserver");
         Profile::observe("Negotiate\\Admin\\Observers\\ProfileObserver");
         Resource::observe("Negotiate\\Admin\\Observers\\ResourcesObserver");
         User::observe("Negotiate\\Admin\\Observers\\UserIronForgeObserver");

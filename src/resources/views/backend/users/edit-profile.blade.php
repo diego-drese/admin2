@@ -1,5 +1,5 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'User Edit')
+@section('title', 'Editar Perfil')
 @section('content')
     <div class="content-wrapper">
         <section class="content">

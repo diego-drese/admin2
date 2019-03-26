@@ -1,12 +1,14 @@
 @extends('Admin::layouts.backend.main')
 @section('title', 'Clientes')
 @section('content')
-    <div class="content-wrapper">
-        <section class="content">
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <div class="pull-left">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center m-b-10">
+                        <h4 class="card-title">&nbsp;</h4>
+                        <div class="ml-auto">
+                            <div class="btn-group">
                             @if($hasAdd)
                                 <a href="{{route('admin.client.create')}}">
                                     <a href="{{route('admin.client.create')}}" class="btn btn-success">
@@ -14,29 +16,27 @@
                                     </a>
                                 </a>
                             @endif
+                            </div>
                         </div>
                     </div>
-                    <div class="box-body ">
-                        <div class="table-responsive">
-                            <table id="table_client" class="table table-bordered table-striped dataTable table-hover"
-                                   role="grid">
-                                <thead>
-                                <tr class="center">
-                                    <td role="row">#</td>
-                                    <td>Nome</td>
-                                    <td>E-mail</td>
-                                    <td>Celular</td>
-                                    <td>Tipo</td>
-                                    <td>CPF/CNPJ</td>
-                                    <td>Ações</td>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
+                    <div class="table-responsive">
+                        <table id="table_client" class="table table-striped table-bordered" role="grid" aria-describedby="file_export_info">
+                            <thead>
+                            <tr class="center">
+                                <td role="row">#</td>
+                                <td>Nome</td>
+                                <td>E-mail</td>
+                                <td>Celular</td>
+                                <td>Tipo</td>
+                                <td>CPF/CNPJ</td>
+                                <td>Ações</td>
+                            </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 @endsection
 @section('script_footer_end')

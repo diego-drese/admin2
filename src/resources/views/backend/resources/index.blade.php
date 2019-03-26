@@ -1,49 +1,46 @@
 @extends('Admin::layouts.backend.main')
 @section('title', 'Resources')
 @section('content')
-
-<div class="content-wrapper">
-    <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <div class="pull-left">
-                        @if($hasAdd)
-                            <a href="{{route('admin.resources.create')}}">
-                                <a href="{{route('admin.resources.create')}}" class="btn btn-success">
-                                    Resource of menu <span class="fa fa-plus"></span>
-                                </a>
-                            </a>
-
-                        @endif
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center m-b-10">
+                        <h4 class="card-title">&nbsp;</h4>
+                        <div class="ml-auto">
+                            <div class="btn-group">
+                                @if($hasAdd)
+                                    <a href="{{route('admin.resources.create')}}">
+                                        <a href="{{route('admin.resources.create')}}" class="btn btn-success">
+                                            Resource of menu <span class="fa fa-plus"></span>
+                                        </a>
+                                    </a>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                    <div class="box-body ">
-                        <div class="table-responsive">
-                            <table id="table_resources" class="table table-bordered table-striped dataTable table-hover"
-                                   role="grid">
-                                <thead>
-                                <tr class="center">
-                                    <td role="row">#</td>
-                                    <td role="row">Name</td>
-                                    <td role="row">Menu</td>
-                                    <td>Rote</td>
-                                    <td>Icon</td>
-                                    <td role="row">Controller Method</td>
-                                    <td>Profile</td>
-                                    <td>Created At</td>
-                                    <td>Actions</td>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
+                    <div class="table-responsive">
+                        <table id="table_resources" class="table table-bordered table-striped dataTable table-hover"
+                               role="grid">
+                            <thead>
+                            <tr class="center">
+                                <td role="row">#</td>
+                                <td role="row">Name</td>
+                                <td role="row">Menu</td>
+                                <td>Rote</td>
+                                <td>Icon</td>
+                                <td role="row">Controller Method</td>
+                                <td>Profile</td>
+                                <td>Created At</td>
+                                <td>Actions</td>
+                            </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
 @endsection
 
 @section('script_footer_end')
@@ -69,15 +66,15 @@
                     {data: 'controller_method', 'name': 'controller_method'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                        if(data !== null){
-                            var span = "";
-                            $.each(data.profiles, function(k, v){
-                                span += "<span class=\"badge badge-secondary mr-1 \">" + v.name + "</span>";
-                            });
-                            return span;
-                        }else{
-                            return "";
-                        }
+                            if(data !== null){
+                                var span = "";
+                                $.each(data.profiles, function(k, v){
+                                    span += "<span class=\"badge badge-secondary mr-1 \">" + v.name + "</span>";
+                                });
+                                return span;
+                            }else{
+                                return "";
+                            }
                         }
                     },
                     {data: "created_at", 'name': 'created_at'},

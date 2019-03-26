@@ -1,122 +1,113 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body ">
 
-<div class="col-md-6 form-group {{$errors->has('picture') ? 'has-error' : ''}} ">
-    <label for="title">Picture</label>
+                <div class="col-md-6 form-group {{$errors->has('picture') ? 'has-error' : ''}} ">
+                    <label for="title">Foto Perfil</label>
 
+                    <input type="file" class="form-control" value="" name="picture"
+                           id="picture" placeholder="Picture">
 
-    <br/>
+                    @if($errors->has('picture'))
+                        <span class="text-danger">{{$errors->first('picture')}}</span>
+                    @endif
+                </div>
 
-    <input type="file" class="form-control" value="" name="picture"
-           id="picture" placeholder="Picture">
+                <div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
+                    <label for="title">Nome</label>
+                    <input type="text" class="form-control" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"
+                           id="name">
+                    @if($errors->has('name'))
+                        <span class="text-danger">{{$errors->first('name')}}</span>
+                    @endif
+                </div>
 
-    @if($errors->has('picture'))
-        <span class="help-block">{{$errors->first('picture')}}</span>
-    @endif
-</div>
+                <div class="col-md-6 form-group {{$errors->has('lastname') ? 'has-error' : ''}}">
+                    <label for="slug">Sobrenome</label>
+                    <input type="text" value="{{old('lastname',$user->exists() ? $user->lastname : '')}}" name="lastname"
+                           class="form-control"
+                           id="lastname">
+                    @if($errors->has('lastname'))
+                        <span class="text-danger">{{$errors->first('lastname')}}</span>
+                    @endif
+                </div>
 
-<div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="title">Name</label>
-    <input type="text" class="form-control" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"
-           id="name" placeholder="Name">
-    @if($errors->has('name'))
-        <span class="help-block">{{$errors->first('name')}}</span>
-    @endif
-</div>
+                <div class="col-md-6 form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
+                    <label for="slug">Celular</label>
+                    <input type="text" value="{{old('slug',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
+                           class="form-control"
+                           id="cell_phone" >
+                    @if($errors->has('cell_phone'))
+                        <span class="text-danger">{{$errors->first('cell_phone')}}</span>
+                    @endif
+                </div>
 
-<div class="col-md-6 form-group {{$errors->has('lastname') ? 'has-error' : ''}}">
-    <label for="slug">Last Name</label>
-    <input type="text" value="{{old('lastname',$user->exists() ? $user->lastname : '')}}" name="lastname"
-           class="form-control"
-           id="lastname" placeholder="Last Name">
-    @if($errors->has('lastname'))
-        <span class="help-block">{{$errors->first('lastname')}}</span>
-    @endif
-</div>
+                <div class="col-md-6 form-group {{$errors->has('email') ? 'has-error' : ''}}">
+                    <label for="slug">E-mail</label>
+                    <input type="email" value="{{old('email',$user->email)}}" name="email" class="form-control"
+                           id="email">
+                    @if($errors->has('email'))
+                        <span class="text-danger">{{$errors->first('email')}}</span>
+                    @endif
+                </div>
+                @if($user->exists && Auth::User()->id == $user->id)
+                    <div class="col-md-4 form-group">
+                        <label for="active">Meu Perfil</label>
+                        <input type="text" value="{{$profiles[Auth::User()->profile_id]}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+                    </div>
+                @else
+                    <div class="col-md-4 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
+                        <label for="active">Perfil</label>
+                        <select class="form-control" id="selectProfile" name="profile_id" placeholder="Profile">
+                            @foreach ($profiles as $key => $profile)
+                                <option name="profile_id"  @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif value="{{$profile->id}}">{{$profile->name}} </option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
 
-<div class="col-md-6 form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
-    <label for="slug">Cellphone</label>
-    <input type="text" value="{{old('slug',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
-           class="form-control"
-           id="cell_phone" placeholder="Cellphone">
-    @if($errors->has('cell_phone'))
-        <span class="help-block">{{$errors->first('cell_phone')}}</span>
-    @endif
-</div>
+                <div class="col-md-4 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
+                    <label for="active">Página incial</label>
+                    <select class="form-control" id="selectResourceDefault" name="resource_default_id">
+                    </select>
+                </div>
 
-<div class="col-md-6 form-group {{$errors->has('email') ? 'has-error' : ''}}">
-    <label for="slug">E-mail</label>
-    <input type="email" value="{{old('email',$user->email)}}" name="email" class="form-control"
-           id="email" placeholder="E-mail">
-    @if($errors->has('email'))
-        <span class="help-block">{{$errors->first('email')}}</span>
-    @endif
-</div>
+                <div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
+                    <label for="slug">Senha</label>
+                    <input type="password" name="password" class="form-control"
+                           id="password"  value="">
+                    @if($errors->has('password'))
+                        <span class="text-danger">{{$errors->first('password')}}</span>
+                    @endif
+                </div>
 
+                <div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
+                    <label for="slug">Confirmar Senha</label>
+                    <input type="password" name="password_confirmation" class="form-control"
+                           id="password_confirmation" value="">
+                    @if($errors->has('password_confirmation'))
+                        <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+                    @endif
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4 form-group {{$errors->has('old_password') ? 'has-error' : ''}}">
+                    <label for="old_password">Senha atual</label>
+                    <input type="password" name="old_password" class="form-control"
+                           id="old_password" value="">
+                    @if($errors->has('old_password'))
+                        <span class="text-danger">{{$errors->first('old_password')}}</span>
+                    @endif
+                </div>
+                <div class="clearfix"></div>
 
-@if($user->exists && Auth::User()->id == $user->id)
-    <div class="col-md-4 form-group">
-        <label for="active">My Profile</label>
-        <input type="text" value="{{Auth::User()->profile->name}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
     </div>
-@else
-
-    <div class="col-md-4 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
-        <label for="active">Profile</label>
-        <select class="form-control" id="selectProfile" name="profile_id" placeholder="Profile">
-            @foreach ($profiles as $key => $profile)
-                <option name="profile_id"  @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif value="{{$profile->id}}">{{$profile->name}} </option>
-            @endforeach
-        </select>
-    </div>
-@endif
-
-<div class="col-md-4 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
-    <label for="active">Page Default</label>
-    <select class="form-control" id="selectResourceDefault" name="resource_default_id" placeholder="Profile">
-    </select>
 </div>
-
-
-
-
-
-<div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
-    <label for="slug">New Password</label>
-    <input type="password" name="password" class="form-control"
-           id="password" placeholder="Password" value="">
-    @if($errors->has('password'))
-        <span class="help-block">{{$errors->first('password')}}</span>
-    @endif
-</div>
-
-<div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
-    <label for="slug">Confirm New Password</label>
-    <input type="password" name="password_confirmation" class="form-control"
-           id="password_confirmation" placeholder="Confirm Password" value="">
-    @if($errors->has('password_confirmation'))
-        <span class="help-block">{{$errors->first('password_confirmation')}}</span>
-    @endif
-</div>
-    <div class="clearfix"></div>
-
-
-
-
-
-
-<div class="col-md-4 form-group {{$errors->has('old_password') ? 'has-error' : ''}}">
-    <label for="old_password">Current Password</label>
-    <input type="password" name="old_password" class="form-control"
-           id="old_password" placeholder="Current Password" value="">
-    @if($errors->has('old_password'))
-        <span class="help-block">{{$errors->first('old_password')}}</span>
-    @endif
-</div>
-<div class="clearfix"></div>
-
-
-    <div class="col-md-4">
-        <button type="submit" class="btn btn-success">Save</button>
-    </div>
 @section('style_head_end')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
 @endsection
@@ -138,7 +129,6 @@
                 var valueProfile = this.value;
                 getResourcesByProfileId(valueProfile);
             }).trigger('change');
-
 
             function getResourcesByProfileId($id) {
                 var url = '{{route('admin.users.resourcesDefault', [':id'])}}';

@@ -37,7 +37,11 @@
         </div>
     </div>
 @endsection
+@section('style_head')
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
+@endsection
 @section('script_footer_end')
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/datatables.js"></script>
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {

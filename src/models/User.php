@@ -53,8 +53,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function profile(){
 
-        return Profile::where('id', $this->profile_id)->first();
-       // return $this->belongsTo(\Negotiate\Admin\Profile::class);
+
+        return Profile::first();
+       return $this->belongsTo(\Negotiate\Admin\Profile::class,'profile_id');
     }
 
     public function resourceDefault(){

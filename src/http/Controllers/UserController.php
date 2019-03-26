@@ -163,7 +163,8 @@ class UserController extends BaseController {
 
         $auth = Auth::user();
         $user = User::firstOrNew(['id'=>(int)$auth->id]);
-        return view('Admin::backend.users.edit-profile', compact('user'));
+        $profiles   = Profile::pluck('name','id')->toArray();
+        return view('Admin::backend.users.edit-profile', compact('profiles','user'));
     }
 
     /**

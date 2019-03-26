@@ -29,6 +29,7 @@
                                 <td>Celular</td>
                                 <td>Tipo</td>
                                 <td>CPF/CNPJ</td>
+                                <td>Criado em</td>
                                 <td>Ações</td>
                             </tr>
                             </thead>
@@ -39,14 +40,41 @@
         </div>
     </div>
 @endsection
+@section('style_head')
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
+@endsection
 @section('script_footer_end')
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/datatables.js"></script>
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {
             $('#table_client').DataTable({
+                language: {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                },
                 serverSide: true,
                 processing: true,
-                autoWidth: false,
+                autoWidth:false,
                 ajax: '{{ route('admin.client.index') }}',
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},

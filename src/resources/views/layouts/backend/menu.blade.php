@@ -33,12 +33,11 @@ if(count($item['sub'])) {
 </li>
 <?php
     }
-
-    foreach ($ironForgeResourcesMenu as $item) {
-        echo "<ul id=\"sidebarnav\" class=\"nav nav-pills  flex-column\" >";
+echo '<ul id="sidebarnav" class=" sidebarnav nav nav-pills flex-column" >';
+    foreach ($ironForgeResourcesMenu as $key=>$item) {
             create_menu($item, $idCurrent, $ctrl);
-        echo "</ul>";
     }
+echo "</ul>";
 
 
 

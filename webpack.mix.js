@@ -21,14 +21,12 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/chartist/dist/chartist.min.js',
     'src/resources/assets/theme/nice-admin/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/c3/d3.min.js',
-    'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/jvector/jquery-jvectormap-world-mill-en.js',
     'src/resources/assets/theme/nice-admin/dist/js/pages/dashboards/dashboard1.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
 ],'src/public/nice-admin/js/app.js').version();
-
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.css',
@@ -42,9 +40,54 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/app.css').version();
 
-// mix.styles([
-// 	'src/resources/assets/theme/nice-admin/css/default.css',
-// ],'src/public/backend/theme/css/app.css').version();
+
+
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/jquery/dist/jquery.min.js',
+    'src/resources/assets/theme/nice-admin/libs/popper.js/dist/umd/popper.min.js',
+    'src/resources/assets/theme/nice-admin/libs/bootstrap/dist/js/bootstrap.min.js',
+    'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.js',
+    'src/resources/assets/theme/nice-admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/sparkline/sparkline.js',
+    'src/resources/assets/theme/nice-admin/dist/js/sidebarmenu.js',
+    'src/resources/assets/theme/nice-admin/dist/js/custom.min.js',
+    'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
+    'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
+],'src/public/nice-admin/js/basic.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
+    'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
+],'src/public/nice-admin/css/basic.css').version();
+
+
+/** DataTable*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.js',
+],'src/public/nice-admin/js/datatables.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
+],'src/public/nice-admin/css/datatables.css').version();
+
+/** Material-datepicker.*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/moment/moment.js',
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js',
+],'src/public/nice-admin/js/datetimepicker.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
+],'src/public/nice-admin/css/datetimepicker.css').version();
+
+
+/** Forms*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/inputmask/dist/jquery.inputmask.js',
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/js/bootstrap-toggle.min.js',
+],'src/public/nice-admin/js/forms.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/css/bootstrap-toggle.min.css',
+],'src/public/nice-admin/css/form.css').version();
 
 mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'src/public/nice-admin/css/icons');
 mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'src/public/nice-admin/assets/images');

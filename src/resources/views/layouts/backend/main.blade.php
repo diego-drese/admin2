@@ -8,10 +8,9 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/vendor/negotiate/admin/nice-admin/assets/images/favicon.png">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/app.css">
-    @yield('style_head_start')
-
-    @yield('style_head_end')
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/basic.css">
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/basic.js"></script>
+    @yield('style_head')
 </head>
 
 <body>
@@ -330,7 +329,7 @@
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
             <!-- Sidebar navigation-->
-            <nav class="sidebar-nav">
+            <nav  class="sidebar-nav">
                 @include('Admin::layouts.backend.menu')
             </nav>
             <!-- End Sidebar navigation -->
@@ -381,10 +380,6 @@
 <!-- ============================================================== -->
 @yield('script_footer_start')
 
-<script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/app.js"></script>
-<script type="text/javascript">
-    //window.negotiate = new NegotiateController();
-</script>
 @yield('script_footer_end')
 @toastr_render
 

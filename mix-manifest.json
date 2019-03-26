@@ -1,4 +1,12 @@
 {
-    "/src/public/nice-admin/js/app.js": "/src/public/nice-admin/js/app.js?id=2fa0b3ab2961825f0b02",
-    "/src/public/nice-admin/css/app.css": "/src/public/nice-admin/css/app.css?id=f695e92edad16018d1e8"
+    "/src/public/nice-admin/js/app.js": "/src/public/nice-admin/js/app.js?id=ad8fd4f1e57bc972bf1c",
+    "/src/public/nice-admin/css/app.css": "/src/public/nice-admin/css/app.css?id=24b649c68275328dca5f",
+    "/src/public/nice-admin/js/basic.js": "/src/public/nice-admin/js/basic.js?id=93a1350440d11ffeb9f7",
+    "/src/public/nice-admin/css/basic.css": "/src/public/nice-admin/css/basic.css?id=dabe6773c8163182e75d",
+    "/src/public/nice-admin/js/datatables.js": "/src/public/nice-admin/js/datatables.js?id=e22e9820ca5bf7ac6884",
+    "/src/public/nice-admin/css/datatables.css": "/src/public/nice-admin/css/datatables.css?id=3107d88f94a5383ea93d",
+    "/src/public/nice-admin/js/datetimepicker.js": "/src/public/nice-admin/js/datetimepicker.js?id=d836d62db24b40222425",
+    "/src/public/nice-admin/css/datetimepicker.css": "/src/public/nice-admin/css/datetimepicker.css?id=3c4e9f5d13691c0b1d24",
+    "/src/public/nice-admin/js/forms.js": "/src/public/nice-admin/js/forms.js?id=264474015741ca5bb220",
+    "/src/public/nice-admin/css/form.css": "/src/public/nice-admin/css/form.css?id=94dc143d099325003c26"
 }

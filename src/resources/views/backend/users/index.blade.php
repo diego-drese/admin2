@@ -1,7 +1,6 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'Users')
+@section('title', 'Usuários')
 @section('content')
-
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -26,7 +25,7 @@
                                 <th>Perfil</th>
                                 <th>Status</th>
                                 <th>Contato</th>
-                                <th>Pagina Inicialt</th>
+                                <th>Pagina Inicial</th>
                                 <th>Criado em:</th>
                                 <th>Ações</th>
                             </tr>

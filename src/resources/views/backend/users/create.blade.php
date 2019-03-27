@@ -1,20 +1,16 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'User Edit')
+@section('title', 'Editar Usuário')
 @section('content')
-    <div class="card-header">
-        <div class="pull-right">
-            <button type="submit" class="btn btn-default"  form="form-user">Salvar</button>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="box-header">
-        </div>
-        <div class="box-body ">
-            <form id="form-user" method="post" action="{{route('admin.users.store')}}">
-                {{ csrf_field() }}
-                @include('Admin::backend.users.form')
-            </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body ">
+                    <form id="form-user" method="post" action="{{route('admin.users.store')}}">
+                        {{ csrf_field() }}
+                        @include('Admin::backend.users.form')
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

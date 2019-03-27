@@ -1,13 +1,10 @@
 @extends('Admin::layouts.backend.main')
 @section('title', 'Criar Cliente')
 @section('content')
-    <div class="content-wrapper">
-        <section class="content">
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                    </div>
-                    <div class="box-body ">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body ">
                         <form method="post" action="{{route('admin.client.store')}}">
                             {{ csrf_field() }}
                             @include('Admin::backend.clients.form')
@@ -15,6 +12,5 @@
                     </div>
                 </div>
             </div>
-        </section>
     </div>
 @endsection

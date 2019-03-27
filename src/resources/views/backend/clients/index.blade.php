@@ -11,7 +11,7 @@
                             <div class="btn-group">
                             @if($hasAdd)
                                 <a href="{{route('admin.client.create')}}">
-                                    <a href="{{route('admin.client.create')}}" class="btn btn-success">
+                                    <a href="{{route('admin.client.create')}}" class="btn btn-primary">
                                         Adicionar <span class="fa fa-plus"></span>
                                     </a>
                                 </a>
@@ -97,7 +97,7 @@
                         data: null, searchable: false, orderable: false, render: function (data) {
                         //var edit_button = "";
                         //if (hasEdit == '1') {
-                          var  edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
+                          var  edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-" role="button" aria-pressed="true">Edit</a>';
                         //}
                         return edit_button
                     }

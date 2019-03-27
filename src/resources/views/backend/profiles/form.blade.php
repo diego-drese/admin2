@@ -16,7 +16,7 @@
         @endforeach
     </select>
 </div>
-
+<div class="row">
 <div class="col-md-12 form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
     <label for="title">Resources</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">
@@ -26,7 +26,10 @@
             <option class="profilesSelect" data-route="{{$nameRoute[0]}}" {{$profile->exists && in_array($resource->id,$profilesResources) ? 'selected="selected"' : '' }} value="{{$resource->id}}" >{{$resource->name}}</option>
         @endforeach
     </select>
+    <br style="clear: both;float:left;width: 100%"/>
 </div>
+</div>
+<div class="row">
 <div class="col-md-12 form-group">
 <label>Click to grant all permissions:</label><br>
 @foreach($resourcesMenu as $resource)
@@ -38,16 +41,24 @@
     @endif
 @endforeach
 </div>
+</div>
 <div class="col-md-12 form-group">
-@if($hasSave)
-    <button type="submit" class="btn btn-success ">Save</button>
+    @if($hasSave)
+    <button type="submit" class="btn btn-primary ">Save</button>
 @endif
 </div>
-@section('style_head_end')
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
+@section('style_head')
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/form.css">
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
+    <style>
+        .select2-container--classic .select2-selection--single, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-selection__arrow, .select2-container--default .select2-selection--single .select2-selection__rendered {
+            height: auto;
+        }
+    </style>
 @endsection
 @section('script_footer_end')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#selectResource').select2({ width: '100%'  });

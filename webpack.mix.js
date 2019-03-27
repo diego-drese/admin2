@@ -40,8 +40,6 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/app.css').version();
 
-
-
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery/dist/jquery.min.js',
     'src/resources/assets/theme/nice-admin/libs/popper.js/dist/umd/popper.min.js',
@@ -53,13 +51,13 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/dist/js/custom.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
+
 ],'src/public/nice-admin/js/basic.js').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/basic.css').version();
-
 
 /** DataTable*/
 mix.babel([
@@ -69,15 +67,35 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
 ],'src/public/nice-admin/css/datatables.css').version();
 
+
+/** Bootstrap Switch*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+],'src/public/nice-admin/js/bootstrap-switch.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
+],'src/public/nice-admin/css/bootstrap-switch.css').version();
+
+
+/** Select2*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/js/select2.min.js',
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/js/i18n/pt-BR.js',
+],'src/public/nice-admin/js/select2.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.css',
+],'src/public/nice-admin/css/select2.css').version();
+
 /** Material-datepicker.*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/moment/moment.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js',
 ],'src/public/nice-admin/js/datetimepicker.js').version();
+
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
 ],'src/public/nice-admin/css/datetimepicker.css').version();
-
 
 /** Forms*/
 mix.babel([

@@ -11903,9 +11903,9 @@ body .jqstooltip {
 .select2-container--classic .select2-selection--multiple .select2-selection__choice,
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-  background-color: #137eff;
+  /*background-color: #137eff;
   border-color: #137eff;
-  color: #fff; }
+  color: #fff;*/ }
 
 .m-icon {
   width: 33%;

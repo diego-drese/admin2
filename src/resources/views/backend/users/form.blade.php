@@ -1,128 +1,154 @@
-@if($user->exists && Auth::User()->id == $user->id)
-    <div class="col-md-6 form-group">
-        <label for="active">Meu Cliente</label>
-        <input type="text" value="{{@$clientCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+<div class="row">
+    <div class="col-md-6">
+        @if($user->exists && Auth::User()->id == $user->id)
+            <div class="form-group">
+                <label for="active">Meu Cliente</label>
+                <input type="text" value="{{@$clientCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+            </div>
+        @else
+            <div class="form-group {{$errors->has('client_id') ? 'has-danger' : ''}}">
+                <label for="active">Cliente</label>
+                <select class="form-control {{$errors->has('client_id') ? 'is-invalid' : ''}}"" id="clientID" name="client_id">
+                    <option value="">Selecione</option>
+                    @foreach ($clients as $key => $client)
+                        <option name="client_id"  @if($client->exists){{$user->client_id==$client->id ? 'selected="selected"' : ''}} @endif value="{{$client->id}}">{{$client->name}} </option>
+                    @endforeach
+                </select>
+                    @if($errors->has('client_id'))
+                        <span class="text-danger">{{$errors->first('client_id')}}</span>
+                    @endif
+            </div>
+        @endif
     </div>
-@else
-
-    <div class="col-md-6 form-group {{$errors->has('client_id') ? 'has-error' : ''}}">
-        <label for="active">Cliente</label>
-        <select class="form-control" id="selectProfile" name="client_id" placeholder="Cliente">
-            @foreach ($clients as $key => $client)
-                <option name="client_id"  @if($client->exists){{$user->client_id==$client->id ? 'selected="selected"' : ''}} @endif value="{{$client->id}}">{{$client->name}} </option>
-            @endforeach
-        </select>
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('name') ? 'has-danger' : ''}} ">
+            <label for="title">Nome</label>
+            <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"
+                   id="name" >
+            @if($errors->has('name'))
+                <span class="text-danger">{{$errors->first('name')}}</span>
+            @endif
+        </div>
     </div>
-@endif
-
-<div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="title">Name</label>
-    <input type="text" class="form-control" value="{{old('name',$user->exists() ? $user->name : '')}}" name="name"
-           id="name" placeholder="Name">
-    @if($errors->has('name'))
-        <span class="help-block">{{$errors->first('name')}}</span>
-    @endif
 </div>
-
-<div class="col-md-6 form-group {{$errors->has('lastname') ? 'has-error' : ''}}">
-    <label for="slug">Last Name</label>
-    <input type="text" value="{{old('lastname',$user->exists() ? $user->lastname : '')}}" name="lastname"
-           class="form-control"
-           id="lastname" placeholder="Last Name">
-    @if($errors->has('lastname'))
-        <span class="help-block">{{$errors->first('lastname')}}</span>
-    @endif
-</div>
-
-<div class="col-md-6 form-group {{$errors->has('cell_phone') ? 'has-error' : ''}}">
-    <label for="slug">Cellphone</label>
-    <input type="text" value="{{old('cell_phone',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone"
-           class="form-control"
-           id="cell_phone" placeholder="Cellphone">
-    @if($errors->has('cell_phone'))
-        <span class="help-block">{{$errors->first('cell_phone')}}</span>
-    @endif
-</div>
-
-<div class="col-md-6 form-group {{$errors->has('active') ? 'has-error' : ''}}">
-    <label for="active">Status</label>
-    <select type="text" name="active" class="form-control" id="active" placeholder="Status do usuário">
-        <option value="1">Ativo</option>
-        <option value="0" {{$user->exists() && $user->active == 0 ? 'selected' : ''}}>Desativado</option>
-    </select>
-    @if($errors->has('active'))
-        <span class="help-block">{{$errors->first('active')}}</span>
-    @endif
-</div>
-
-<div class="col-md-8 form-group {{$errors->has('email') ? 'has-error' : ''}}">
-    <label for="slug">E-mail</label>
-    <input type="email" value="{{old('email',$user->email)}}" name="email" class="form-control"
-           id="email" placeholder="E-mail">
-    @if($errors->has('email'))
-        <span class="help-block">{{$errors->first('email')}}</span>
-    @endif
-</div>
-@if($user->exists && Auth::User()->id == $user->id)
-    <div class="col-md-6 form-group">
-        <label for="active">My Profile</label>
-        <input type="text" value="{{$profileCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('lastname') ? 'has-danger' : ''}}">
+            <label for="slug">Sobrenome</label>
+            <input type="text" value="{{old('lastname',$user->exists() ? $user->lastname : '')}}" name="lastname" class="form-control {{$errors->has('lastname') ? 'is-invalid' : ''}}" id="lastname" >
+            @if($errors->has('lastname'))
+                <span class="text-danger">{{$errors->first('lastname')}}</span>
+            @endif
+        </div>
     </div>
-@else
-
-    <div class="col-md-6 form-group {{$errors->has('profile') ? 'has-error' : ''}}">
-        <label for="active">Profile</label>
-        <select class="form-control" id="selectProfile" name="profile_id" placeholder="Profile">
-            @foreach ($profiles as $key => $profile)
-                <option name="profile_id"  @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif value="{{$profile->id}}">{{$profile->name}} </option>
-            @endforeach
-        </select>
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('cell_phone') ? 'has-danger' : ''}}">
+            <label for="slug">Celular</label>
+            <input type="text" value="{{old('cell_phone',$user->exists() ? $user->cell_phone : '')}}" name="cell_phone" class="form-control mask-phone {{$errors->has('cell_phone') ? 'is-invalid' : ''}}" id="cell_phone">
+            @if($errors->has('cell_phone'))
+                <span class="text-danger">{{$errors->first('cell_phone')}}</span>
+            @endif
+        </div>
     </div>
-@endif
-
-<div class="col-md-6 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
-    <label for="active">Page Default</label>
-    <select class="form-control" id="selectResourceDefault" name="resource_default_id" placeholder="Profile">
-    </select>
 </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('active') ? 'has-danger' : ''}}">
+            <label for="active">Status</label>
+            <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" placeholder="Status do usuário">
 
-
-<div class="col-md-6 form-group {{$errors->has('password') ? 'has-error' : ''}}">
-    <label for="slug">Password</label>
-    <input type="password" name="password" class="form-control"
-           id="password" placeholder="Password" value="">
-    @if($errors->has('password'))
-        <span class="help-block">{{$errors->first('password')}}</span>
-    @endif
+                <option value="">Selecione</option>
+                <option value="1">Ativo</option>
+                <option value="0" {{$user->exists() && $user->active == 0 ? 'selected' : ''}}>Desativado</option>
+            </select>
+            @if($errors->has('active'))
+                <span class="text-danger">{{$errors->first('active')}}</span>
+            @endif
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('email') ? 'has-danger' : ''}}">
+            <label for="slug">E-mail</label>
+            <input type="email" value="{{old('email',$user->email)}}" name="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}"
+                   id="email" placeholder="E-mail">
+            @if($errors->has('email'))
+                <span class="text-danger">{{$errors->first('email')}}</span>
+            @endif
+        </div>
+    </div>
 </div>
-
-<div class="col-md-6 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
-    <label for="slug">Confirm Password</label>
-    <input type="password" name="password_confirmation" class="form-control"
-           id="password_confirmation" placeholder="Confirm Password" value="">
-    @if($errors->has('password_confirmation'))
-        <span class="help-block">{{$errors->first('password_confirmation')}}</span>
-    @endif
+<div class="row">
+    <div class="col-md-6">
+        @if($user->exists && Auth::User()->id == $user->id)
+            <div class="form-group">
+                <label for="active">Perfil</label>
+                <input type="text" value="{{$profileCurrent}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
+            </div>
+        @else
+            <div class="form-group {{$errors->has('profile') ? 'has-danger' : ''}}">
+                <label for="active">Perfil</label>
+                <select class="form-control {{$errors->has('profile') ? 'is-invalid' : ''}}" id="selectProfile" name="profile_id">
+                    <option value="">Selecione</option>
+                    @foreach ($profiles as $key => $profile)
+                        <option name="profile_id"  @if($user->exists){{$user->profile_id==$profile->id ? 'selected="selected"' : ''}} @endif value="{{$profile->id}}">{{$profile->name}} </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('resource_defautl_id') ? 'has-danger' : ''}}">
+            <label for="active">Página inicial</label>
+            <select class="form-control {{$errors->has('resource_defautl_id') ? 'is-invalid' : ''}}" id="selectResourceDefault" name="resource_default_id" >
+                <option value="">Selecione</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('password') ? 'has-danger' : ''}}">
+            <label for="slug">Senha</label>
+            <input type="password" name="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}"
+                   id="password" value="">
+            @if($errors->has('password'))
+                <span class="text-danger">{{$errors->first('password')}}</span>
+            @endif
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group {{$errors->has('password_confirmation') ? 'has-danger' : ''}}">
+            <label for="slug">Confirmar Senha</label>
+            <input type="password" name="password_confirmation" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}"
+                   id="password_confirmation" value="">
+            @if($errors->has('password_confirmation'))
+                <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+            @endif
+        </div>
+    </div>
 </div>
 @if($hasSave)
-    <div class="clearfix"></div>
-    <div class="col-md-6">
-        <button type="submit" class="btn btn-default">Salvar</button>
+    <div class="card-body">
+        <div class="form-group m-b-0 text-right">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
     </div>
 @endif
-@section('style_head_end')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+@section('style_head')
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/form.css">
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
 @endsection
 @section('script_footer_end')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
     <script>
         var selectedOption = "{{$user->exists ? $user->profile_id : 1}}";
         var resource_default_id = "{{$user->exists ? $user->resource_default_id : null}}";
 
         $(document).ready(function () {
+            $('.mask-phone').inputmask("(99) 99999-9999");
             $('#selectProfile').select2({ width: '100%' });
             $('#selectResourceDefault').select2({ width: '100%' });
-
             getResourcesByProfileId(selectedOption);
 
 
@@ -167,5 +193,4 @@
 
         });
     </script>
-
 @endsection

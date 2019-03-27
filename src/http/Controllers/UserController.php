@@ -77,18 +77,21 @@ class UserController extends BaseController {
      */
     public function store(Request $request) {
         $dataForm = $request->all();
-
+        $auth       = Auth::user();
         $this->validate($request, [
             'name'                  => 'required',
-            'email'                 => 'required',
+            'client_id'             => 'required|integer',
+            'profile_id'             => 'required|integer',
             'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6|',
-        ]);
+            'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm,$auth){
+                $result = User::where('email',$value)->where('client_id',$dataForm['client_id'])->first();
+                if ($result) {
+                    $fail($attribute.' Email inválido.');
+                }
+            },]
 
-        if(User::where('email', $dataForm['email'])->first()){
-            toastr()->error('O email já está em uso!','Email duplicado');
-            return back()->withInput();
-        }
+        ],['required'=>'Campo obrigatório','unique'=>'Email já cadastrado']);
 
         $dataForm['id']         = Sequence::getSequence('users');
         $dataForm['password']   = bcrypt($dataForm['password']);
@@ -135,17 +138,25 @@ class UserController extends BaseController {
     public function update(Request $request, $id) {
         $user       = User::firstOrNew(['id'=>(int)$id]);
         $dataForm   = $request->all();
-
+        $auth       = Auth::user();
         $this->validate($request, [
             'name'                  => 'required',
-            'resource_default_id'   => 'required',
-            'email'                 => 'required',
-            'password'              => 'confirmed',
-        ]);
-        if(User::where('email', $dataForm['email'])->where('id', '!=', (int)$id)->first()){
-            toastr()->error('O email já está em uso!','Email duplicado');
-            return back()->withInput();
-        }
+            'client_id'             => 'required|integer',
+            'profile_id'             => 'required|integer',
+            'password'              => 'nullable|min:6|confirmed|nullable',
+            'password_confirmation' => 'nullable|min:6',
+            'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm,$auth){
+                $result = User::where('email',$value)->where('client_id',$dataForm['client_id'])->where('id',(int)$auth->id)->first();
+                if ($result) {
+                    $fail($attribute.' Email inválido.');
+                }
+            },]
+
+        ],['required'=>'Campo obrigatório','unique'=>'Email já cadastrado']);
+//        if(User::where('email', $dataForm['email'])->where('id', '!=', (int)$id)->first()){
+//            toastr()->error('O email já está em uso!','Email duplicado');
+//            return back()->withInput();
+//        }
         $dataForm['password'] = bcrypt($dataForm['password']);
         $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');

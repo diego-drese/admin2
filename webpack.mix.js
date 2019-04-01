@@ -45,17 +45,18 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/popper.js/dist/umd/popper.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap/dist/js/bootstrap.min.js',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.js',
+    'src/resources/assets/theme/nice-admin/libs/tooltip/tooltip.js',
     'src/resources/assets/theme/nice-admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/sparkline/sparkline.js',
     'src/resources/assets/theme/nice-admin/dist/js/sidebarmenu.js',
     'src/resources/assets/theme/nice-admin/dist/js/custom.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
-
 ],'src/public/nice-admin/js/basic.js').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
+    'src/resources/assets/theme/nice-admin/libs/tooltip/tooltip.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
 ],'src/public/nice-admin/css/basic.css').version();
 

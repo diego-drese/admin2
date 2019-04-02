@@ -49,6 +49,8 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/sparkline/sparkline.js',
     'src/resources/assets/theme/nice-admin/dist/js/sidebarmenu.js',
+    'src/resources/assets/theme/nice-admin/libs/moment/moment.js',
+    'src/resources/assets/theme/nice-admin/libs/moment/locale/pt-br.js',
     'src/resources/assets/theme/nice-admin/dist/js/custom.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
@@ -88,9 +90,8 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.css',
 ],'src/public/nice-admin/css/select2.css').version();
 
-/** Material-datepicker.*/
+/** Material-datetimepicker.*/
 mix.babel([
-    'src/resources/assets/theme/nice-admin/libs/moment/moment.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js',
 ],'src/public/nice-admin/js/datetimepicker.js').version();
 

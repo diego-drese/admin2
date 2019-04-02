@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/vendor/negotiate/admin/nice-admin/assets/images/favicon.png">
     <title>@yield('title')</title>
+    @yield('style_head_start')
     <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/basic.css">
     <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/basic.js"></script>
     @yield('style_head')

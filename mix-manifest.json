@@ -2,7 +2,7 @@
     "/src/public/nice-admin/js/app.js": "/src/public/nice-admin/js/app.js?id=ad8fd4f1e57bc972bf1c",
     "/src/public/nice-admin/css/app.css": "/src/public/nice-admin/css/app.css?id=cdfc6f26bb58af9c0cdc",
     "/src/public/nice-admin/js/basic.js": "/src/public/nice-admin/js/basic.js?id=220d7fdcff37f6342e10",
-    "/src/public/nice-admin/css/basic.css": "/src/public/nice-admin/css/basic.css?id=2c24a6dc82a32ffee0f8",
+    "/src/public/nice-admin/css/basic.css": "/src/public/nice-admin/css/basic.css?id=6cfb9bce338e1d0767e9",
     "/src/public/nice-admin/js/datatables.js": "/src/public/nice-admin/js/datatables.js?id=e22e9820ca5bf7ac6884",
     "/src/public/nice-admin/css/datatables.css": "/src/public/nice-admin/css/datatables.css?id=3107d88f94a5383ea93d",
     "/src/public/nice-admin/js/bootstrap-switch.js": "/src/public/nice-admin/js/bootstrap-switch.js?id=840e1d696f1fd9215ecc",
@@ -11,8 +11,10 @@
     "/src/public/nice-admin/css/select2.css": "/src/public/nice-admin/css/select2.css?id=af22a7e2bfec4d2a82c4",
     "/src/public/nice-admin/js/datetimepicker.js": "/src/public/nice-admin/js/datetimepicker.js?id=b4995e0fa73a08caf94c",
     "/src/public/nice-admin/css/datetimepicker.css": "/src/public/nice-admin/css/datetimepicker.css?id=3c4e9f5d13691c0b1d24",
+    "/src/public/nice-admin/js/daterangepicker.js": "/src/public/nice-admin/js/daterangepicker.js?id=d675589831a8d6deb1f6",
+    "/src/public/nice-admin/css/daterangepicker.css": "/src/public/nice-admin/css/daterangepicker.css?id=9f3f1eddcfd888f39dce",
     "/src/public/nice-admin/js/sweetalert2.js": "/src/public/nice-admin/js/sweetalert2.js?id=2f1fb4086c22068e566a",
     "/src/public/nice-admin/css/sweetalert2.css": "/src/public/nice-admin/css/sweetalert2.css?id=160eeff133b7145659a7",
-    "/src/public/nice-admin/js/forms.js": "/src/public/nice-admin/js/forms.js?id=264474015741ca5bb220",
+    "/src/public/nice-admin/js/forms.js": "/src/public/nice-admin/js/forms.js?id=ac6939d1a365bfce1f07",
     "/src/public/nice-admin/css/form.css": "/src/public/nice-admin/css/form.css?id=94dc143d099325003c26"
 }

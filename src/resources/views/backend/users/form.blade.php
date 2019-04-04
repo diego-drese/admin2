@@ -146,7 +146,7 @@
         var resource_default_id = "{{$user->exists ? $user->resource_default_id : null}}";
 
         $(document).ready(function () {
-            $('.mask-phone').inputmask("(99) 99999-9999");
+            $('.mask-phone').mask("(99) 99999-9999");
             $('#selectProfile').select2({ width: '100%' });
             $('#selectResourceDefault').select2({ width: '100%' });
             getResourcesByProfileId(selectedOption);

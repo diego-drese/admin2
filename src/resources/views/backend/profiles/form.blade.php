@@ -1,5 +1,5 @@
 <div class="col-md-12 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="title">Name</label>
+    <label for="title">Nome</label>
     <input type="text" class="form-control" value="{{old('name',$profile->exists() ? $profile->name : '')}}" name="name"
            id="name" placeholder="Name">
     @if($errors->has('name'))
@@ -8,7 +8,7 @@
 </div>
 
 <div class="col-md-12 form-group {{$errors->has('type_user') ? 'has-error' : ''}} ">
-    <label for="title">Type User</label>
+    <label for="title">Tipo de usuário</label>
     <select class="form-control " id="selectTypeUser" name="type_user">
         <option>Selecione</option>
         @foreach($negotiateProfileTypes as $key=>$type_user)
@@ -18,7 +18,7 @@
 </div>
 <div class="row">
 <div class="col-md-12 form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
-    <label for="title">Resources</label>
+    <label for="title">Recursos</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">
         <option>Selecione</option>
         @foreach($resources as $resource)
@@ -31,7 +31,7 @@
 </div>
 <div class="row">
 <div class="col-md-12 form-group">
-<label>Click to grant all permissions:</label><br>
+<label>Clique para adicionar todas as permissões:</label><br>
 @foreach($resourcesMenu as $resource)
     @php $nameRoute = explode('.', $resource->route_name) @endphp
     @if(isset($nameRoute[1]))
@@ -44,7 +44,7 @@
 </div>
 <div class="col-md-12 form-group">
     @if($hasSave)
-    <button type="submit" class="btn btn-primary ">Save</button>
+    <button type="submit" class="btn btn-primary ">Salvar</button>
 @endif
 </div>
 @section('style_head')

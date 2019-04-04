@@ -1,5 +1,5 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'Resource Edit')
+@section('title', 'Editar Recurso')
 @section('content')
     <div class="row">
         <div class="col-md-12">

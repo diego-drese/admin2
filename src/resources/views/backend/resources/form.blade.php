@@ -1,7 +1,7 @@
 <div class="form-group {{$errors->has('name') ? 'has-error' : ''}} ">
-    <label for="name">Name</label>
+    <label for="name">Nome</label>
     <input type="text" class="form-control" value="{{old('name',$resource->exists() ? $resource->name : '')}}"
-           name="name" placeholder="Name">
+           name="name" >
     @if($errors->has('name'))
         <span class="help-block">{{$errors->first('name')}}</span>
     @endif
@@ -11,7 +11,7 @@
 <div class="form-group {{$errors->has('menu') ? 'has-error' : ''}} ">
     <label for="menu">Menu</label>
     <input type="text" class="form-control" value="{{old('menu',$resource->exists() ? $resource->menu : '')}}"
-           name="menu" placeholder="Nome Menu">
+           name="menu">
     @if($errors->has('menu'))
         <span class="help-block">{{$errors->first('menu')}}</span>
     @endif
@@ -28,7 +28,7 @@
 </div>
 
 <div class="form-group {{$errors->has('parents') ? 'has-error' : ''}} ">
-    <label for="controller_method">Child Of</label>
+    <label for="controller_method">Filho de</label>
     <select class="form-control" name="parent_id" placeholder="">
         <option value="0">Menu Root</option>
         @foreach($parentsDefault as $parent)
@@ -43,7 +43,7 @@
 </div>
 
 <div class="form-group pos-relative">
-    <label class="d-block">E um menu?</label>
+    <label class="d-block">É um menu?</label>
 
     <div class="custom-control custom-radio mb-3 float-left">
         <input type="radio" class="custom-control-input" id="is_menu1" name="is_menu" value="1" {{$resource->is_menu == 1 ? 'checked' : ''}}>
@@ -51,21 +51,21 @@
     </div>
     <div class="custom-control custom-radio mb-3 float-left">
         <input type="radio" class="custom-control-input" id="is_menu2" name="is_menu" value="0" {{$resource->is_menu == 0 ? 'checked' : ''}}>
-        <label class="custom-control-label" for="is_menu2">Nao</label>
+        <label class="custom-control-label" for="is_menu2">Não</label>
     </div>
     <div class="clearfix"></div>
 </div>
 
 @if($resource->route_name)
 <div class="form-group pos-relative clearfix">
-    <label class=" d-block">Redirecionar apos o login?</label>
+    <label class=" d-block">Redirecionar após o login?</label>
     <div class="custom-control custom-radio mb-3 float-left">
         <input type="radio" class="custom-control-input" id="can_be_default1" name="can_be_default" value="1" {{$resource->can_be_default == 1 ? 'checked' : ''}}>
         <label class="custom-control-label" for="can_be_default1">Sim</label>
     </div>
     <div class="custom-control custom-radio mb-3 float-left">
         <input type="radio" class="custom-control-input" id="can_be_default2" name="can_be_default" value="0" {{$resource->can_be_default == 0 ? 'checked' : ''}}>
-        <label class="custom-control-label" for="can_be_default2">Nao</label>
+        <label class="custom-control-label" for="can_be_default2">Não</label>
     </div>
     <div class="clearfix"></div>
 </div>
@@ -88,7 +88,7 @@
 <div>
     <br>
     @if($hasSave)
-        <button type="submit" class="btn btn-default">Save</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
     @endif
 </div>
 
@@ -102,13 +102,13 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title"> Fontes <i>(Double click to select)</i></h4>
+                <h4 class="modal-title"> Fontes <i>(click duplo)</i></h4>
             </div>
             <div class="modal-body">
                 @include('Admin::backend.resources.icons')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
 
 
@@ -132,14 +132,14 @@
 
         });
 
-        $(document).on('click', '.fa.fa-fc', function (e) {
+        $(document).on('click', '.fas', function (e) {
             var classeFonte = $(this).attr('class');
             var inputText = $('#icon-select');
 
             iconInput.removeAttr('class', '');
-            iconInput.attr('class', classeFonte.replace('fa-fc btn btn-secondary waves-effect waves-light', ''));
+            iconInput.attr('class', classeFonte.replace('fas btn btn-secondary waves-effect waves-light', ''));
             inputText.val('');
-            inputText.val(classeFonte.replace('fa-fc btn btn-secondary waves-effect waves-light', ''));
+            inputText.val(classeFonte.replace('fas btn btn-secondary waves-effect waves-light', ''));
 
             modalBox.modal('hide');
         });
@@ -148,7 +148,7 @@
             var newinputIcon = $(this).val();
 
             iconInput.removeAttr('class', '');
-            iconInput.attr('class', 'fa ' + newinputIcon);
+            iconInput.attr('class', 'fas ' + newinputIcon);
         })
     </script>
 @endsection

@@ -28,6 +28,8 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
 ],'src/public/nice-admin/js/app.js').version();
 
+
+
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.css',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
@@ -96,6 +98,14 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
 ],'src/public/nice-admin/css/datetimepicker.css').version();
 
+/** DataeRangePicker */
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.js',
+],'src/public/nice-admin/js/daterangepicker.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.css'
+],'src/public/nice-admin/css/daterangepicker.css').version();
+
 /** Sweet Alert 2.*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.all.min.js',
@@ -106,7 +116,7 @@ mix.styles([
 
 /** Forms*/
 mix.babel([
-    'src/resources/assets/theme/nice-admin/libs/inputmask/dist/jquery.inputmask.js',
+    'src/resources/assets/theme/nice-admin/libs/jquery-mask/jquery.mask.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/js/bootstrap-toggle.min.js',
 ],'src/public/nice-admin/js/forms.js').version();
 

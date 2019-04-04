@@ -116,7 +116,7 @@ mix.styles([
 
 /** Forms*/
 mix.babel([
-    'src/resources/assets/theme/nice-admin/libs/inputmask/dist/jquery.inputmask.js',
+    'src/resources/assets/theme/nice-admin/libs/jquery-mask/jquery.mask.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/js/bootstrap-toggle.min.js',
 ],'src/public/nice-admin/js/forms.js').version();
 

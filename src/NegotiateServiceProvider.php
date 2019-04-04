@@ -37,7 +37,14 @@ class NegotiateServiceProvider extends ServiceProvider
         );
 
         $this->mergeConfigFrom(
-            __DIR__ . '/config/providers.php', 'auth.providers'
+            __DIR__ . '/config/auth_providers.php', 'auth.providers'
+        );
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/providers.php', 'app.providers'
+        );
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/session.php', 'session'
         );
 
         $this->mergeViewComposer();
@@ -108,6 +115,15 @@ class NegotiateServiceProvider extends ServiceProvider
         if ($key == 'auth.providers') {
             $this->app['config']->set($key, array_merge($config, require $path));
         }
+
+        if ($key == 'app.providers') {
+            $this->app['config']->set($key, array_merge($config, require $path));
+        }
+
+        if ($key == 'session') {
+            $this->app['config']->set($key, array_merge($config, require $path));
+        }
+
 
     }
 

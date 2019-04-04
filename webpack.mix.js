@@ -72,7 +72,6 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
 ],'src/public/nice-admin/css/datatables.css').version();
 
-
 /** Bootstrap Switch*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js',
@@ -81,7 +80,6 @@ mix.babel([
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
 ],'src/public/nice-admin/css/bootstrap-switch.css').version();
-
 
 /** Select2*/
 mix.babel([
@@ -96,7 +94,6 @@ mix.styles([
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js',
 ],'src/public/nice-admin/js/datetimepicker.js').version();
-
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
 ],'src/public/nice-admin/css/datetimepicker.css').version();
@@ -109,6 +106,13 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.css'
 ],'src/public/nice-admin/css/daterangepicker.css').version();
 
+/** Sweet Alert 2.*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.all.min.js',
+],'src/public/nice-admin/js/sweetalert2.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.min.css',
+],'src/public/nice-admin/css/sweetalert2.css').version();
 
 /** Forms*/
 mix.babel([

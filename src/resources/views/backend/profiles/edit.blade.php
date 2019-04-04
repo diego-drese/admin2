@@ -1,5 +1,5 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'Profile Edit')
+@section('title', 'Editar Perfil')
 @section('content')
     <div class="row">
         <div class="col-md-12">

@@ -28,6 +28,8 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
 ],'src/public/nice-admin/js/app.js').version();
 
+
+
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.css',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
@@ -98,6 +100,15 @@ mix.babel([
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
 ],'src/public/nice-admin/css/datetimepicker.css').version();
+
+/** DataeRangePicker */
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.js',
+],'src/public/nice-admin/js/daterangepicker.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.css'
+],'src/public/nice-admin/css/daterangepicker.css').version();
+
 
 /** Forms*/
 mix.babel([

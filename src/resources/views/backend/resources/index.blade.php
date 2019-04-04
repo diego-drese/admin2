@@ -1,5 +1,5 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'Resources')
+@section('title', 'Recursos')
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -11,8 +11,8 @@
                             <div class="btn-group">
                                 @if($hasAdd)
                                     <a href="{{route('admin.resources.create')}}">
-                                        <a href="{{route('admin.resources.create')}}" class="btn btn-success">
-                                            Resource of menu <span class="fa fa-plus"></span>
+                                        <a href="{{route('admin.resources.create')}}" class="btn btn-primary">
+                                            Adicionar <span class="fa fa-plus"></span>
                                         </a>
                                     </a>
                                 @endif
@@ -25,14 +25,14 @@
                             <thead>
                             <tr class="center">
                                 <td role="row">#</td>
-                                <td role="row">Name</td>
+                                <td role="row">Nome</td>
                                 <td role="row">Menu</td>
-                                <td>Rote</td>
-                                <td>Icon</td>
+                                <td>Rota</td>
+                                <td>Icone</td>
                                 <td role="row">Controller Method</td>
-                                <td>Profile</td>
-                                <td>Created At</td>
-                                <td>Actions</td>
+                                <td>Perfil</td>
+                                <td>Criado em</td>
+                                <td>Ações</td>
                             </tr>
                             </thead>
                         </table>
@@ -110,7 +110,7 @@
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";
                             if(hasEdit=='1'){
-                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-default" role="button" aria-pressed="true">Edit</a>';
+                                    edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</a>';
                             }
                             return edit_button
                         }

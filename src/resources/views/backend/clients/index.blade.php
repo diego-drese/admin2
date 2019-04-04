@@ -97,7 +97,7 @@
                         data: null, searchable: false, orderable: false, render: function (data) {
                         //var edit_button = "";
                         //if (hasEdit == '1') {
-                          var  edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-" role="button" aria-pressed="true">Edit</a>';
+                          var  edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</a>';
                         //}
                         return edit_button
                     }

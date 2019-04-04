@@ -2,6 +2,7 @@
 
 namespace Negotiate\Admin\Http\Controllers\Auth;
 
+use Illuminate\Validation\ValidationException;
 use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -38,10 +39,14 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-
         $this->middleware('Negotiate\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedIronforge')->except('logout');
     }
-
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => ['failed' => 'Essas credenciais não correspondem aos nossos registros.'],
+        ]);
+    }
     public function logout(Request $request)
     {
         $this->guard()->logout();

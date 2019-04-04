@@ -35,19 +35,15 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-
                                     <input type="email" id="email" class="form-control form-control-lg" name="email" value="{{ old('email') }}"  placeholder="Email" required autofocus  aria-describedby="basic-addon1">
-                                    @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
                                 </div>
+                                    @if ($errors->has('email'))
+                                        <label class="text-danger" for="email">{{ $errors->first('email') }}</label>
+                                    @endif
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-
                                     <input id="password" type="password"  class="form-control-lg form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Senha"  aria-describedby="basic-addon1">
                                     @if ($errors->has('password'))
                                     <span class="invalid-feedback">

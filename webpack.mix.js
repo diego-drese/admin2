@@ -120,6 +120,15 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/js/bootstrap-toggle.min.js',
 ],'src/public/nice-admin/js/forms.js').version();
 
+mix.babel([
+    'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.js',
+    'src/resources/assets/theme/nice-admin/extra-libs/c3/d3.min.js',
+],'src/public/nice-admin/js/c3.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
+],'src/public/nice-admin/css/c3.css').version();
+
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/css/bootstrap-toggle.min.css',
 ],'src/public/nice-admin/css/form.css').version();

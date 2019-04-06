@@ -1,6 +1,6 @@
 @if(Auth::check())
     @extends('Admin::layouts.backend.main')
-    @section('title', 'Page not Found')
+    @section('title', 'Page not Allowed')
     @section('content')
         <div class="card">
             <div class="card-body">

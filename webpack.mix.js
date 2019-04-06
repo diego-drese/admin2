@@ -20,7 +20,7 @@ mix.babel([
 ],'src/public/nice-admin/js/basic.js').version();
 
 mix.styles([
-    'src/resources/assets/theme/nice-admin/dist/css/style.css',
+    'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
     'src/resources/assets/theme/nice-admin/libs/tooltip/tooltip.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.css',
 ],'src/public/nice-admin/css/basic.css').version();

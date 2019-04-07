@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group {{$errors->has('name') ? 'has-danger' : ''}} ">
@@ -80,7 +81,7 @@
             <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" placeholder="Status do usuário">
 
                 <option value="">Selecione</option>
-                <option value="1">Ativo</option>
+                <option value="1" {{$user->exists() && $user->active == 1 ? 'selected' : ''}}>Ativo</option>
                 <option value="0" {{$user->exists() && $user->active == 0 ? 'selected' : ''}}>Desativado</option>
             </select>
             @if($errors->has('active'))

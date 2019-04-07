@@ -141,22 +141,18 @@ class UserController extends BaseController {
         $auth       = Auth::user();
         $this->validate($request, [
             'name'                  => 'required',
-            'client_id'             => 'required|integer',
-            'profile_id'             => 'required|integer',
+            'profile_id'            => 'required|integer',
             'password'              => 'nullable|min:6|confirmed|nullable',
             'password_confirmation' => 'nullable|min:6',
-            'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm,$auth){
-                $result = User::where('email',$value)->where('client_id',$dataForm['client_id'])->where('id',(int)$auth->id)->first();
+            'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm, $id){
+                $result = User::where('email',$value)->where('client_id',$dataForm['client_id'])->where('id', '!=', (int)$id)->first();
                 if ($result) {
                     $fail($attribute.' Email inválido.');
                 }
             },]
 
         ],['required'=>'Campo obrigatório','unique'=>'Email já cadastrado']);
-//        if(User::where('email', $dataForm['email'])->where('id', '!=', (int)$id)->first()){
-//            toastr()->error('O email já está em uso!','Email duplicado');
-//            return back()->withInput();
-//        }
+
         $dataForm['password'] = bcrypt($dataForm['password']);
         $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');

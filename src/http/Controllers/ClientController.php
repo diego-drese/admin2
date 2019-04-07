@@ -2,6 +2,7 @@
 
 namespace Negotiate\Admin\Http\Controllers;
 
+use Illuminate\Support\Facades\Config;
 use Negotiate\Admin\Library\ResourceAdmin;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\NegotiateClient;
@@ -61,7 +62,7 @@ class ClientController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function create(NegotiateClient $negotiateClient) {
-        $profiles   = Profile::all('id', 'name');
+        $profiles   = Profile::getProfilesByTypes(Config::get('admin.profile_type')['admin']);
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.client.store');
         return view('Admin::backend.clients.create', compact('profiles','negotiateClient', 'hasSave'));
     }
@@ -73,45 +74,32 @@ class ClientController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
-        $dataForm = $request->all();
-
+        $dataForm        = $request->all();
         $negotiateClient =  new NegotiateClient;
-
-        $customMessages = [
+        $customMessages  = [
             'required' => 'campo é obrigatório'
         ];
         $this->validate($request, $negotiateClient->rules,$customMessages);
-
         if(NegotiateClient::where('email', $dataForm['email'])->first()){
             toastr()->error('O email já está em uso!','Email duplicado');
             return back()->withInput();
         }
+        if(!empty($dataForm['cpf']) && NegotiateClient::where('cpf', $dataForm['cpf'])->first()){
+            toastr()->error('O CPF já está em uso!','Cpf duplicado');
+            return back()->withInput();
+        }
 
-        if(User::where('email', $dataForm['email'])->first()){
-            toastr()->error('O email já está em uso!','Email duplicado');
+        if(!empty($dataForm['cnpj']) && NegotiateClient::where('cnpj', $dataForm['cnpj'])->first()){
+            toastr()->error('O CNPJ já está em uso!','Cpf duplicado');
             return back()->withInput();
         }
 
         $dataForm['id'] = Sequence::getSequence('clients');
         if(NegotiateClient::create($dataForm)){
-            $user = [
-                'id'                    =>  Sequence::getSequence('users'),
-                'name'                  =>  $dataForm['name'],
-                'lastname'              =>  $dataForm['name'],
-                'email'                 =>  $dataForm['email'],
-                'cell_phone'            =>  $dataForm['cellphone'],
-                'password'              =>  bcrypt($dataForm['password']),
-                'profile_id'            =>  2,
-                'resource_default_id'   =>  2,
-                'client_id'             =>  $dataForm['id'],
-                'active'                =>  1,
-            ];
-            User::created($user);
             toastr()->success('Cliente e usuário criado!','Sucesso');
         }
 
-        return redirect(route('admin.client.index'));
+        return redirect(route('admin.client.edit',[$dataForm['id']]));
     }
     /**
      * Show the form for editing the specified resource.
@@ -120,8 +108,9 @@ class ClientController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
+
         $negotiateClient= NegotiateClient::firstOrNew(['id'=>(int)$id]);
-        $profiles       = Profile::select('id','name')->get();
+        $profiles       = Profile::getProfilesByTypes(Config::get('admin.profile_type'));
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.client.update', [1]);
         return view('Admin::backend.clients.edit', compact('negotiateClient', 'profiles', 'hasSave'));
     }

@@ -1,4 +1,5 @@
-<div class="col-md-12 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
+<div class="row">
+<div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
     <label for="title">Nome</label>
     <input type="text" class="form-control" value="{{old('name',$profile->exists() ? $profile->name : '')}}" name="name"
            id="name" placeholder="Name">
@@ -7,16 +8,16 @@
     @endif
 </div>
 
-<div class="col-md-12 form-group {{$errors->has('type_user') ? 'has-error' : ''}} ">
-    <label for="title">Tipo de usuário</label>
-    <select class="form-control " id="selectTypeUser" name="type_user">
+<div class="col-md-6 form-group {{$errors->has('type_user') ? 'has-error' : ''}} ">
+    <label for="title">Tipo de pefil</label>
+    <select class="form-control " id="selectTypeUser" name="type">
         <option>Selecione</option>
         @foreach($negotiateProfileTypes as $key=>$type_user)
-            <option {{isset($profile->exists) && $key==$profile->type_user ? 'selected="selected"' : '' }} value="{{$key}}">{{$type_user}}</option>
+            <option {{isset($profile->exists) && $key==$profile->type_user ? 'selected="selected"' : '' }} value="{{$type_user}}">{{$type_user}}</option>
         @endforeach
     </select>
 </div>
-<div class="row">
+
 <div class="col-md-12 form-group {{$errors->has('resources') ? 'has-error' : ''}} ">
     <label for="title">Recursos</label>
     <select class="form-control " id="selectResource" name="resources[]" multiple="multiple">

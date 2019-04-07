@@ -1,14 +1,11 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-body ">
-
+            <div class="card-body">
                 <div class="col-md-6 form-group {{$errors->has('picture') ? 'has-error' : ''}} ">
                     <label for="title">Foto Perfil</label>
-
                     <input type="file" class="form-control" value="" name="picture"
                            id="picture" placeholder="Picture">
-
                     @if($errors->has('picture'))
                         <span class="text-danger">{{$errors->first('picture')}}</span>
                     @endif

@@ -15,7 +15,7 @@ class CreateProfileTable extends Migration {
                 $collection->background(["id"]);
                 $collection->background(["name"]);
                 $collection->background(["resources"]);
-                $collection->background(["user_type"]);
+                $collection->background(["type"]);
                 $collection->background(["created_at"]);
                 $collection->background(["updated_at"]);
             });

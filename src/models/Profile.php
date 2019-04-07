@@ -12,15 +12,20 @@ class Profile extends Model
     protected $table        = 'profile';
     const TABLE             = 'profile';
 
-    public function resources(){
-        return $this->belongsToMany(\Negotiate\Admin\Resource::class,'profile_has_resources','profile_id','resource_id');
-    }
-
-
     public function user(){
         return $this->hasOne(\Negotiate\Admin\User::class);
     }
 
+    public static function getProfilesByTypes($type){
+        if(is_array($type)){
+            if (($key = array_search('Admin', $type)) !== false) {
+                unset($type['admin']);
+            }
+
+            return self::whereIn('type', $type)->get();
+        }
+        return self::where('type', $type)->get();
+    }
     /**
      * Get the relationships for the entity.
      *

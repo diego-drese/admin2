@@ -11,8 +11,8 @@
                         <li class="breadcrumb-item">
                             <a href="#">Home</a>
                         </li>
-                        @foreach($ironForgeBreadCrumb as $key => $value)
-                            @if($value['route_name'] && isset($ironForgeBreadCrumb[$key+1]))
+                        @foreach($adminBreadCrumb as $key => $value)
+                            @if($value['route_name'] && isset($adminBreadCrumb[$key+1]))
                                 <li class="breadcrumb-item">
                                    <a  href="{{route($value['route_name'])}}"> {{$value['menu']}}</a>
                                 </li>

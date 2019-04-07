@@ -80,8 +80,7 @@ class UserController extends BaseController {
         $auth       = Auth::user();
         $this->validate($request, [
             'name'                  => 'required',
-            'client_id'             => 'required|integer',
-            'profile_id'             => 'required|integer',
+            'profile_id'            => 'required|integer',
             'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6|',
             'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm,$auth){
@@ -95,6 +94,7 @@ class UserController extends BaseController {
 
         $dataForm['id']         = Sequence::getSequence('users');
         $dataForm['password']   = bcrypt($dataForm['password']);
+        $dataForm['client_id']  = null;
         $request->user()->create($dataForm);
 
         toastr()->success('Usuário Criado!','Sucesso');

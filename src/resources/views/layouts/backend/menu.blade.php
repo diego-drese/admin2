@@ -1,6 +1,6 @@
 <?php
 $idCurrent  = null;
-$ctrl       = $ironForgeController;
+$ctrl       = $adminController;
 
 function create_menu($item, &$idCurrent, &$ctrl) {
 $controllerReceive  = $ctrl;
@@ -10,13 +10,15 @@ $controllerLink     = $item['controller'];
 $menu               = $item['menu'];
 $icon               = $item['icon'];
 $id                 = $item['id'];
+
 $children           = null;
 if(count($item['sub'])) {
     $children = $item['sub'];
 }
+
 ?>
-<li class="sidebar-item">
-    <a id="menu-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent has-arrow': ''}} {{$controllerLink == $controllerReceive ? 'active activeMenu': ''}}" href="{{$route}}">
+<li id="li-{{$id}}" class="sidebar-item {{$controllerLink == $controllerReceive ? ' activeMenu': ''}}">
+    <a id="a-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent has-arrow': ''}} {{$controllerLink == $controllerReceive ? ' active ': ''}}" href="{{$route}}">
         <i class="fa {{$icon}}"></i>
         <span class="hide-menu">{{$menu}}</span>
     </a>
@@ -34,7 +36,7 @@ if(count($item['sub'])) {
 <?php
     }
 echo '<ul id="sidebarnav" class=" sidebarnav nav nav-pills flex-column" >';
-    foreach ($ironForgeResourcesMenu as $key=>$item) {
+    foreach ($adminResourcesMenu as $key=>$item) {
             create_menu($item, $idCurrent, $ctrl);
     }
 echo "</ul>";

@@ -11,21 +11,13 @@ class PublicMethods extends Controller
 {
     public function getResourcesDefault($profileId){
 
-        $auth = Auth::user();
-        if($auth->client_id){
-            $negotiateProfileTypes = \Config::get('admin.profile_type');
-            $profile       = Profile::where('type_user', key($negotiateProfileTypes) )->where('id', (int)$profileId)->first();
-            $resources = Resource::whereIn('id', $profile->resources_allow)
-                ->where('can_be_default', 1)
-                ->where('menu','!=', '')
-                ->get();
-        }else{
-            $profile = Profile::where('id', (int)$profileId)->first();
-            $resources = Resource::whereIn('id', $profile->resources_allow)
+        $profile    = Profile::where('id', (int)$profileId)->first();
+        $resources  = [];
+        if(isset($profile->resources_allow)){
+            $resources  = Resource::whereIn('id', $profile->resources_allow)
                 ->where('can_be_default', 1)
                 ->get();
         }
-
         return response()->json($resources);
     }
 

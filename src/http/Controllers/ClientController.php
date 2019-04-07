@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Negotiate\Admin\Resource;
 use Negotiate\Admin\Sequence;
+use Negotiate\Admin\User;
 use Yajra\Datatables\Datatables;
 
 class ClientController extends BaseController {
@@ -87,10 +88,27 @@ class ClientController extends BaseController {
             return back()->withInput();
         }
 
-        $dataForm['id'] = Sequence::getSequence('clients');
+        if(User::where('email', $dataForm['email'])->first()){
+            toastr()->error('O email já está em uso!','Email duplicado');
+            return back()->withInput();
+        }
 
+        $dataForm['id'] = Sequence::getSequence('clients');
         if(NegotiateClient::create($dataForm)){
-            toastr()->success('Usuário Criado!','Sucesso');
+            $user = [
+                'id'                    =>  Sequence::getSequence('users'),
+                'name'                  =>  $dataForm['name'],
+                'lastname'              =>  $dataForm['name'],
+                'email'                 =>  $dataForm['email'],
+                'cell_phone'            =>  $dataForm['cellphone'],
+                'password'              =>  bcrypt($dataForm['password']),
+                'profile_id'            =>  2,
+                'resource_default_id'   =>  2,
+                'client_id'             =>  $dataForm['id'],
+                'active'                =>  1,
+            ];
+            User::created($user);
+            toastr()->success('Cliente e usuário criado!','Sucesso');
         }
 
         return redirect(route('admin.client.index'));

@@ -35,15 +35,11 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::post('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@store')->name('admin.resources.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Resource']);
     Route::get('/resources/{profile}','Negotiate\Admin\Http\Controllers\ResourcesController@edit')->name('admin.resources.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.resources.index', 'nameAdmin'=>'Resource Edit']);
     Route::post('/resources/{id}','Negotiate\Admin\Http\Controllers\ResourcesController@update')->name('admin.resources.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.resources.index', 'nameAdmin'=>'Resource Update']);
-    Route::get('/owners','Negotiate\Admin\Http\Controllers\OwnerController@index')->name('admin.owner.index')->where(['iconAdmin'=>'fa-registered', 'menuAdmin'=> "Owner", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Owner Listing', 'isDefaultAdmin'=>'1']);
-    Route::get('/owners/create','Negotiate\Admin\Http\Controllers\OwnerController@create')->name('admin.owner.create')->where(['iconAdmin'=>'fa-plus-square', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Owner Create', 'isDefaultAdmin'=>'1']);
-    Route::post('/owners','Negotiate\Admin\Http\Controllers\OwnerController@store')->name('admin.owner.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Owner']);
-    Route::get('/owners/{profile}','Negotiate\Admin\Http\Controllers\OwnerController@edit')->name('admin.owner.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.owner.index', 'nameAdmin'=>'Owner Edit']);
-    Route::post('/owners/{id}','Negotiate\Admin\Http\Controllers\OwnerController@update')->name('admin.owner.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.owner.index', 'nameAdmin'=>'Owner Update']);
+
+
     Route::post('/show-actived-origin', 'Negotiate\Admin\Http\Controllers\OwnerController@showActivedOrigin')->name('admin.owner.show-actived')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.owner.show-actived', 'nameAdmin'=>'Owner show actived']);
     Route::get('/log-view','Negotiate\Admin\Http\Controllers\LogViewController@index')->name('admin.logview.index');
 
-    Route::get('/updade-owner-iron', 'Negotiate\Admin\Http\Controllers\OwnerController@updateFieldsToJson')->name('admin.updateowner.update');
 
     //Negotiate User
     Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Clientes", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clientes', 'isDefaultAdmin'=>'1']);
@@ -77,10 +73,10 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
     Route::get('/page-not-allowed', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotAllowed')->name('admin.page403get');
     Route::post('/page-not-allowed', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotAllowed')->name('admin.page403post');
 
-    Route::get('/profile','Negotiate\Admin\Http\Controllers\UserController@viewUserProfile')->name('admin.users.form-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit']);
-    Route::post('/profile','Negotiate\Admin\Http\Controllers\UserController@updateUserProfile')->name('admin.users.update-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit']);
-    
-    Route::get('/newtheme','Negotiate\Admin\Http\Controllers\ConsoleController@newTheme')->name('admin.new.theme')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'System Admin', 'menuAdmin'=> "New Theme", 'nameAdmin'=>'New Theme', 'isDefaultAdmin'=>'1']);
+    Route::get('/profile','Negotiate\Admin\Http\Controllers\UserController@viewUserProfile')->name('admin.users.form-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit user']);
+    Route::post('/profile','Negotiate\Admin\Http\Controllers\UserController@updateUserProfile')->name('admin.users.update-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit user']);
+
+    Route::get('/newtheme','Negotiate\Admin\Http\Controllers\ConsoleController@newTheme')->name('admin.new.theme')->where(['iconAdmin'=>'fas fa-warehouse', 'parentRouteNameAdmin' => 'System Admin', 'menuAdmin'=> "Theme NiceAdmin", 'nameAdmin'=>'Theme NiceAdmin']);
 
     //Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
     //Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');

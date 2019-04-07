@@ -383,7 +383,26 @@
 
 @yield('script_footer_end')
 @toastr_render
-
+<script type="text/javascript">
+    var openMenuActive = function (){
+        let activeMenuId = "#"+$('.activeMenu').prop('id');
+        let count       = 0;
+        if(activeMenuId){
+            while($(activeMenuId).closest('ul').length){
+                let parent  = $(activeMenuId).closest('ul');
+                parent.addClass('in');
+                parent.prev().addClass('active');
+                activeMenuId = parent.prop('id');
+                count++;
+                console.log(count);
+                if(count>50){
+                    break;
+                }
+            }
+        }
+    };
+    openMenuActive();
+</script>
 </body>
 
 </html>

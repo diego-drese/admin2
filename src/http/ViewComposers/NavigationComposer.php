@@ -20,12 +20,12 @@ class NavigationComposer
     private function composeController(View $view)
     {
 
-        $ironForgeController        = array_first( explode("@", Route::getCurrentRoute()->getAction()['controller']));
-        $ironForgeResourcesMenu     = $this->buildMenuRecursive(0,  Auth::user()->profile_id);
-        $ironForgeCurrentResource   = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
-        $ironForgeBreadCrumb        = $this->buildBreadCrumb($ironForgeCurrentResource, Auth::user()->profile_id);
+        $adminController        = array_first( explode("@", Route::getCurrentRoute()->getAction()['controller']));
+        $adminResourcesMenu     = $this->buildMenuRecursive(0,  Auth::user()->profile_id);
+        $adminCurrentResource   = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
+        $adminBreadCrumb        = $this->buildBreadCrumb($adminCurrentResource, Auth::user()->profile_id);
 
-        $view->with(compact('ironForgeController', 'ironForgeResourcesMenu', 'ironForgeBreadCrumb', 'ironForgeCurrentResource'));
+        $view->with(compact('adminController', 'adminResourcesMenu', 'adminBreadCrumb', 'adminCurrentResource'));
     }
 
     public function buildMenuRecursive($parentID = 0, $profileId) {

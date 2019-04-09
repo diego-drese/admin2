@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Sequence;
+use Negotiate\Admin\User;
 
 class RefreshRoutes extends Command
 {
@@ -100,12 +101,12 @@ class RefreshRoutes extends Command
                 $resources[] = $res->id;
             }
             $oldResorces    = [];
-            $currentResorces= Profile::where('id', 1)->first();
+            $currentResorces= Profile::where('id', User::PROFILE_ID_ROOT)->first();
             if(isset($currentResorces->resources_allow) && count($currentResorces->resources_allow)>0){
                 $oldResorces = $currentResorces->resources_allow;
             }
             $newResources = array_unique(array_merge ($resources, $oldResorces));
-            Profile::where('id',1)->update(['resources_allow'=>$newResources]);
+            Profile::where('id',User::PROFILE_ID_ROOT)->update(['resources_allow'=>$newResources]);
             $bar->finish();
 
 

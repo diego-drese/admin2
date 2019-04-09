@@ -12,7 +12,7 @@ class ProfileTableSeed extends Seeder
     public function run() {
         Profile::insert(
             [
-                'id'   => Sequence::getSequence(Profile::TABLE),
+                'id'   => User::PROFILE_ID_ROOT,
                 'type' => Config::get('admin.profile_type')['admin'],
                 'name' => "Root",
                 'desc' => "Perfil admin master",

@@ -25,7 +25,7 @@
                 <label for="phone">Telefone</label>
                 <input type="text" value="{{old('phone',$negotiateClient->exists() ? $negotiateClient->phone : '')}}" name="phone"
                        class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}"
-                       id="phone" placeholder="">
+                       id="phone" placeholder="(xx) xxx-xxxx">
                 @if($errors->has('phone'))
                     <span class="help-block">{{$errors->first('phone')}}</span>
                 @endif
@@ -34,7 +34,7 @@
                 <label for="cellphone">Celular</label>
                 <input type="text" value="{{old('cellphone',$negotiateClient->exists() ? $negotiateClient->cellphone : '')}}" name="cellphone"
                        class="form-control {{$errors->has('cellphone') ? 'is-invalid' : ''}}"
-                       id="cellphone" placeholder="">
+                       id="cellphone" placeholder="(xx) xxxx-xxxx">
                 @if($errors->has('cellphone'))
                     <span class="help-block">{{$errors->first('cellphone')}}</span>
                 @endif
@@ -49,11 +49,31 @@
                     <span class="help-block">{{$errors->first('active')}}</span>
                 @endif
             </div>
+
+            <div class="col-md-6 form-group {{$errors->has('type') ? 'has-error' : ''}}">
+                <label for="type">Usuário Administrador</label>
+                @if($user->profile_id==\Negotiate\Admin\User::PROFILE_ID_ROOT)
+                    <select type="text" name="user_id" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="user_id" >
+                        @if($negotiateClient->exists() && $negotiateClient->user_id)
+                            <option value="{{$negotiateClient->user_id}}">{{$negotiateClient->user_name}}</option>
+                        @endif
+                    </select>
+                    <input type="hidden" value="{{$negotiateClient->exists() && $negotiateClient->user_id ? $negotiateClient->user_name : ''}}" name="user_name" class="form-control" id ="user_name">
+                @else
+                    <input type="text" value="{{$user->name}}" name="user_name" class="form-control" id="user_name" disabled>
+                    <input type="hidden" value="{{$user->id}}" name="user_id" class="form-control" id="user_id" >
+                @endif
+
+                @if($errors->has('type'))
+                    <span class="help-block">{{$errors->first('type')}}</span>
+                @endif
+            </div>
+
             <div class="col-md-6 form-group {{$errors->has('type') ? 'has-error' : ''}}">
                 <label for="type">Tipo</label>
                 <select type="text" name="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="type" placeholder="Cliente">
-                    <option value="1" {{$negotiateClient->exists() && $negotiateClient->type == 1 ? 'selected' : ''}}>PF</option>
-                    <option value="2" {{$negotiateClient->exists() && $negotiateClient->type == 2 ? 'selected' : ''}}>PJ</option>
+                    <option value="CPF" {{$negotiateClient->exists() && $negotiateClient->type == 'CPF' ? 'selected' : ''}}>Pessoa Física</option>
+                    <option value="CNPJ" {{$negotiateClient->exists() && $negotiateClient->type == 'CNPJ' ? 'selected' : ''}}>Pesoa Júridica</option>
                 </select>
                 @if($errors->has('type'))
                     <span class="help-block">{{$errors->first('type')}}</span>
@@ -65,7 +85,7 @@
                 <label for="cpf">CPF</label>
                 <input type="text" value="{{old('cpf',$negotiateClient->exists() ? $negotiateClient->cpf : '')}}" name="cpf"
                        class="form-control {{$errors->has('cpf') ? 'is-invalid' : ''}}"
-                       id="cpf" placeholder="">
+                       id="cpf" placeholder="xxx.xxx.xxx-xx">
                 @if($errors->has('cpf'))
                     <span class="help-block">{{$errors->first('cpf')}}</span>
                 @endif
@@ -74,7 +94,7 @@
                 <label for="cnpj">CNPJ</label>
                 <input type="text" value="{{old('cnpj',$negotiateClient->exists() ? $negotiateClient->cnpj : '')}}" name="cnpj"
                        class="form-control {{$errors->has('cnpj') ? 'is-invalid' : ''}}"
-                       id="cnpj" placeholder="">
+                       id="cnpj" placeholder="xx.xxx.xxx/xxxx-xx">
                 @if($errors->has('cnpj'))
                     <span class="help-block">{{$errors->first('cnpj')}}</span>
                 @endif
@@ -102,13 +122,99 @@
 
             <div class="col-md-6 form-group {{$errors->has('state_register') ? 'has-error' : ''}}">
                 <label for="state_register">Inscrição Estadual</label>
-                <input type="text" value="{{old('state_register',$negotiateClient->exists() ? $negotiateClient->state_register : '')}}" name="state_register"
+                <input type="text" value="{{old('state_register', $negotiateClient->exists() ? $negotiateClient->state_register : '')}}" name="state_register"
                        class="form-control {{$errors->has('state_register') ? 'is-invalid' : ''}}"
                        id="state_register" placeholder="">
                 @if($errors->has('state_register'))
                     <span class="help-block">{{$errors->first('state_register')}}</span>
                 @endif
             </div>
+            @if($negotiateClient->exists() && $negotiateClient->id)
+                @php(\Carbon\Carbon::setLocale('pt_BR'))
+                @endphp
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">R$ {{$negotiateClient->last_payment_value ? $negotiateClient->last_payment_value : '0,00'}}</h3>
+                                <span>Ultimo valor pago</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-credit-card"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">{{$negotiateClient->current_plan ? $negotiateClient->current_plan : 'Nenhum'}} </h3>
+                                <span>Plano Atual</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-shopping-cart"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">{{$negotiateClient->total_scheduling_remaining ? $negotiateClient->total_scheduling_remaining : 0}}</h3>
+                                <span>Agendamentos restantes</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-calendar-alt"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">{{$negotiateClient->next_charging_attempt ? \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
+                                <span>Próxima tarifação</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-calendar-check"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">R$ {{$negotiateClient->total_charging ? $negotiateClient->total_charging : '0,00'}}</h3>
+                                <span>Total Tarifado</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas money-bill-alt"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->created_at))->diffForHumans()}}</h3>
+                                <span>Cliente desde</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-clock"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
             @if($hasSave)
                 <div class="col-md-12 form-group">
                     <div class="form-group m-b-0 text-right">
@@ -199,7 +305,7 @@
 
                         <div class="col-md-6 form-group">
                             <label for="title">Nome</label>
-                            <input type="text" class="form-control" value="" name="name" id="name">
+                            <input type="text" class="form-control" value="" name="nameUser" id="nameUser">
                         </div>
 
                         <div class="col-md-6 form-group">
@@ -209,16 +315,16 @@
 
                         <div class="col-md-6 form-group">
                             <label for="slug">Celular</label>
-                            <input type="text" value="" name="cell_phone" class="form-control" id="cell_phone" >
+                            <input type="text" value="" name="cellPhoneUser" class="form-control" id="cellPhoneUser" placeholder="(xx) xxxxx-xxxx" >
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label for="slug">E-mail</label>
-                            <input type="email" value="" name="email" class="form-control" id="email">
+                            <input type="email" value="" name="emailUser" class="form-control" id="emailUser">
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="active">Perfil</label>
-                            <select class="form-control" id="selectProfile" name="profile_id" placeholder="Profile">
+                            <select class="form-control" id="selectProfile" name="profileId" placeholder="Profile">
                                 @foreach ($profiles as $key => $profile)
                                     <option name="profile_id"  value="{{$profile->id}}">{{$profile->name}} </option>
                                 @endforeach
@@ -227,7 +333,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="active">Página incial</label>
-                            <select class="form-control" id="selectResourceDefault" name="resource_default_id">
+                            <select class="form-control" id="selectResourceDefault" name="resourceDefaultId">
                             </select>
                         </div>
 
@@ -238,7 +344,7 @@
 
                         <div class="col-md-4 form-group">
                             <label for="slug">Confirmar Senha</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" value="">
+                            <input type="password" name="passwordConfirmation" class="form-control" id="passwordConfirmation" value="">
                         </div>
 
                     </div>
@@ -278,22 +384,35 @@
         </div>
     </div>
 @endif
-@section('style_head_end')
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
+@section('style_head')
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/sweetalert2.css">
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
+    <style>
+        #modalEvent .modal-dialog{width: 90%; max-width: 1000px;}
+        .select2-selection.select2-selection--single{height: 32px;}
+        .select2-container {z-index: 100002;}
+        .swal2-container.swal2-shown{z-index: 900000;}
+        .select2-container--default .select2-results__option--highlighted[aria-selected] {
+            background-color: #fff;
+            color: black;
+        }
+    </style>
 @endsection
 @section('script_footer_end')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/sweetalert2.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
     <script>
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');
-            $('#cellphone').mask('(00) 0000-0000');
+            $('#cellphone').mask('(00) 00000-0000');
+            $('#cellPhoneUser').mask('(00) 00000-0000');
             $('#cpf').mask('000.000.000-00');
             $('#cnpj').mask('00.000.000/0000-00',{reverse: true});
             $('#birthday').mask('00/00/0000',{reverse: true});
 
-           function showTypeUser(){
-               if($('#type').val()=='1'){
+            function showTypeUser(){
+               if($('#type').val()=='CPF'){
                    $('#cpf').parent().show()
                    $('#cnpj').parent().hide()
                    $('#social_reason').parent().hide()
@@ -308,11 +427,11 @@
                    $('#state_register').parent().show()
                    $('#birthday').parent().hide()
                }
-           }
+            }
 
             $('#type').change(function(){
                 showTypeUser()
-            })
+            });
 
             showTypeUser()
             $('#addUser').click(function(){
@@ -323,7 +442,55 @@
 
             });
 
+            var urlSearchUser = '{{route('admin.client.search.user')}}';
+            $("select#user_id").select2({
+                allowClear: true,
+                width: 'calc(100% - 40px)',
+                ajax: {
+                    url: urlSearchUser,
+                    type:'post',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            query: params.term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data.options
+                        };
+                    },
+                    error:function(){
+                        toastr.error(erro.responseJSON.message, 'Erro', { timeOut: 3000 });
+                    },
+                    cache: true
+                },
+                placeholder: 'Busca de usuários',
+                escapeMarkup: function (markup) { return markup; },
+                minimumInputLength: 3,
+                templateResult: formatUser,
+                templateSelection: formatUserSelection
+            });
+            function formatUser (user) {
+                console.log(user);
+                if (user.loading) {
+                    return user.name;
+                }
+                var markup = '<div class="select2-result-repository clearfix ">' +
+                    '<div class="select2-result-repository__avatar float-left mr-2"><span class="round">UserImage</span></div>';
+                markup += '<div class="select2-result-repository__statistics float-left  mr-2">' +
+                    '<div class="select2-result-repository__forks"><i class="fa fa-info-circle"></i> ' + user.name + '</div>' +
+                    '<div class="select2-result-repository__forks"><i class="fa fa-hourglass-start"></i> ' + user.email + '</div>' +
+                    '</div>';
+                markup +='</div>'
+                return markup;
+            }
 
+            function formatUserSelection (user) {
+                $('#user_name').val(user.text ? user.text : user.name);
+                return user.text ? user.text : user.name;
+            }
 
         });
     </script>

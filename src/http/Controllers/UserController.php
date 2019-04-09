@@ -43,7 +43,6 @@ class UserController extends BaseController {
                 })
                 ->addColumn('resourceName', function($row){
                     $resource = Resource::where('id', (int)$row->resource_default_id)->first();
-                   return '';
                     return isset($resource->name)?$resource->name:'';
                 })
                 ->setRowClass(function () {

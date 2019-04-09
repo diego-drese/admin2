@@ -13,26 +13,34 @@ class NegotiateClient extends Model {
                             'cellphone',
                             'phone',
                             'type',
+                            'user_id',
+                            'user_name',
                             'cpf',
                             'cnpj',
                             'profile_id',
                             'social_reason',
                             'fantasy_name',
                             'state_register',
+                            'last_payment_value',
+                            'current_plan',
+                            'total_scheduling_remaining',
+                            'next_charging_attempt',
+                            'total_charging',
                             ];
-
     protected $connection   = 'negotiate_admin';
     protected $table        = 'negotiate_client';
     const TABLE             = 'negotiate_client';
 
-    public $rules = [
+    public static $rules = [
         'name'              => 'required',
         'email'             => 'required|email',
         'type'              => 'required',
-        'cpf'               => 'required_if:type,==,1',
-        'cnpj'              => 'required_if:type,==,2',
-        'fantasy_name'      => 'required_if:type,==,2',
-        'social_reason'     => 'required_if:type,==,2',
+        'user_id'           => 'required',
+        'cpf'               => 'required_if:type,==,CPF',
+        'cnpj'              => 'required_if:type,==,CNPJ',
+        'fantasy_name'      => 'required_if:type,==,CNPJ',
+        'social_reason'     => 'required_if:type,==,CNPJ',
         'cellphone'         => 'required',
     ];
 }
+

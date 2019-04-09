@@ -17,9 +17,10 @@ class ResourceTableSeed extends Seeder
 
     private function startResources()
     {
+        $id = Sequence::getSequence('resource');
         Resource::insert([
             [
-                'id' => Sequence::getSequence('resource'),
+                'id' => $id,
                 'name' => "System Admin",
                 'menu' => 'System',
                 'is_menu' => 1,
@@ -34,9 +35,9 @@ class ResourceTableSeed extends Seeder
             ]
 
         ]);
-       $profile = Profile::where('id', 1)->first();
+       $profile = Profile::where('id', User::PROFILE_ID_ROOT)->first();
        if(!count($profile->resources_allow)){
-           $profile->resources_allow = [1];
+           $profile->resources_allow = [$id];
            $profile->save();
        }
 

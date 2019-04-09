@@ -85,7 +85,7 @@
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";
-                            if(data.type==1){
+                            if(data.type=='CPF'){
                                 return data.cpf;
                             }else{
                                 return data.cnpj;

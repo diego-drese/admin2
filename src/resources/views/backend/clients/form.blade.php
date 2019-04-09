@@ -390,8 +390,6 @@
     <style>
         #modalEvent .modal-dialog{width: 90%; max-width: 1000px;}
         .select2-selection.select2-selection--single{height: 32px;}
-        .select2-container {z-index: 100002;}
-        .swal2-container.swal2-shown{z-index: 900000;}
         .select2-container--default .select2-results__option--highlighted[aria-selected] {
             background-color: #fff;
             color: black;

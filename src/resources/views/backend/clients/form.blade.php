@@ -195,7 +195,7 @@
                                 <span>Total Tarifado</span>
                             </div>
                             <div class="p-10  ml-auto">
-                                <h3 class="text-white box m-b-0"><i class="fas money-bill-alt"></i></h3>
+                                <h3 class="text-white box m-b-0"><i class="fas fa-money-bill-alt"></i></h3>
                             </div>
                         </div>
                     </div>

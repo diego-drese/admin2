@@ -412,7 +412,7 @@
     <script>
         var selectedOption      = 0;
         var resourceDefaultId   = 0;
-        var imageAvatar         = '/vendor/negotiate/admin/nice-admin/images/users/user_avatar.svg';
+        var imageAvatar         = '/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg';
         var showEdit            = false;
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');

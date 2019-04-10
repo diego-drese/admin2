@@ -219,9 +219,9 @@ class UserController extends BaseController {
 
         $dataForm['password'] = bcrypt( $request->get('password'));
         if( $request->hasFile('picture')){
-            $image = $request->file('picture');
+            $image              = $request->file('picture');
             $input['picture']   = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath    = public_path('/thumbnail');
+            $destinationPath    = storage_path('/app/public/thumbnail');
 
             if(!File::isDirectory($destinationPath)){
                 File::makeDirectory($destinationPath, 0777);
@@ -232,7 +232,9 @@ class UserController extends BaseController {
                 $constraint->aspectRatio();
 
             })->save($destinationPath.'/'.$input['picture']);
-            $dataForm['picture'] = $input['picture'];
+
+            $base64 = 'data:image/' . $image->getClientOriginalExtension() . ';base64,' . base64_encode($img);
+            $dataForm['picture'] = $base64;
         }
 
         if( !isset($request->password) ){

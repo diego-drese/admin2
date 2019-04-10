@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration {
                 $collection->background(["resource_default_id"]);
                 $collection->background(["type"]);
                 $collection->background(["client_id"]);
-                $collection->background(["owners"]);
                 $collection->background(["created_at"]);
                 $collection->background(["updated_at"]);
             });

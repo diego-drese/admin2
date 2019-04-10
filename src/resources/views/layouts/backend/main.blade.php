@@ -278,7 +278,7 @@
                             @if(Auth::user()->picture != "")
                                 <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
                             @else
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" width="44" height="44">
+                                <img src="/vendor/negotiate/admin/nice-admin/images/users/user_avatar.svg" width="44" height="44">
                             @endif
                             <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span>
                         </a>
@@ -291,7 +291,7 @@
                                     @if(Auth::user()->picture != "")
                                         <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
                                     @else
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" width="44" height="44">
+                                        <img src="/vendor/negotiate/admin/nice-admin/images/users/user_avatar.svg" width="44" height="44">
                                     @endif
                                 </div>
                                 <div class="m-l-10">

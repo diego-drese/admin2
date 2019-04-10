@@ -141,7 +141,6 @@
 
             $(document).on('change', '#selectProfile', function () {
                 var valueProfile = this.value;
-
                 getResourcesByProfileId(valueProfile);
             }).trigger('change');
 

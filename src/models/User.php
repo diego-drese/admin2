@@ -25,7 +25,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'password','lastname','cell_phone','active', 'profile_id', 'resource_default_id', 'picture', 'client_id'
+        'id',
+        'name',
+        'email',
+        'password',
+        'lastname',
+        'cell_phone',
+        'active',
+        'profile_id',
+        'resource_default_id',
+        'picture',
+        'type',
+        'client_id'
     ];
 
     /**
@@ -48,40 +59,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'client_id'             => 'required',
 
     ];
-    public function owners()
-    {
-        return $this->belongsToMany(\Negotiate\Admin\Owner::class,'user_has_owners','user_id','owner_id');
-    }
-
-    public function profile(){
-
-
-        return Profile::first();
-       return $this->belongsTo(\Negotiate\Admin\Profile::class,'profile_id');
-    }
 
     public function resourceDefault(){
-        //dd($this->resource_default_id);
         return Resource::where('id', $this->resource_default_id)->first();
-        //return $this->belongsTo(\Negotiate\Admin\Resource::class,'resource_default_id');
     }
 
-    /**
-     * Get the relationships for the entity.
-     *
-     * @return array
-     */
-    public function getQueueableRelations()
-    {
-        // TODO: Implement getQueueableRelations() method.
-    }
-
-    public function createUser(){
-
-
-
-
-    }
 }
 
 

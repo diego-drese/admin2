@@ -16,6 +16,7 @@ class PublicMethods extends Controller
         if(isset($profile->resources_allow)){
             $resources  = Resource::whereIn('id', $profile->resources_allow)
                 ->where('can_be_default', 1)
+                ->orderBY('name', 'ASC')
                 ->get();
         }
         return response()->json($resources);

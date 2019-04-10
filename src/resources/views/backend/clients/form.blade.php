@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header bg-amber">
-        <h6 class="m-b-0 text-black font-weight-bolder">Dados do sliente</h6>
+        <h6 class="m-b-0 text-black font-weight-bolder">Dados do cliente</h6>
     </div>
     <div class="card-body ">
         <div class="row">
@@ -298,22 +298,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label for="title">Foto Perfil</label>
-                            <input type="file" class="form-control" value="" name="picture" id="picture" placeholder="Picture">
-                        </div>
-
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-4 form-group">
                             <label for="title">Nome</label>
                             <input type="text" class="form-control" value="" name="nameUser" id="nameUser">
                         </div>
 
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-4 form-group">
                             <label for="slug">Sobrenome</label>
                             <input type="text" value="" name="lastname" class="form-control" id="lastname">
                         </div>
 
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-4 form-group">
                             <label for="slug">Celular</label>
                             <input type="text" value="" name="cellPhoneUser" class="form-control" id="cellPhoneUser" placeholder="(xx) xxxxx-xxxx" >
                         </div>
@@ -322,7 +317,7 @@
                             <label for="slug">E-mail</label>
                             <input type="email" value="" name="emailUser" class="form-control" id="emailUser">
                         </div>
-                        <div class="col-md-4 form-group">
+                        <div class="col-md-6 form-group">
                             <label for="active">Perfil</label>
                             <select class="form-control" id="selectProfile" name="profileId" placeholder="Profile">
                                 @foreach ($profiles as $key => $profile)
@@ -347,13 +342,27 @@
                             <input type="password" name="passwordConfirmation" class="form-control" id="passwordConfirmation" value="">
                         </div>
 
+                        <div class="col-md-6 form-group">
+                            <label for="title">&nbsp;</label>
+                            <div class="input-group">
+                                  <span class="input-group-btn">
+                                   <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Selecionar</span>
+                                   <input id="uploaded_file" name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
+                                  </span>
+                                <span class="form-control"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group text-center">
+                            <label for="title">Preview</label><br/>
+                            <img id="profile-img" src="/vendor/negotiate/admin/nice-admin/images/users/user_avatar.svg" width="88" height="88">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="saveSchedule" class="btn btn-primary">Salvar</button>
+                            <button type="button" id="saveUser" class="btn btn-primary">Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -401,6 +410,10 @@
     <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
     <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
     <script>
+        var selectedOption      = 0;
+        var resourceDefaultId   = 0;
+        var imageAvatar         = '/vendor/negotiate/admin/nice-admin/images/users/user_avatar.svg';
+        var showEdit            = false;
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');
             $('#cellphone').mask('(00) 00000-0000');
@@ -426,20 +439,10 @@
                    $('#birthday').parent().hide()
                }
             }
-
             $('#type').change(function(){
                 showTypeUser()
             });
-
-            showTypeUser()
-            $('#addUser').click(function(){
-                $('#modalUser').modal('show');
-            });
-            $('#addPayment').click(function(){
-                $('#modalPayment').modal('show');
-
-            });
-
+            showTypeUser();
             var urlSearchUser = '{{route('admin.client.search.user')}}';
             $("select#user_id").select2({
                 allowClear: true,
@@ -471,7 +474,6 @@
                 templateSelection: formatUserSelection
             });
             function formatUser (user) {
-                console.log(user);
                 if (user.loading) {
                     return user.name;
                 }
@@ -489,7 +491,150 @@
                 $('#user_name').val(user.text ? user.text : user.name);
                 return user.text ? user.text : user.name;
             }
+            $('#addUser').click(function(){
+                if(showEdit){
+                    $('#nameUser').val('');
+                    $('#lastname').val('');
+                    $('#cellPhoneUser').val('');
+                    $('#emailUser').val('');
+                    $('#password').val('');
+                    $('#passwordConfirmation').val('');
+                    $('#profile-img').attr('src', imageAvatar);
+                }
+                getResourcesByProfileId($('#selectProfile').val());
+                $('#modalUser').modal('show');
+            });
+            $('#saveUser').click(function(){
+                var dataPost = {
+                  'name'                : $('#nameUser').val(),
+                  'lastname'            : $('#lastname').val(),
+                  'cell_phone'          : $('#cellPhone').val(),
+                  'email'               : $('#emailUser').val(),
+                  'profile_id'          : $('#selectProfile').val(),
+                  'resource_default_id' : $('#selectResourceDefault').val(),
+                  'password'            : $('#password').val(),
+                  'password_confirm'    : $('#passwordConfirmation').val(),
+                };
+                var error='';
+                if(dataPost['name'].length<2){
+                    error+='Prencha o nome do usuário<br/>';
+                    $('#nameUser').closest('.form-group').addClass('error');
+                }else{
+                    $('#nameUser').closest('.form-group').removeClass('error');
+                }
 
+                if(dataPost['lastname'].length<2){
+                    error+='Prencha o sobrenome do usuário<br/>';
+                    $('#lastname').closest('.form-group').addClass('error');
+                }else{
+                    $('#lastname').closest('.form-group').removeClass('error');
+                }
+
+                if(dataPost['email'].length<2){
+                    error+='Prencha o email do usuário<br/>';
+                    $('#emailUser').closest('.form-group').addClass('error');
+                }else{
+                    $('#emailUser').closest('.form-group').removeClass('error');
+                }
+
+                if(!dataPost['profile_id']){
+                    error+='Selecione um perfil<br/>';
+                    $('#selectProfile').closest('.form-group').addClass('error');
+                }else{
+                    $('#selectProfile').closest('.form-group').removeClass('error');
+                }
+
+                if(!dataPost['resource_default_id']){
+                    error+='Selecione a página padrãol<br/>';
+                    $('#selectResourceDefault').closest('.form-group').addClass('error');
+                }else{
+                    $('#selectResourceDefault').closest('.form-group').removeClass('error');
+                }
+
+                if(dataPost['password'].length<4){
+                    error+='Preencha a senha com no minimo 4 caracteres<br/>';
+                    $('#password').closest('.form-group').addClass('error');
+                }else{
+                    if(dataPost['password']!=dataPost['password_confirm']){
+                        error+='As senhas são diferentes<br/>';
+                        $('#password').closest('.form-group').addClass('error');
+                        $('#passwordConfirmation').closest('.form-group').addClass('error');
+                    }else{
+                        $('#password').closest('.form-group').removeClass('error');
+                        $('#passwordConfirmation').closest('.form-group').removeClass('error');
+                    }
+                }
+
+                if(error){
+                    toastr["error"](error, "Error");
+                    return false
+                }
+
+
+            });
+
+            $(document).on('change', '#selectProfile', function () {
+                var valueProfile = this.value;
+                getResourcesByProfileId(valueProfile);
+            }).trigger('change');
+
+            function getResourcesByProfileId($id) {
+                var url = '{{route('admin.users.resourcesDefault', [':id'])}}';
+                url     = url.replace(':id', $id)
+                if($id==""){
+                    $('#selectResourceDefault').empty();
+                    return false;
+                }
+                $.ajax({
+                    url: url,
+                    type: "get",
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (data) {
+                        populateResourcesDefault(data);
+
+
+                    },
+                    error: function (erro) {
+                        console.log(erro.responseJSON.message);
+                        toastr["error"](erro.responseJSON.message, "Error");
+
+                    }
+                })
+            }
+
+            function populateResourcesDefault(arrayResources) {
+                var jsonData = arrayResources;
+                var selectResources = $('#selectResourceDefault');
+                $('#selectResourceDefault').empty();
+
+                jsonData.forEach((function (element) {
+                    $('#selectResourceDefault').append(`<option ${element.id == resourceDefaultId ? 'selected="selected"' : ''} value="${element.id}">${element.menu}</option>`);
+                }))
+            }
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#profile-img').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#uploaded_file").change(function(){
+                readURL(this);
+            });
+
+
+
+
+
+
+            $('#addPayment').click(function(){
+                $('#modalPayment').modal('show');
+            });
         });
     </script>
 

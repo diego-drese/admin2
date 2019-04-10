@@ -51,8 +51,8 @@ class UserController extends BaseController {
                 ->make(true);
         }
 
-        $hasAdd     = 1;//ResourceAdmin::hasResourceByRouteName('admin.users.create');
-        $hasEdit    = 1;//ResourceAdmin::hasResourceByRouteName('admin.users.edit', [1]);
+        $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.users.create');
+        $hasEdit    = ResourceAdmin::hasResourceByRouteName('admin.users.edit', [1]);
         return view('Admin::backend.users.index', compact('hasAdd', 'hasEdit'));
     }
 
@@ -75,15 +75,14 @@ class UserController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $dataForm = $request->all();
-        $auth       = Auth::user();
+
         $this->validate($request, [
             'name'                  => 'required',
             'profile_id'            => 'required|integer',
             'password'              => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6|',
-            'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm,$auth){
-                $result = User::where('email',$value)->where('client_id',$dataForm['client_id'])->first();
+            'email'                 => ['required',  function ($attribute, $value, $fail){
+                $result = User::where('email', $value)->first();
                 if ($result) {
                     $fail($attribute.' Email inválido.');
                 }
@@ -91,11 +90,18 @@ class UserController extends BaseController {
 
         ],['required'=>'Campo obrigatório','unique'=>'Email já cadastrado']);
 
-        $dataForm['id']         = Sequence::getSequence('users');
-        $dataForm['password']   = bcrypt($dataForm['password']);
-        $dataForm['client_id']  = null;
+        $dataForm['id']                 = Sequence::getSequence('users');
+        $dataForm['name']               = $request->get('name');
+        $dataForm['lastname']           = $request->get('lastname');
+        $dataForm['email']              = $request->get('email');
+        $dataForm['cell_phone']         = $request->get('cell_phone');
+        $dataForm['profile_id']         = $request->get('profile_id');
+        $dataForm['resource_default_id']= $request->get('resource_default_id');
+        $dataForm['client_id']          = $request->get('client_id');
+        $dataForm['active']             = $request->get('active') ? 1 : 0;
+        $dataForm['password']           = bcrypt($request->get('password_confirmation'));
+        $dataForm['type']               = 'root';
         $request->user()->create($dataForm);
-
         toastr()->success('Usuário Criado!','Sucesso');
         return redirect(route('admin.users.index'));
 
@@ -111,7 +117,7 @@ class UserController extends BaseController {
     public function edit($id) {
         $user           = User::where('id',(int)$id)->first();
         $profiles       = Profile::select('id','name')->get();
-        $clients   = NegotiateClient::all('id', 'name');
+        $clients        = NegotiateClient::all('id', 'name');
         $profileCurrent = "";
         foreach ($profiles as $profile){
             if($profile->id == $user->profile_id){
@@ -136,24 +142,33 @@ class UserController extends BaseController {
      */
     public function update(Request $request, $id) {
         $user       = User::firstOrNew(['id'=>(int)$id]);
-        $dataForm   = $request->all();
-        $auth       = Auth::user();
         $this->validate($request, [
             'name'                  => 'required',
             'profile_id'            => 'required|integer',
             'password'              => 'nullable|min:6|confirmed|nullable',
             'password_confirmation' => 'nullable|min:6',
-            'email'                 => ['required',  function ($attribute, $value, $fail) use($dataForm, $id){
-                $result = User::where('email',$value)->where('client_id',$dataForm['client_id'])->where('id', '!=', (int)$id)->first();
+            'email'                 => ['required',  function ($attribute, $value, $fail) use($id){
+                $result = User::where('email',$value)->where('id', '!=', (int)$id)->first();
                 if ($result) {
                     $fail($attribute.' Email inválido.');
                 }
             },]
 
         ],['required'=>'Campo obrigatório','unique'=>'Email já cadastrado']);
+        $dataForm                       = [];
+        $dataForm['name']               = $request->get('name');
+        $dataForm['lastname']           = $request->get('lastname');
+        $dataForm['email']              = $request->get('email');
+        $dataForm['cell_phone']         = $request->get('cell_phone');
+        $dataForm['profile_id']         = $request->get('profile_id');
+        $dataForm['resource_default_id']= $request->get('resource_default_id');
+        $dataForm['client_id']          = $request->get('client_id');
+        $dataForm['active']             = $request->get('active') ? 1 : 0;
+        if($request->get('password_confirmation')){
+            $dataForm['password']       = bcrypt($request->get('password_confirmation'));
+        }
 
-        $dataForm['password'] = bcrypt($dataForm['password']);
-        $user->update( !isset($request->password) ? $request->except(['password']) : $dataForm);
+        $user->update($dataForm);
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
         return redirect(route('admin.users.index'));
     }
@@ -181,11 +196,9 @@ class UserController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function updateUserProfile(Request $request) {
-
-        $dataForm   = $request->all();
-
-        $auth = Auth::user();
-        $user = User::firstOrNew(['id'=>(int)$auth->id]);
+        $dataForm   = [];
+        $auth       = Auth::user();
+        $user       = User::firstOrNew(['id'=>(int)$auth->id]);
 
         $this->validate($request, [
             'picture'               => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -193,11 +206,9 @@ class UserController extends BaseController {
             'resource_default_id'   => 'required',
             'email'                 => 'required',
             'old_password'          => [function ($attribute, $value, $fail) use ($request, $user) {
-
                 if (!Hash::check($request->old_password, $user->password)) {
                     $fail('Current Password dont match!');
                 }
-
                 if ($value == '') {
                     $fail('Current Password is required!');
                 }
@@ -206,29 +217,21 @@ class UserController extends BaseController {
             'password'              => ['confirmed'],
         ]);
 
-        $dataForm['password'] = bcrypt($dataForm['password']);
-
-
+        $dataForm['password'] = bcrypt( $request->get('password'));
         if( $request->hasFile('picture')){
-
             $image = $request->file('picture');
-
-            $input['picture'] = time().'.'.$image->getClientOriginalExtension();
-
-            $destinationPath = public_path('/thumbnail');
+            $input['picture']   = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath    = public_path('/thumbnail');
 
             if(!File::isDirectory($destinationPath)){
                 File::makeDirectory($destinationPath, 0777);
             }
-
             $img = Image::make($image->getRealPath());
-
             $img->resize(100, 100, function ($constraint) {
 
                 $constraint->aspectRatio();
 
             })->save($destinationPath.'/'.$input['picture']);
-
             $dataForm['picture'] = $input['picture'];
         }
 
@@ -236,11 +239,12 @@ class UserController extends BaseController {
             unset($dataForm['password']);
         }
 
-        $user->fill($dataForm);
-        $user->update($dataForm);
-
+        $dataForm['name']       = $request->get('name');
+        $dataForm['lastname']   = $request->get('lastname');
+        $dataForm['email']      = $request->get('email');
+        $dataForm['cell_phone'] = $request->get('cell_phone');
+        $user->fill($dataForm)->save();
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
-
         return redirect(route('admin.users.form-profile'));
     }
 

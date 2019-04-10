@@ -106,8 +106,8 @@ class ClientController extends BaseController {
         $dataForm['cnpj']           = $request->get('cnpj');
         $dataForm['social_reason']  = $request->get('social_reason');
         $dataForm['state_register'] = $request->get('state_register');
-        $dataForm['user_id']        = (int)$request->get('userId');
-        $dataForm['user_name']          = $request->get('userName');
+        $dataForm['user_id']        = (int)$request->get('user_id');
+        $dataForm['user_name']      = $request->get('user_name');
         $dataForm['last_payment_value']             = null;
         $dataForm['current_plan']                   = null;
         $dataForm['total_scheduling_remaining']     = 0;

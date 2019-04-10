@@ -77,16 +77,7 @@
             </div>
 
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none" href="#">
-                    <img src="/vendor/negotiate/admin/quillpro/img/negotiate-1.png" width="145" height="32.3" alt="Negotiate">
-                </a>
-                <button class="hamburger hamburger--slider" type="button" data-target=".sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Sidebar">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-                </button>
-            </nav>
+
             <!-- ============================================================== -->
             <!-- End Logo -->
             <!-- ============================================================== -->
@@ -132,7 +123,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/1.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -144,7 +135,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/2.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status busy pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -156,7 +147,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/3.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status away pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -168,7 +159,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/4.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status offline pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">

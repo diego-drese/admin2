@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\File;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Hash;
 use Image;
-use App\Http\Requests;
+
 
 
 class UserController extends BaseController {

@@ -8,8 +8,6 @@ use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Event;
 use Negotiate\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 

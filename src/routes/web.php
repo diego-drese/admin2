@@ -37,8 +37,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::post('/resources/{id}','Negotiate\Admin\Http\Controllers\ResourcesController@update')->name('admin.resources.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.resources.index', 'nameAdmin'=>'Resource Update']);
 
 
-    Route::post('/show-actived-origin', 'Negotiate\Admin\Http\Controllers\OwnerController@showActivedOrigin')->name('admin.owner.show-actived')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.owner.show-actived', 'nameAdmin'=>'Owner show actived']);
-    Route::get('/log-view','Negotiate\Admin\Http\Controllers\LogViewController@index')->name('admin.logview.index');
+    Route::get('/log-view','Negotiate\Admin\Http\Controllers\LogViewController@index')->name('admin.logview.index')->where(['iconAdmin'=>'fas fa-clipboard-list ', 'parentRouteNameAdmin' => 'System Admin', 'menuAdmin'=> "Logs", 'nameAdmin'=>'Logs', 'isDefaultAdmin'=>'1']);
 
 
     //Negotiate User

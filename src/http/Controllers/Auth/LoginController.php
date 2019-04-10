@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('Negotiate\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedIronforge')->except('logout');
+        $this->middleware('Negotiate\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedAdmin')->except('logout');
     }
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -63,7 +63,7 @@ class LoginController extends Controller
             return redirect(route('login'));
         }
 
-        $redirect = Resource::where('id', Auth::User()->resource_default_id)->first();
+        $redirect = Resource::where('id', (int)Auth::User()->resource_default_id)->first();
         if(!isset($redirect->route_name)){
             return redirect("$prefix_url/dashboard");
         }

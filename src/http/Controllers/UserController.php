@@ -2,7 +2,6 @@
 
 namespace Negotiate\Admin\Http\Controllers;
 
-use Negotiate\Admin\Library\ResouceIronForge;
 use Negotiate\Admin\Library\ResourceAdmin;
 use Negotiate\Admin\NegotiateClient;
 use Negotiate\Admin\Profile;
@@ -241,10 +240,11 @@ class UserController extends BaseController {
             unset($dataForm['password']);
         }
 
-        $dataForm['name']       = $request->get('name');
-        $dataForm['lastname']   = $request->get('lastname');
-        $dataForm['email']      = $request->get('email');
-        $dataForm['cell_phone'] = $request->get('cell_phone');
+        $dataForm['name']               = $request->get('name');
+        $dataForm['lastname']           = $request->get('lastname');
+        $dataForm['email']              = $request->get('email');
+        $dataForm['cell_phone']         = $request->get('cell_phone');
+        $dataForm['resource_default_id']= $request->get('resource_default_id');
         $user->fill($dataForm)->save();
         toastr()->success('Usuário Atualizado com sucesso','Sucesso');
         return redirect(route('admin.users.form-profile'));

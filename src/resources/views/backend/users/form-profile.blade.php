@@ -69,7 +69,7 @@
                     <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
                 @endif
             </div>
-            <div class="clearfix"></div>
+
             <div class="col-md-4 form-group {{$errors->has('old_password') ? 'has-error' : ''}}">
                 <label for="old_password">Senha atual</label>
                 <input type="password" name="old_password" class="form-control"
@@ -78,7 +78,7 @@
                     <span class="text-danger">{{$errors->first('old_password')}}</span>
                 @endif
             </div>
-            <div class="col-md-6 form-group">
+            <div class="col-md-12 form-group">
                 <label for="title">Foto Perfil</label>
                 <div class="input-group">
                     <span class="input-group-btn">
@@ -88,8 +88,7 @@
                     <span class="form-control"></span>
                 </div>
             </div>
-
-            <div class="col-md-4">
+            <div class="col-md-12 text-right">
                 <button type="submit" class="btn btn-success">Salvar</button>
             </div>
         </div>

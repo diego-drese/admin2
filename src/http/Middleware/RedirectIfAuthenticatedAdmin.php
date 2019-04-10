@@ -5,7 +5,7 @@ namespace Negotiate\Admin\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticatedIronforge
+class RedirectIfAuthenticatedAdmin
 {
     /**
      * Handle an incoming request.

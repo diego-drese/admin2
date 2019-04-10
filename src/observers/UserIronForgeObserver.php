@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 
-class UserIronForgeObserver
+class UserAdminObserver
 {
     public function creating($model){
 

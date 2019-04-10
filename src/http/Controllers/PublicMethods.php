@@ -1,7 +1,7 @@
 <?php
 
 namespace Negotiate\Admin\Http\Controllers;
-//use Negotiate\Admin\Http\Controllers\AuthIronForge;
+//use Negotiate\Admin\Http\Controllers\AuthAdmin;
 use Illuminate\Support\Facades\Auth;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;

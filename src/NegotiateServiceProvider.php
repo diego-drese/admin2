@@ -64,7 +64,7 @@ class NegotiateServiceProvider extends ServiceProvider
 
         Profile::observe("Negotiate\\Admin\\Observers\\ProfileObserver");
         Resource::observe("Negotiate\\Admin\\Observers\\ResourcesObserver");
-        User::observe("Negotiate\\Admin\\Observers\\UserIronForgeObserver");
+        User::observe("Negotiate\\Admin\\Observers\\UserAdminObserver");
 
         Event::listen('log.createdRequest', function ($obj) {
 

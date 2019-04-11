@@ -133,7 +133,16 @@ class ClientController extends BaseController {
      */
     public function edit($id) {
         $user           = Auth::user();
-        $negotiateClient= NegotiateClient::firstOrNew(['id'=>(int)$id]);
+        if($user->profile_id== User::PROFILE_ID_ROOT){
+            $negotiateClient= NegotiateClient::where('id', (int)$id)->first();
+        }else{
+            $negotiateClient= NegotiateClient::where('id', (int)$id)->where('user_id', (int)$user->id)->first();
+            if(!$negotiateClient){
+                return view('Admin::errors.403');
+            }
+        }
+
+
         $profiles       = Profile::getProfilesByTypes(Config::get('admin.profile_type'));
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.client.update', [1]);
         return view('Admin::backend.clients.edit', compact('negotiateClient', 'profiles', 'hasSave', 'user'));

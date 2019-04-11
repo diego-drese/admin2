@@ -60,7 +60,7 @@
                     </select>
                     <input type="hidden" value="{{$negotiateClient->exists() && $negotiateClient->user_id ? $negotiateClient->user_name : ''}}" name="user_name" class="form-control" id ="user_name">
                 @else
-                    <input type="text" value="{{$user->name}}" name="user_name" class="form-control" id="user_name" disabled>
+                    <input type="text" value="{{$user->name}}" name="user_name" class="form-control" id="user_name" readonly>
                     <input type="hidden" value="{{$user->id}}" name="user_id" class="form-control" id="user_id" >
                 @endif
 
@@ -129,9 +129,8 @@
                     <span class="help-block">{{$errors->first('state_register')}}</span>
                 @endif
             </div>
+            <?php \Carbon\Carbon::setLocale('pt_BR');?>
             @if($negotiateClient->exists() && $negotiateClient->id)
-                @php(\Carbon\Carbon::setLocale('pt_BR'))
-                @endphp
                 <div class="col-md-4 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">

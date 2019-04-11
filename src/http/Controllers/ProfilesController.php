@@ -81,7 +81,7 @@ class ProfilesController extends BaseController
         $this->validate($request, [
             'name' => 'required'
         ]);
-        $dataForm['id'] = Sequence::getSequence('profiles');
+        $dataForm['id'] = Sequence::getSequence(Profile::TABLE);
         $dataForm['resources_allow'] = array_map('intval', $dataForm['resources']);
         Profile::create($dataForm);
 

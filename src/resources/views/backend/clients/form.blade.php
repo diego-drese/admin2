@@ -301,6 +301,7 @@
                         <div class="col-md-4 form-group">
                             <label for="title">Nome</label>
                             <input type="text" class="form-control" value="" name="nameUser" id="nameUser">
+                            <input type="hidden"  value="" name="idUser" id="idUser">
                         </div>
 
                         <div class="col-md-4 form-group">
@@ -354,7 +355,7 @@
                         </div>
                         <div class="col-md-6 form-group text-center">
                             <label for="title">Preview</label><br/>
-                            <img id="profile-img" src="/vendor/negotiate/admin/nice-admin/images/users/user_avatar.svg" width="88" height="88">
+                            <img id="profile-img" src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" width="88" height="88">
                         </div>
                     </div>
                 </div>
@@ -413,6 +414,8 @@
         var selectedOption      = 0;
         var resourceDefaultId   = 0;
         var imageAvatar         = '/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg';
+        var clientID            = '{{$negotiateClient->exists() && $negotiateClient->id ? $negotiateClient->id : 0}}';
+        var urlSaveUser         = '{{route('admin.client.user.save', [':idClient'])}}';
         var showEdit            = false;
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');
@@ -506,6 +509,7 @@
             });
             $('#saveUser').click(function(){
                 var dataPost = {
+                  'id'                  : $('#idUser').val(),
                   'name'                : $('#nameUser').val(),
                   'lastname'            : $('#lastname').val(),
                   'cell_phone'          : $('#cellPhone').val(),
@@ -570,6 +574,28 @@
                     return false
                 }
 
+                var url = urlSaveUser.replace(':idClient', clientID);
+                if(Number(dataPost['id'])>0){
+                    url+='/'+dataPost['id'];
+                }
+
+                $.ajax({
+                    url: url,
+                    type: "post",
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (data) {
+                        toastr["success"]('Usuário cadastrado com sucesso', "Sucesso");
+
+                    },
+                    error: function (erro) {
+
+                        toastr["error"](erro.responseJSON.message, "Error");
+
+                    }
+                })
 
             });
 

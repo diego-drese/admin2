@@ -47,6 +47,8 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::post('/clients/search-user', 'Negotiate\Admin\Http\Controllers\ClientController@searchUser')->name('admin.client.search.user')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client search user']);
     Route::get('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@edit')->name('admin.client.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Edit']);
     Route::post('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@update')->name('admin.client.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Update']);
+    Route::get('/clients/{id}/user/get', 'Negotiate\Admin\Http\Controllers\ClientController@userGet')->name('admin.client.user.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client user get']);
+    Route::post('/clients/{id}/user/save/{idUser?}', 'Negotiate\Admin\Http\Controllers\ClientController@userSave')->name('admin.client.user.save')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client user save']);
 
 });
 

@@ -22,8 +22,13 @@ class ClientController extends BaseController {
     public function index(Request $request, DataTables $datatables ) {
 
         if($request->ajax()){
+            $user   = Auth::user();
+            if($user->profile_id== User::PROFILE_ID_ROOT){
+                $query = NegotiateClient::all();
+            }else{
+                $query = NegotiateClient::where('user_id', (int)$user->id)->get();
+            }
 
-            $query = NegotiateClient::all();
 
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
@@ -64,7 +69,7 @@ class ClientController extends BaseController {
      */
     public function create(NegotiateClient $negotiateClient) {
         $user       = Auth::user();
-        $profiles   = Profile::getProfilesByTypes(Config::get('admin.profile_type')['admin']);
+        $profiles   = [];
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.client.store');
         return view('Admin::backend.clients.create', compact('profiles','negotiateClient', 'hasSave', 'user'));
     }
@@ -191,7 +196,6 @@ class ClientController extends BaseController {
         $search     = trim($request->get('query'));
         $options    = [];
         if(strlen($search)>=3){
-
             $users = User::where(function($query) use($search) {
                 $query->orWhere('name', 'like', '%'.$search.'%')
                     ->orWhere('lastname', 'like', '%'.$search.'%')
@@ -207,6 +211,21 @@ class ClientController extends BaseController {
             }
         }
         return response()->json(['options'=>$options], 200);
+    }
+
+    public function userSave(Request $request, $idClient, $idUser=null) {
+        $user       = Auth::user();
+        if($user->profile_id != User::PROFILE_ID_ROOT){
+            /** Valida se esse cliente é do usuário logado */
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->firt();
+            if(!$isOwnerClient){
+                return response()->json(['message'=>'Esse cliente não pertence a você'], 400);
+            }
+        }
+
+
+
+        return response()->json(['message'=>'success'], 200);
     }
 
 }

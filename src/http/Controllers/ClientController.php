@@ -230,11 +230,83 @@ class ClientController extends BaseController {
             if(!$isOwnerClient){
                 return response()->json(['message'=>'Esse cliente não pertence a você'], 400);
             }
+
+            /** Valida se o profile passado é permitido */
+            $profile = Profile::getProfilesByIdAndTypes(Config::get('admin.profile_type'), $request->get('profile_id'));
+           if(!$profile){
+               return response()->json(['message'=>'Perfil não encontrado'], 400);
+           }
+
+        }else{
+            $profile = Profile::getById($request->get('profile_id'));
+            if(!$profile){
+                return response()->json(['message'=>'Perfil não encontrado'], 400);
+            }
         }
 
+        $id         = (int)$request->get('id');
+        $dataForm   = [];
+        if($id){
+            $emailUsed = User::where('email',$request->get('email'))->where('id', '!=', $id)->first();
+        }else{
+            $emailUsed = User::where('email',$request->get('email'))->first();
+            $dataForm['password'] = bcrypt($request->get('password_confirmation'));
+        }
 
+        if($emailUsed){
+            return response()->json(['message'=>'Esse email não não pode ser usado'], 400);
+        }
 
+        $id         = $id ? $id : Sequence::getSequence('users');
+        $user       = User::firstOrNew(['id'=>(int)$id]);
+
+        $dataForm['id']                 = $id;
+        $dataForm['name']               = $request->get('name');
+        $dataForm['lastname']           = $request->get('lastname');
+        $dataForm['email']              = $request->get('email');
+        $dataForm['cell_phone']         = $request->get('cell_phone');
+        $dataForm['profile_id']         = $request->get('profile_id');
+        $dataForm['resource_default_id']= $request->get('resource_default_id');
+        $dataForm['client_id']          = (int)$idClient;
+        $dataForm['active']             = (int)$request->get('active') ? 1 : 0;
+        $dataForm['type']               = $profile->type;
+
+        $user->fill($dataForm)->save();
         return response()->json(['message'=>'success'], 200);
+    }
+
+    public function userGet(Request $request, $idClient) {
+        $user       = Auth::user();
+        if($user->profile_id != User::PROFILE_ID_ROOT){
+            /** Valida se esse cliente é do usuário logado */
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->firt();
+            if(!$isOwnerClient){
+                $idClient=0;
+            }
+        }
+
+        $query  = User::where('client_id', (int)$idClient)->get();
+
+        return Datatables::of($query)
+            ->addColumn('edit_url', function($row){
+                if(isset($row->id)){
+                    return route('admin.users.edit', [$row->id]);
+                }else{
+                    return '';
+                }
+            })
+            ->addColumn('profileName', function($row){
+                $profile = Profile::where('id', (int)$row->profile_id)->first();
+                return $profile->name;
+            })
+            ->addColumn('resourceName', function($row){
+                $resource = Resource::where('id', (int)$row->resource_default_id)->first();
+                return isset($resource->name)?$resource->name:'';
+            })
+            ->setRowClass(function () {
+                return 'center';
+            })
+            ->make(true);
     }
 
 }

@@ -244,8 +244,10 @@
                                 <td>Nome</td>
                                 <td>E-mail</td>
                                 <td>Celular</td>
-                                <td>Ativo</td>
                                 <td>Perfil</td>
+                                <td>Pagina inicial</td>
+                                <td>Ativo</td>
+                                <td>Criação</td>
                                 <td>Ações</td>
                             </tr>
                         </thead>
@@ -313,11 +315,19 @@
                             <input type="text" value="" name="cellPhoneUser" class="form-control" id="cellPhoneUser" placeholder="(xx) xxxxx-xxxx" >
                         </div>
 
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-5 form-group">
                             <label for="slug">E-mail</label>
                             <input type="email" value="" name="emailUser" class="form-control" id="emailUser">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-3 form-group">
+                            <label for="active">Status</label>
+                            <select type="text" name="activeUser" class="form-control" id="activeUser" >
+                                <option value="1">Ativo</option>
+                                <option value="0">Desativado</option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-4 form-group">
                             <label for="active">Perfil</label>
                             <select class="form-control" id="selectProfile" name="profileId" placeholder="Profile">
                                 @foreach ($profiles as $key => $profile)
@@ -342,20 +352,7 @@
                             <input type="password" name="passwordConfirmation" class="form-control" id="passwordConfirmation" value="">
                         </div>
 
-                        <div class="col-md-6 form-group">
-                            <label for="title">&nbsp;</label>
-                            <div class="input-group">
-                                  <span class="input-group-btn">
-                                   <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Selecionar</span>
-                                   <input id="uploaded_file" name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
-                                  </span>
-                                <span class="form-control"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form-group text-center">
-                            <label for="title">Preview</label><br/>
-                            <img id="profile-img" src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" width="88" height="88">
-                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -396,6 +393,7 @@
 @section('style_head')
     <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/sweetalert2.css">
     <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
+    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
     <style>
         #modalEvent .modal-dialog{width: 90%; max-width: 1000px;}
         .select2-selection.select2-selection--single{height: 32px;}
@@ -409,12 +407,16 @@
     <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/sweetalert2.js"></script>
     <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
     <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
+    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/datatables.js"></script>
     <script>
         var selectedOption      = 0;
         var resourceDefaultId   = 0;
         var imageAvatar         = '/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg';
         var clientID            = '{{$negotiateClient->exists() && $negotiateClient->id ? $negotiateClient->id : 0}}';
         var urlSaveUser         = '{{route('admin.client.user.save', [':idClient'])}}';
+        var urlGetUser          = '{{route('admin.client.user.get', [':idClient'])}}';
+        urlGetUser              = urlGetUser.replace(':idClient', clientID);
+
         var showEdit            = false;
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');
@@ -423,6 +425,57 @@
             $('#cpf').mask('000.000.000-00');
             $('#cnpj').mask('00.000.000/0000-00',{reverse: true});
             $('#birthday').mask('00/00/0000',{reverse: true});
+            var tableUser =
+                $('#table_users').DataTable({
+                language: {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                },
+                serverSide: true,
+                processing: true,
+                autoWidth:false,
+                ajax: urlGetUser,
+                columns: [
+                    {data: "id", 'name': 'id', searchable: false},
+                    {data: "name", 'name': 'name'},
+                    {data: "email", 'name': 'email'},
+                    {data: 'cell_phone', 'name': 'cell_phone'},
+                    {data: "profileName", 'name': 'profileName'},
+                    {data: "resourceName", 'name': 'resourceName'},
+                    {data: 'active', 'name': 'active', render:function(data){
+                            return data==1 ? '<span class="label label-success label-rounded">Habilitado </span>' : '<span class="label label-danger label-rounded">Desabilitado </span>';
+                        }},
+
+                    {data: "created_at", 'name': 'created_at'},
+
+                    {
+                        data: null, searchable: false, orderable: false, render: function (data) {
+                            var   edit_button = '<span class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</span>';
+                            return edit_button
+                        }
+                    }
+                ]
+            });
+
 
             function showTypeUser(){
                if($('#type').val()=='CPF'){
@@ -506,14 +559,16 @@
                 getResourcesByProfileId($('#selectProfile').val());
                 $('#modalUser').modal('show');
             });
+
             $('#saveUser').click(function(){
                 var dataPost = {
                   'id'                  : $('#idUser').val(),
                   'name'                : $('#nameUser').val(),
                   'lastname'            : $('#lastname').val(),
-                  'cell_phone'          : $('#cellPhone').val(),
+                  'cell_phone'          : $('#cellPhoneUser').val(),
                   'email'               : $('#emailUser').val(),
                   'profile_id'          : $('#selectProfile').val(),
+                  'active'              : $('#activeUser').val(),
                   'resource_default_id' : $('#selectResourceDefault').val(),
                   'password'            : $('#password').val(),
                   'password_confirm'    : $('#passwordConfirmation').val(),
@@ -582,11 +637,14 @@
                     url: url,
                     type: "post",
                     dataType: 'json',
+                    data: dataPost,
                     beforeSend: function () {
 
                     },
                     success: function (data) {
+                        $('#modalUser').modal('hide');
                         toastr["success"]('Usuário cadastrado com sucesso', "Sucesso");
+                        tableUser.draw();
 
                     },
                     error: function (erro) {

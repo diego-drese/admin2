@@ -17,8 +17,8 @@
                                    <a  href="{{route($value['route_name'])}}"> {{$value['menu']}}</a>
                                 </li>
                             @else
-                                <li class="breadcrumb-item active">
-                                    {{$value['menu']}}
+                                <li class="breadcrumb-item">
+                                    <i class="fas fa-angle-right"></i> {{$value['menu']}}
                                 </li>
                             @endif
                         @endforeach

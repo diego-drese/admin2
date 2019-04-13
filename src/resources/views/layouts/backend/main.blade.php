@@ -103,10 +103,10 @@
                     <!-- Messages -->
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class=" fas fa-info-circle" style="font-size: 22px;margin-top: 22px;"></i>
-                            <span class="badge badge-pill badge-danger ml-auto m-r-15" style="position: absolute;top: 14px;right: -12px;">0</span>
-                        </a>
+{{--                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                            <i class="fas fa-info-circle" style="font-size: 22px;margin-top: 22px;"></i>--}}
+{{--                            <span class="badge badge-pill badge-danger ml-auto m-r-15" style="position: absolute;top: 14px;right: -12px;">0</span>--}}
+{{--                        </a>--}}
                         <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                                 <span class="with-arrow">
                                     <span class="bg-danger"></span>

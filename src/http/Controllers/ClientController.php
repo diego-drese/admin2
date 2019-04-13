@@ -244,13 +244,16 @@ class ClientController extends BaseController {
             }
         }
 
-        $id         = (int)$request->get('id');
+        $id         = (int)$idUser;
         $dataForm   = [];
         if($id){
             $emailUsed = User::where('email',$request->get('email'))->where('id', '!=', $id)->first();
+            if(!empty($request->get('password') && !empty($request->get('password_confirm')))){
+                $dataForm['password'] = bcrypt($request->get('password_confirm'));
+            }
         }else{
             $emailUsed = User::where('email',$request->get('email'))->first();
-            $dataForm['password'] = bcrypt($request->get('password_confirmation'));
+            $dataForm['password'] = bcrypt($request->get('password_confirm'));
         }
 
         if($emailUsed){
@@ -285,7 +288,12 @@ class ClientController extends BaseController {
             }
         }
 
-        $query  = User::where('client_id', (int)$idClient)->get();
+
+        if($request->exists('id')){
+            $query  = User::where('id', (int)$request->id)->where('client_id', (int)$idClient)->get();
+        }else{
+            $query  = User::where('client_id', (int)$idClient)->get();
+        }
 
         return Datatables::of($query)
             ->addColumn('edit_url', function($row){

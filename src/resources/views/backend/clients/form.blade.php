@@ -395,6 +395,7 @@
     <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
     <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
     <style>
+        form .card-body{padding: 10px 0px;}
         #modalEvent .modal-dialog{width: 90%; max-width: 1000px;}
         .select2-selection.select2-selection--single{height: 32px;}
         .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -416,8 +417,7 @@
         var urlSaveUser         = '{{route('admin.client.user.save', [':idClient'])}}';
         var urlGetUser          = '{{route('admin.client.user.get', [':idClient'])}}';
         urlGetUser              = urlGetUser.replace(':idClient', clientID);
-
-        var showEdit            = false;
+        var resetFormUser       = false;
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');
             $('#cellphone').mask('(00) 00000-0000');
@@ -468,12 +468,18 @@
                     {data: "created_at", 'name': 'created_at'},
 
                     {
-                        data: null, searchable: false, orderable: false, render: function (data) {
-                            var   edit_button = '<span class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</span>';
+                        data: null, searchable: false, orderable: false, render: function (data, row) {
+                            var   edit_button = '<span class="btn btn-xs btn-secondary editUser" data-id="'+data.id+'" role="button" aria-pressed="true">Editar</span>';
                             return edit_button
                         }
                     }
-                ]
+                ],
+                drawCallback: function( settings ) {
+                    $('.editUser').off('click').click(function(){
+                        var idUser      = $(this).attr('data-id');
+                        openModalUser(idUser);
+                    });
+                }
             });
 
 
@@ -547,18 +553,62 @@
                 return user.text ? user.text : user.name;
             }
             $('#addUser').click(function(){
-                if(showEdit){
-                    $('#nameUser').val('');
-                    $('#lastname').val('');
-                    $('#cellPhoneUser').val('');
-                    $('#emailUser').val('');
-                    $('#password').val('');
-                    $('#passwordConfirmation').val('');
-                    $('#profile-img').attr('src', imageAvatar);
-                }
-                getResourcesByProfileId($('#selectProfile').val());
-                $('#modalUser').modal('show');
+                openModalUser();
             });
+            var openModalUser = function(idUser){
+                if(idUser){
+                    resetFormUser = true;
+                    $('#idUser').val(idUser);
+                    var url = urlGetUser.replace(':idClient', clientID);
+                    url+='?id='+idUser;
+
+                    $.ajax({
+                        url: url,
+                        type: "get",
+                        dataType: 'json',
+                        beforeSend: function () {
+
+                        },
+                        success: function (data) {
+                            var resultData = data.data;
+                            if(resultData[0]){
+                                var dataUser = resultData[0];
+                                $('#nameUser').val(dataUser.name);
+                                $('#lastname').val(dataUser.lastname);
+                                $('#cellPhoneUser').val(dataUser.cell_phone);
+                                $('#emailUser').val(dataUser.email);
+                                $('#activeUser').val(dataUser.active);
+                                $('#password').val('');
+                                $('#passwordConfirmation').val('');
+                                $('#modalUser').modal('show');
+                                getResourcesByProfileId(dataUser.profile_id, dataUser.resource_default_id);
+
+
+                            }
+
+                        },
+                        error: function (erro) {
+                            toastr["error"](erro.responseJSON.message, "Error");
+
+                        }
+                    })
+                }else{
+                    if(resetFormUser){
+                        resetFormUser = false;
+                        $('#idUser').val('')
+                        $('#nameUser').val('');
+                        $('#lastname').val('');
+                        $('#cellPhoneUser').val('');
+                        $('#emailUser').val('');
+                        $('#activeUser').val(1);
+                        $('#password').val('');
+                        $('#passwordConfirmation').val('');
+                    }
+                    getResourcesByProfileId($('#selectProfile').val());
+                    $('#modalUser').modal('show');
+                }
+
+            };
 
             $('#saveUser').click(function(){
                 var dataPost = {
@@ -609,7 +659,7 @@
                     $('#selectResourceDefault').closest('.form-group').removeClass('error');
                 }
 
-                if(dataPost['password'].length<4){
+                if(dataPost['id']=="" && dataPost['password'].length<4){
                     error+='Preencha a senha com no minimo 4 caracteres<br/>';
                     $('#password').closest('.form-group').addClass('error');
                 }else{
@@ -642,6 +692,7 @@
 
                     },
                     success: function (data) {
+                        resetFormUser = true;
                         $('#modalUser').modal('hide');
                         toastr["success"]('Usuário cadastrado com sucesso', "Sucesso");
                         tableUser.draw();
@@ -661,10 +712,10 @@
                 getResourcesByProfileId(valueProfile);
             }).trigger('change');
 
-            function getResourcesByProfileId($id) {
+            function getResourcesByProfileId(id, resourceDefaultId) {
                 var url = '{{route('admin.users.resourcesDefault', [':id'])}}';
-                url     = url.replace(':id', $id)
-                if($id==""){
+                url     = url.replace(':id', id)
+                if(id==""){
                     $('#selectResourceDefault').empty();
                     return false;
                 }
@@ -676,7 +727,7 @@
 
                     },
                     success: function (data) {
-                        populateResourcesDefault(data);
+                        populateResourcesDefault(data, resourceDefaultId);
 
 
                     },
@@ -688,7 +739,7 @@
                 })
             }
 
-            function populateResourcesDefault(arrayResources) {
+            function populateResourcesDefault(arrayResources, resourceDefaultId) {
                 var jsonData = arrayResources;
                 var selectResources = $('#selectResourceDefault');
                 $('#selectResourceDefault').empty();

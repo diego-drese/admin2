@@ -226,13 +226,13 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->firt();
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 return response()->json(['message'=>'Esse cliente não pertence a você'], 400);
             }
 
             /** Valida se o profile passado é permitido */
-            $profile = Profile::getProfilesByIdAndTypes(Config::get('admin.profile_type'), $request->get('profile_id'));
+            $profile = Profile::getProfilesByIdAndTypes($request->get('profile_id'), Config::get('admin.profile_type'));
            if(!$profile){
                return response()->json(['message'=>'Perfil não encontrado'], 400);
            }
@@ -282,7 +282,7 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->firt();
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 $idClient=0;
             }

@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6 form-group {{$errors->has('active') ? 'has-error' : ''}}">
                 <label for="active">Status</label>
-                <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" placeholder="do usuário">
+                <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" >
                     <option value="1">Ativo</option>
                     <option value="0" {{$negotiateClient->exists() && $negotiateClient->active == 0 ? 'selected' : ''}}>Desativado</option>
                 </select>

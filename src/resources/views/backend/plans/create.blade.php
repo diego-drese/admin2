@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body ">
-                    <form id="form-profile" method="post" action="{{route('admin.profiles.store')}}">
+                    <form id="form-profile" method="post" action="{{route('admin.plans.store')}}">
                         {{ csrf_field() }}
                         @include('Admin::backend.plans.form')
                     </form>

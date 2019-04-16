@@ -82,8 +82,16 @@
                     {data: "name", 'name': 'name'},
                     {data: "type", 'name': 'type'},
                     {data: "value", 'name': 'value'},
-                    {data: "active", 'name': 'active'},
-                    {data: "active", 'name': 'active'},
+                    {data: 'active', 'name': 'active', render:function(data){
+                            return data==1 ? '<span class="label label-success label-rounded">Habilitado </span>' : '<span class="label label-danger label-rounded">Desabilitado </span>';
+                    }},
+                    {data: 'fields', 'name': 'fields', render:function(data){
+                        var fields = '';
+                        for (var i=0; i<data.length; i++){
+                            fields+='<span class="badge badge-secondary mr-1 ">'+data[i]['label']+'</span>'
+                        }
+                        return fields;
+                    }},
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {

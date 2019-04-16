@@ -20,24 +20,27 @@ class PlansController extends BaseController
         $this->getResourcesDefault = Resource::where('is_menu',1)->where('can_be_default',1)->get();
 
     }
+    protected function makeValidate(Request $request){
+        $this->validate($request, [
+            'name'              => 'required',
+            'value'             => 'required',
+            'recurrence_days'   => 'required',
+            'active'            => 'required',
+            'total_retry'       => 'required',
+            'retry_after_day'   => 'required',
+            'type'              => 'required',
+        ]);
+    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request,DataTables $datatables ) {
-
         if($request->ajax()){
-
             $query = NegotiatePlans::all();
-
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
                     return route('admin.plans.edit', [$row->id]);
-                })->addColumn('resources', function($row){
-                    return '';
-
+                })
+                ->addColumn('fields', function($row){
+                  return Config::get('admin.plan_fields_update');
                 })
                 ->setRowClass(function () {
                     return 'center';
@@ -51,75 +54,32 @@ class PlansController extends BaseController
 
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(NegotiatePlans $plan) {
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.plans.store');
         $fieldsUpdate   =  Config::get('admin.plan_fields_update');
         return view('Admin::backend.plans.create',compact('plan', 'hasSave', 'fieldsUpdate'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request) {
-        $dataForm = $request->all();
-        $this->validate($request, [
-            'name' => 'required'
-        ]);
-        $dataForm['id'] = Sequence::getSequence(Profile::TABLE);
-        $dataForm['resources_allow'] = array_map('intval', $dataForm['resources']);
-        Profile::create($dataForm);
-
+        $this->makeValidate($request);
+        NegotiatePlans::createPlan($request);
         toastr()->success('Profile Criado com sucesso','Sucesso');
         return redirect(route('admin.plans.index'));
 
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id) {
-       $profile             = Profile::firstOrNew(['id'=>(int)$id]);
-       $resources           = Resource::all('name', 'id', 'route_name');
-       $profilesResources   = $profile->resources_allow;
-       $resourcesMenu       = $this->getResourcesDefault;
-       $hasSave             = ResourceAdmin::hasResourceByRouteName('admin.profiles.update',[1]);
-       $negotiateProfileTypes = \Config::get('admin.profile_type');
-       return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave','negotiateProfileTypes'));
+       $plan           = NegotiatePlans::firstOrNew(['id'=>(int)$id]);
+       $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.plans.update',[1]);
+       $fieldsUpdate   =  Config::get('admin.plan_fields_update');
+       return view('Admin::backend.plans.edit',compact('plan', 'hasSave', 'fieldsUpdate'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id) {
-        $profile    = Profile::firstOrNew(['id'=>(int)$id]);
-        $dataForm   = $request->all();
-        $this->validate($request, [
-            'name' => 'required'
-        ]);
-        $dataForm['resources_allow'] = array_map('intval', $dataForm['resources']);
-        $profile->fill($dataForm);
-        $profile->save();
-
-        toastr()->success("{$profile->name} Atualizado com sucesso",'Sucesso');
-        return redirect(route('admin.profiles.index'));
+        $this->makeValidate($request);
+        NegotiatePlans::updatePlan($request, $id);
+        toastr()->success("{$request->name} atualizado com sucesso",'Sucesso');
+        return redirect(route('admin.plans.index'));
     }
-
 
 }

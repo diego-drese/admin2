@@ -217,7 +217,7 @@
             @if($hasSave)
                 <div class="col-md-12 form-group">
                     <div class="form-group m-b-0 text-right">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="submit" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
                     </div>
                 </div>
             @endif
@@ -359,7 +359,7 @@
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="saveUser" class="btn btn-primary">Salvar</button>
+                            <button type="button" id="saveUser" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -382,7 +382,7 @@
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="saveSchedule" class="btn btn-primary">Salvar</button>
+                            <button type="button" id="saveSchedule" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -469,7 +469,7 @@
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data, row) {
-                            var   edit_button = '<span class="btn btn-xs btn-secondary editUser" data-id="'+data.id+'" role="button" aria-pressed="true">Editar</span>';
+                            var   edit_button = '<span class="btn btn-xs btn-secondary editUser" data-id="'+data.id+'" role="button" aria-pressed="true"><b>Editar</b></span>';
                             return edit_button
                         }
                     }

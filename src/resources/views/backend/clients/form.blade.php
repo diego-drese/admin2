@@ -148,6 +148,34 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">{{$negotiateClient->next_charging_attempt ? \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
+                                <span>Próxima tarifação</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-calendar-check"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
+                                <h3 class="m-b-0">R$ {{$negotiateClient->total_charging ? $negotiateClient->total_charging : '0,00'}}</h3>
+                                <span>Total Tarifado</span>
+                            </div>
+                            <div class="p-10  ml-auto">
+                                <h3 class="text-white box m-b-0"><i class="fas fa-money-bill-alt"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 form-group">
+                    <div class="card bg-cyan">
+                        <div class="d-flex flex-row">
+                            <div class="text-white align-self-center p-10">
                                 <h3 class="m-b-0">{{$negotiateClient->current_plan ? $negotiateClient->current_plan : 'Nenhum'}} </h3>
                                 <span>Plano Atual</span>
                             </div>
@@ -172,33 +200,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 form-group">
-                    <div class="card bg-cyan">
-                        <div class="d-flex flex-row">
-                            <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{$negotiateClient->next_charging_attempt ? \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
-                                <span>Próxima tarifação</span>
-                            </div>
-                            <div class="p-10  ml-auto">
-                                <h3 class="text-white box m-b-0"><i class="fas fa-calendar-check"></i></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-4 form-group">
-                    <div class="card bg-cyan">
-                        <div class="d-flex flex-row">
-                            <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">R$ {{$negotiateClient->total_charging ? $negotiateClient->total_charging : '0,00'}}</h3>
-                                <span>Total Tarifado</span>
-                            </div>
-                            <div class="p-10  ml-auto">
-                                <h3 class="text-white box m-b-0"><i class="fas fa-money-bill-alt"></i></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
 
                 <div class="col-md-4 form-group">
                     <div class="card bg-cyan">

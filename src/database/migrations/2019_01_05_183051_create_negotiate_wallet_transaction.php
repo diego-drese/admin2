@@ -12,8 +12,10 @@ class CreateNegotiateWalletTransaction extends Migration {
         Schema::connection($this->connection)
             ->table('negotiate_wallet_transaction', function (Blueprint $collection){
                 $collection->background(["id"]);
-                $collection->background(["type"]);
-                $collection->background(["negotiate_client_id"]);
+                $collection->background(["type"]);//Credit, debit, reversal
+                $collection->background(["client_id"]);
+                $collection->background(["user_id"]);
+                $collection->background(["plan_id"]);
                 $collection->background(["token"]);
                 $collection->background(["validate_at"]);
                 $collection->background(["created_at"]);

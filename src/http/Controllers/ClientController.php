@@ -5,6 +5,7 @@ namespace Negotiate\Admin\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Negotiate\Admin\Library\ResourceAdmin;
+use Negotiate\Admin\NegotiateWallet;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\NegotiateClient;
 use Illuminate\Routing\Controller as BaseController;
@@ -120,7 +121,14 @@ class ClientController extends BaseController {
         $dataForm['total_charging']                 = 0;
 
         if(NegotiateClient::create($dataForm)){
-            toastr()->success('Cliente e usuário criado!','Sucesso');
+            /////Cria a wallet vazia desse cliente
+            NegotiateWallet::create([
+                'id'                    => Sequence::getSequence('wallet'),
+                'value'                 => (double)0.00,
+                'negotiate_client_id'   => $dataForm['id']
+            ]);
+
+            toastr()->success('Cliente ['. $dataForm['name'].'] foi criado!','Sucesso');
         }
 
         return redirect(route('admin.client.edit',[$dataForm['id']]));

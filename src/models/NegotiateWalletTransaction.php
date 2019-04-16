@@ -2,10 +2,23 @@
 
 namespace Negotiate\Admin;
 
-use Illuminate\Database\Eloquent\Model;
-use function GuzzleHttp\json_encode;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class NegotiateWalletTransaction extends Model {
-    protected $fillable = ['id', 'value', 'type', 'status', 'reason_id', 'id_user_negotiate', 'token', 'validate_at'];
-
+    protected $fillable = [
+        'id',
+        'recurrence_days',
+        'value',
+        'status',
+        'type',
+        'total_retry',
+        'retry_after_day',
+        'client_id',
+        'user_id',
+        'token',
+        'validate_at'
+    ];
+    protected $connection   = 'negotiate_admin';
+    protected $table        = 'negotiate_transaction';
+    const TABLE             = 'negotiate_transaction';
 }

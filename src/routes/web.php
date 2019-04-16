@@ -30,6 +30,12 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/profiles/{profile}','Negotiate\Admin\Http\Controllers\ProfilesController@edit')->name('admin.profiles.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Edit']);
     Route::post('/profiles/{id}','Negotiate\Admin\Http\Controllers\ProfilesController@update')->name('admin.profiles.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Update']);
 
+    Route::get('/plans','Negotiate\Admin\Http\Controllers\PlansController@index')->name('admin.plans.index')->where(['iconAdmin'=>'fas fa-bookmark', 'menuAdmin'=> "Planos", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Plans Listing', 'isDefaultAdmin'=>'1']);
+    Route::get('/plans/create','Negotiate\Admin\Http\Controllers\PlansController@create')->name('admin.plans.create')->where(['iconAdmin'=>'fa-plus-square',  'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Create',]);
+    Route::post('/plans','Negotiate\Admin\Http\Controllers\PlansController@store')->name('admin.plans.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Profile']);
+    Route::get('/plans/{id}','Negotiate\Admin\Http\Controllers\PlansController@edit')->name('admin.plans.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Edit']);
+    Route::post('/plans/{id}','Negotiate\Admin\Http\Controllers\PlansController@update')->name('admin.plans.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Update']);
+
     Route::get('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@index')->name('admin.resources.index')->where(['iconAdmin'=>'fa-key', 'menuAdmin'=> "Resources", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Resource Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/resources/create','Negotiate\Admin\Http\Controllers\ResourcesController@create')->name('admin.resources.create')->where(['iconAdmin'=>'fa-plus-square','parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Resource Create',]);
     Route::post('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@store')->name('admin.resources.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Resource']);

@@ -116,7 +116,7 @@
 @if($hasSave)
     <div class="card-body">
         <div class="form-group m-b-0 text-right">
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
         </div>
     </div>
 @endif

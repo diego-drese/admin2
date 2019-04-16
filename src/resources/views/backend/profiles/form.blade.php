@@ -45,7 +45,7 @@
 </div>
 <div class="col-md-12 form-group">
     @if($hasSave)
-    <button type="submit" class="btn btn-primary ">Salvar</button>
+    <button style="float: right;" type="submit" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
 @endif
 </div>
 @section('style_head')

@@ -11,10 +11,8 @@
                         <div class="ml-auto">
                             <div class="btn-group">
                                 @if($hasAdd)
-                                    <a href="{{route('admin.profiles.create')}}">
-                                        <a href="{{route('admin.profiles.create')}}" class="btn btn-primary">
-                                            Adicionar <span class="fa fa-plus"></span>
-                                        </a>
+                                    <a href="{{route('admin.profiles.create')}}" class="btn btn-primary btn-rounded" ripple-radius>
+                                        <span class="fa fa-plus"></span> <b>Adicionar</b>
                                     </a>
                                 @endif
                             </div>
@@ -97,7 +95,7 @@
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";
                             if(hasEdit=='1'){
-                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</a>';
+                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true"><b>Editar</b></a>';
                             }
                             return edit_button
                         }

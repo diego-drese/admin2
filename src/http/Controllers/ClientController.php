@@ -5,6 +5,7 @@ namespace Negotiate\Admin\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Negotiate\Admin\Library\ResourceAdmin;
+use Negotiate\Admin\NegotiatePlans;
 use Negotiate\Admin\NegotiateWallet;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\NegotiateClient;
@@ -72,7 +73,9 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         $profiles   = [];
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.client.store');
-        return view('Admin::backend.clients.create', compact('profiles','negotiateClient', 'hasSave', 'user'));
+        $plans      = NegotiatePlans::getAllActives();
+
+        return view('Admin::backend.clients.create', compact('profiles','negotiateClient', 'hasSave', 'user', 'plans'));
     }
 
     /**
@@ -150,10 +153,11 @@ class ClientController extends BaseController {
             }
         }
 
-
+        $plans          = NegotiatePlans::getAllActives();
+        $fieldsUpdate   =  Config::get('admin.plan_fields_update');
         $profiles       = Profile::getProfilesByTypes(Config::get('admin.profile_type'));
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.client.update', [1]);
-        return view('Admin::backend.clients.edit', compact('negotiateClient', 'profiles', 'hasSave', 'user'));
+        return view('Admin::backend.clients.edit', compact('negotiateClient', 'profiles', 'hasSave', 'user', 'plans', 'fieldsUpdate'));
     }
 
     /**

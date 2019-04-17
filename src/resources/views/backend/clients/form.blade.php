@@ -4,7 +4,7 @@
     </div>
     <div class="card-body ">
         <div class="row">
-            <div class="col-md-6 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
+            <div class="col-md-4 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
                 <label for="title">Nome</label>
                 <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{old('name',$negotiateClient->exists() ? $negotiateClient->name : '')}}" name="name"
                        id="name" placeholder="">
@@ -12,7 +12,7 @@
                     <span class="help-block">{{$errors->first('name')}}</span>
                 @endif
             </div>
-            <div class="col-md-6 form-group {{$errors->has('email') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('email') ? 'has-error' : ''}}">
                 <label for="slug">E-mail</label>
                 <input type="email" value="{{old('email',$negotiateClient->email)}}" name="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}"
                        id="email" placeholder="">
@@ -21,7 +21,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('phone') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('phone') ? 'has-error' : ''}}">
                 <label for="phone">Telefone</label>
                 <input type="text" value="{{old('phone',$negotiateClient->exists() ? $negotiateClient->phone : '')}}" name="phone"
                        class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}"
@@ -30,7 +30,7 @@
                     <span class="help-block">{{$errors->first('phone')}}</span>
                 @endif
             </div>
-            <div class="col-md-6 form-group {{$errors->has('cellphone') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('cellphone') ? 'has-error' : ''}}">
                 <label for="cellphone">Celular</label>
                 <input type="text" value="{{old('cellphone',$negotiateClient->exists() ? $negotiateClient->cellphone : '')}}" name="cellphone"
                        class="form-control {{$errors->has('cellphone') ? 'is-invalid' : ''}}"
@@ -39,7 +39,7 @@
                     <span class="help-block">{{$errors->first('cellphone')}}</span>
                 @endif
             </div>
-            <div class="col-md-6 form-group {{$errors->has('active') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('active') ? 'has-error' : ''}}">
                 <label for="active">Status</label>
                 <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" >
                     <option value="1">Ativo</option>
@@ -50,7 +50,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('type') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('type') ? 'has-error' : ''}}">
                 <label for="type">Usuário Administrador</label>
                 @if($user->profile_id==\Negotiate\Admin\User::PROFILE_ID_ROOT)
                     <select type="text" name="user_id" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="user_id" >
@@ -69,7 +69,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('type') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('type') ? 'has-error' : ''}}">
                 <label for="type">Tipo</label>
                 <select type="text" name="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="type" placeholder="Cliente">
                     <option value="CPF" {{$negotiateClient->exists() && $negotiateClient->type == 'CPF' ? 'selected' : ''}}>Pessoa Física</option>
@@ -81,7 +81,7 @@
             </div>
 
 
-            <div class="col-md-6 form-group {{$errors->has('cpf') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('cpf') ? 'has-error' : ''}}">
                 <label for="cpf">CPF</label>
                 <input type="text" value="{{old('cpf',$negotiateClient->exists() ? $negotiateClient->cpf : '')}}" name="cpf"
                        class="form-control {{$errors->has('cpf') ? 'is-invalid' : ''}}"
@@ -90,7 +90,7 @@
                     <span class="help-block">{{$errors->first('cpf')}}</span>
                 @endif
             </div>
-            <div class="col-md-6 form-group {{$errors->has('cnpj') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('cnpj') ? 'has-error' : ''}}">
                 <label for="cnpj">CNPJ</label>
                 <input type="text" value="{{old('cnpj',$negotiateClient->exists() ? $negotiateClient->cnpj : '')}}" name="cnpj"
                        class="form-control {{$errors->has('cnpj') ? 'is-invalid' : ''}}"
@@ -100,7 +100,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('social_reason') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('social_reason') ? 'has-error' : ''}}">
                 <label for="social_reason">Razão Social</label>
                 <input type="text" value="{{old('social_reason',$negotiateClient->exists() ? $negotiateClient->social_reason : '')}}" name="social_reason"
                        class="form-control {{$errors->has('social_reason') ? 'is-invalid' : ''}}"
@@ -110,7 +110,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('fantasy_name') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('fantasy_name') ? 'has-error' : ''}}">
                 <label for="fantasy_name">Nome Fantasia</label>
                 <input type="text" value="{{old('fantasy_name',$negotiateClient->exists() ? $negotiateClient->fantasy_name : '')}}" name="fantasy_name"
                        class="form-control {{$errors->has('fantasy_name') ? 'is-invalid' : ''}}"
@@ -120,7 +120,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('state_register') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('state_register') ? 'has-error' : ''}}">
                 <label for="state_register">Inscrição Estadual</label>
                 <input type="text" value="{{old('state_register', $negotiateClient->exists() ? $negotiateClient->state_register : '')}}" name="state_register"
                        class="form-control {{$errors->has('state_register') ? 'is-invalid' : ''}}"
@@ -129,9 +129,20 @@
                     <span class="help-block">{{$errors->first('state_register')}}</span>
                 @endif
             </div>
+            <div class="col-md-4 form-group {{$errors->has('plan_id') ? 'has-error' : ''}}">
+                <label for="type">Plano</label>
+                <select type="text" name="type" class="form-control {{$errors->has('plan_id') ? 'is-invalid' : ''}}" id="plan" >
+                    @foreach($plans as $plan)
+                        <option value="{{$plan->id}}" {{$negotiateClient->exists() && $negotiateClient->plan_id == $plan->id ? 'selected' : ''}}>{{$plan->name}}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('plan_id'))
+                    <span class="help-block">{{$errors->first('plan_id')}}</span>
+                @endif
+            </div>
             <?php \Carbon\Carbon::setLocale('pt_BR');?>
             @if($negotiateClient->exists() && $negotiateClient->id)
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
@@ -144,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
@@ -157,7 +168,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
@@ -172,7 +183,7 @@
                 </div>
 
 
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
@@ -186,25 +197,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 form-group">
-                    <div class="card bg-cyan">
-                        <div class="d-flex flex-row">
-                            <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{$negotiateClient->total_scheduling_remaining ? $negotiateClient->total_scheduling_remaining : 0}}</h3>
-                                <span>Agendamentos restantes</span>
-                            </div>
-                            <div class="p-10  ml-auto">
-                                <h3 class="text-white box m-b-0"><i class="fas fa-calendar-alt"></i></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="col-md-4 form-group">
+                <div class="col-md-3 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
@@ -217,6 +210,22 @@
                         </div>
                     </div>
                 </div>
+                @foreach($fieldsUpdate as $field)
+                    <div class="col-md-3 form-group">
+                        <div class="card bg-cyan">
+                            <div class="d-flex flex-row">
+                                <div class="text-white align-self-center p-10">
+                                    <h3 class="m-b-0">{{$negotiateClient->{$field['name']} ? $negotiateClient->{$field['name']} : 0}}</h3>
+                                    <span>{{$field['label']}}</span>
+                                </div>
+                                <div class="p-10  ml-auto">
+                                    <h3 class="text-white box m-b-0"><i class="{{$field['icon']}}"></i></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
             @endif
             @if($hasSave)
                 <div class="col-md-12 form-group">

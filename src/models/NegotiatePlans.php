@@ -56,4 +56,9 @@ class NegotiatePlans extends Model {
         $dataForm['id'] = (int)$id;
         self::savePlan(self::makeDataSave($dataForm, $request));
     }
+
+    public static function getAllActives(){
+        $plans = self::where('active', 1)->orderby('name')->get();
+        return $plans;
+    }
 }

@@ -83,7 +83,7 @@
                     {data: "type", 'name': 'type'},
                     {data: "value", 'name': 'value'},
                     {data: 'active', 'name': 'active', render:function(data){
-                            return data==1 ? '<span class="label label-success label-rounded">Habilitado </span>' : '<span class="label label-danger label-rounded">Desabilitado </span>';
+                            return data==1 ? '<span class="label label-success ">Habilitado </span>' : '<span class="label label-danger">Desabilitado </span>';
                     }},
                     {data: 'fields', 'name': 'fields', render:function(data){
                         var fields = '';

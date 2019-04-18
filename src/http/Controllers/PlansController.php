@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Negotiate\Admin\NegotiatePlans;
 use Negotiate\Admin\Resource;
-use Negotiate\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 
 class PlansController extends BaseController
@@ -71,7 +70,7 @@ class PlansController extends BaseController
     public function edit($id) {
        $plan           = NegotiatePlans::firstOrNew(['id'=>(int)$id]);
        $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.plans.update',[1]);
-       $fieldsUpdate   =  Config::get('admin.plan_fields_update');
+       $fieldsUpdate   = Config::get('admin.plan_fields_update');
        return view('Admin::backend.plans.edit',compact('plan', 'hasSave', 'fieldsUpdate'));
     }
 

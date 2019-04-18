@@ -131,7 +131,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('plan_id') ? 'has-error' : ''}}">
                 <label for="type">Plano</label>
-                <select type="text" name="type" class="form-control {{$errors->has('plan_id') ? 'is-invalid' : ''}}" id="plan" >
+                <select type="text" name="plan" class="form-control {{$errors->has('plan_id') ? 'is-invalid' : ''}}" id="plan" >
                     @foreach($plans as $plan)
                         <option value="{{$plan->id}}" {{$negotiateClient->exists() && $negotiateClient->plan_id == $plan->id ? 'selected' : ''}}>{{$plan->name}}</option>
                     @endforeach
@@ -230,7 +230,7 @@
             @if($hasSave)
                 <div class="col-md-12 form-group">
                     <div class="form-group m-b-0 text-right">
-                        <button type="submit" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
+                        <button type="submit" class="btn btn-success ">Salvar</button>
                     </div>
                 </div>
             @endif
@@ -274,7 +274,7 @@
 @if($negotiateClient->exists() && (int)$negotiateClient->id>0)
     <div class="card">
         <div class="card-header bg-amber">
-            <h6 class="m-b-0 text-black font-weight-bolder">Pagamentos</h6>
+            <h6 class="m-b-0 text-black font-weight-bolder">Transações de Pagamento</h6>
         </div>
         <div class="card-body ">
             <div class="row">
@@ -305,7 +305,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Usuário</h5>
+                    <h5 class="modal-title">Usuário</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -372,7 +372,7 @@
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="saveUser" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
+                            <button type="button" id="saveUser" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -384,18 +384,39 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Pagamento</h5>
+
+                    <h5 class="modal-title">Solicitar Pagamento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <small>Plano Atual</small>
+                            <h5 class="card-title" id="planName"></h5>
+                            <small>Descrição</small>
+                            <p id="planDescription"></p>
+                            <small>Tipo</small>
+                            <p id="planType"></p>
+                            @foreach($fieldsUpdate as $field)
+                                <p>
+                                    <i class="{{$field['icon']}}"></i>
+                                    {{$field['label']}} : <span class="specificFields" id="{{$field['name']}}"></span>
+                                </p>
+
+                            @endforeach
+                            <hr>
+                            <small>Valor</small>
+                            <h4 id="planValue"></h4>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer" style="padding-left: 0;">
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="saveSchedule" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
+                            <button type="button" id="saveSchedule" class="btn btn-success " >Solicitar</button>
                         </div>
                     </div>
                 </div>
@@ -409,7 +430,7 @@
     <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
     <style>
         form .card-body{padding: 10px 0px;}
-        #modalEvent .modal-dialog{width: 90%; max-width: 1000px;}
+        .modal-dialog{width: 90%; max-width: 1000px;}
         .select2-selection.select2-selection--single{height: 32px;}
         .select2-container--default .select2-results__option--highlighted[aria-selected] {
             background-color: #fff;
@@ -429,6 +450,11 @@
         var clientID            = '{{$negotiateClient->exists() && $negotiateClient->id ? $negotiateClient->id : 0}}';
         var urlSaveUser         = '{{route('admin.client.user.save', [':idClient'])}}';
         var urlGetUser          = '{{route('admin.client.user.get', [':idClient'])}}';
+        var urlPaymentReq       = '{{route('admin.client.payment.request.get', [':idClient'])}}';
+        var urlPaymentCur       = '{{route('admin.client.payment.current.get', [':idClient'])}}';
+        var urlWalletTrans      = '{{route('admin.client.wallet.transaction.get', [':idClient'])}}';
+        var urlSearchUser       = '{{route('admin.client.search.user')}}';
+
         urlGetUser              = urlGetUser.replace(':idClient', clientID);
         var resetFormUser       = false;
         $(document).ready(function () {
@@ -475,8 +501,8 @@
                     {data: "profileName", 'name': 'profileName'},
                     {data: "resourceName", 'name': 'resourceName'},
                     {data: 'active', 'name': 'active', render:function(data){
-                            return data==1 ? '<span class="label label-success label-rounded">Habilitado </span>' : '<span class="label label-danger label-rounded">Desabilitado </span>';
-                        }},
+                            return data==1 ? '<span class="label label-success">Habilitado </span>' : '<span class="label label-danger">Desabilitado </span>';
+                    }},
 
                     {data: "created_at", 'name': 'created_at'},
 
@@ -517,7 +543,7 @@
                 showTypeUser()
             });
             showTypeUser();
-            var urlSearchUser = '{{route('admin.client.search.user')}}';
+
             $("select#user_id").select2({
                 allowClear: true,
                 width: 'calc(100% - 40px)',
@@ -774,13 +800,40 @@
                 readURL(this);
             });
 
-
-
-
-
-
             $('#addPayment').click(function(){
-                $('#modalPayment').modal('show');
+                var url = urlPaymentCur.replace(':idClient', clientID);
+                $.ajax({
+                    url: url,
+                    type: "get",
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (result) {
+                        var resultData = result.data;
+                        if(resultData.type!="manual" ){
+                            toastr["info"]('Não é possivel adicionar pagamentos maniais para '+resultData.type+'', "Info");
+                            return;
+                        }
+                        $('#planName').html(resultData.name);
+                        $('#planDescription').html(resultData.description);
+                        $('#planType').html(resultData.type);
+                        $('#planValue').html('R$ '+resultData.value);
+                        $('#modalPayment').modal('show');
+                        $('.specificFields').each(function(){
+                            var id = this.id;
+                            if(resultData[id]){
+                                $('#'+id).html(resultData[id]);
+                            }
+
+                        })
+                    },
+                    error: function (erro) {
+                        toastr["error"](erro.responseJSON.message, "Error");
+
+                    }
+                });
+
             });
         });
     </script>

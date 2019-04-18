@@ -80,7 +80,7 @@
                     {data: "email", 'name': 'email'},
                     {data: "profileName", 'name': 'profileName'},
                     {data: 'active', 'name': 'active', render:function(data){
-                        return data==1 ? '<span class="label label-success label-rounded">Habilitado </span>' : '<span class="label label-danger label-rounded">Desabilitado </span>';
+                        return data==1 ? '<span class="label label-success">Habilitado </span>' : '<span class="label label-danger">Desabilitado </span>';
                     }},
                     {data: 'cell_phone', 'name': 'cell_phone'},
                     {data: "resourceName", 'name': 'resourceName'},

@@ -58,7 +58,9 @@ class NegotiatePlans extends Model {
     }
 
     public static function getAllActives(){
-        $plans = self::where('active', 1)->orderby('name')->get();
-        return $plans;
+        return self::where('active', 1)->orderby('name')->get();
+    }
+    public static function getPlanById($id){
+        return  self::where('id',(int)$id)->orderby('name')->first();
     }
 }

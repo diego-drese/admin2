@@ -55,6 +55,9 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::post('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@update')->name('admin.client.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Update']);
     Route::get('/clients/{id}/user/get', 'Negotiate\Admin\Http\Controllers\ClientController@userGet')->name('admin.client.user.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client user get']);
     Route::post('/clients/{id}/user/save/{idUser?}', 'Negotiate\Admin\Http\Controllers\ClientController@userSave')->name('admin.client.user.save')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client user save']);
+    Route::get('/clients/{id}/payment-request/get', 'Negotiate\Admin\Http\Controllers\ClientController@paymentRequest')->name('admin.client.payment.request.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Payment request']);
+    Route::get('/clients/{id}/payment-current/get', 'Negotiate\Admin\Http\Controllers\ClientController@paymentCurrent')->name('admin.client.payment.current.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Payment Current']);
+    Route::get('/clients/{id}/wallet-transactions/get', 'Negotiate\Admin\Http\Controllers\ClientController@walletTransaction')->name('admin.client.wallet.transaction.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Wallet Transaction']);
 
 });
 

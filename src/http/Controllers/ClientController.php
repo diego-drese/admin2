@@ -20,9 +20,57 @@ use Yajra\Datatables\Datatables;
 class ClientController extends BaseController {
 
     use ValidatesRequests;
+    protected function makeValidate(Request $request){
+
+        $this->validate($request, [
+            'name'              => 'required',
+            'type'              => 'required',
+            'user_id'           => 'required',
+            'fantasy_name'      => 'required_if:type,==,CNPJ',
+            'social_reason'     => 'required_if:type,==,CNPJ',
+            'cellphone'         => 'required',
+            'email'             => ['required',  function ($attribute, $value, $fail) use($request){
+                $id     = (int)$request->get('id');
+                if($id){
+                    $result = NegotiateClient::where('email', $value)->where('id', '!=', $id)->first();
+                }else{
+                    $result = NegotiateClient::where('email', $value)->first();
+                }
+                if ($result) {
+                    $fail('EMAIL['.$value.'] já utilizado');
+                }
+            },],
+            'cpf'       => ['required_if:type,==,CPF',  function ($attribute, $value, $fail) use($request){
+                if($request->get('type')=="CNPJ"){
+                    $id     = (int)$request->get('id');
+                    if($id){
+                        $result = NegotiateClient::where('cpf', $value)->where('id', '!=', $id)->first();
+                    }else{
+                        $result = NegotiateClient::where('cpf', $value)->first();
+                    }
+
+                    if ($result) {
+                        $fail('CPF['.$value.'] já utilizado');
+                    }
+                }
+            },],
+            'cnpj'       => ['required_if:type,==,CNPJ',  function ($attribute, $value, $fail) use($request){
+               if($request->get('type')=="CNPJ"){
+                   $id     = (int)$request->get('id');
+                   if($id){
+                       $result = NegotiateClient::where('cnpj', $value)->where('id', '!=', $id)->first();
+                   }else{
+                       $result = NegotiateClient::where('cnpj', $value)->first();
+                   }
+                   if ($result) {
+                       $fail('CNPJ['.$value.'] já utilizado');
+                   }
+               }
+            },],
+        ]);
+    }
 
     public function index(Request $request, DataTables $datatables ) {
-
         if($request->ajax()){
             $user   = Auth::user();
             if($user->profile_id== User::PROFILE_ID_ROOT){
@@ -30,8 +78,6 @@ class ClientController extends BaseController {
             }else{
                 $query = NegotiateClient::where('user_id', (int)$user->id)->get();
             }
-
-
             return Datatables::of($query)
                 ->addColumn('edit_url', function($row){
                     return route('admin.client.edit', [$row->id]);
@@ -86,54 +132,9 @@ class ClientController extends BaseController {
      */
     public function store(Request $request) {
         $dataForm        = [];
-        $customMessages  = [
-            'required' => 'campo é obrigatório',
-        ];
-        $this->validate($request, NegotiateClient::$rules, $customMessages);
-        if(NegotiateClient::where('email', $request->get('email'))->first()){
-            toastr()->error('O email já está em uso!','Email duplicado');
-            return back()->withInput();
-        }
-        if(!empty($request->get('cpf')) && NegotiateClient::where('cpf', $request->get('cpf'))->first()){
-            toastr()->error('O CPF já está em uso!','Cpf duplicado');
-            return back()->withInput();
-        }
-
-        if(!empty($request->get('cnpj')) && NegotiateClient::where('cnpj', $request->get('cnpj'))->first()){
-            toastr()->error('O CNPJ já está em uso!','Cpf duplicado');
-            return back()->withInput();
-        }
-
-        $dataForm['id']             = Sequence::getSequence('clients');
-        $dataForm['name']           = $request->get('name');
-        $dataForm['email']          = $request->get('email');
-        $dataForm['phone']          = $request->get('phone');
-        $dataForm['cellphone']      = $request->get('cellphone');
-        $dataForm['active']         = $request->get('active')=="1" ? 1 : 0;
-        $dataForm['type']           = $request->get('type');
-        $dataForm['cpf']            = $request->get('cpf');
-        $dataForm['cnpj']           = $request->get('cnpj');
-        $dataForm['social_reason']  = $request->get('social_reason');
-        $dataForm['state_register'] = $request->get('state_register');
-        $dataForm['user_id']        = (int)$request->get('user_id');
-        $dataForm['user_name']      = $request->get('user_name');
-        $dataForm['last_payment_value']             = null;
-        $dataForm['current_plan']                   = null;
-        $dataForm['total_scheduling_remaining']     = 0;
-        $dataForm['next_charging_attempt']          = null;
-        $dataForm['total_charging']                 = 0;
-
-        if(NegotiateClient::create($dataForm)){
-            /////Cria a wallet vazia desse cliente
-            NegotiateWallet::create([
-                'id'                    => Sequence::getSequence('wallet'),
-                'value'                 => (double)0.00,
-                'negotiate_client_id'   => $dataForm['id']
-            ]);
-
-            toastr()->success('Cliente ['. $dataForm['name'].'] foi criado!','Sucesso');
-        }
-
+        $this->makeValidate($request);
+        NegotiateClient::createClient($request);
+        toastr()->success('Cliente ['. $request->get('name').'] foi criado!','Sucesso');
         return redirect(route('admin.client.edit',[$dataForm['id']]));
     }
     /**
@@ -154,7 +155,7 @@ class ClientController extends BaseController {
         }
 
         $plans          = NegotiatePlans::getAllActives();
-        $fieldsUpdate   =  Config::get('admin.plan_fields_update');
+        $fieldsUpdate   = Config::get('admin.plan_fields_update');
         $profiles       = Profile::getProfilesByTypes(Config::get('admin.profile_type'));
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.client.update', [1]);
         return view('Admin::backend.clients.edit', compact('negotiateClient', 'profiles', 'hasSave', 'user', 'plans', 'fieldsUpdate'));
@@ -174,41 +175,14 @@ class ClientController extends BaseController {
         }else{
             $negotiateClient = NegotiateClient::where('id',(int)$id)->where('user_id', (int)$user->id)->first();
         }
-        $customMessages  = [
-            'required' => 'campo é obrigatório',
-        ];
-        $this->validate($request, NegotiateClient::$rules, $customMessages);
-        if(NegotiateClient::where('email', $request->get('email'))->where('id', '!=', (int)$id)->first()){
-            toastr()->error('O email já está em uso!','Email duplicado');
-            return back()->withInput();
-        }
-        if(!empty($request->get('cpf')) && NegotiateClient::where('cpf', $request->get('cpf'))->where('id', '!=', (int)$id)->first()){
-            toastr()->error('O CPF já está em uso!','Cpf duplicado');
-            return back()->withInput();
-        }
 
-        if(!empty($request->get('cnpj')) && NegotiateClient::where('cnpj', $request->get('cnpj'))->where('id', '!=', (int)$id)->first()){
-            toastr()->error('O CNPJ já está em uso!','Cpf duplicado');
-            return back()->withInput();
+        if(!$negotiateClient){
+            return view('Admin::errors.403');
         }
-
-        $dataForm['id']             = $id;
-        $dataForm['name']           = $request->get('name');
-        $dataForm['email']          = $request->get('email');
-        $dataForm['phone']          = $request->get('phone');
-        $dataForm['cellphone']      = $request->get('cellphone');
-        $dataForm['active']         = $request->get('active')=="1" ? 1 : 0;
-        $dataForm['type']           = $request->get('type');
-        $dataForm['cpf']            = $request->get('cpf');
-        $dataForm['cnpj']           = $request->get('cnpj');
-        $dataForm['social_reason']  = $request->get('social_reason');
-        $dataForm['state_register'] = $request->get('state_register');
-        $dataForm['user_id']        = (int)$request->get('user_id');
-        $dataForm['user_name']      = $request->get('user_name');
-
-        if($negotiateClient->fill($dataForm)->save()){
-            toastr()->success('Cliente Atualizado com sucesso','Sucesso');
-        };
+        $request->request->add(['id'=>$id]);
+        $this->makeValidate($request);
+        NegotiateClient::updateClient($request, $id);
+        toastr()->success('Cliente Atualizado com sucesso','Sucesso');
 
         return redirect(route('admin.client.index'));
     }
@@ -327,6 +301,23 @@ class ClientController extends BaseController {
                 return 'center';
             })
             ->make(true);
+    }
+    public function paymentCurrent(Request $request, $idClient) {
+        $user       = Auth::user();
+        if($user->profile_id != User::PROFILE_ID_ROOT){
+            /** Valida se esse cliente é do usuário logado */
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            if(!$isOwnerClient){
+                return response()->json(['message'=>'Cliente nao encontrado'], 400);
+            }
+        }else{
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->first();
+        }
+
+        $plan = NegotiatePlans::getPlanById($isOwnerClient->plan_id);
+        return response()->json(['message'=>'success', 'data'=> $plan->toArray()], 200);
+
+
     }
 
 }

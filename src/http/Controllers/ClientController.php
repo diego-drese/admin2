@@ -106,6 +106,11 @@ class ClientController extends BaseController {
                 'resource_default_id'   =>  2,
                 'client_id'             =>  $dataForm['id'],
                 'active'                =>  1,
+                'address_street'         => $dataForm['address_street'],
+                'address_number'         => $dataForm['address_number'],
+                'address_neighborhood'   => $dataForm['address_neighborhood'],
+                'address_city'           => $dataForm['address_city'],
+                'address_state'          => $dataForm['address_state'],
             ];
             User::created($user);
             toastr()->success('Cliente e usuário criado!','Sucesso');
@@ -135,14 +140,31 @@ class ClientController extends BaseController {
      */
     public function update(Request $request, $id) {
 
-        $user       = NegotiateClient::firstOrNew(['id'=>(int)$id]);
+        $user = NegotiateClient::firstOrNew(['id'=>(int)$id]);
         $dataForm   = $request->all();
         $this->validate($request,$user->rules );
 
-        if($user->update($dataForm)){
+        $user = NegotiateClient::where('id', (int)$id)->first();
+        $user->name = $dataForm["name"];
+        $user->email = $dataForm["email"];
+        $user->phone = $dataForm["phone"];
+        $user->cellphone = $dataForm["cellphone"];
+        $user->active = $dataForm["active"];
+        $user->type = $dataForm["type"];
+        $user->cpf = $dataForm["cpf"];
+        $user->cnpj = $dataForm["cnpj"];
+        $user->social_reason = $dataForm["social_reason"];
+        $user->fantasy_name = $dataForm["fantasy_name"];
+        $user->state_register = $dataForm["state_register"];
+        $user->address_street = $dataForm["address_street"];
+        $user->address_number = $dataForm["address_number"];
+        $user->address_neighborhood = $dataForm["address_neighborhood"];
+        $user->address_city = $dataForm["address_city"];
+        $user->address_state = $dataForm["address_state"];
+
+        if($user->update()){
             toastr()->success('Cliente Atualizado com sucesso','Sucesso');
         };
-
         return redirect(route('admin.client.index'));
     }
 

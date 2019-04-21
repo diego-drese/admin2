@@ -19,6 +19,11 @@ class NegotiateClient extends Model {
                             'social_reason',
                             'fantasy_name',
                             'state_register',
+                            'address_street',
+                            'address_number',
+                            'address_neighborhood',
+                            'address_city',
+                            'address_state',
                             ];
 
     protected $connection   = 'negotiate_admin';
@@ -34,5 +39,10 @@ class NegotiateClient extends Model {
         'fantasy_name'      => 'required_if:type,==,2',
         'social_reason'     => 'required_if:type,==,2',
         'cellphone'         => 'required',
+        'address_street'         => 'required',
+        'address_number'         => 'required',
+        'address_neighborhood'   => 'required',
+        'address_city'           => 'required',
+        'address_state'          => 'required',
     ];
 }

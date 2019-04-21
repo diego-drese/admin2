@@ -230,7 +230,7 @@
             @if($hasSave)
                 <div class="col-md-12 form-group">
                     <div class="form-group m-b-0 text-right">
-                        <button type="submit" class="btn btn-success ">Salvar</button>
+                        <button type="submit" class="btn btn-success">Salvar</button>
                     </div>
                 </div>
             @endif
@@ -284,15 +284,16 @@
                     </button>
                 </div>
                 <div class="col-md-12">
-                    <table id="table_users" class="table table-striped table-bordered" >
+                    <table id="table_transactions" class="table table-striped table-bordered" >
                         <thead>
                         <tr class="center">
                             <td role="row">#</td>
-                            <td>Data do pagamento</td>
+                            <td>Data</td>
+                            <td>Tipo</td>
+                            <td>Status</td>
                             <td>Valor</td>
                             <td>Plano</td>
-                            <td>Validade</td>
-                            <td>Ações</td>
+                            <td>Validade(Dias)</td>
                         </tr>
                         </thead>
                     </table>
@@ -416,7 +417,7 @@
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="saveSchedule" class="btn btn-success " >Solicitar</button>
+                            <button type="button" id="savePay" class="btn btn-success" data-id="{{$negotiateClient->id}}">Solicitar</button>
                         </div>
                     </div>
                 </div>
@@ -456,6 +457,7 @@
         var urlSearchUser       = '{{route('admin.client.search.user')}}';
 
         urlGetUser              = urlGetUser.replace(':idClient', clientID);
+        urlWalletTrans          = urlWalletTrans.replace(':idClient', clientID);
         var resetFormUser       = false;
         $(document).ready(function () {
             $('#phone').mask('(00) 0000-0000');
@@ -521,6 +523,61 @@
                 }
             });
 
+            var tableTransacrtions =
+                $('#table_transactions').DataTable({
+                    language: {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum registro encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                            "sNext": "Próximo",
+                            "sPrevious": "Anterior",
+                            "sFirst": "Primeiro",
+                            "sLast": "Último"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Ordenar colunas de forma ascendente",
+                            "sSortDescending": ": Ordenar colunas de forma descendente"
+                        }
+                    },
+                    serverSide: true,
+                    processing: true,
+                    autoWidth:false,
+                    ajax: urlWalletTrans,
+
+                    columns: [
+                        {data: "id", 'name': 'id', searchable: false},
+                        {data: "created_at", 'name': 'created_at'},
+                        {data: "plan_type", 'name': 'plan_type'},
+                        {data: 'status', 'name': 'status', render:function(data, info, row){
+                                if(data=="pending"){
+                                    return '<span class="label label-info">'+row['status_description']+' </span>';
+                                }else if(data=="success" || data=="complete" ){
+                                    return '<span class="label label-success">'+row['status_description']+' </span>';
+                                }else{
+                                    return '<span class="label label-danger">'+row['status_description']+' </span>';
+                                }
+                        }},
+                        {data: "value", 'name': 'value'},
+                        {data: 'plan_name', 'name': 'plan_name'},
+                        {data: "recurrence_days", 'name': 'recurrence_days'},
+
+                    ],
+                    drawCallback: function( settings ) {
+                        $('.editUser').off('click').click(function(){
+                            var idUser      = $(this).attr('data-id');
+                            openModalUser(idUser);
+                        });
+                    }
+                });
 
             function showTypeUser(){
                if($('#type').val()=='CPF'){
@@ -825,8 +882,28 @@
                             if(resultData[id]){
                                 $('#'+id).html(resultData[id]);
                             }
+                        });
 
-                        })
+                        $('#savePay').off('click').click(function () {
+                            var url = urlPaymentReq.replace(':idClient', clientID);
+                            $.ajax({
+                                url: url,
+                                type: "get",
+                                dataType: 'json',
+                                beforeSend: function () {
+
+                                },
+                                success: function (result) {
+                                    $('#modalPayment').modal('hide');
+                                    toastr["success"]('Solicitação cadastrada com sucesso', "Sucesso");
+                                    tableTransacrtions.draw();
+                                },
+                                error: function (erro) {
+                                    toastr["error"](erro.responseJSON.message, "Error");
+                                }
+                            });
+                        });
+
                     },
                     error: function (erro) {
                         toastr["error"](erro.responseJSON.message, "Error");

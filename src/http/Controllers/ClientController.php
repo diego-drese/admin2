@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Config;
 use Negotiate\Admin\Library\ResourceAdmin;
 use Negotiate\Admin\NegotiatePlans;
 use Negotiate\Admin\NegotiateWallet;
+use Negotiate\Admin\NegotiateWalletTransaction;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\NegotiateClient;
 use Illuminate\Routing\Controller as BaseController;
@@ -318,6 +319,46 @@ class ClientController extends BaseController {
         return response()->json(['message'=>'success', 'data'=> $plan->toArray()], 200);
 
 
+    }
+    public function paymentRequest(Request $request, $idClient) {
+        $user       = Auth::user();
+        if($user->profile_id != User::PROFILE_ID_ROOT){
+            /** Valida se esse cliente é do usuário logado */
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            if(!$isOwnerClient){
+                return response()->json(['message'=>'Cliente nao encontrado'], 400);
+            }
+        }else{
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->first();
+        }
+        $plan = NegotiatePlans::getPlanById($isOwnerClient->plan_id);
+        if($plan->type!="manual"){
+            return response()->json(['message'=>'Não é permitido adicionar transações para esse plano'], 400);
+        }
+        /** Verifica se ja existe uma transação */
+        $lastTransaction = NegotiateWalletTransaction::getLast($idClient);
+        if($lastTransaction && ($lastTransaction->status=="pending" || $lastTransaction->status=="success")){
+            return response()->json(['message'=>'Existe um pagamento em analise, aguarde para solicitar.'], 400);
+        }
+        NegotiateWalletTransaction::insertPayment($plan, $idClient, $user);
+        return response()->json(['message'=>'success'], 200);
+    }
+
+    public function walletTransaction(Request $request, $idClient) {
+        $user       = Auth::user();
+        if($user->profile_id != User::PROFILE_ID_ROOT){
+            /** Valida se esse cliente é do usuário logado */
+            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            if(!$isOwnerClient){
+                $idClient=0;
+            }
+        }
+        $query  = NegotiateWalletTransaction::where('client_id', (int)$idClient)->get();
+        return Datatables::of($query)
+            ->setRowClass(function () {
+                return 'center';
+            })
+            ->make(true);
     }
 
 }

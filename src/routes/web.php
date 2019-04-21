@@ -46,7 +46,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/log-view','Negotiate\Admin\Http\Controllers\LogViewController@index')->name('admin.logview.index')->where(['iconAdmin'=>'fas fa-clipboard-list ', 'parentRouteNameAdmin' => 'System Admin', 'menuAdmin'=> "Logs", 'nameAdmin'=>'Logs', 'isDefaultAdmin'=>'1']);
 
 
-    //Negotiate User
+    //Negotiate Client
     Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Clientes", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clientes', 'isDefaultAdmin'=>'1']);
     Route::get('/clients/create', 'Negotiate\Admin\Http\Controllers\ClientController@create')->name('admin.client.create')->where(['iconAdmin'=>'fa-plus-square',  'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Create']);
     Route::post('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@store')->name('admin.client.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Client']);
@@ -59,6 +59,10 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/clients/{id}/payment-current/get', 'Negotiate\Admin\Http\Controllers\ClientController@paymentCurrent')->name('admin.client.payment.current.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Payment Current']);
     Route::get('/clients/{id}/wallet-transactions/get', 'Negotiate\Admin\Http\Controllers\ClientController@walletTransaction')->name('admin.client.wallet.transaction.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Wallet Transaction']);
 
+    //Negotiate wallet Transactions
+    Route::get('/transactions','Negotiate\Admin\Http\Controllers\TransactionsController@index')->name('admin.transactions.index')->where(['iconAdmin'=>'fas money-bill-alt', 'menuAdmin'=> "Transações", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Transaction Listing', 'isDefaultAdmin'=>'1']);
+    Route::get('/transactions/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@get')->name('admin.transactions.get')->where(['iconAdmin'=>'fas money-bill-alt',  'parentRouteNameAdmin' => 'admin.transactions.index', 'nameAdmin'=>'Transaction update',]);
+    Route::post('/transactions/update/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@update')->name('admin.transactions.update')->where(['iconAdmin'=>'fas money-bill-alt', 'nameAdmin'=>'Update Transaction']);
 });
 
 

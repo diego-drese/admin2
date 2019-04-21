@@ -20,11 +20,8 @@ use Image;
 
 
 class UserController extends BaseController {
-
     use ValidatesRequests;
-
     public function index(Request $request, DataTables $datatables ) {
-
         if($request->ajax()){
             $query = User::all();
 

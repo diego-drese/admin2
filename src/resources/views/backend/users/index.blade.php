@@ -9,7 +9,7 @@
                         <h4 class="card-title">&nbsp;</h4>
                         <div class="ml-auto">
                             <div class="btn-group">
-                                <a href="{{route('admin.users.create')}}"  class="btn btn-primary btn-rounded" ripple-radius>
+                                <a href="{{route('admin.users.create')}}"  class="btn btn-primary">
                                     <span class="fa fa-plus"></span> <b>Adicionar</b>
                                 </a>
                             </div>

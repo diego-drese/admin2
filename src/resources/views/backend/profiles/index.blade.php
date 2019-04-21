@@ -11,7 +11,7 @@
                         <div class="ml-auto">
                             <div class="btn-group">
                                 @if($hasAdd)
-                                    <a href="{{route('admin.profiles.create')}}" class="btn btn-primary btn-rounded" ripple-radius>
+                                    <a href="{{route('admin.profiles.create')}}" class="btn btn-primary">
                                         <span class="fa fa-plus"></span> <b>Adicionar</b>
                                     </a>
                                 @endif

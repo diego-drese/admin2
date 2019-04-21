@@ -13,7 +13,7 @@
     <select class="form-control " id="selectTypeUser" name="type">
         <option>Selecione</option>
         @foreach($negotiateProfileTypes as $key=>$type_user)
-            <option {{isset($profile->exists) && $key==$profile->type_user ? 'selected="selected"' : '' }} value="{{$type_user}}">{{$type_user}}</option>
+            <option {{isset($profile->exists) && $type_user==$profile->type ? 'selected="selected"' : '' }} value="{{$type_user}}">{{$type_user}}</option>
         @endforeach
     </select>
 </div>
@@ -45,7 +45,7 @@
 </div>
 <div class="col-md-12 form-group">
     @if($hasSave)
-    <button style="float: right;" type="submit" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
+    <button style="float: right;" type="submit" class="btn btn-success">Salvar</button>
 @endif
 </div>
 @section('style_head')

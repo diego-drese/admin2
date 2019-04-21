@@ -22,7 +22,6 @@ class ClientController extends BaseController {
 
     use ValidatesRequests;
     protected function makeValidate(Request $request){
-
         $this->validate($request, [
             'name'              => 'required',
             'type'              => 'required',

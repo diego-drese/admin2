@@ -15,10 +15,7 @@ class PlansController extends BaseController
 {
 
     use ValidatesRequests;
-    public function __construct(Request $request) {
-        $this->getResourcesDefault = Resource::where('is_menu',1)->where('can_be_default',1)->get();
 
-    }
     protected function makeValidate(Request $request){
         $this->validate($request, [
             'name'              => 'required',

@@ -11,11 +11,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Negotiate\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 
-class ProfilesController extends BaseController
+class TransactionsController extends BaseController
 {
 
     use ValidatesRequests;
-
     public function index(Request $request,DataTables $datatables ) {
 
         if($request->ajax()){
@@ -54,7 +53,7 @@ class ProfilesController extends BaseController
      */
     public function create(Profile $profile) {
         $resources      = Resource::all('name', 'id', 'route_name');
-        $resourcesMenu  = Resource::where('is_menu',1)->where('can_be_default',1)->get();
+        $resourcesMenu  = $this->getResourcesDefault;
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.profiles.store');
 
         $negotiateProfileTypes = \Config::get('admin.profile_type');
@@ -92,7 +91,7 @@ class ProfilesController extends BaseController
        $profile             = Profile::firstOrNew(['id'=>(int)$id]);
        $resources           = Resource::all('name', 'id', 'route_name');
        $profilesResources   = $profile->resources_allow;
-       $resourcesMenu       = Resource::where('is_menu',1)->where('can_be_default',1)->get();
+       $resourcesMenu       = $this->getResourcesDefault;
        $hasSave             = ResourceAdmin::hasResourceByRouteName('admin.profiles.update',[1]);
        $negotiateProfileTypes = \Config::get('admin.profile_type');
        return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave','negotiateProfileTypes'));

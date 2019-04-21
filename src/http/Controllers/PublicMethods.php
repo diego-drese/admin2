@@ -6,10 +6,8 @@ use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Negotiate\Admin\User;
 
-class PublicMethods extends Controller
-{
+class PublicMethods extends Controller {
     public function getResourcesDefault($profileId){
-
         $profile    = Profile::where('id', (int)$profileId)->first();
         $resources  = [];
         if(isset($profile->resources_allow)){

@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-success btn-rounded" ripple-radius>Salvar</button>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </div>
         </div>
     </div>

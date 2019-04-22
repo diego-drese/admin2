@@ -73,6 +73,9 @@ class NegotiateClient extends Model {
         $dataForm['id'] = (int)$id;
         self::saveClient(self::makeDataSave($dataForm, $request));
     }
+    public static function getById( $id){
+      return self::where('id', (int)$id)->first();
+    }
 
 }
 

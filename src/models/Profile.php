@@ -12,22 +12,31 @@ class Profile extends Model
     protected $table        = 'profile';
     const TABLE             = 'profile';
 
-    public function resources(){
-        return $this->belongsToMany(\Negotiate\Admin\Resource::class,'profile_has_resources','profile_id','resource_id');
+
+    public static function getById($id){
+        return self::where('id', (int)$id)->first();
     }
 
+    public static function getProfilesByTypes($type){
+        if(is_array($type)){
+            if (($key = array_search('Admin', $type)) !== false) {
+                unset($type['admin']);
+            }
 
-    public function user(){
-        return $this->hasOne(\Negotiate\Admin\User::class);
+            return self::whereIn('type', $type)->get();
+        }
+        return self::where('type', $type)->get();
     }
 
-    /**
-     * Get the relationships for the entity.
-     *
-     * @return array
-     */
-    public function getQueueableRelations()
-    {
-        // TODO: Implement getQueueableRelations() method.
+    public static function getProfilesByIdAndTypes($profileId, $type){
+        if(is_array($type)){
+            if (($key = array_search('Admin', $type)) !== false) {
+                unset($type['admin']);
+            }
+
+            return self::whereIn('type', $type)->where('id',(int)$profileId)->first();
+        }
+        return self::where('type', $type)->where('id',(int)$profileId)->first();
     }
+
 }

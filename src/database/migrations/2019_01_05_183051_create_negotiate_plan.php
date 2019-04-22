@@ -4,26 +4,26 @@ use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration {
+class CreateNegotiatePLan extends Migration {
 
     protected $connection = 'negotiate_admin';
-    public function up(){
+
+    public function up() {
         Schema::connection($this->connection)
-            ->table('users', function (Blueprint $collection){
+            ->table('negotiate_plan', function (Blueprint $collection){
                 $collection->background(["id"]);
-                $collection->background(["name"]);
-                $collection->background(["email"]);
+                $collection->background(["recurrence_days"]);
+                $collection->background(["value"]);
                 $collection->background(["active"]);
-                $collection->background(["profile_id"]);
-                $collection->background(["resource_default_id"]);
                 $collection->background(["type"]);
-                $collection->background(["client_id"]);
+                $collection->background(["total_retry"]);
+                $collection->background(["retry_after_day"]);
                 $collection->background(["created_at"]);
                 $collection->background(["updated_at"]);
             });
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('users');
+        Schema::connection($this->connection)->dropIfExists('negotiate_plan');
     }
 }

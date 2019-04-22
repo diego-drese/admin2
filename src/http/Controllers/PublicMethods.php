@@ -1,21 +1,19 @@
 <?php
 
 namespace Negotiate\Admin\Http\Controllers;
-//use Negotiate\Admin\Http\Controllers\AuthIronForge;
 use Illuminate\Support\Facades\Auth;
 use Negotiate\Admin\Profile;
 use Negotiate\Admin\Resource;
 use Negotiate\Admin\User;
 
-class PublicMethods extends Controller
-{
+class PublicMethods extends Controller {
     public function getResourcesDefault($profileId){
-
         $profile    = Profile::where('id', (int)$profileId)->first();
         $resources  = [];
         if(isset($profile->resources_allow)){
             $resources  = Resource::whereIn('id', $profile->resources_allow)
                 ->where('can_be_default', 1)
+                ->orderBY('name', 'ASC')
                 ->get();
         }
         return response()->json($resources);

@@ -1,5 +1,5 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'Perfis')
+@section('title', 'Planos')
 @section('content')
 
     <div class="row">
@@ -11,8 +11,10 @@
                         <div class="ml-auto">
                             <div class="btn-group">
                                 @if($hasAdd)
-                                    <a href="{{route('admin.profiles.create')}}" class="btn btn-primary">
-                                        <span class="fa fa-plus"></span> <b>Adicionar</b>
+                                    <a href="{{route('admin.plans.create')}}">
+                                        <a href="{{route('admin.plans.create')}}" class="btn btn-primary">
+                                            Adicionar <span class="fa fa-plus"></span>
+                                        </a>
                                     </a>
                                 @endif
                             </div>
@@ -22,11 +24,13 @@
                         <table id="table_profiles" class="table table-striped table-bordered" role="grid" aria-describedby="file_export_info">
                             <thead class="">
                             <tr>
-                            <th role="row">#</th>
-                            <th>Nome</th>
-                            <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
-                            <th>Recursos</th>
-                            <th>Ações</th>
+                                <th role="row">#</th>
+                                <th>Nome</th>
+                                <th>Tipo</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th>Campos</th>
+                                <th>Ações</th>
                         </tr>
                         </thead>
                     </table>
@@ -72,30 +76,28 @@
                 serverSide: true,
                 processing: true,
                 autoWidth:false,
-                ajax: '{{ route('admin.profiles.index') }}',
+                ajax: '{{ route('admin.plans.index') }}',
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
-                    {data: "created_at", 'name': 'created_at'},
-                    {
-                        data: null, searchable: false, orderable: false, render: function (data) {
-
-                            if(data !== null){
-                                var span = "";
-                                $.each(data.resources, function(k, v){
-                                    span += "<span class=\"badge badge-secondary mr-1 \">" + v.name + "</span>";
-                                });
-                                return span;
-                            }else{
-                                return "";
-                            }
+                    {data: "type", 'name': 'type'},
+                    {data: "value", 'name': 'value'},
+                    {data: 'active', 'name': 'active', render:function(data){
+                            return data==1 ? '<span class="label label-success ">Habilitado </span>' : '<span class="label label-danger">Desabilitado </span>';
+                    }},
+                    {data: 'fields', 'name': 'fields', render:function(data){
+                        var fields = '';
+                        for (var i=0; i<data.length; i++){
+                            fields+='<span class="badge badge-secondary mr-1 ">'+data[i]['label']+'</span>'
                         }
-                    },
+                        return fields;
+                    }},
+
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";
                             if(hasEdit=='1'){
-                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true"><b>Editar</b></a>';
+                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</a>';
                             }
                             return edit_button
                         }

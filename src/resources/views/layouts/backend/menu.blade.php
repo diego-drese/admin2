@@ -1,6 +1,7 @@
 <?php
 $idCurrent  = null;
-$ctrl       = $adminController;
+$ctrl       = isset($adminController) ? $adminController : '';
+$menu       = isset($adminResourcesMenu) ? $adminResourcesMenu : [];
 
 function create_menu($item, &$idCurrent, &$ctrl) {
 $controllerReceive  = $ctrl;
@@ -36,7 +37,7 @@ if(count($item['sub'])) {
 <?php
     }
 echo '<ul id="sidebarnav" class=" sidebarnav nav nav-pills flex-column" >';
-    foreach ($adminResourcesMenu as $key=>$item) {
+    foreach ($menu as $key=>$item) {
             create_menu($item, $idCurrent, $ctrl);
     }
 echo "</ul>";

@@ -1,0 +1,11 @@
+form .card-body {
+    padding: 10px 0px;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    display: none;
+    content: "";
+}
+.breadcrumb-item+.breadcrumb-item i::before{
+    padding-right: .5rem;
+    color: #6c757d;
+}

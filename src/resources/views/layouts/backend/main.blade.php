@@ -77,16 +77,7 @@
             </div>
 
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <a class="navbar-brand d-block d-sm-block d-md-block d-lg-none" href="#">
-                    <img src="/vendor/negotiate/admin/quillpro/img/negotiate-1.png" width="145" height="32.3" alt="Negotiate">
-                </a>
-                <button class="hamburger hamburger--slider" type="button" data-target=".sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle Sidebar">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-                </button>
-            </nav>
+
             <!-- ============================================================== -->
             <!-- End Logo -->
             <!-- ============================================================== -->
@@ -112,10 +103,10 @@
                     <!-- Messages -->
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="font-22 mdi mdi-email-outline"></i>
-
-                        </a>
+{{--                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                            <i class="fas fa-info-circle" style="font-size: 22px;margin-top: 22px;"></i>--}}
+{{--                            <span class="badge badge-pill badge-danger ml-auto m-r-15" style="position: absolute;top: 14px;right: -12px;">0</span>--}}
+{{--                        </a>--}}
                         <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                                 <span class="with-arrow">
                                     <span class="bg-danger"></span>
@@ -132,7 +123,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/1.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -144,7 +135,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/2.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status busy pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -156,7 +147,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/3.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status away pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -168,7 +159,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/4.jpg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status offline pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -276,9 +267,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(Auth::user()->picture != "")
-                                <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
+                                <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
                             @else
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" width="44" height="44">
+                                <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" width="44" height="44">
                             @endif
                             <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span>
                         </a>
@@ -289,9 +280,9 @@
                             <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                 <div class="">
                                     @if(Auth::user()->picture != "")
-                                        <img src="{{url('/')}}/thumbnail/{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
+                                        <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
                                     @else
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73r-pdCvEEff-PcCHvn1xXcRJ7ilZq7i5_s5C9Y8wqXO32ZWL" width="44" height="44">
+                                        <img src="/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg" width="44" height="44">
                                     @endif
                                 </div>
                                 <div class="m-l-10">

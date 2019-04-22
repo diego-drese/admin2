@@ -13,16 +13,6 @@ use Yajra\Datatables\Datatables;
 
 class ResourcesController extends BaseController {
     use ValidatesRequests;
-
-
-    public function __construct(Resource $resource) {
-        $this->resource         = $resource;
-        $this->parentsDefault   = $this->resource->where('is_menu',1)->whereNull('route_name')->get();
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request,DataTables $datatables ) {
         if($request->ajax()){
             $query = Resource::all();
@@ -58,7 +48,7 @@ class ResourcesController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function create(Resource $resource) {
-        $parentsDefault = $this->parentsDefault;
+        $parentsDefault = Resource::where('is_menu',1)->whereNull('route_name')->get();
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.resources.store');
         return view('Admin::backend.resources.create', compact('resource','parentsDefault', 'hasSave'));
     }
@@ -100,9 +90,8 @@ class ResourcesController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-
         $resource       = Resource::firstOrNew(['id'=>(int)$id]);
-        $parentsDefault = $this->parentsDefault;
+        $parentsDefault = Resource::where('is_menu',1)->whereNull('route_name')->get();
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.resources.update',[1]);
         return view('Admin::backend.resources.edit',compact('resource','parent', 'parentsDefault', 'hasSave'));
     }

@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="{{ Config::get('admin.favicon') }}">
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link href="/vendor/negotiate/admin/nice-admin/css/app.css" rel="stylesheet">
+    <link href="/vendor/negotiate/admin/nice-admin/css/basic.css" rel="stylesheet">
     <script src="//use.edgefonts.net/kaushan-script.js"></script>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -19,7 +19,7 @@
 <body>
         @yield('content')
 
-<script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/app.js"></script>
+<script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/basic.js"></script>
 
 @yield('script')
 

@@ -1,18 +1,20 @@
 @extends('Admin::layouts.backend.main')
-@section('title', 'Editar Cliente')
+@section('title', 'Editar Perfil')
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body ">
-                    <form method="post" action="{{route('admin.client.update', $negotiateClient->id)}}">
-                        {{csrf_field()}}
-                        @include('Admin::backend.clients.form')
+                    <form id="form-profile" method="post" action="{{route('admin.plans.update',$plan->id)}}">
+                        {{ csrf_field() }}
+                        @include('Admin::backend.plans.form')
                     </form>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+
 
 

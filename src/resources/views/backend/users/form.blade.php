@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group {{$errors->has('name') ? 'has-danger' : ''}} ">
@@ -80,7 +81,7 @@
             <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" placeholder="Status do usuário">
 
                 <option value="">Selecione</option>
-                <option value="1">Ativo</option>
+                <option value="1" {{$user->exists() && $user->active == 1 ? 'selected' : ''}}>Ativo</option>
                 <option value="0" {{$user->exists() && $user->active == 0 ? 'selected' : ''}}>Desativado</option>
             </select>
             @if($errors->has('active'))
@@ -115,7 +116,7 @@
 @if($hasSave)
     <div class="card-body">
         <div class="form-group m-b-0 text-right">
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-success">Salvar</button>
         </div>
     </div>
 @endif
@@ -140,7 +141,6 @@
 
             $(document).on('change', '#selectProfile', function () {
                 var valueProfile = this.value;
-
                 getResourcesByProfileId(valueProfile);
             }).trigger('change');
 

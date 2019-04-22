@@ -47,6 +47,10 @@ class NegotiateServiceProvider extends ServiceProvider
             __DIR__ . '/config/session.php', 'session'
         );
 
+        $this->mergeConfigFrom(
+            __DIR__.'/config/profile_type.php', 'admin.profile_type'
+        );
+
         $this->mergeViewComposer();
 
         Schema::defaultStringLength(191);
@@ -60,7 +64,7 @@ class NegotiateServiceProvider extends ServiceProvider
 
         Profile::observe("Negotiate\\Admin\\Observers\\ProfileObserver");
         Resource::observe("Negotiate\\Admin\\Observers\\ResourcesObserver");
-        User::observe("Negotiate\\Admin\\Observers\\UserIronForgeObserver");
+        User::observe("Negotiate\\Admin\\Observers\\UserAdminObserver");
 
         Event::listen('log.createdRequest', function ($obj) {
 
@@ -121,6 +125,10 @@ class NegotiateServiceProvider extends ServiceProvider
         }
 
         if ($key == 'session') {
+            $this->app['config']->set($key, array_merge($config, require $path));
+        }
+
+        if ($key == 'admin.profile_type') {
             $this->app['config']->set($key, array_merge($config, require $path));
         }
 

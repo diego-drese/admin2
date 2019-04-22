@@ -9,8 +9,8 @@
                         <h4 class="card-title">&nbsp;</h4>
                         <div class="ml-auto">
                             <div class="btn-group">
-                                <a href="{{route('admin.users.create')}}"  class="btn btn-primary" >
-                                    Adicionar <span class="fa fa-plus"></span>
+                                <a href="{{route('admin.users.create')}}"  class="btn btn-primary">
+                                    <span class="fa fa-plus"></span> <b>Adicionar</b>
                                 </a>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                     {data: "email", 'name': 'email'},
                     {data: "profileName", 'name': 'profileName'},
                     {data: 'active', 'name': 'active', render:function(data){
-                        return data==1 ? '<span class="label label-success label-rounded">Habilitado </span>' : '<span class="label label-danger label-rounded">Desabilitado </span>';
+                        return data==1 ? '<span class="label label-success">Habilitado </span>' : '<span class="label label-danger">Desabilitado </span>';
                     }},
                     {data: 'cell_phone', 'name': 'cell_phone'},
                     {data: "resourceName", 'name': 'resourceName'},
@@ -90,7 +90,7 @@
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";
                             if(hasEdit=='1'){
-                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true">Editar</a>';
+                                edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true"><b>Editar</b></a>';
                             }
                             return edit_button
                         }

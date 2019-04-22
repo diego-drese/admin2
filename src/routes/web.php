@@ -60,9 +60,9 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/clients/{id}/wallet-transactions/get', 'Negotiate\Admin\Http\Controllers\ClientController@walletTransaction')->name('admin.client.wallet.transaction.get')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Wallet Transaction']);
 
     //Negotiate wallet Transactions
-    Route::get('/transactions','Negotiate\Admin\Http\Controllers\TransactionsController@index')->name('admin.transactions.index')->where(['iconAdmin'=>'fas money-bill-alt', 'menuAdmin'=> "Transações", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Transaction Listing', 'isDefaultAdmin'=>'1']);
-    Route::get('/transactions/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@get')->name('admin.transactions.get')->where(['iconAdmin'=>'fas money-bill-alt',  'parentRouteNameAdmin' => 'admin.transactions.index', 'nameAdmin'=>'Transaction update',]);
-    Route::post('/transactions/update/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@update')->name('admin.transactions.update')->where(['iconAdmin'=>'fas money-bill-alt', 'nameAdmin'=>'Update Transaction']);
+    Route::get('/transactions','Negotiate\Admin\Http\Controllers\TransactionsController@index')->name('admin.transactions.index')->where(['iconAdmin'=>'fas fa-money-bill-alt', 'menuAdmin'=> "Transações", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Transaction Listing', 'isDefaultAdmin'=>'1']);
+    Route::get('/transactions/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@get')->name('admin.transactions.get')->where(['iconAdmin'=>'fas fa-money-bill-alt',  'parentRouteNameAdmin' => 'admin.transactions.index', 'nameAdmin'=>'Transaction update',]);
+    Route::post('/transactions/update/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@update')->name('admin.transactions.update')->where(['iconAdmin'=>'fas fa-money-bill-alt', 'nameAdmin'=>'Update Transaction']);
 });
 
 

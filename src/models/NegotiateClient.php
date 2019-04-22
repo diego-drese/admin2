@@ -87,12 +87,17 @@ class NegotiateClient extends Model {
     }
 
     public static function createClient(Request $request){
-        $dataForm['id'] = Sequence::getSequence(NegotiateClient::TABLE);
-        self::saveClient(self::makeDataSave($dataForm, $request));
+        $dataForm = self::makeDataSave(['id'=>Sequence::getSequence(NegotiateClient::TABLE)], $request);
+        self::saveClient($dataForm);
+        return $dataForm;
     }
     public static function updateClient(Request $request, $id){
-        $dataForm['id'] = (int)$id;
-        self::saveClient(self::makeDataSave($dataForm, $request));
+        $dataForm = self::makeDataSave(['id'=>(int)$id], $request);
+        self::saveClient($dataForm);
+        return $dataForm;
+    }
+    public static function getById( $id){
+      return self::where('id', (int)$id)->first();
     }
 }
 

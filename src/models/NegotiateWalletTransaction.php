@@ -25,10 +25,10 @@ class NegotiateWalletTransaction extends Model {
     const TABLE             = 'negotiate_wallet_transaction';
     const STATUS            = [
         'pending'   => 'Aguardando confirmação',
-        'success'   => 'Processado e aceito.',
-        'complete'  => 'Processado, aceito e finalizado.',
+        'success'   => 'Processado e aceito',
+        'complete'  => 'Processado, aceito e finalizado',
         'cancelled' => 'Cancelado',
-        'rejected'  => 'Rejeitado.'
+        'rejected'  => 'Rejeitado'
     ];
 
     public static function getLast($clientId){
@@ -62,5 +62,9 @@ class NegotiateWalletTransaction extends Model {
         }
 
         return $transaction->save();
+    }
+
+    static function getById($id){
+        return self::where('id', (int)$id)->first();
     }
 }

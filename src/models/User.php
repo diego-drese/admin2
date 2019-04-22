@@ -63,5 +63,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function resourceDefault(){
         return Resource::where('id', $this->resource_default_id)->first();
     }
+    public function getById($id){
+        return self::where('id', (int)$id)->first();
+    }
 
 }

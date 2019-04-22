@@ -75,16 +75,17 @@ class TransactionsController extends BaseController
             return redirect(route('admin.transactions.get',[$id]));
         }
 
-        if($request->get('status')!="complete" && $request->get('status')!="reject"){
+        if($request->get('status')!="complete" && $request->get('status')!="rejected"){
             toastr()->error("Status deve ser complete ou reject",'Erro');
             return redirect(route('admin.transactions.get',[$id]));
         }
 
         $user                               = Auth::user();
-        $historic                           = ['user_id' =>($user ? $user->id : null),'user_name' =>($user ? $user->name : null), 'action'=> 'update', 'status'=> $request->get('status'), 'date_at'=> MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'))];
+        $historic                           = $transactions->historic;
+        $historic[]                         = ['user_id' =>($user ? $user->id : null),'user_name' =>($user ? $user->name : null), 'action'=> 'update', 'status'=> $request->get('status'), 'date_at'=> MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'))];
         $transactions->status_description   = NegotiateWalletTransaction::STATUS[$request->get('status')];
         $transactions->status               = $request->get('status');
-        $transactions->historic             = array_merge((array)$transactions->historic, $historic);
+        $transactions->historic             = $historic;
         $transactions->save();
 
         toastr()->success("Status atuaizado com sucesso",'Sucesso');

@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body ">
-                    <form id="form-profile" method="post" action="{{route('admin.transactions.update',[1])}}">
+                    <form id="form-profile" method="post" action="{{route('admin.transactions.update',[$transaction->id])}}">
                         {{ csrf_field() }}
                         <div class="card">
                             <div class="card-body">

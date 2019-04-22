@@ -10,12 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Negotiate\Admin\NegotiateClient;
 use Negotiate\Admin\NegotiatePlans;
 use Negotiate\Admin\NegotiateWalletTransaction;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Negotiate\Admin\Sequence;
-use Negotiate\Admin\User;
 use Yajra\Datatables\Datatables;
 
 class TransactionsController extends BaseController
@@ -66,6 +62,7 @@ class TransactionsController extends BaseController
 
 
     public function update(Request $request, $id) {
+
         $transactions    = NegotiateWalletTransaction::firstOrNew(['id'=>(int)$id]);
 
         if($transactions->status!="pending"){
@@ -73,7 +70,7 @@ class TransactionsController extends BaseController
             return redirect(route('admin.transactions.get',[$id]));
         }
 
-        if(!$request->get('status')){
+        if(!$request->exists('status')){
             toastr()->error("Status não recebido.",'Erro');
             return redirect(route('admin.transactions.get',[$id]));
         }
@@ -82,10 +79,12 @@ class TransactionsController extends BaseController
             toastr()->error("Status deve ser complete ou reject",'Erro');
             return redirect(route('admin.transactions.get',[$id]));
         }
-        $user                   = Auth::user();
-        $historic               = ['user_id' =>($user ? $user->id : null),'user_name' =>($user ? $user->name : null), 'action'=> 'update', 'status'=> $request->get('status'), 'date_at'=> MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'))];
-        $transactions->status   = $request->get('status');
-        $transactions->historic = array_merge($transactions->historic,$historic);
+
+        $user                               = Auth::user();
+        $historic                           = ['user_id' =>($user ? $user->id : null),'user_name' =>($user ? $user->name : null), 'action'=> 'update', 'status'=> $request->get('status'), 'date_at'=> MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'))];
+        $transactions->status_description   = NegotiateWalletTransaction::STATUS[$request->get('status')];
+        $transactions->status               = $request->get('status');
+        $transactions->historic             = array_merge((array)$transactions->historic, $historic);
         $transactions->save();
 
         toastr()->success("Status atuaizado com sucesso",'Sucesso');

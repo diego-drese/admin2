@@ -131,9 +131,8 @@ class ClientController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $dataForm        = [];
         $this->makeValidate($request);
-        NegotiateClient::createClient($request);
+        $dataForm = NegotiateClient::createClient($request);
         toastr()->success('Cliente ['. $request->get('name').'] foi criado!','Sucesso');
         return redirect(route('admin.client.edit',[$dataForm['id']]));
     }
@@ -183,7 +182,6 @@ class ClientController extends BaseController {
         $this->makeValidate($request);
         NegotiateClient::updateClient($request, $id);
         toastr()->success('Cliente Atualizado com sucesso','Sucesso');
-
         return redirect(route('admin.client.index'));
     }
 

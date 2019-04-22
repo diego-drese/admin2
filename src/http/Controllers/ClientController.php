@@ -23,6 +23,13 @@ class ClientController extends BaseController {
     use ValidatesRequests;
     protected function makeValidate(Request $request){
         $this->validate($request, [
+
+
+            'address_street'         => 'required',
+            'address_number'         => 'required',
+            'address_neighborhood'   => 'required',
+            'address_city'           => 'required',
+            'address_state'          => 'required',
             'name'              => 'required',
             'type'              => 'required',
             'user_id'           => 'required',

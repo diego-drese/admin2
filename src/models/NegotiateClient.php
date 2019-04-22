@@ -23,6 +23,11 @@ class NegotiateClient extends Model {
                             'social_reason',
                             'fantasy_name',
                             'state_register',
+                            'address_street',
+                            'address_number',
+                            'address_neighborhood',
+                            'address_city',
+                            'address_state',
                             'last_payment_value',
                             'current_plan',
                             'total_scheduling_remaining',
@@ -32,6 +37,22 @@ class NegotiateClient extends Model {
     protected $connection   = 'negotiate_admin';
     protected $table        = 'negotiate_client';
     const TABLE             = 'negotiate_client';
+
+    public $rules = [
+        'name'              => 'required',
+        'email'             => 'required|email',
+        'type'              => 'required',
+        'cpf'               => 'required_if:type,==,1',
+        'cnpj'              => 'required_if:type,==,2',
+        'fantasy_name'      => 'required_if:type,==,2',
+        'social_reason'     => 'required_if:type,==,2',
+        'cellphone'         => 'required',
+        'address_street'         => 'required',
+        'address_number'         => 'required',
+        'address_neighborhood'   => 'required',
+        'address_city'           => 'required',
+        'address_state'          => 'required',
+    ];
 
     public static function makeDataSave($dataForm, Request $request){
         $dataForm['name']                           = $request->get('name');
@@ -78,6 +99,5 @@ class NegotiateClient extends Model {
     public static function getById( $id){
       return self::where('id', (int)$id)->first();
     }
-
 }
 

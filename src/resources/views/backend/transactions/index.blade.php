@@ -64,6 +64,7 @@
                 serverSide: true,
                 processing: true,
                 autoWidth:false,
+                order: [[ 0, "desc" ]],
                 ajax: '{{ route('admin.transactions.index') }}',
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
@@ -86,7 +87,7 @@
 
                             for(var i=0;i<data.length; i++){
                                 var dataHistoric = data[i];
-                                historic+='<span class="label label-primary">'+dataHistoric['user_name']+' '+dataHistoric['action']+' '+dataHistoric['status']+' - '+moment(Number(dataHistoric['date_at'].milliseconds)).format('DD/MM/YYYY HH:mm')+' </span>';
+                                historic+='<span class="label label-primary ml-2">'+dataHistoric['user_name']+' '+dataHistoric['action']+' '+dataHistoric['status']+' - '+moment(Number(dataHistoric['date_at'].milliseconds)).format('DD/MM/YYYY HH:mm')+' </span>';
                             }
                             return historic;
                         }

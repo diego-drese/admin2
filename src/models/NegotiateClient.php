@@ -34,6 +34,7 @@ class NegotiateClient extends Model {
                             'next_charging_attempt',
                             'total_charging',
                             ];
+    protected $dates        =['next_charging_attempt'];
     protected $connection   = 'negotiate_admin';
     protected $table        = 'negotiate_client';
     const TABLE             = 'negotiate_client';

@@ -68,6 +68,14 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.css'
 ],'src/public/nice-admin/css/daterangepicker.css').version();
 
+/** ColorSelector*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-colorselector/bootstrap-colorselector.min.js',
+],'src/public/nice-admin/js/bootstrap-colorselector.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-colorselector/bootstrap-colorselector.min.css'
+],'src/public/nice-admin/css/bootstrap-colorselector.css').version();
+
 /** Sweet Alert 2.*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.all.min.js',

@@ -255,7 +255,7 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{$negotiateClient->next_charging_attempt ? \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
+                                <h3 class="m-b-0">{{$negotiateClient->next_charging_attempt ?  \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
                                 <span>Próxima tarifação</span>
                             </div>
                             <div class="p-10  ml-auto">
@@ -297,7 +297,7 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->created_at))->diffForHumans()}}</h3>
+                                <h3 class="m-b-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->created_at))->diffForHumans() }}</h3>
                                 <span>Cliente desde</span>
                             </div>
                             <div class="p-10  ml-auto">

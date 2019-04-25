@@ -64,7 +64,6 @@ class TransactionsController extends BaseController
     public function update(Request $request, $id) {
 
         $transactions    = NegotiateWalletTransaction::firstOrNew(['id'=>(int)$id]);
-
         if($transactions->status!="pending"){
             toastr()->error("Não é possivel atualziar essa transação.",'Erro');
             return redirect(route('admin.transactions.get',[$id]));
@@ -87,6 +86,27 @@ class TransactionsController extends BaseController
         $transactions->status               = $request->get('status');
         $transactions->historic             = $historic;
         $transactions->save();
+
+        if($request->get('status')=="complete"){
+            /** Ajusta o cliente */
+            $client                         = NegotiateClient::getById($transactions->client_id);
+            $client->total_charging         = (double)$client->total_charging+$transactions->value;
+            $client->last_payment_value     = (double)$transactions->value;
+            $client->current_plan           = $transactions->plan_name;
+            if($client->next_charging_attempt){
+                $dateCurrent = $client->next_charging_attempt;
+                $dateCurrent->add(new \DateInterval('P'.$transactions->recurrence_days.'D'));
+                $client->next_charging_attempt  = MongoUtils::convertDatePhpToMongo($dateCurrent->format('Y-m-d H:i:s'));
+            }else{
+                $client->next_charging_attempt  = MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s', strtotime('+'.$transactions->recurrence_days.' days')));
+            }
+
+            $fieldsUpdate                   = Config::get('admin.plan_fields_update');
+            foreach ($fieldsUpdate as $value){
+                $client->{$value['name']} = $client->{$value['name']}+$transactions->{$value['name']};
+            }
+            $client->save();
+        }
 
         toastr()->success("Status atuaizado com sucesso",'Sucesso');
         return redirect(route('admin.transactions.index'));

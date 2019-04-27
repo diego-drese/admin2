@@ -68,97 +68,95 @@
                     <span class="help-block">{{$errors->first('type')}}</span>
                 @endif
             </div>
+            <div class="col-md-4 form-group {{$errors->has('address_street') ? 'has-error' : ''}}">
+                <label for="street">Rua</label>
+                <input type="text" value="{{old('address_street',$negotiateClient->exists() ? $negotiateClient->address_street : '')}}" name="address_street"
+                       class="form-control {{$errors->has('address_street') ? 'is-invalid' : ''}}"
+                       id="address_street" placeholder="">
+                @if($errors->has('address_street'))
+                    <span class="help-block">{{$errors->first('address_street')}}</span>
+                @endif
+            </div>
+            <div class="col-md-4 form-group {{$errors->has('address_number') ? 'has-error' : ''}}">
+                <label for="street">Número</label>
+                <input type="text" value="{{old('address_number',$negotiateClient->exists() ? $negotiateClient->address_number : '')}}" name="address_number"
+                       class="form-control {{$errors->has('address_number') ? 'is-invalid' : ''}}"
+                       id="address_number" placeholder="">
+                @if($errors->has('address_number'))
+                    <span class="help-block">{{$errors->first('address_number')}}</span>
+                @endif
+            </div>
 
+                <div class="col-md-4 form-group {{$errors->has('address_complement') ? 'has-error' : ''}}">
+                <label for="street">Complemento</label>
+                <input type="text" value="{{old('address_complement',$negotiateClient->exists() ? $negotiateClient->address_complement : '')}}" name="address_complement"
+                       class="form-control {{$errors->has('address_complement') ? 'is-invalid' : ''}}"
+                       id="address_complement" placeholder="">
+                @if($errors->has('address_complement'))
+                    <span class="help-block">{{$errors->first('address_complement')}}</span>
+                @endif
+            </div>
+            <div class="col-md-4 form-group {{$errors->has('address_neighborhood') ? 'has-error' : ''}}">
+                <label for="street">Bairro</label>
+                <input type="text" value="{{old('address_neighborhood',$negotiateClient->exists() ? $negotiateClient->address_neighborhood : '')}}" name="address_neighborhood"
+                       class="form-control {{$errors->has('address_neighborhood') ? 'is-invalid' : ''}}"
+                       id="address_neighborhood" placeholder="">
+                @if($errors->has('address_neighborhood'))
+                    <span class="help-block">{{$errors->first('address_neighborhood')}}</span>
+                @endif
+            </div>
 
-
-
-
-
-
-
-        <div class="col-md-4 form-group {{$errors->has('address_street') ? 'has-error' : ''}}">
-            <label for="street">Rua</label>
-            <input type="text" value="{{old('address_street',$negotiateClient->exists() ? $negotiateClient->address_street : '')}}" name="address_street"
-                   class="form-control {{$errors->has('address_street') ? 'is-invalid' : ''}}"
-                   id="address_street" placeholder="">
-            @if($errors->has('address_street'))
-                <span class="help-block">{{$errors->first('address_street')}}</span>
-            @endif
-        </div>
-        <div class="col-md-4 form-group {{$errors->has('address_number') ? 'has-error' : ''}}">
-            <label for="street">Número</label>
-            <input type="text" value="{{old('address_number',$negotiateClient->exists() ? $negotiateClient->address_number : '')}}" name="address_number"
-                   class="form-control {{$errors->has('address_number') ? 'is-invalid' : ''}}"
-                   id="address_number" placeholder="">
-            @if($errors->has('address_number'))
-                <span class="help-block">{{$errors->first('address_number')}}</span>
-            @endif
-        </div>
-        <div class="col-md-4 form-group {{$errors->has('address_neighborhood') ? 'has-error' : ''}}">
-            <label for="street">Bairro</label>
-            <input type="text" value="{{old('address_neighborhood',$negotiateClient->exists() ? $negotiateClient->address_neighborhood : '')}}" name="address_neighborhood"
-                   class="form-control {{$errors->has('address_neighborhood') ? 'is-invalid' : ''}}"
-                   id="address_neighborhood" placeholder="">
-            @if($errors->has('address_neighborhood'))
-                <span class="help-block">{{$errors->first('address_neighborhood')}}</span>
-            @endif
-        </div>
-
-        <div class="col-md-4 form-group {{$errors->has('address_city') ? 'has-error' : ''}}">
-            <label for="street">Cidade</label>
-            <input type="text" value="{{old('address_city',$negotiateClient->exists() ? $negotiateClient->address_city : '')}}" name="address_city"
-                   class="form-control {{$errors->has('address_city') ? 'is-invalid' : ''}}"
-                   id="address_city" placeholder="">
-            @if($errors->has('address_city'))
-                <span class="help-block">{{$errors->first('address_city')}}</span>
-            @endif
-        </div>
-        <div class="col-md-4 form-group {{$errors->has('address_state') ? 'has-error' : ''}}">
-            <label for="street">Estado</label>
-            <?php
-            $estadosBrasileiros = array(
-                'AC'=>'Acre',
-                'AL'=>'Alagoas',
-                'AP'=>'Amapá',
-                'AM'=>'Amazonas',
-                'BA'=>'Bahia',
-                'CE'=>'Ceará',
-                'DF'=>'Distrito Federal',
-                'ES'=>'Espírito Santo',
-                'GO'=>'Goiás',
-                'MA'=>'Maranhão',
-                'MT'=>'Mato Grosso',
-                'MS'=>'Mato Grosso do Sul',
-                'MG'=>'Minas Gerais',
-                'PA'=>'Pará',
-                'PB'=>'Paraíba',
-                'PR'=>'Paraná',
-                'PE'=>'Pernambuco',
-                'PI'=>'Piauí',
-                'RJ'=>'Rio de Janeiro',
-                'RN'=>'Rio Grande do Norte',
-                'RS'=>'Rio Grande do Sul',
-                'RO'=>'Rondônia',
-                'RR'=>'Roraima',
-                'SC'=>'Santa Catarina',
-                'SP'=>'São Paulo',
-                'SE'=>'Sergipe',
-                'TO'=>'Tocantins'
-            );
-            ?>
-            <select type="text" name="address_state" class="form-control {{$errors->has('address_state') ? 'is-invalid' : ''}}" id="type" placeholder="Estado">
-                @foreach($estadosBrasileiros as $uf=>$nome)
-                    <option value="{{$uf}}" {{isset($negotiateClient->exists) && $uf==$negotiateClient->address_state ? 'selected="selected"' : '' }}>{{$nome}}</option>
-                @endforeach
-            </select>
-            @if($errors->has('address_state'))
-                <span class="help-block">{{$errors->first('address_state')}}</span>
-            @endif
-        </div>
-
-
-
-
+            <div class="col-md-4 form-group {{$errors->has('address_city') ? 'has-error' : ''}}">
+                <label for="street">Cidade</label>
+                <input type="text" value="{{old('address_city',$negotiateClient->exists() ? $negotiateClient->address_city : '')}}" name="address_city"
+                       class="form-control {{$errors->has('address_city') ? 'is-invalid' : ''}}"
+                       id="address_city" placeholder="">
+                @if($errors->has('address_city'))
+                    <span class="help-block">{{$errors->first('address_city')}}</span>
+                @endif
+            </div>
+            <div class="col-md-4 form-group {{$errors->has('address_state') ? 'has-error' : ''}}">
+                <label for="street">Estado</label>
+                <?php
+                $estadosBrasileiros = array(
+                    'AC'=>'Acre',
+                    'AL'=>'Alagoas',
+                    'AP'=>'Amapá',
+                    'AM'=>'Amazonas',
+                    'BA'=>'Bahia',
+                    'CE'=>'Ceará',
+                    'DF'=>'Distrito Federal',
+                    'ES'=>'Espírito Santo',
+                    'GO'=>'Goiás',
+                    'MA'=>'Maranhão',
+                    'MT'=>'Mato Grosso',
+                    'MS'=>'Mato Grosso do Sul',
+                    'MG'=>'Minas Gerais',
+                    'PA'=>'Pará',
+                    'PB'=>'Paraíba',
+                    'PR'=>'Paraná',
+                    'PE'=>'Pernambuco',
+                    'PI'=>'Piauí',
+                    'RJ'=>'Rio de Janeiro',
+                    'RN'=>'Rio Grande do Norte',
+                    'RS'=>'Rio Grande do Sul',
+                    'RO'=>'Rondônia',
+                    'RR'=>'Roraima',
+                    'SC'=>'Santa Catarina',
+                    'SP'=>'São Paulo',
+                    'SE'=>'Sergipe',
+                    'TO'=>'Tocantins'
+                );
+                ?>
+                <select type="text" name="address_state" class="form-control {{$errors->has('address_state') ? 'is-invalid' : ''}}" id="address_state" placeholder="Estado">
+                    @foreach($estadosBrasileiros as $uf=>$nome)
+                        <option value="{{$uf}}" {{isset($negotiateClient->exists) && $uf==$negotiateClient->address_state ? 'selected="selected"' : '' }}>{{$nome}}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('address_state'))
+                    <span class="help-block">{{$errors->first('address_state')}}</span>
+                @endif
+            </div>
             <div class="col-md-4 form-group {{$errors->has('type') ? 'has-error' : ''}}">
                 <label for="type">Tipo</label>
                 <select type="text" name="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="type" placeholder="Cliente">
@@ -231,7 +229,7 @@
                 @endif
             </div>
 
-            <div class="col-md-3 form-group">
+            <div class="col-md-12 form-group">
 
             </div>
 

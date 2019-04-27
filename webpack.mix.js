@@ -103,6 +103,14 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/css/bootstrap-toggle.min.css',
 ],'src/public/nice-admin/css/form.css').version();
 
+/** DropZone*/
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/dropzone/dist/min/dropzone.min.js',
+],'src/public/nice-admin/js/dropzone.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/dropzone/dist/min/dropzone.min.css',
+],'src/public/nice-admin/css/dropzone.css').version();
+
 mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'src/public/nice-admin/css/icons');
 mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'src/public/nice-admin/assets/images');
 

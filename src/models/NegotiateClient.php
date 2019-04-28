@@ -103,7 +103,7 @@ class NegotiateClient extends Model {
         self::saveClient($dataForm);
         return $dataForm;
     }
-    public static function getById( $id){
+    public static function getById($id){
       return self::where('id', (int)$id)->first();
     }
 }

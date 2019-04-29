@@ -2,6 +2,7 @@
 
 namespace Negotiate\Admin\Http\Controllers\Auth;
 
+use Illuminate\Notifications\Messages\MailMessage;
 use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
@@ -38,6 +39,14 @@ class ResetPasswordController extends Controller
         $this->middleware('guest');
     }
 
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+            ->subject('Alterar Senha - EspecializaTi Academy')
+            ->line('Você está recebendo este e-mail porque recebemos um pedido de redefinição de senha para sua conta.')
+            ->action('Resetar Senha', url(config('app.url').route('password.reset', $this->token, false)))
+            ->line('Se você não solicitou uma alteração da senha, nenhuma ação adicional é necessária.');
+    }
 
     public function showResetForm(Request $request, $token = null)
     {

@@ -1,50 +1,89 @@
+
 @extends('Admin::layouts.backend.login-tpl')
 
 @section('content')
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ route('login') }}"><span class="logo-lg">{{ \Config::get('admin.logo_label') }}</span></a>
 
+    <div class="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
         </div>
-        <!-- /.login-logo -->
-        <div class="login-box-body">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(/vendor/negotiate/admin/nice-admin/assets/images/big/auth-bg.jpg) no-repeat center center;">
+            <div class="auth-box">
+                <div id="loginform">
+                    <div class="logo">
+                        <span class="db"><img src="/vendor/negotiate/admin/nice-admin/assets/images/logo-icon.png" alt="logo" /></span>
+                        <h5 class="font-medium m-b-20">Entrar no Admin</h5>
+                    </div>
+                    <!-- Form -->
+                    <div class="row">
 
-
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <form method="POST" action="{{ route('password.email') }}">
-                {{ csrf_field() }}
-
-                <div class="form-group row">
-                    <label for="email" class="btn btn-link col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                    <div class="col-md-12">
-                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
                         @endif
+                        <div class="col-12">
+                            <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('password.email') }}">
+                                {{ csrf_field() }}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                                    </div>
+                                    <input type="email" id="email" class="form-control form-control-lg" name="email" value="{{ old('email') }}"  placeholder="Email" required autofocus  aria-describedby="basic-addon1">
+                                </div>
+                                @if ($errors->has('email'))
+                                    <label class="text-danger" for="email">{{ $errors->first('email') }}</label>
+                                @endif
+
+                                <div class="form-group text-center">
+                                    <div class="col-xs-12 p-b-20">
+                                        <button class="btn btn-block btn-lg btn-info" type="submit">Alterar Senha</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group row ">
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" style="margin:0 auto;display:block">
-                            {{ __('Send Password Reset Link') }}
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-
+            </div>
         </div>
-        <!-- /.login-box-body -->
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
     </div>
+
+
 @endsection
+
+
+
+
+
+
+
 

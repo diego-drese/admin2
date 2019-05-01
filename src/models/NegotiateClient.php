@@ -69,6 +69,12 @@ class NegotiateClient extends Model {
         $dataForm['state_register']                 = $request->get('state_register');
         $dataForm['user_id']                        = (int)$request->get('user_id');
         $dataForm['user_name']                      = $request->get('user_name');
+        $dataForm['address_street']                 = $request->get('address_street');
+        $dataForm['address_number']                 = $request->get('address_number');
+        $dataForm['address_complement']             = $request->get('address_complement');
+        $dataForm['address_neighborhood']           = $request->get('address_neighborhood');
+        $dataForm['address_city']                   = $request->get('address_city');
+        $dataForm['address_state']                  = $request->get('address_state');
         $dataForm['last_payment_value']             = null;
         $dataForm['current_plan']                   = null;
         $dataForm['total_scheduling_remaining']     = 0;
@@ -97,7 +103,7 @@ class NegotiateClient extends Model {
         self::saveClient($dataForm);
         return $dataForm;
     }
-    public static function getById( $id){
+    public static function getById($id){
       return self::where('id', (int)$id)->first();
     }
 }

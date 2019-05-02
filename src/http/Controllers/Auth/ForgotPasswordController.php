@@ -2,7 +2,7 @@
 
 namespace Negotiate\Admin\Http\Controllers\Auth;
 
-use App\Notifications\ResetPasswordNotification;
+use Negotiate\Admin\Notifications\ResetPasswordNotification;
 use Illuminate\Http\Request;
 use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -37,8 +37,17 @@ class ForgotPasswordController extends Controller
     public function sendResetLinkEmail(Request $request)
     {
         $user = User::where('email', $request->email)->first();
+        if(!$user){
+            toastr()->error('não foi encontrado usuário com este e-mail.');
+            return back();
+        }
         $passwordReset = PasswordReset::create(['email'=>$user->email,'token'=>$user->remember_token]);
         $user->notify(new ResetPasswordNotification($passwordReset));
+
+
+        toastr()->success('você recebeu um e-mail para recuperar a senha.');
+
+        return redirect(route('login'));
     }
 
     //Shows form to request password reset

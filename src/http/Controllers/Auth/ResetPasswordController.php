@@ -6,6 +6,8 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Negotiate\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Negotiate\Admin\PasswordReset;
+use Negotiate\Admin\User;
 
 class ResetPasswordController extends Controller
 {
@@ -21,6 +23,7 @@ class ResetPasswordController extends Controller
     */
 
     use ResetsPasswords;
+
 
     /**
      * Where to redirect users after resetting their password.
@@ -54,4 +57,54 @@ class ResetPasswordController extends Controller
             ['token' => $token, 'email' => $request->email]
         );
     }
+
+    public function reset(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string|confirmed',
+            'token' => 'required|string'
+        ]);
+
+        $passwordReset = PasswordReset::where('email', $request->email)->where('token', $request->token)->first();
+
+        if (!$passwordReset){
+            toastr()->error('Token inválido','Erro');
+            return back();
+        }
+
+        $user = User::where('email', $passwordReset->email)->first();
+
+        if (!$user){
+            toastr()->error('não foi encontrado usuário com este e-mail.');
+            return back();
+        }
+
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        if($passwordReset->delete()){
+            toastr()->success('Senha alterada com sucesso!');
+            return redirect(route('login'));
+        }
+    }
+
+    /**
+     * Get the response for a failed password reset.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+//    protected function sendResetFailedResponse(Request $request, $response)
+//    {
+//        return redirect()->back()
+//            ->withInput($request->only('email'))
+//            ->withErrors(['email' => trans($response)]);
+//    }
+
+//    public function resetPassword($user, $password)
+//    {
+//        dd('b');
+//    }
 }

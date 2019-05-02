@@ -20,7 +20,7 @@
         @yield('content')
 
 <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/basic.js"></script>
-
+        @toastr_render
 @yield('script')
 
         <script>

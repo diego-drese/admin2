@@ -30,20 +30,25 @@ class UserAdminObserver
 
     public function updated($model){
 
-        $userName = Auth::user()->name;
-        $userId = Auth::user()->id;
-        $log_ = '';
-        $changes = $model->isDirty() ? $model->getDirty() : false;
+        try{
+            $userName = Auth::user()->name;
+            $userId = Auth::user()->id;
+            $log_ = '';
+            $changes = $model->isDirty() ? $model->getDirty() : false;
 
-        if($changes)
-        {
-            foreach($changes as $attr => $value)
+            if($changes)
             {
-                $log_ .= "Admin Updated {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
-            }
+                foreach($changes as $attr => $value)
+                {
+                    $log_ .= "Admin Updated {$model->getTable()} register #{$model->id} field $attr from '{$model->getOriginal($attr)}' to '{$model->$attr}' for User {$userId}#{$userName} \r\n";
+                }
 
-            Log::info($log_);
+                Log::info($log_);
+            }
+        }catch (\Exception $exception){
+
         }
+
     }
     public function saving($model){
 

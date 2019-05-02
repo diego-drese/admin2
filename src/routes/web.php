@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,20 +68,6 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
 });
 
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/', 'Negotiate\Admin\Http\Controllers\HomeController@index')->name('index');
-    ///** Authentication Routes...  */
-    Route::get('login', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
-    Route::post('login', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@login');
-    Route::post('logout', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@logout')->name('logout');
-
-///** Password Reset Routes...  */
-    Route::get('password/reset', 'Negotiate\Admin\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('password/email', 'Negotiate\Admin\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('password/reset/{token}', 'Negotiate\Admin\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
-    Route::post('password/reset', 'Negotiate\Admin\Http\Controllers\Auth\ResetPasswordController@reset');
-});
-
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], function() {
 
@@ -96,5 +84,24 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
 
     //Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
     //Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');
+
+});
+
+
+
+
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/', 'Negotiate\Admin\Http\Controllers\HomeController@index')->name('index');
+    ///** Authentication Routes...  */
+    Route::get('login', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@login');
+    Route::post('logout', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@logout')->name('logout');
+///** Password Reset Routes...  */
+    Route::post('password/reset', 'Negotiate\Admin\Http\Controllers\Auth\ResetPasswordController@reset')->name('passwords.reset');
+    Route::get('password/reset', 'Negotiate\Admin\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('password/email', 'Negotiate\Admin\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'Negotiate\Admin\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
 });

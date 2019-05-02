@@ -2,6 +2,7 @@
 
 namespace Negotiate\Admin;
 
+use Illuminate\Support\Facades\App;
 use Negotiate\Admin\Http\ViewComposers;
 use Negotiate\Admin\Console\Commands\RefreshRoutes;
 use Illuminate\Support\Facades\Event;
@@ -19,6 +20,12 @@ class NegotiateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'admin');
+
+        $this->publishes([
+            __DIR__.'/resources/lang' => resource_path('lang'),
+        ]);
 
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Admin');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
@@ -85,6 +92,8 @@ class NegotiateServiceProvider extends ServiceProvider
             Log::info($log_);
 
         });
+
+        App::setLocale('pt-BR');
 
 
     }

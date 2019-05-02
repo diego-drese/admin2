@@ -5,11 +5,13 @@ namespace Negotiate\Admin;
 use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Auth\Authenticatable;
+
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract{
     use Authenticatable, Authorizable, CanResetPassword, Notifiable;
@@ -65,6 +67,19 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
     public function getById($id){
         return self::where('id', (int)$id)->first();
+    }
+
+
+    /**
+     * Send the password reset notification.
+     * @note: This override Authenticatable methodology
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
 }

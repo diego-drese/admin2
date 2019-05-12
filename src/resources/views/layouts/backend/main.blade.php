@@ -85,16 +85,9 @@
                 <!-- ============================================================== -->
                 <!-- toggle and nav items -->
                 <!-- ============================================================== -->
-                <ul class="navbar-nav float-left mr-auto">
-                    <!-- <li class="nav-item d-none d-md-block">
-                        <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
-                            <i class="mdi mdi-menu font-24"></i>
-                        </a>
-                    </li> -->
-                    <!-- ============================================================== -->
-                    <!-- Search -->
-                    <!-- ============================================================== -->
-                  </ul>
+                <div class="navbar-nav float-left mr-auto w-100 " style="max-width: 314px">
+                    @yield('nav_bar_left')
+                </div>
                 <!-- ============================================================== -->
                 <!-- Right side toggle and nav items -->
                 <!-- ============================================================== -->

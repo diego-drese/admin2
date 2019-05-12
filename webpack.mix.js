@@ -115,6 +115,19 @@ mix.styles([
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.js',
 ],'src/public/nice-admin/js/wickedpicker.js').version();
+/** timepicker */
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.timepicker.js',
+],'src/public/nice-admin/js/timepicker.js').version();
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.datepair.min.js',
+],'src/public/nice-admin/js/datepair.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.timepicker.css',
+],'src/public/nice-admin/css/timepicker.css').version();
+
+
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.css',
 ],'src/public/nice-admin/css/wickedpicker.css').version();

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login</title>
-    <link rel="icon" type="image/png" href="{{ Config::get('admin.favicon') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="/vendor/negotiate/admin/nice-admin/assets/images/favicon.png">
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="/vendor/negotiate/admin/nice-admin/css/basic.css" rel="stylesheet">

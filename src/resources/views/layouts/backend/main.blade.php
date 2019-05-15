@@ -85,7 +85,7 @@
                 <!-- ============================================================== -->
                 <!-- toggle and nav items -->
                 <!-- ============================================================== -->
-                <div class="navbar-nav float-left mr-auto w-100 " style="max-width: 314px">
+                <div id="nav-bar-left" class="navbar-nav float-left mr-auto w-100 " style="max-width: 314px">
                     @yield('nav_bar_left')
                 </div>
                 <!-- ============================================================== -->

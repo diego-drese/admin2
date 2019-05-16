@@ -95,22 +95,17 @@
     </div>
 </div>
 @section('style_head')
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
 @endsection
-
 @section('script_footer_end')
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
     <script>
         var selectedOption      = "{{$user->exists ? $user->profile_id : 1}}";
         var resource_default_id = "{{$user->exists ? $user->resource_default_id : null}}";
 
         $(document).ready(function () {
-
             $('#selectResourceDefault').select2({ width: '100%' });
-
             getResourcesByProfileId(selectedOption);
-
-
             $(document).on('change', '#selectProfile', function () {
                 var valueProfile = this.value;
                 getResourcesByProfileId(valueProfile);
@@ -128,8 +123,6 @@
                     },
                     success: function (data) {
                         populateResourcesDefault(data);
-
-
                     },
                     error: function (erro) {
                         console.log(erro.responseJSON.message);
@@ -142,7 +135,6 @@
                 var jsonData = arrayResources;
                 var selectResources = $('#selectResourceDefault');
                 selectResources.empty();
-
                 jsonData.forEach((function (element) {
                     selectResources.append(`<option ${element.id == resource_default_id ? 'selected="selected"' : ''} value="${element.id}">${element.menu}</option>`);
                 }))

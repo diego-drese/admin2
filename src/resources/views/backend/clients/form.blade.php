@@ -520,9 +520,10 @@
     </div>
 @endif
 @section('style_head')
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/sweetalert2.css">
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/sweetalert2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/datatables.css')}}">
+
     <style>
         form .card-body{padding: 10px 0px;}
         .modal-dialog{width: 90%; max-width: 1000px;}
@@ -534,10 +535,11 @@
     </style>
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/sweetalert2.js"></script>
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/datatables.js"></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/sweetalert2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/datatables.js')}}></script>
+
     <script>
         var selectedOption      = 0;
         var resourceDefaultId   = 0;

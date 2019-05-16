@@ -17,123 +17,124 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/dist/js/sidebarmenu.js',
     'src/resources/assets/theme/nice-admin/libs/moment/moment.js',
     'src/resources/assets/theme/nice-admin/libs/moment/locale/pt-br.js',
-],'src/public/nice-admin/js/basic.js').version();
+],'vendor/negotiate/admin/js/basic.js').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/dist/css/style.min.css',
     'src/resources/assets/theme/nice-admin/libs/tooltip/tooltip.css',
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.css',
     'src/resources/assets/theme/nice-admin/dist/css/negotiate.css',
-],'src/public/nice-admin/css/basic.css').version();
+],'vendor/negotiate/admin/css/basic.css').version();
 
 /** DataTable*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.js',
-],'src/public/nice-admin/js/datatables.js').version();
+],'vendor/negotiate/admin/js/datatables.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
-],'src/public/nice-admin/css/datatables.css').version();
+],'vendor/negotiate/admin/css/datatables.css').version();
 
 /** Bootstrap Switch*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js',
-],'src/public/nice-admin/js/bootstrap-switch.js').version();
+],'vendor/negotiate/admin/js/bootstrap-switch.js').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
-],'src/public/nice-admin/css/bootstrap-switch.css').version();
+],'vendor/negotiate/admin/css/bootstrap-switch.css').version();
 
 /** Select2*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/select2/dist/js/select2.min.js',
     'src/resources/assets/theme/nice-admin/libs/select2/dist/js/i18n/pt-BR.js',
-],'src/public/nice-admin/js/select2.js').version();
+],'vendor/negotiate/admin/js/select2.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/select2/dist/css/select2.min.css',
-],'src/public/nice-admin/css/select2.css').version();
+],'vendor/negotiate/admin/css/select2.css').version();
 
 /** Material-datetimepicker.*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker-custom.js',
-],'src/public/nice-admin/js/datetimepicker.js').version();
+],'vendor/negotiate/admin/js/datetimepicker.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
-],'src/public/nice-admin/css/datetimepicker.css').version();
+],'vendor/negotiate/admin/css/datetimepicker.css').version();
 
 /** DataeRangePicker */
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.js',
-],'src/public/nice-admin/js/daterangepicker.js').version();
+],'vendor/negotiate/admin/js/daterangepicker.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/daterangepicker/daterangepicker.css'
-],'src/public/nice-admin/css/daterangepicker.css').version();
+],'vendor/negotiate/admin/css/daterangepicker.css').version();
 
 /** ColorSelector*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-colorselector/bootstrap-colorselector.min.js',
-],'src/public/nice-admin/js/bootstrap-colorselector.js').version();
+],'vendor/negotiate/admin/js/bootstrap-colorselector.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-colorselector/bootstrap-colorselector.min.css'
-],'src/public/nice-admin/css/bootstrap-colorselector.css').version();
+],'vendor/negotiate/admin/css/bootstrap-colorselector.css').version();
 
 /** Sweet Alert 2.*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.all.min.js',
-],'src/public/nice-admin/js/sweetalert2.js').version();
+],'vendor/negotiate/admin/js/sweetalert2.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/sweetalert2/dist/sweetalert2.min.css',
-],'src/public/nice-admin/css/sweetalert2.css').version();
+],'vendor/negotiate/admin/css/sweetalert2.css').version();
 
 /** Forms*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery-mask/jquery.mask.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/js/bootstrap-toggle.min.js',
-],'src/public/nice-admin/js/forms.js').version();
+],'vendor/negotiate/admin/js/forms.js').version();
 
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/c3/d3.min.js',
-],'src/public/nice-admin/js/c3.js').version();
+],'vendor/negotiate/admin/js/c3.js').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
-],'src/public/nice-admin/css/c3.css').version();
+],'vendor/negotiate/admin/css/c3.css').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/css/bootstrap-toggle.min.css',
-],'src/public/nice-admin/css/form.css').version();
+],'vendor/negotiate/admin/css/form.css').version();
 
 /** DropZone*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/dropzone/dist/min/dropzone.min.js',
-],'src/public/nice-admin/js/dropzone.js').version();
+],'vendor/negotiate/admin/js/dropzone.js').version();
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/dropzone/dist/min/dropzone.min.css',
-],'src/public/nice-admin/css/dropzone.css').version();
+],'vendor/negotiate/admin/css/dropzone.css').version();
 
 /** wickedpicker */
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.js',
-],'src/public/nice-admin/js/wickedpicker.js').version();
+],'vendor/negotiate/admin/js/wickedpicker.js').version();
 /** timepicker */
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.timepicker.js',
-],'src/public/nice-admin/js/timepicker.js').version();
+],'vendor/negotiate/admin/js/timepicker.js').version();
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.datepair.min.js',
-],'src/public/nice-admin/js/datepair.js').version();
+],'vendor/negotiate/admin/js/datepair.js').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.timepicker.css',
-],'src/public/nice-admin/css/timepicker.css').version();
+],'vendor/negotiate/admin/css/timepicker.css').version();
 
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.css',
-],'src/public/nice-admin/css/wickedpicker.css').version();
+],'vendor/negotiate/admin/css/wickedpicker.css').version();
 
-mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'src/public/nice-admin/css/icons');
-mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'src/public/nice-admin/assets/images');
+mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'vendor/negotiate/admin/css/icons');
+mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'vendor/negotiate/admin/assets/images');
+mix.copyDirectory('src/resources/assets/fonts', 'vendor/negotiate/admin/css/fonts');
 
 mix.autoload({
     'jquery': ['jQuery', '$','jquery'],

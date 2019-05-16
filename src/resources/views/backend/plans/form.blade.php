@@ -110,8 +110,9 @@
 </div>
 
 @section('style_head')
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/form.css">
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/basic.js')}}></script>
     <style>
         .select2-container--classic .select2-selection--single, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-selection__arrow, .select2-container--default .select2-selection--single .select2-selection__rendered {
             height: auto;
@@ -119,8 +120,9 @@
     </style>
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>
+
     <script>
         $(document).ready(function () {
             $('#value').mask('#.##0.00', {reverse: true});

@@ -121,12 +121,13 @@
     </div>
 @endif
 @section('style_head')
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/form.css">
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/select2.css">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
+
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/select2.js"></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
     <script>
         var selectedOption = "{{$user->exists ? $user->profile_id : 0}}";
         var resource_default_id = "{{$user->exists ? $user->resource_default_id : null}}";

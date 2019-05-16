@@ -18,23 +18,24 @@ class NegotiateServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
 
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'admin');
-
-        $this->publishes([
-            __DIR__.'/resources/lang' => resource_path('lang'),
-        ]);
-
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Admin');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
         $this->publishes([
-            __DIR__ . '/public' => public_path('vendor/negotiate/admin'),
+            __DIR__.'/resources/lang' => resource_path('lang'),
+        ]);
+
+        $this->publishes([
+            __DIR__ . '/../vendor' => public_path('vendor'),
         ], 'public');
 
+        $this->mergeConfigFrom(
+            __DIR__ . '/../mix-manifest.json', 'app.merge-mix-admin'
+        );
 
         $this->mergeConfigFrom(
             __DIR__.'/config/admin.php', 'admin'
@@ -59,8 +60,6 @@ class NegotiateServiceProvider extends ServiceProvider
         );
 
         $this->mergeViewComposer();
-
-        Schema::defaultStringLength(191);
 
         if(php_sapi_name()!='cli'){
             $this->setObservers();
@@ -139,6 +138,16 @@ class NegotiateServiceProvider extends ServiceProvider
 
         if ($key == 'admin.profile_type') {
             $this->app['config']->set($key, array_merge($config, require $path));
+        }
+
+        if($key=='app.merge-mix-admin' && empty($config)){
+            $jsonMixProject = json_decode(file_get_contents(public_path('/mix-manifest.json')), true);
+            $jsonMix        = json_decode(file_get_contents($path), true);
+            $jsonMerge      = array_merge(is_array($jsonMixProject) ? $jsonMixProject: [], $jsonMix);
+            $file           = fopen(public_path('/mix-manifest.json'), 'w');
+            fwrite($file, json_encode($jsonMerge,JSON_UNESCAPED_SLASHES));
+            fclose($file);
+            $this->app['config']->set($key, true);
         }
 
 

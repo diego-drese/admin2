@@ -42,10 +42,11 @@
 @endsection
 
 @section('style_head')
-    <link rel="stylesheet" href="/vendor/negotiate/admin/nice-admin/css/datatables.css">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/datatables.css')}}">
+
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/datatables.js"></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/datatables.js')}}></script>
     <script>
         var hasEdit = '{{$hasEdit}}';
         $(document).ready(function () {

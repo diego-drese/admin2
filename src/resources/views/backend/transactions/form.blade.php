@@ -63,7 +63,7 @@
     </div>
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src="/vendor/negotiate/admin/nice-admin/js/forms.js"></script>
+    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>
     <script>
 
         $(document).ready(function () {

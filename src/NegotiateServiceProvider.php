@@ -141,7 +141,12 @@ class NegotiateServiceProvider extends ServiceProvider
         }
 
         if($key=='app.merge-mix-admin' && empty($config)){
-            $jsonMixProject = json_decode(file_get_contents(public_path('/mix-manifest.json')), true);
+            try{
+                $jsonMixProject = json_decode(file_get_contents(public_path('/mix-manifest.json')),true);
+            }catch(\Exception $e){
+                $jsonMixProject=[];
+            }
+
             $jsonMix        = json_decode(file_get_contents($path), true);
             $jsonMerge      = array_merge(is_array($jsonMixProject) ? $jsonMixProject: [], $jsonMix);
             $file           = fopen(public_path('/mix-manifest.json'), 'w');

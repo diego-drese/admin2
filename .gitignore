@@ -1,4 +1,3 @@
-vendor/
 node_modules/
 .idea/
 # Laravel 4 specific

@@ -13,11 +13,10 @@ use Yajra\Datatables\Datatables;
 
 class ResourcesController extends BaseController {
     use ValidatesRequests;
-    public function index(Request $request,DataTables $datatables ) {
+    public function index(Request $request) {
         if($request->ajax()){
-            $query = Resource::all();
 
-            return Datatables::of($query)
+            return Datatables::of(Resource::query())
                 ->addColumn('profiles', function(Resource $resource){
 
                     $profiles = Profile::where('resources_allow', $resource->id)->get();
@@ -33,7 +32,7 @@ class ResourcesController extends BaseController {
                 ->setRowClass(function () {
                     return 'center';
                 })
-                ->make(true);
+                ->toJson();
         }
 
         $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.resources.create');

@@ -77,15 +77,16 @@ class ClientController extends BaseController {
         ]);
     }
 
-    public function index(Request $request, DataTables $datatables ) {
+    public function index(Request $request) {
         if($request->ajax()){
             $user   = Auth::user();
             if($user->profile_id== User::PROFILE_ID_ROOT){
-                $query = NegotiateClient::all();
+                $query = NegotiateClient::orderBy('name');
             }else{
-                $query = NegotiateClient::where('user_id', (int)$user->id)->get();
+                $query = NegotiateClient::where('user_id', (int)$user->id);
             }
-            return Datatables::of($query)
+
+            return Datatables($query)
                 ->addColumn('edit_url', function($row){
                     return route('admin.client.edit', [$row->id]);
                 })
@@ -109,7 +110,7 @@ class ClientController extends BaseController {
                 ->setRowClass(function () {
                     return 'center';
                 })
-                ->make(true);
+                ->toJson();
         }
 
         $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.client.create');
@@ -357,12 +358,12 @@ class ClientController extends BaseController {
                 $idClient=0;
             }
         }
-        $query  = NegotiateWalletTransaction::where('client_id', (int)$idClient)->get();
+        $query  = NegotiateWalletTransaction::where('client_id', (int)$idClient);
         return Datatables::of($query)
             ->setRowClass(function () {
                 return 'center';
             })
-            ->make(true);
+            ->toJson();
     }
 
 }

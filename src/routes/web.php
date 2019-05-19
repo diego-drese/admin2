@@ -50,7 +50,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
 
     //Negotiate Client
     Route::get('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@index')->name('admin.client.index')->where(['iconAdmin'=>'fa-user', 'menuAdmin'=> "Clientes", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Clientes', 'isDefaultAdmin'=>'1']);
-    Route::get('/clients/create', 'Negotiate\Admin\Http\Controllers\ClientController@create')->name('admin.client.create')->where(['iconAdmin'=>'fa-plus-square',  'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Create']);
+    Route::get('/clients/create', 'Negotiate\Admin\Http\Controllers\ClientController@create')->name('admin.client.create')->where(['iconAdmin'=>'fas fa-plus-square',  'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Create']);
     Route::post('/clients', 'Negotiate\Admin\Http\Controllers\ClientController@store')->name('admin.client.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Client']);
     Route::post('/clients/search-user', 'Negotiate\Admin\Http\Controllers\ClientController@searchUser')->name('admin.client.search.user')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client search user']);
     Route::get('/clients/{id}', 'Negotiate\Admin\Http\Controllers\ClientController@edit')->name('admin.client.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.client.index', 'nameAdmin'=>'Client Edit']);
@@ -65,6 +65,16 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/transactions','Negotiate\Admin\Http\Controllers\TransactionsController@index')->name('admin.transactions.index')->where(['iconAdmin'=>'fas fa-money-bill-alt', 'menuAdmin'=> "Transações", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Transaction Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/transactions/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@get')->name('admin.transactions.get')->where(['iconAdmin'=>'fas fa-money-bill-alt',  'parentRouteNameAdmin' => 'admin.transactions.index', 'nameAdmin'=>'Transaction update',]);
     Route::post('/transactions/update/{id}','Negotiate\Admin\Http\Controllers\TransactionsController@update')->name('admin.transactions.update')->where(['iconAdmin'=>'fas fa-money-bill-alt', 'nameAdmin'=>'Update Transaction']);
+
+    //Negotiate notification
+    Route::get('/notifications','Negotiate\Admin\Http\Controllers\NotificationsController@index')->name('admin.notifications.index')->where(['iconAdmin'=>'fas fa-exclamation', 'menuAdmin'=> "Notifications", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Notification Listing', 'isDefaultAdmin'=>'1']);
+    Route::get('/notifications/add','Negotiate\Admin\Http\Controllers\NotificationsController@add')->name('admin.notifications.add')->where(['iconAdmin'=>'fas fa-plus-square',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification Add form']);
+    Route::get('/notifications/add','Negotiate\Admin\Http\Controllers\NotificationsController@add')->name('admin.notifications.add')->where(['iconAdmin'=>'fas fa-plus-square',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification Add form']);
+    Route::get('/notifications/add','Negotiate\Admin\Http\Controllers\NotificationsController@add')->name('admin.notifications.add')->where(['iconAdmin'=>'fas fa-plus-square',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification Add form']);
+    Route::get('/notifications/store','Negotiate\Admin\Http\Controllers\NotificationsController@store')->name('admin.notifications.store')->where(['iconAdmin'=>'fas fa-plus-square',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification save new']);
+    Route::get('/notifications/edit/{id}','Negotiate\Admin\Http\Controllers\NotificationsController@edit')->name('admin.notifications.edit')->where(['iconAdmin'=>'fas fa-pencil-square-o',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification edit form']);
+    Route::get('/notifications/update/{id}','Negotiate\Admin\Http\Controllers\NotificationsController@update')->name('admin.notifications.update')->where(['iconAdmin'=>'fas fa-pencil-square-o',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification save edit']);
+    Route::get('/notifications/show/{id}','Negotiate\Admin\Http\Controllers\NotificationsController@show')->name('admin.notifications.show')->where(['iconAdmin'=>' fas fa-envelope-open',  'parentRouteNameAdmin' => 'admin.notifications.index', 'nameAdmin'=>'Notification show']);
 });
 
 

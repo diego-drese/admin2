@@ -16,13 +16,10 @@ class ProfilesController extends BaseController
 
     use ValidatesRequests;
 
-    public function index(Request $request,DataTables $datatables ) {
+    public function index(Request $request) {
 
         if($request->ajax()){
-
-            $query = Profile::all();
-
-            return Datatables::of($query)
+            return Datatables::of(Profile::query())
                 ->addColumn('edit_url', function($row){
                     return route('admin.profiles.edit', [$row->id]);
                 })->addColumn('resources', function($row){
@@ -32,12 +29,11 @@ class ProfilesController extends BaseController
                     }else{
                         return [];
                     }
-
                 })
                 ->setRowClass(function () {
                     return 'center';
                 })
-                ->make(true);
+                ->toJson(true);
         }
 
         $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.profiles.create');

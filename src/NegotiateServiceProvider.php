@@ -51,13 +51,15 @@ class NegotiateServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/config/providers.php', 'app.providers'
         );
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/datatables.php', 'app.datatables'
+        );
+
         $this->mergeConfigFrom(
             __DIR__ . '/config/session.php', 'session'
         );
 
-        $this->mergeConfigFrom(
-            __DIR__.'/config/profile_type.php', 'admin.profile_type'
-        );
 
         $this->mergeViewComposer();
 
@@ -108,14 +110,6 @@ class NegotiateServiceProvider extends ServiceProvider
 
         $config = $this->app['config']->get($key, []);
 
-        if($key=='admin'  && !isset($config['owner_type'])){
-            $rootArray=require $path;
-            if(!empty($config['owner_type'])){
-                $rootArray['owner_type'] = $config['owner_type'];
-            }
-            $this->app['config']->set($key, array_merge($config, $rootArray));
-        }
-
         if($key=='admin'  && !isset($config['profile_type'])){
             $this->app['config']->set($key, array_merge($config, require $path));
         }
@@ -129,6 +123,10 @@ class NegotiateServiceProvider extends ServiceProvider
         }
 
         if ($key == 'app.providers') {
+            $this->app['config']->set($key, array_merge($config, require $path));
+        }
+
+        if ($key == 'app.datatables') {
             $this->app['config']->set($key, array_merge($config, require $path));
         }
 

@@ -14,17 +14,13 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Yajra\Datatables\Datatables;
 
-class TransactionsController extends BaseController
-{
+class TransactionsController extends BaseController {
 
     use ValidatesRequests;
-    public function index(Request $request,DataTables $datatables ) {
+    public function index(Request $request) {
 
         if($request->ajax()){
-
-            $query = NegotiateWalletTransaction::all();
-
-            return Datatables::of($query)
+            return Datatables::of(NegotiateWalletTransaction::query())
                 ->addColumn('client_name', function($row){
                    $client = NegotiateClient::getById($row->client_id);
                    return $client->name;
@@ -34,7 +30,7 @@ class TransactionsController extends BaseController
                 ->setRowClass(function () {
                     return 'center';
                 })
-                ->make(true);
+                ->toJson();
         }
 
         $hasShow     = ResourceAdmin::hasResourceByRouteName('admin.transactions.get',[1]);

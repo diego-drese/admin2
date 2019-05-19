@@ -8,7 +8,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Negotiate\Admin\NegotiatePlans;
-use Negotiate\Admin\Resource;
 use Yajra\Datatables\Datatables;
 
 class PlansController extends BaseController
@@ -28,10 +27,9 @@ class PlansController extends BaseController
         ]);
     }
 
-    public function index(Request $request,DataTables $datatables ) {
+    public function index(Request $request) {
         if($request->ajax()){
-            $query = NegotiatePlans::all();
-            return Datatables::of($query)
+            return Datatables::of(NegotiatePlans::query())
                 ->addColumn('edit_url', function($row){
                     return route('admin.plans.edit', [$row->id]);
                 })
@@ -41,7 +39,7 @@ class PlansController extends BaseController
                 ->setRowClass(function () {
                     return 'center';
                 })
-                ->make(true);
+                ->toJson(true);
         }
 
         $hasAdd     = ResourceAdmin::hasResourceByRouteName('admin.plans.create');

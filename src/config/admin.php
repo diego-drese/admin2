@@ -5,6 +5,6 @@ return [
     'favicon'               => env('NEGOTIATE_ADMIN_FAVICON', '/vendor/negotiate/admin/img/favicon.png'),
     'logo_label'            => env('NEGOTIATE_ADMIN_LOGO_LABEL', 'Negotiate'),
     "cache_prefix"          => 'negotiate',
-    'profile_type'          => [],
+    'profile_type'          => ['admin' => 'Admin'],
     'plan_fields_update'    => []
 ];

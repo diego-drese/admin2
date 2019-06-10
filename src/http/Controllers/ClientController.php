@@ -321,7 +321,11 @@ class ClientController extends BaseController {
         }
 
         $plan = NegotiatePlans::getPlanById($isOwnerClient->plan_id);
-        return response()->json(['message'=>'success', 'data'=> $plan->toArray()], 200);
+        if($plan){
+            return response()->json(['message'=>'success', 'data'=> $plan->toArray()], 200);
+        }else{
+            return response()->json(['message'=>'Cadastre um plano'], 400);
+        }
 
 
     }

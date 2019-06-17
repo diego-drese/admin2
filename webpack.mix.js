@@ -26,6 +26,8 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/dist/css/negotiate.css',
 ],'vendor/negotiate/admin/css/basic.css').version();
 
+mix.sass('src/resources/assets/theme/nice-admin/sass/theme-color.scss', 'vendor/negotiate/admin/css/themes.css').version();
+
 /** DataTable*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.js',

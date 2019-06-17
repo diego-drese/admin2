@@ -10,10 +10,10 @@
     <title>@yield('title')</title>
     @yield('style_head_start')
     <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/basic.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/themes.css')}}">
     <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/basic.js')}}></script>
     @yield('style_head')
 </head>
-
 <body>
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
@@ -262,7 +262,7 @@
                             @if(Auth::user()->picture != "")
                                 <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
                             @else
-                                <img src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" width="44" height="44">
+                                <img class="avatar-default" src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" width="44" height="44">
                             @endif
                             <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span>
                         </a>
@@ -270,12 +270,12 @@
                                 <span class="with-arrow">
                                     <span class="bg-primary"></span>
                                 </span>
-                            <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
+                            <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10 user-conf-bg">
                                 <div class="">
                                     @if(Auth::user()->picture != "")
                                         <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
                                     @else
-                                        <img src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" width="44" height="44">
+                                        <img class="avatar-default" src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" width="20" height="20">
                                     @endif
                                 </div>
                                 <div class="m-l-10">
@@ -286,6 +286,20 @@
                             <div class="profile-dis scrollable">
                                 <a class="dropdown-item" href="{{route('admin.users.form-profile')}}">
                                     <i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item theme-btn">
+                                    <i class="fa fa-cog m-r-5 m-l-5"></i> Tema
+                                </a>
+                                <div class="color-list" style="display: none">
+                                    <ul>
+                                        <li class="color-change" data-color="theme1"><span class="theme1"></span></li>
+                                        <li class="color-change" data-color="theme2"><span class="theme2"></span></li>
+                                        <li class="color-change" data-color="theme3"><span class="theme3"></span></li>
+                                        <li class="color-change" data-color="theme4"><span class="theme4"></span></li>
+                                        <li class="color-change" data-color="theme5"><span class="theme5"></span></li>
+                                        <li class="color-change" data-color="remove"><span class="default-theme"></span></li>
+                                    </ul>
+                                </div>
                                 <div class="dropdown-divider"></div>
                                     <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -384,7 +398,52 @@
             }
         }
     };
+
+    var confTheme = function() {
+      const colorList = $('.color-list');
+      $('.theme-btn').on('click', function(event) {
+          colorList.toggle();
+          event.stopPropagation();
+      });
+
+      $('.color-change').on('click', function(event) {
+         let color =  $(this).data("color");
+         if(color != 'remove') {
+             removeColorsClass();
+             $('body').addClass(color);
+             window.localStorage.setItem('theme-set', color);
+             event.stopPropagation();
+         }else{
+             removeColorsClass();
+             window.localStorage.removeItem('theme-set');
+             event.stopPropagation();
+         }
+      })
+    };
+
+    function removeColorsClass(){
+        for (let i = 0; i < 10; i++) {
+            $('body').removeClass(`theme${i}`)
+        }
+    }
+
+    async function getStorage(){
+        return await new Promise((resolve, reject) => {
+            resolve(window.localStorage.getItem('theme-set'));
+        })
+    }
+
+    function themeSet(){
+        getStorage().then((res) => {
+            if(res) {
+                $('body').addClass(res);
+            }
+        })
+    }
+
+    themeSet();
     openMenuActive();
+    confTheme();
 </script>
 </body>
 

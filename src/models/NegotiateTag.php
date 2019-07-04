@@ -3,6 +3,7 @@
 namespace Negotiate\Admin;
 use Jenssegers\Mongodb\Eloquent\Model;
 
+
 class NegotiateTag extends Model {
 
     protected $fillable     = ['tag', 'type', 'client_id', 'group', 'id'];

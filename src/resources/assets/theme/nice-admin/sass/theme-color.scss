@@ -8,7 +8,11 @@ $theme5: #fff!important;
   .#{$name} {
     #main-wrapper {
       .left-sidebar {
-        background: $bg
+        background: $bg;
+        ul.first-level.in{
+          background: $bg;
+          filter: brightness(0.90);
+        }
       }
     }
     #sidebarnav{
@@ -61,7 +65,7 @@ $theme5: #fff!important;
         border: 0px;
         color: white;
       }
-      .input-group-text{
+      #nav-bar-left .input-group-text{
         background: transparent;
         border: 0;
         color: white;

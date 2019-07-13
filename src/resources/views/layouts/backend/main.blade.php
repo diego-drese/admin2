@@ -427,23 +427,48 @@
         }
     }
 
-    async function getStorage(){
+    async function getStorage(key){
         return await new Promise((resolve, reject) => {
-            resolve(window.localStorage.getItem('theme-set'));
+            resolve(window.localStorage.getItem(key));
         })
     }
 
     function themeSet(){
-        getStorage().then((res) => {
+        getStorage('theme-set').then((res) => {
             if(res) {
                 $('body').addClass(res);
             }
         })
     }
 
+    $(document).on('click','.sidebartoggler',function () {
+       var wrapper = $('#main-wrapper').attr('class');
+       if(wrapper == 'mini-sidebar'){
+           window.localStorage.setItem('sidebar-mini', 'on')
+       }
+       else{
+           window.localStorage.setItem('sidebar-mini', 'off')
+       }
+
+    });
+
+    function  setSidebar(){
+        getStorage('sidebar-mini').then((res) => {
+            if(res == 'on') {
+                $(function() {
+                    $('#main-wrapper').attr('data-sidebartype','mini-sidebar')
+                        $('#main-wrapper').addClass('mini-sidebar')
+                })
+            }
+        })
+    }
+
     themeSet();
-    openMenuActive();
     confTheme();
+    openMenuActive();
+    $(function() {
+        setSidebar();
+    });
 </script>
 </body>
 

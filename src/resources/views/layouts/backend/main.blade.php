@@ -364,12 +364,94 @@
         <!-- ============================================================== -->
         <footer class="footer text-center">
             Desenvolvido por <a href="https://negotiate.com.br" target="_blank" >Negotiate</a> SoftwareHouse
+            <a href="#" class="help-btn">
+                <i class="fa fa-question my-float"></i>
+            </a>
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
+
+        <!--HELP PopUp -->
+        <div class="popup-help" role="alert">
+            <div class="popup-help-container">
+                <div class="head"><span>Ajuda</span></div>
+                <div class="popup-container-content">
+                    <div id="accordion">
+                        <div>
+                            <div id="t1">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-accordion-help collapsed" data-toggle="collapse" data-target="#tc1" aria-expanded="true" aria-controls="collapseOne">
+                                        Primeiros Passos
+                                        <i class="fa" aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="tc1" class="collapse" aria-labelledby="t1" data-parent="#accordion">
+                                <div class="collapse-content">
+                                    <h1>Bem vindo(a) ao HubCLinic! para começar:</h1>
+                                    <p>01. Cadastre <a href="/clinic/professional/create">Profissionais</a>.</p>
+                                    <p>02. Cadastre os <a href="/clinic/services/create">serviços</a> oferecidos por sua clinica.</p>
+                                    <p>03. Cadastre ou <a href="/clinic/patients/import-view">importe</a>  seus <a href="/clinic/patients/create">Pacientes</a>.</p>
+                                    <p>04. Agora você pode acessar a <a href="/clinic/agenda">agenda</a>, selecionar o profissional e começar criar e gerenciar agendamentos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="t2">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-accordion-help collapsed" data-toggle="collapse" data-target="#tc2" aria-expanded="false" aria-controls="collapseTwo">
+                                        Seu primeiro agendamento
+                                        <i class="fa" aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="tc2" class="collapse" aria-labelledby="t2" data-parent="#accordion">
+                                <div class="collapse-content">
+                                    <a href="#" class="show-img" data-link="https://media.giphy.com/media/cLBjE22pADxyqQwo7k/giphy.gif">
+                                        <span class="tx">Mostrar imagem</span>
+                                         <img src="" class="img-fluid">
+                                    </a>
+                                    <br><br>
+                                    <p>01. Acesse sua <a href="/clinic/agenda">agenda</a>.</p>
+                                    <p>02. Confirme o horário para criar o agendamento.</p>
+                                    <p>03. Procure o cliente</p>
+                                    <p>04. Defina o serviço</p>
+                                    <p>05. Cadastre o status de pagamento e clique em salvar</p>
+                                    <p>06. Agendamento criado com sucesso!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div id="t3">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link btn-accordion-help collapsed" data-toggle="collapse" data-target="#tc3" aria-expanded="false" aria-controls="collapseTwo">
+                                        Integrar Hclinic ao Google Agenda
+                                        <i class="fa" aria-hidden="true"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="tc3" class="collapse" aria-labelledby="t3" data-parent="#accordion">
+                                <div class="collapse-content">
+                                    <p>01. Acesse a tela de edição do <a href="/clinic/professional">Profissional</a>.</p>
+                                    <img src="https://i.imgur.com/07srPb3.jpg" class="img-fluid">
+                                    <p>02. Defina um nome e uma cor para a agenda (irá aparecer no Google) clique em salvar.</p>
+                                    <p>03. Você será redirecionado para o google, faça seu login e conceda as permissões necessárias para integração.</p>
+                                    <img src="https://i.imgur.com/9EShf9B.jpg" class="img-fluid">
+                                    <p>04. Você será redirecionado novamente, os agendamentos do profissional vão estar disponíves no Google agenda e o melhor, a integração está completa ou seja, os próximos agendamentos também serão cadastrados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- popup-container -->
+        </div> <!-- popup -->
     </div>
 </div>
+
+
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 
@@ -449,19 +531,41 @@
        else{
            window.localStorage.setItem('sidebar-mini', 'off')
        }
-
     });
 
     function  setSidebar(){
         getStorage('sidebar-mini').then((res) => {
             if(res == 'on') {
                 $(function() {
-                    $('#main-wrapper').attr('data-sidebartype','mini-sidebar')
-                        $('#main-wrapper').addClass('mini-sidebar')
+                    $('#main-wrapper').attr('data-sidebartype','mini-sidebar');
+                    $('#main-wrapper').addClass('mini-sidebar')
                 })
             }
         })
     }
+
+    $(document).on('click', '.help-btn', function (event) {
+        event.preventDefault();
+        $('.popup-help').toggleClass('is-visible');
+        $("i", this).toggleClass(" fa-times");
+
+    });
+
+    $(document).mouseup(function (e){
+        var el = $('.popup-help-container');
+        if (!e.target.classList.contains('help-btn') && !e.target.classList.contains('fa') && !el.is(e.target) && el.has(e.target).length === 0) {
+            $('.popup-help').removeClass('is-visible');
+            $('a.help-btn > i').removeClass("fa-times");
+        }
+    });
+
+
+    $(document).on('click', '.show-img', function () {
+       var link =  $(this).data('link');
+       $('img', this).attr('src', link)
+       $('span', this).text('');
+    });
+
 
     themeSet();
     confTheme();

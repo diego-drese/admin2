@@ -115,6 +115,19 @@ form .card-body {
     align-items: center;
     padding: 10px;
     color: #45464a;
+    text-align: left;
+}
+
+.load-tutorial {
+    display: block;
+    width: 64px;
+    height: 64px;
+    position: relative;
+    z-index: 5555;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .collapse-content h1{

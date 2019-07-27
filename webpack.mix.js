@@ -17,6 +17,7 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/dist/js/sidebarmenu.js',
     'src/resources/assets/theme/nice-admin/libs/moment/moment.js',
     'src/resources/assets/theme/nice-admin/libs/moment/locale/pt-br.js',
+    'src/resources/assets/js/tutorial-help.js',
 ],'vendor/negotiate/admin/js/basic.js').version();
 
 mix.styles([

@@ -13,7 +13,6 @@ class CreateTutorialHelpTable extends Migration{
             ->table('tutorial_help', function (Blueprint $collection){
                 $collection->background(["id"]);
                 $collection->background(["title"]);
-                $collection->background(["description"]);
                 $collection->background(["created_at"]);
                 $collection->background(["updated_at"]);
             });

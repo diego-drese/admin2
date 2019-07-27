@@ -11,7 +11,7 @@
                         <div class="ml-auto">
                             <div class="btn-group">
                                 @if($hasAdd)
-                                    <a href="{{route('admin.profiles.create')}}" class="btn btn-primary">
+                                    <a href="{{route('admin.notifications.create')}}" class="btn btn-primary">
                                         <span class="fa fa-plus"></span> <b>Adicionar</b>
                                     </a>
                                 @endif
@@ -22,11 +22,11 @@
                         <table id="table" class="table table-striped table-bordered" role="grid" aria-describedby="file_export_info">
                             <thead class="">
                             <tr>
-                                <th role="row">#</th>
-                                <th>Nome</th>
-                                <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
-                                <th>Recursos</th>
-                            <th>Ações</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Alias</th>
+                                <th>Titulo</th>
+                                <th>Ações</th>
                         </tr>
                         </thead>
                     </table>
@@ -74,23 +74,11 @@
                 autoWidth:false,
                 ajax: '{{ route('admin.notifications.index') }}',
                 columns: [
-                    {data: "id", 'name': 'id', searchable: false},
-                    {data: "name", 'name': 'name'},
-                    {data: "created_at", 'name': 'created_at'},
-                    {
-                        data: null, searchable: false, orderable: false, render: function (data) {
 
-                            if(data !== null){
-                                var span = "";
-                                $.each(data.resources, function(k, v){
-                                    span += "<span class=\"badge badge-secondary mr-1 \">" + v.name + "</span>";
-                                });
-                                return span;
-                            }else{
-                                return "";
-                            }
-                        }
-                    },
+                    {data: "type", 'name': 'type'},
+                    {data: "status", 'name': 'status'},
+                    {data: "alias", 'name': 'alias'},
+                    {data: "subsject", 'name': 'subsject'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";

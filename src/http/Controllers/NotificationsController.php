@@ -25,8 +25,6 @@ class NotificationsController extends BaseController
             }else{
                 $query = NegotiateNotification::client($user->client_id);
             }
-
-
             return Datatables::of($query)
                 ->setRowClass(function () {
                     return 'center';
@@ -40,7 +38,27 @@ class NotificationsController extends BaseController
         return view('Admin::backend.notifications.index', compact('hasShow', 'hasEdit', 'hasAdd'));
 
     }
+    public function create(){
+        $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.notifications.store');
+        $clients    = NegotiateClient::get();
+        return view('Admin::backend.notifications.create', compact( 'hasSave', 'clients'));
+    }
 
+    public function store(){
+        die('salva os dados');
+    }
+
+    public function edit($id){
+        die('Formulário de edição');
+    }
+
+    public function update($id){
+        die('edita os dados');
+    }
+
+    public function show($id){
+        die('Mostra os dados');
+    }
 
 
 }

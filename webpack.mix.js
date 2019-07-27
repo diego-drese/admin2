@@ -91,19 +91,18 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery-mask/jquery.mask.min.js',
     'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/js/bootstrap-toggle.min.js',
 ],'vendor/negotiate/admin/js/forms.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/css/bootstrap-toggle.min.css',
+],'vendor/negotiate/admin/css/form.css').version();
 
+/** C3*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.js',
     'src/resources/assets/theme/nice-admin/extra-libs/c3/d3.min.js',
 ],'vendor/negotiate/admin/js/c3.js').version();
-
 mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/c3/c3.min.css',
 ],'vendor/negotiate/admin/css/c3.css').version();
-
-mix.styles([
-    'src/resources/assets/theme/nice-admin/libs/bootstrap-toggle/dist/css/bootstrap-toggle.min.css',
-],'vendor/negotiate/admin/css/form.css').version();
 
 /** DropZone*/
 mix.babel([
@@ -117,22 +116,40 @@ mix.styles([
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.js',
 ],'vendor/negotiate/admin/js/wickedpicker.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.css',
+],'vendor/negotiate/admin/css/wickedpicker.css').version();
+
 /** timepicker */
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.timepicker.js',
 ],'vendor/negotiate/admin/js/timepicker.js').version();
-mix.babel([
-    'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.datepair.min.js',
-],'vendor/negotiate/admin/js/datepair.js').version();
-
 mix.styles([
     'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.timepicker.css',
 ],'vendor/negotiate/admin/css/timepicker.css').version();
 
 
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.datepair.min.js',
+],'vendor/negotiate/admin/js/datepair.js').version();
+
+/** SummerNote */
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/summernote/dist/summernote.min.js',
+],'vendor/negotiate/admin/js/summernote.js').version();
 mix.styles([
-    'src/resources/assets/theme/nice-admin/libs/wickedpicker/wickedpicker.css',
-],'vendor/negotiate/admin/css/wickedpicker.css').version();
+    'src/resources/assets/theme/nice-admin/libs/summernote/dist/summernote.css',
+],'vendor/negotiate/admin/css/summernote.css').version();
+
+/** JquerySteps */
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/jquery-steps/build/jquery.steps.min.js',
+],'vendor/negotiate/admin/js/jquerysteps.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/jquery-steps/jquery.steps.css',
+    'src/resources/assets/theme/nice-admin/libs/jquery-steps/steps.css',
+],'vendor/negotiate/admin/css/jquerysteps.css').version();
+
 
 mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'vendor/negotiate/admin/css/icons');
 mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'vendor/negotiate/admin/assets/images');

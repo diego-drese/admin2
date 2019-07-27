@@ -12,19 +12,21 @@ class CreateNegotiateNotification extends Migration {
         Schema::connection($this->connection)
             ->table('negotiate_notification', function (Blueprint $collection){
 
-                $collection->background(["client_id"]);
-                $collection->background(["type"]);
-                $collection->background(["send_to"]);
-                $collection->background(["id_to"]);
+                $collection->background(["alias"]);
                 $collection->background(["status"]);
-                $collection->background(["active"]);
-
-                $collection->background(["delivery_at"]);
-                $collection->background(["sent_at"]);
-                $collection->background(["read_at"]);
-
+                $collection->background(["date_schedule_at"]);
+                $collection->background(["date_sent_at"]);
                 $collection->background(["created_at"]);
-                $collection->background(["updated_at"]);
+                $collection->background(["origin"]);
+                $collection->background(["user_id"]);
+                $collection->background(["client_id"]);
+                $collection->background(["from"]);
+                $collection->background(["to"]);
+                $collection->background(["status_read"]);
+                $collection->background(["filed"]);
+                $collection->background(["type"]);
+                $collection->background(["priority"]);
+
             });
     }
 

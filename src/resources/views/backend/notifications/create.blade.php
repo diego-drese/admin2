@@ -5,7 +5,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body ">
-                    <form id="form-profile" method="post" action="{{route('admin.notifications.store')}}">
+                    <form id="form-notification"  class="" method="post" action="{{route('admin.notifications.store')}}">
+
                         {{ csrf_field() }}
                         @include('Admin::backend.notifications.form')
                     </form>

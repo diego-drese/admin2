@@ -195,17 +195,32 @@ class ClientController extends BaseController {
 
     public function searchUser(Request $request) {
         $search     = trim($request->get('query'));
+        $clients    = $request->get('clients');
         $options    = [];
         if(strlen($search)>=3){
-            $users = User::where(function($query) use($search) {
-                $query->orWhere('name', 'like', '%'.$search.'%')
-                    ->orWhere('lastname', 'like', '%'.$search.'%')
-                    ->orWhere('email', 'like', '%'.$search.'%')
-                    ->orWhere('cellphone', 'like', '%'.$search.'%');
-            })
-            ->where('active' , 1)
-            ->take(10)
-            ->get();
+            if(is_array($clients) && !in_array('all', $clients)){
+                $users = User::where(function($query) use($search) {
+                    $query->orWhere('name', 'like', '%'.$search.'%')
+                        ->orWhere('lastname', 'like', '%'.$search.'%')
+                        ->orWhere('email', 'like', '%'.$search.'%')
+                        ->orWhere('cellphone', 'like', '%'.$search.'%');
+                })
+                    ->where('active' , 1)
+                    ->whereIn('client_id', array_map('intval', $clients))
+                    ->take(10)
+                    ->get();
+            }else{
+                $users = User::where(function($query) use($search) {
+                    $query->orWhere('name', 'like', '%'.$search.'%')
+                        ->orWhere('lastname', 'like', '%'.$search.'%')
+                        ->orWhere('email', 'like', '%'.$search.'%')
+                        ->orWhere('cellphone', 'like', '%'.$search.'%');
+                })
+                    ->where('active' , 1)
+                    ->take(10)
+                    ->get();
+            }
+
 
             foreach ($users as $user){
                 $options[] = ['id'=> $user->id, 'value'=> $user->name.' '.$user->lastname ,'name'=>  $user->name.' '.$user->lastname, 'email'=> $user->email , 'cellphone'=>$user->cell_phone];

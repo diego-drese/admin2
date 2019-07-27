@@ -38,12 +38,19 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/plans/{id}','Negotiate\Admin\Http\Controllers\PlansController@edit')->name('admin.plans.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Edit']);
     Route::post('/plans/{id}','Negotiate\Admin\Http\Controllers\PlansController@update')->name('admin.plans.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Profile Update']);
 
+    Route::get('/tutorial-help','Negotiate\Admin\Http\Controllers\TutorialHelpController@index')->name('admin.tutorial-help.index')->where(['iconAdmin'=>'fas fa-bookmark', 'menuAdmin'=> "Tutorial Help", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Tutorial Listing', 'isDefaultAdmin'=>'1']);
+    Route::get('/tutorial-help/create','Negotiate\Admin\Http\Controllers\TutorialHelpController@create')->name('admin.tutorial-help.create')->where(['iconAdmin'=>'fa-plus-square',  'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Create',]);
+    Route::post('/tutorial-help','Negotiate\Admin\Http\Controllers\TutorialHelpController@store')->name('admin.tutorial-help.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Tutorial']);
+    Route::get('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@edit')->name('admin.tutorial-help.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Edit']);
+    Route::post('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@update')->name('admin.tutorial-help.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Update']);
+    Route::delete('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@destroy')->name('admin.tutorial-help.destroy')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Delete']);
+    Route::get('/tutorial-help-data','Negotiate\Admin\Http\Controllers\TutorialHelpController@dataJson')->name('tutorial-help.datajson');
+
     Route::get('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@index')->name('admin.resources.index')->where(['iconAdmin'=>'fa-key', 'menuAdmin'=> "Resources", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Resource Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/resources/create','Negotiate\Admin\Http\Controllers\ResourcesController@create')->name('admin.resources.create')->where(['iconAdmin'=>'fa-plus-square','parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Resource Create',]);
     Route::post('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@store')->name('admin.resources.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Resource']);
     Route::get('/resources/{profile}','Negotiate\Admin\Http\Controllers\ResourcesController@edit')->name('admin.resources.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.resources.index', 'nameAdmin'=>'Resource Edit']);
     Route::post('/resources/{id}','Negotiate\Admin\Http\Controllers\ResourcesController@update')->name('admin.resources.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.resources.index', 'nameAdmin'=>'Resource Update']);
-
 
     Route::get('/log-view','Negotiate\Admin\Http\Controllers\LogViewController@index')->name('admin.logview.index')->where(['iconAdmin'=>'fas fa-clipboard-list ', 'parentRouteNameAdmin' => 'System Admin', 'menuAdmin'=> "Logs", 'nameAdmin'=>'Logs', 'isDefaultAdmin'=>'1']);
 

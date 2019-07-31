@@ -70,10 +70,10 @@ class NegotiateClient extends Model {
         $dataForm['cpf']                            = $request->get('cpf');
         $dataForm['cnpj']                           = $request->get('cnpj');
         $dataForm['social_reason']                  = $request->get('social_reason');
+        $dataForm['fantasy_name']                   = $request->get('fantasy_name');
         $dataForm['state_register']                 = $request->get('state_register');
         $dataForm['user_id']                        = (int)$request->get('user_id');
         $dataForm['user_name']                      = $request->get('user_name');
-        $dataForm['logo']                           = null;
         $dataForm['domain']                         = $request->get('domain');
         $dataForm['address_street']                 = $request->get('address_street');
         $dataForm['address_number']                 = $request->get('address_number');

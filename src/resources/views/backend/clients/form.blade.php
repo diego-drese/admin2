@@ -68,6 +68,32 @@
                     <span class="help-block">{{$errors->first('type')}}</span>
                 @endif
             </div>
+            <div class="col-md-4 form-group {{$errors->has('logo') ? 'has-error' : ''}}">
+                <label for="street">Logo</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Selecionar</span>
+                        <input id="logo" name="logo" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
+                    </span>
+                    <span class="form-control"></span>
+                    @if($negotiateClient->exists() && $negotiateClient->logo)
+                        <img src="{{$negotiateClient->logo}}" alt="user" class="rounded-circle" width="40" height="40" style="  margin-left: 8px;  margin-top: -6px;">
+                    @endif
+                </div>
+                @if($errors->has('logo'))
+                    <span class="help-block">{{$errors->first('logo')}}</span>
+                @endif
+            </div>
+            <div class="col-md-4 form-group {{$errors->has('domain') ? 'has-error' : ''}}">
+                <label for="street">Dominio</label>
+                <input type="text" value="{{old('cellphone',$negotiateClient->exists() ? $negotiateClient->domain : '')}}" name="domain"
+                       class="form-control {{$errors->has('domain') ? 'is-invalid' : ''}}"
+                       id="domain" placeholder="Dominio utilizado em páginas personalizadas">
+                @if($errors->has('domain'))
+                    <span class="help-block">{{$errors->first('domain')}}</span>
+                @endif
+            </div>
+
             <div class="col-md-4 form-group {{$errors->has('address_street') ? 'has-error' : ''}}">
                 <label for="street">Rua</label>
                 <input type="text" value="{{old('address_street',$negotiateClient->exists() ? $negotiateClient->address_street : '')}}" name="address_street"

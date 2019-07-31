@@ -4,6 +4,8 @@ namespace Negotiate\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use Jenssegers\Mongodb\Eloquent\Model;
 
 class NegotiateClient extends Model {
@@ -17,6 +19,8 @@ class NegotiateClient extends Model {
                             'type',
                             'user_id',
                             'user_name',
+                            'logo',
+                            'domain',
                             'cpf',
                             'cnpj',
                             'profile_id',
@@ -69,6 +73,8 @@ class NegotiateClient extends Model {
         $dataForm['state_register']                 = $request->get('state_register');
         $dataForm['user_id']                        = (int)$request->get('user_id');
         $dataForm['user_name']                      = $request->get('user_name');
+        $dataForm['logo']                           = null;
+        $dataForm['domain']                         = $request->get('domain');
         $dataForm['address_street']                 = $request->get('address_street');
         $dataForm['address_number']                 = $request->get('address_number');
         $dataForm['address_complement']             = $request->get('address_complement');
@@ -80,6 +86,23 @@ class NegotiateClient extends Model {
         $dataForm['total_scheduling_remaining']     = 0;
         $dataForm['next_charging_attempt']          = null;
         $dataForm['total_charging']                 = 0;
+        if( $request->hasFile('logo')){
+            $image              = $request->file('logo');
+            $input['logo']      = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath    = storage_path('/app/public/thumbnail');
+
+            if(!File::isDirectory($destinationPath)){
+                File::makeDirectory($destinationPath, 0777);
+            }
+            $img = Image::make($image->getRealPath());
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$input['logo']);
+
+            $base64 = 'data:image/' . $image->getClientOriginalExtension() . ';base64,' . base64_encode($img);
+            $dataForm['logo'] = $base64;
+        }
+
         foreach (Config::get('admin.plan_fields_update') as $value){
             $dataForm[$value['name']] = $request->get($value['name']);
         }

@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body ">
-                    <form method="post" action="{{route('admin.client.update', $negotiateClient->id)}}">
+                    <form method="post" action="{{route('admin.client.update', $negotiateClient->id)}}" enctype="multipart/form-data">
                         {{csrf_field()}}
                         @include('Admin::backend.clients.form')
                     </form>

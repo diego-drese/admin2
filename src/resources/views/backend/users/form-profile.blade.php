@@ -46,7 +46,6 @@
                 <input type="text" value="{{$profiles[Auth::User()->profile_id]}}" name="onlyInfo" class="form-control" id="onlyInfo" disabled>
             </div>
 
-
             <div class="col-md-4 form-group {{$errors->has('resource_defautl_id') ? 'has-error' : ''}}">
                 <label for="active">Página incial</label>
                 <select class="form-control" id="selectResourceDefault" name="resource_default_id">  </select>

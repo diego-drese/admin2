@@ -46,7 +46,7 @@
                     <!-- Step 3 -->
                     <h6>Mensagem</h6>
                     <section>
-
+                        <textarea id="summernote" name="editordata"></textarea>
                     </section>
                     <!-- Step 4 -->
                     <h6>Finalizar</h6>
@@ -67,24 +67,21 @@
 @section('style_head')
     <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
     <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/summernote.css')}}">
     <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/jquerysteps.css')}}">
 
 @endsection
 @section('script_footer_end')
     <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/summernote.js')}}></script>
+
     <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/jquerysteps.js')}}></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
     <script>
         var urlSearchUser       = '{{route('admin.client.search.user')}}';
         $(document).ready(function () {
-            // $('#summernote').summernote({
-            //     height: 350, // set editor height
-            //     minHeight: null, // set minimum height of editor
-            //     maxHeight: null, // set maximum height of editor
-            //     focus: true // set focus to editable area after initializing summernote
-            // });
-            // $('.note-popover').hide();
+
+            //$('.note-popover').hide();
 
             $("#formWizard").steps({
                 headerTag: "h6",
@@ -121,6 +118,13 @@
                         if(error){ return false }
 
                         $('#type-error').hide();
+
+                        $('#summernote').summernote({
+                            height: 350, // set editor height
+                            minHeight: null, // set minimum height of editor
+                            maxHeight: null, // set maximum height of editor
+                            focus: true // set focus to editable area after initializing summernote
+                        });
                     }
                     return true
                 },

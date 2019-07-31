@@ -44,7 +44,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::get('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@edit')->name('admin.tutorial-help.edit')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Edit']);
     Route::post('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@update')->name('admin.tutorial-help.update')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Update']);
     Route::delete('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@destroy')->name('admin.tutorial-help.destroy')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Delete']);
-    Route::get('/tutorial-help-data','Negotiate\Admin\Http\Controllers\TutorialHelpController@dataJson')->name('tutorial-help.datajson');
+
 
     Route::get('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@index')->name('admin.resources.index')->where(['iconAdmin'=>'fa-key', 'menuAdmin'=> "Resources", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Resource Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/resources/create','Negotiate\Admin\Http\Controllers\ResourcesController@create')->name('admin.resources.create')->where(['iconAdmin'=>'fa-plus-square','parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Resource Create',]);
@@ -95,6 +95,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
     Route::post('/profile','Negotiate\Admin\Http\Controllers\UserController@updateUserProfile')->name('admin.users.update-profile')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'Profile Edit user']);
 
     Route::get('/newtheme','Negotiate\Admin\Http\Controllers\ConsoleController@newTheme')->name('admin.new.theme')->where(['iconAdmin'=>'fas fa-warehouse', 'parentRouteNameAdmin' => 'System Admin', 'menuAdmin'=> "Theme NiceAdmin", 'nameAdmin'=>'Theme NiceAdmin']);
+    Route::get('/tutorial-help-data','Negotiate\Admin\Http\Controllers\TutorialHelpController@dataJson')->name('tutorial-help.datajson');
 
     //Route::get('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404get')->where('page','.*');
     //Route::post('/{page?}', 'Negotiate\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('ironorge.page404post')->where('page','.*');

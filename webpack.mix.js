@@ -136,10 +136,10 @@ mix.babel([
 
 /** SummerNote */
 mix.babel([
-    'src/resources/assets/theme/nice-admin/libs/summernote/dist/summernote.min.js',
+    'src/resources/assets/theme/nice-admin/libs/summernote/dist/summernote-bs4.min.js',
 ],'vendor/negotiate/admin/js/summernote.js').version();
 mix.styles([
-    'src/resources/assets/theme/nice-admin/libs/summernote/dist/summernote.css',
+    'src/resources/assets/theme/nice-admin/libs/summernote/dist/summernote-bs4.css',
 ],'vendor/negotiate/admin/css/summernote.css').version();
 
 /** JquerySteps */

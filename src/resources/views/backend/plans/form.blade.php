@@ -16,16 +16,28 @@
         @endif
     </div>
 
+    <div class="col-md-4 form-group {{$errors->has('plan_duration') ? 'has-error' : ''}} ">
+        <label for="title">Duração</label>
+        <select class="form-control " id="plan_duration" name="plan_duration">
+            <option value="">Selecione</option>
+            <option value="30" {{$plan->exists() && $plan->plan_duration == 'infinity' ? 'selected' : ''}}>Infinita</option>
+            <option value="90" {{$plan->exists() && $plan->plan_duration == 90 ? 'selected' : ''}}>Trimestral</option>
+            <option value="180" {{$plan->exists() && $plan->plan_duration == 180 ? 'selected' : ''}}>Semestral</option>
+            <option value="180" {{$plan->exists() && $plan->plan_duration == 360 ? 'selected' : ''}}>1 Ano</option>
+        </select>
+        @if($errors->has('recurrence_days'))
+            <span class="help-block">{{$errors->first('recurrence_days')}}</span>
+        @endif
+    </div>
     <div class="col-md-4 form-group {{$errors->has('recurrence_days') ? 'has-error' : ''}} ">
         <label for="title">Renova a cada</label>
         <select class="form-control " id="recurrence_days" name="recurrence_days">
             <option value="">Selecione</option>
+            <option value="30" {{$plan->exists() && $plan->recurrence_days == 0 ? 'selected' : ''}}>0 Dias</option>
             <option value="30" {{$plan->exists() && $plan->recurrence_days == 30 ? 'selected' : ''}}>30 Dias</option>
-            <option value="60" {{$plan->exists() && $plan->recurrence_days == 60 ? 'selected' : ''}}>60 Dias</option>
             <option value="90" {{$plan->exists() && $plan->recurrence_days == 90 ? 'selected' : ''}}>90 Dias</option>
-            <option value="120" {{$plan->exists() && $plan->recurrence_days == 120 ? 'selected' : ''}}>120 Dias</option>
-            <option value="150" {{$plan->exists() && $plan->recurrence_days == 150 ? 'selected' : ''}}>150 Dias</option>
             <option value="180" {{$plan->exists() && $plan->recurrence_days == 180 ? 'selected' : ''}}>180 Dias</option>
+            <option value="180" {{$plan->exists() && $plan->recurrence_days == 360 ? 'selected' : ''}}>360 Dias</option>
         </select>
         @if($errors->has('recurrence_days'))
             <span class="help-block">{{$errors->first('recurrence_days')}}</span>

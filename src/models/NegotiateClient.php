@@ -63,9 +63,14 @@ class NegotiateClient extends Model {
         $dataForm['name']                           = $request->get('name');
         $dataForm['email']                          = $request->get('email');
         $dataForm['phone']                          = $request->get('phone');
-        $dataForm['plan_id']                        = (int)$request->get('plan');
+        if($request->exists('plan')){
+            $dataForm['plan_id']                    = (int)$request->get('plan');
+        }
+
+        if($request->exists('active')){
+            $dataForm['active']                     = $request->get('active')=="1" ? 1 : 0;
+        }
         $dataForm['cellphone']                      = $request->get('cellphone');
-        $dataForm['active']                         = $request->get('active')=="1" ? 1 : 0;
         $dataForm['type']                           = $request->get('type');
         $dataForm['cpf']                            = $request->get('cpf');
         $dataForm['cnpj']                           = $request->get('cnpj');

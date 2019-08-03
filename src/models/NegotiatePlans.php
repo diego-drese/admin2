@@ -12,6 +12,7 @@ class NegotiatePlans extends Model {
         'name',
         'value',
         'recurrence_days',
+        'plan_duration',
         'active',
         'total_retry',
         'retry_after_day',
@@ -27,6 +28,7 @@ class NegotiatePlans extends Model {
         $dataForm['name']                   = $request->get('name');
         $dataForm['value']                  = (double)$request->get('value');
         $dataForm['recurrence_days']        = (int)$request->get('recurrence_days');
+        $dataForm['plan_duration']          = (int)$request->get('plan_duration');
         $dataForm['active']                 = (int)$request->get('active');
         $dataForm['total_retry']            = (int)$request->get('total_retry');
         $dataForm['retry_after_day']        = (int)$request->get('retry_after_day');

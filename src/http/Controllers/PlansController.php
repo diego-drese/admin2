@@ -19,6 +19,7 @@ class PlansController extends BaseController
         $this->validate($request, [
             'name'              => 'required',
             'value'             => 'required',
+            'plan_duration'      => 'required',
             'recurrence_days'   => 'required',
             'active'            => 'required',
             'total_retry'       => 'required',

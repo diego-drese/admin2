@@ -96,10 +96,10 @@
                     <!-- Messages -->
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-{{--                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                            <i class="fas fa-info-circle" style="font-size: 22px;margin-top: 22px;"></i>--}}
-{{--                            <span class="badge badge-pill badge-danger ml-auto m-r-15" style="position: absolute;top: 14px;right: -12px;">0</span>--}}
-{{--                        </a>--}}
+                        {{--                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                        {{--                            <i class="fas fa-info-circle" style="font-size: 22px;margin-top: 22px;"></i>--}}
+                        {{--                            <span class="badge badge-pill badge-danger ml-auto m-r-15" style="position: absolute;top: 14px;right: -12px;">0</span>--}}
+                        {{--                        </a>--}}
                         <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                                 <span class="with-arrow">
                                     <span class="bg-danger"></span>
@@ -178,81 +178,81 @@
                     <!-- ============================================================== -->
                     <!-- Comment -->
                     <!-- ============================================================== -->
-                    {{--<li class="nav-item dropdown border-right">--}}
-                        {{--<a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-                            {{--<i class="mdi mdi-bell-outline font-22"></i>--}}
-                            {{--<span class="badge badge-pill badge-info noti">3</span>--}}
-                        {{--</a>--}}
-                        {{--<div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">--}}
-                                {{--<span class="with-arrow">--}}
-                                    {{--<span class="bg-primary"></span>--}}
-                                {{--</span>--}}
-                            {{--<ul class="list-style-none">--}}
-                                {{--<li>--}}
-                                    {{--<div class="drop-title bg-primary text-white">--}}
-                                        {{--<h4 class="m-b-0 m-t-5">4 New</h4>--}}
-                                        {{--<span class="font-light">Notifications</span>--}}
-                                    {{--</div>--}}
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<div class="message-center notifications">--}}
-                                        {{--<!-- Message -->--}}
-                                        {{--<a href="javascript:void(0)" class="message-item">--}}
-                                                {{--<span class="btn btn-danger btn-circle">--}}
-                                                    {{--<i class="fa fa-link"></i>--}}
-                                                {{--</span>--}}
-                                            {{--<div class="mail-contnet">--}}
-                                                {{--<h5 class="message-title">Luanch Admin</h5>--}}
-                                                {{--<span class="mail-desc">Just see the my new admin!</span>--}}
-                                                {{--<span class="time">9:30 AM</span>--}}
-                                            {{--</div>--}}
-                                        {{--</a>--}}
-                                        {{--<!-- Message -->--}}
-                                        {{--<a href="javascript:void(0)" class="message-item">--}}
-                                                {{--<span class="btn btn-success btn-circle">--}}
-                                                    {{--<i class="ti-calendar"></i>--}}
-                                                {{--</span>--}}
-                                            {{--<div class="mail-contnet">--}}
-                                                {{--<h5 class="message-title">Event today</h5>--}}
-                                                {{--<span class="mail-desc">Just a reminder that you have event</span>--}}
-                                                {{--<span class="time">9:10 AM</span>--}}
-                                            {{--</div>--}}
-                                        {{--</a>--}}
-                                        {{--<!-- Message -->--}}
-                                        {{--<a href="javascript:void(0)" class="message-item">--}}
-                                                {{--<span class="btn btn-info btn-circle">--}}
-                                                    {{--<i class="ti-settings"></i>--}}
-                                                {{--</span>--}}
-                                            {{--<div class="mail-contnet">--}}
-                                                {{--<h5 class="message-title">Settings</h5>--}}
-                                                {{--<span class="mail-desc">You can customize this template as you want</span>--}}
-                                                {{--<span class="time">9:08 AM</span>--}}
-                                            {{--</div>--}}
-                                        {{--</a>--}}
-                                        {{--<!-- Message -->--}}
-                                        {{--<a href="javascript:void(0)" class="message-item">--}}
-                                                {{--<span class="btn btn-primary btn-circle">--}}
-                                                    {{--<i class="ti-user"></i>--}}
-                                                {{--</span>--}}
-                                            {{--<div class="mail-contnet">--}}
-                                                {{--<h5 class="message-title">Pavan kumar</h5>--}}
-                                                {{--<span class="mail-desc">Just see the my admin!</span>--}}
-                                                {{--<span class="time">9:02 AM</span>--}}
-                                            {{--</div>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<a class="nav-link text-center m-b-5 text-dark" href="javascript:void(0);">--}}
-                                        {{--<strong>Check all notifications</strong>--}}
-                                        {{--<i class="fa fa-angle-right"></i>--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                    {{--</li>--}}
-                    {{--<!-- ============================================================== -->--}}
-                    <!-- End Comment -->
+                {{--<li class="nav-item dropdown border-right">--}}
+                {{--<a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                {{--<i class="mdi mdi-bell-outline font-22"></i>--}}
+                {{--<span class="badge badge-pill badge-info noti">3</span>--}}
+                {{--</a>--}}
+                {{--<div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">--}}
+                {{--<span class="with-arrow">--}}
+                {{--<span class="bg-primary"></span>--}}
+                {{--</span>--}}
+                {{--<ul class="list-style-none">--}}
+                {{--<li>--}}
+                {{--<div class="drop-title bg-primary text-white">--}}
+                {{--<h4 class="m-b-0 m-t-5">4 New</h4>--}}
+                {{--<span class="font-light">Notifications</span>--}}
+                {{--</div>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                {{--<div class="message-center notifications">--}}
+                {{--<!-- Message -->--}}
+                {{--<a href="javascript:void(0)" class="message-item">--}}
+                {{--<span class="btn btn-danger btn-circle">--}}
+                {{--<i class="fa fa-link"></i>--}}
+                {{--</span>--}}
+                {{--<div class="mail-contnet">--}}
+                {{--<h5 class="message-title">Luanch Admin</h5>--}}
+                {{--<span class="mail-desc">Just see the my new admin!</span>--}}
+                {{--<span class="time">9:30 AM</span>--}}
+                {{--</div>--}}
+                {{--</a>--}}
+                {{--<!-- Message -->--}}
+                {{--<a href="javascript:void(0)" class="message-item">--}}
+                {{--<span class="btn btn-success btn-circle">--}}
+                {{--<i class="ti-calendar"></i>--}}
+                {{--</span>--}}
+                {{--<div class="mail-contnet">--}}
+                {{--<h5 class="message-title">Event today</h5>--}}
+                {{--<span class="mail-desc">Just a reminder that you have event</span>--}}
+                {{--<span class="time">9:10 AM</span>--}}
+                {{--</div>--}}
+                {{--</a>--}}
+                {{--<!-- Message -->--}}
+                {{--<a href="javascript:void(0)" class="message-item">--}}
+                {{--<span class="btn btn-info btn-circle">--}}
+                {{--<i class="ti-settings"></i>--}}
+                {{--</span>--}}
+                {{--<div class="mail-contnet">--}}
+                {{--<h5 class="message-title">Settings</h5>--}}
+                {{--<span class="mail-desc">You can customize this template as you want</span>--}}
+                {{--<span class="time">9:08 AM</span>--}}
+                {{--</div>--}}
+                {{--</a>--}}
+                {{--<!-- Message -->--}}
+                {{--<a href="javascript:void(0)" class="message-item">--}}
+                {{--<span class="btn btn-primary btn-circle">--}}
+                {{--<i class="ti-user"></i>--}}
+                {{--</span>--}}
+                {{--<div class="mail-contnet">--}}
+                {{--<h5 class="message-title">Pavan kumar</h5>--}}
+                {{--<span class="mail-desc">Just see the my admin!</span>--}}
+                {{--<span class="time">9:02 AM</span>--}}
+                {{--</div>--}}
+                {{--</a>--}}
+                {{--</div>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                {{--<a class="nav-link text-center m-b-5 text-dark" href="javascript:void(0);">--}}
+                {{--<strong>Check all notifications</strong>--}}
+                {{--<i class="fa fa-angle-right"></i>--}}
+                {{--</a>--}}
+                {{--</li>--}}
+                {{--</ul>--}}
+                {{--</div>--}}
+                {{--</li>--}}
+                {{--<!-- ============================================================== -->--}}
+                <!-- End Comment -->
                     <!-- ============================================================== -->
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -288,7 +288,7 @@
                                     <i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item theme-btn">
-                                    <i class="fa fa-cog m-r-5 m-l-5"></i> Tema
+                                    <i class="fa fa-code m-r-5 m-l-5"></i> Tema
                                 </a>
                                 <div class="color-list" style="display: none">
                                     <ul>
@@ -300,8 +300,12 @@
                                         <li class="color-change" data-color="remove"><span class="default-theme"></span></li>
                                     </ul>
                                 </div>
+
                                 <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+
+                                @yield('admin-menu-item-client')
+
+                                <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
@@ -421,25 +425,25 @@
     };
 
     var confTheme = function() {
-      const colorList = $('.color-list');
-      $('.theme-btn').on('click', function(event) {
-          colorList.toggle();
-          event.stopPropagation();
-      });
+        const colorList = $('.color-list');
+        $('.theme-btn').on('click', function(event) {
+            colorList.toggle();
+            event.stopPropagation();
+        });
 
-      $('.color-change').on('click', function(event) {
-         let color =  $(this).data("color");
-         if(color != 'remove') {
-             removeColorsClass();
-             $('body').addClass(color);
-             window.localStorage.setItem('theme-set', color);
-             event.stopPropagation();
-         }else{
-             removeColorsClass();
-             window.localStorage.removeItem('theme-set');
-             event.stopPropagation();
-         }
-      })
+        $('.color-change').on('click', function(event) {
+            let color =  $(this).data("color");
+            if(color != 'remove') {
+                removeColorsClass();
+                $('body').addClass(color);
+                window.localStorage.setItem('theme-set', color);
+                event.stopPropagation();
+            }else{
+                removeColorsClass();
+                window.localStorage.removeItem('theme-set');
+                event.stopPropagation();
+            }
+        })
     };
 
     function removeColorsClass(){
@@ -463,13 +467,13 @@
     }
 
     $(document).on('click','.sidebartoggler',function () {
-       var wrapper = $('#main-wrapper').attr('class');
-       if(wrapper == 'mini-sidebar'){
-           window.localStorage.setItem('sidebar-mini', 'on')
-       }
-       else{
-           window.localStorage.setItem('sidebar-mini', 'off')
-       }
+        var wrapper = $('#main-wrapper').attr('class');
+        if(wrapper == 'mini-sidebar'){
+            window.localStorage.setItem('sidebar-mini', 'on')
+        }
+        else{
+            window.localStorage.setItem('sidebar-mini', 'off')
+        }
     });
 
     function  setSidebar(){

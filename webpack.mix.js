@@ -151,6 +151,12 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/libs/jquery-steps/steps.css',
 ],'vendor/negotiate/admin/css/jquerysteps.css').version();
 
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/nouislider/distribute/nouislider.min.js',
+],'vendor/negotiate/admin/js/nouislider.js').version();
+mix.styles([
+    'src/resources/assets/theme/nice-admin/libs/nouislider/distribute/nouislider.min.css',
+],'vendor/negotiate/admin/css/nouislider.css').version();
 
 mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'vendor/negotiate/admin/css/icons');
 mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'vendor/negotiate/admin/assets/images');

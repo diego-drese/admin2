@@ -6,5 +6,6 @@ return [
     'logo_label'            => env('NEGOTIATE_ADMIN_LOGO_LABEL', 'Negotiate'),
     "cache_prefix"          => 'negotiate',
     'profile_type'          => ['admin' => 'Admin'],
-    'plan_fields_update'    => []
+    'plan_fields_update'    => [],
+    'template_theme'        => env('TEMPLATE_THEME', 'clinic')
 ];

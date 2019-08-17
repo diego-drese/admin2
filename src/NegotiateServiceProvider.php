@@ -30,6 +30,10 @@ class NegotiateServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
+            __DIR__.'/resources/assets/templates' => resource_path('templates'),
+        ]);
+
+        $this->publishes([
             __DIR__ . '/../vendor' => public_path('vendor'),
         ], 'public');
 

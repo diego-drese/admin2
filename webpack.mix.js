@@ -155,6 +155,7 @@ mix.styles([
 mix.copyDirectory('src/resources/assets/theme/nice-admin/dist/css/icons', 'vendor/negotiate/admin/css/icons');
 mix.copyDirectory('src/resources/assets/theme/nice-admin/images', 'vendor/negotiate/admin/assets/images');
 mix.copyDirectory('src/resources/assets/fonts', 'vendor/negotiate/admin/css/fonts');
+mix.copyDirectory('src/resources/assets/templates', 'vendor/negotiate/templates');
 
 mix.autoload({
     'jquery': ['jQuery', '$','jquery'],

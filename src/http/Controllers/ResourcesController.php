@@ -92,7 +92,7 @@ class ResourcesController extends BaseController {
         $resource       = Resource::firstOrNew(['id'=>(int)$id]);
         $parentsDefault = Resource::where('is_menu',1)->whereNull('route_name')->get();
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.resources.update',[1]);
-        return view('Admin::backend.resources.edit',compact('resource','parent', 'parentsDefault', 'hasSave'));
+        return view('Admin::backend.resources.edit', compact('resource','parentsDefault', 'hasSave'));
     }
 
     /**

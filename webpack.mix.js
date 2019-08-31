@@ -33,6 +33,11 @@ mix.sass('src/resources/assets/theme/nice-admin/sass/theme-color.scss', 'vendor/
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.js',
 ],'vendor/negotiate/admin/js/datatables.js').version();
+
+mix.babel([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/select/js/dataTables.select.js',
+],'vendor/negotiate/admin/js/datatables.select.js').version();
+
 mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
 ],'vendor/negotiate/admin/css/datatables.css').version();

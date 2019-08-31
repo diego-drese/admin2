@@ -42,6 +42,10 @@ mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
 ],'vendor/negotiate/admin/css/datatables.css').version();
 
+mix.styles([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/select/css/select.dataTables.min.css',
+],'vendor/negotiate/admin/css/datatables.select.css').version();
+
 /** Bootstrap Switch*/
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js',

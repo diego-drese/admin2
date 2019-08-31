@@ -46,6 +46,14 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Negotia
     Route::delete('/tutorial-help/{id}','Negotiate\Admin\Http\Controllers\TutorialHelpController@destroy')->name('admin.tutorial-help.destroy')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Delete']);
 
 
+    Route::get('/template-system','Negotiate\Admin\Http\Controllers\TemplateSystemController@index')->name('admin.template-system.index')->where(['iconAdmin'=>'fas fa-code', 'menuAdmin'=> "Template", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Template System', 'isDefaultAdmin'=>'1']);
+    Route::get('/template-system/create','Negotiate\Admin\Http\Controllers\TemplateSystemController@create')->name('admin.template-system.create')->where(['iconAdmin'=>'fa-code',  'parentRouteNameAdmin' => 'admin.template-system.index', 'nameAdmin'=>'Template System Create',]);
+    Route::get('/template-system/{id}','Negotiate\Admin\Http\Controllers\TemplateSystemController@edit')->name('admin.template-system.edit')->where(['iconAdmin'=>'fa-code',  'nameAdmin'=>'Template System Edit',]);
+    Route::post('/template-system/{id}/update','Negotiate\Admin\Http\Controllers\TemplateSystemController@update')->name('admin.template-system.update')->where(['iconAdmin'=>'fa-code',  'nameAdmin'=>'Template System Update']);
+    Route::post('/template-system/create','Negotiate\Admin\Http\Controllers\TemplateSystemController@update')->name('admin.template-system.update')->where(['iconAdmin'=>'fa-code',  'nameAdmin'=>'Template System Update']);
+    Route::post('/template-system/{id}/change-status','Negotiate\Admin\Http\Controllers\TemplateSystemController@changeStatus')->name('admin.template-system.changestatus')->where(['iconAdmin'=>'fa-code',  'nameAdmin'=>'Template System Update']);
+    Route::delete('/template-system/{id}','Negotiate\Admin\Http\Controllers\TemplateSystemController@destroy')->name('admin.template-system.destroy')->where(['iconAdmin'=>'fa-pencil-square-o ', 'nameAdmin'=>'Template Delete']);
+
     Route::get('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@index')->name('admin.resources.index')->where(['iconAdmin'=>'fa-key', 'menuAdmin'=> "Resources", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Resource Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/resources/create','Negotiate\Admin\Http\Controllers\ResourcesController@create')->name('admin.resources.create')->where(['iconAdmin'=>'fa-plus-square','parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Resource Create',]);
     Route::post('/resources','Negotiate\Admin\Http\Controllers\ResourcesController@store')->name('admin.resources.store')->where(['iconAdmin'=>'fa-floppy-o', 'nameAdmin'=>'Save Resource']);
@@ -109,6 +117,9 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'Negotiate\Admin\Http\Controllers\HomeController@index')->name('index');
+    Route::get('/tema/{template}', 'Negotiate\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('index');
+    Route::get('/tema/style/{template}', 'Negotiate\Admin\Http\Controllers\HomeController@getCssFile')->name('index');
+    Route::get('/tema/js/{template}', 'Negotiate\Admin\Http\Controllers\HomeController@getJsFile')->name('index');
     ///** Authentication Routes...  */
     Route::get('login', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Negotiate\Admin\Http\Controllers\Auth\LoginController@login');
@@ -118,5 +129,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('password/reset', 'Negotiate\Admin\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     Route::post('password/email', 'Negotiate\Admin\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'Negotiate\Admin\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
+
 
 });

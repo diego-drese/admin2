@@ -1,143 +1,161 @@
 $theme1: #4267b2!important;
-$theme2: linear-gradient(-45deg, rgb(230, 92, 230), rgb(122, 82, 204) 100%)!important;
-$theme3: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%)!important;
-$theme4: linear-gradient(#1EA69A,#2facae)!important;
-$theme5: #fff!important;
+$theme2: #EE9D83!important;
+$theme3: #FF6B95!important;
+$theme4: #1EA69A!important;
+$theme5: #948fec!important;
 
-@mixin theme($name, $bg, $color, $btns:null, $secondaryColor:null, $topbar:null) {
-  .#{$name} {
-    #main-wrapper {
-      .left-sidebar {
-        background: $bg;
-        ul.first-level.in{
-          background: $bg;
-          filter: brightness(0.90);
-        }
-      }
-    }
-    #sidebarnav{
-      background: transparent!important;
-      .sidebar-link{
-        opacity: 1;
-        color: $color;
-        &:hover{
-          @if ($topbar != null) {
-            background: rgba(148, 143, 236, 0.07)!important;
-            border-left: 2px solid $secondaryColor!important;
-          }
-        }
-        i{
-          @if ($topbar != null) {
-            color: $secondaryColor;
-          }@else{
-            color: $color;
-          }
-        }
-      }
-    }
 
-    @if($topbar == null) {
-      .user-conf-bg,.navbar-brand {
-        background: $bg;
-      }
-      .next-schedule-card-header{
-        background: $bg;
-      }
-    }@else{
-      .user-conf-bg, .navbar-brand {
-        background: $secondaryColor!important;
-      }
-      .next-schedule-card-header{
-        background: $secondaryColor!important;
-      }
-    }
-    @if $topbar != null{
-      #navbarSupportedContent{
-        background: $secondaryColor!important;
-      }
-      a.pro-pic{
-        span{
-          color: #fff;}
-      }
-      #openTag{
-        font-size: 15px;
-        background: transparent;
-        border: 0px;
-        color: white;
-      }
-      #nav-bar-left .input-group-text{
-        background: transparent;
-        border: 0;
-        color: white;
-        font-size: 1.5em;
-      }
-    }@else {
-      .btn-primary{
-        background: $bg;
-        border: 0;
-        &:hover{
-          transform: scale(1.1);
-          transition: 0.3s;
-        }
-      }
-    }
+@mixin themeBar($name, $bg) {
+    .#{$name} {
+        #main-wrapper {
+            .fc-button-primary:disabled, .btn-primary, .btn-success:hover, .btn-success, .page-item.active .page-link, .page-link:hover, .bg-success,
+            .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active
+            {
+                background-color: $bg;
+                border-color: $bg;
+            }
 
-    @if($btns != null){
-      .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active, .fc-button-primary:disabled{
-        background: $btns!important;
-        border-color: $btns!important;
-      }
+            .bg-primary{
+                background: $bg;
+            }
+
+            .card{
+                box-shadow: 0px 2px 5px rgba(68, 64, 64, 0.09);
+            }
+
+            .page-wrapper {
+                background: rgba(247, 247, 247, 0.64);
+            }
+
+            .dropdown-item.active, .dropdown-item:active {
+                background-color: #f9f9f9;
+            }
+
+            .nav-item a, .nav-item a:hover {
+                color: rgba(130, 119, 116, 0.89)!important;
+            }
+
+            .left-sidebar {
+                background: #fff !important;
+
+                ul.first-level.in {
+                    background: #f3f3f3;
+                    border-color: $bg;
+                }
+            }
+
+            #sidebarnav {
+                background: transparent !important;
+
+                .sidebar-link {
+                    opacity: 01;
+                    color: #8c8787;
+                    font-weight: 500;
+
+                    &.active {
+                        background: #f7f7f7 !important;
+                        border-left: 2px solid $bg;
+                    }
+
+                    &:hover {
+                        background: rgba(148, 143, 236, 0.07) !important;
+                        border-left: 2px solid $bg;
+                    }
+                }
+
+                i {
+                    color: $bg;
+                }
+            }
+        }
+
+        .navbar-brand, #navbarSupportedContent {
+            background: $bg;
+        }
+
+        a.pro-pic {
+            span {
+                color: #fff;
+            }
+        }
+
+        #openTag {
+            font-size: 15px;
+            background: transparent;
+            border: 0px;
+            color: white;
+        }
+
+        #nav-bar-left .input-group-text {
+            background: transparent;
+            border: 0;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .user-conf-bg, .navbar-brand {
+            background: $bg;
+        }
+
+        .next-schedule-card-header {
+            background: $bg;
+        }
     }
-  }
 }
 
-@include theme(theme1, $theme1, #fff, rgba(66, 103, 178, 0.73));
-@include theme(theme2, $theme2, #fff, rgb(143, 84, 209));
-@include theme(theme3, $theme3, #fff, rgb(255,138,101));
-@include theme(theme4, $theme4, #fff, #607d8b);
-@include theme(theme5, $theme5, rgba(12, 27, 61, 0.54),null, #948fec, 1);
-
+@include themeBar(theme1, $theme1);
+@include themeBar(theme2, $theme2);
+@include themeBar(theme3, $theme3);
+@include themeBar(theme4, $theme4);
+@include themeBar(theme5, $theme5);
 
 /*List colors*/
 
 .color-list {
     ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0px 20px;
-      li{
-        margin-top: 10px;
-        margin-right: 5px;
-        span{
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          border: 3px solid #dfdfdf;
-          display: block;
-          cursor: pointer;
-          &.theme1{
-            background: $theme1;
-          }
-          &.theme2{
-            background: $theme2;
-          }
-          &.theme3{
-            background: $theme3;
-          }
-          &.theme4{
-            background: $theme4;
-          }
-          &.theme5{
-            background: $theme5;
-          }
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0px 20px;
 
-          &.default-theme{
-           background: #233242;
-          }
+        li {
+            margin-top: 10px;
+            margin-right: 5px;
+
+            span {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                border: 3px solid #dfdfdf;
+                display: block;
+                cursor: pointer;
+
+                &.theme1 {
+                    background: $theme1;
+                }
+
+                &.theme2 {
+                    background: $theme2;
+                }
+
+                &.theme3 {
+                    background: $theme3;
+                }
+
+                &.theme4 {
+                    background: $theme4;
+                }
+
+                &.theme5 {
+                    background: $theme5;
+                }
+
+                &.default-theme {
+                    background: #233242;
+                }
+            }
         }
-      }
-  }
+    }
 }
 

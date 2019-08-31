@@ -1,5 +1,5 @@
 {
-    "/vendor/negotiate/admin/css/themes.css": "/vendor/negotiate/admin/css/themes.css?id=2d772b9a2936b94cc5b8",
+    "/vendor/negotiate/admin/css/themes.css": "/vendor/negotiate/admin/css/themes.css?id=581a320bddd671069e49",
     "/vendor/negotiate/admin/js/basic.js": "/vendor/negotiate/admin/js/basic.js?id=113c413ccd104fbdc55a",
     "/vendor/negotiate/admin/css/basic.css": "/vendor/negotiate/admin/css/basic.css?id=539d146c099854edf265",
     "/vendor/negotiate/admin/js/datatables.js": "/vendor/negotiate/admin/js/datatables.js?id=e22e9820ca5bf7ac6884",
@@ -30,5 +30,7 @@
     "/vendor/negotiate/admin/js/summernote.js": "/vendor/negotiate/admin/js/summernote.js?id=a419c6e9e73b0806b377",
     "/vendor/negotiate/admin/css/summernote.css": "/vendor/negotiate/admin/css/summernote.css?id=2104db656ea314226093",
     "/vendor/negotiate/admin/js/jquerysteps.js": "/vendor/negotiate/admin/js/jquerysteps.js?id=e562ea1ea3f88edf206d",
-    "/vendor/negotiate/admin/css/jquerysteps.css": "/vendor/negotiate/admin/css/jquerysteps.css?id=e0b74d68c64ee91760a0"
+    "/vendor/negotiate/admin/css/jquerysteps.css": "/vendor/negotiate/admin/css/jquerysteps.css?id=e0b74d68c64ee91760a0",
+    "/vendor/negotiate/admin/js/nouislider.js": "/vendor/negotiate/admin/js/nouislider.js?id=39dba07efadcc85a8e0e",
+    "/vendor/negotiate/admin/css/nouislider.css": "/vendor/negotiate/admin/css/nouislider.css?id=880dcd865fd2dcbd5ae3"
 }

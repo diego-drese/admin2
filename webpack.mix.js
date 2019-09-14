@@ -30,17 +30,30 @@ mix.styles([
 mix.sass('src/resources/assets/theme/nice-admin/sass/theme-color.scss', 'vendor/negotiate/admin/css/themes.css').version();
 
 /** DataTable*/
+
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.js',
 ],'vendor/negotiate/admin/js/datatables.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
+],'vendor/negotiate/admin/css/datatables.css').version();
+
+
+/** DataTable Adds*/
+
+mix.babel([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/group/js/dataTables.rowGroup.js',
+],'vendor/negotiate/admin/js/datatables.rowgroup.js').version();
+
+mix.styles([
+    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/group/css/rowGroup.dataTables.min.css',
+],'vendor/negotiate/admin/css/datatables.rowgroup.css').version();
 
 mix.babel([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/select/js/dataTables.select.js',
 ],'vendor/negotiate/admin/js/datatables.select.js').version();
 
-mix.styles([
-    'src/resources/assets/theme/nice-admin/extra-libs/DataTables/datatables.css',
-],'vendor/negotiate/admin/css/datatables.css').version();
 
 mix.styles([
     'src/resources/assets/theme/nice-admin/extra-libs/DataTables/select/css/select.dataTables.min.css',

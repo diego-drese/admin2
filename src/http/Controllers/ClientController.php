@@ -1,21 +1,21 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use Negotiate\Admin\Library\ResourceAdmin;
-use Negotiate\Admin\NegotiatePlans;
-use Negotiate\Admin\NegotiateWallet;
-use Negotiate\Admin\NegotiateWalletTransaction;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\NegotiateClient;
+use Oka6\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Oka6Plans;
+use Oka6\Admin\Oka6Wallet;
+use Oka6\Admin\Oka6WalletTransaction;
+use Oka6\Admin\Profile;
+use Oka6\Admin\Oka6Client;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Negotiate\Admin\Resource;
-use Negotiate\Admin\Sequence;
-use Negotiate\Admin\User;
+use Oka6\Admin\Resource;
+use Oka6\Admin\Sequence;
+use Oka6\Admin\User;
 use Yajra\Datatables\Datatables;
 
 class ClientController extends BaseController {
@@ -39,9 +39,9 @@ class ClientController extends BaseController {
             'email'             => ['required',  function ($attribute, $value, $fail) use($request){
                 $id     = (int)$request->get('id');
                 if($id){
-                    $result = NegotiateClient::where('email', $value)->where('id', '!=', $id)->first();
+                    $result = Oka6Client::where('email', $value)->where('id', '!=', $id)->first();
                 }else{
-                    $result = NegotiateClient::where('email', $value)->first();
+                    $result = Oka6Client::where('email', $value)->first();
                 }
                 if ($result) {
                     $fail('EMAIL['.$value.'] já utilizado');
@@ -51,9 +51,9 @@ class ClientController extends BaseController {
                 if($request->get('type')=="CNPJ"){
                     $id     = (int)$request->get('id');
                     if($id){
-                        $result = NegotiateClient::where('cpf', $value)->where('id', '!=', $id)->first();
+                        $result = Oka6Client::where('cpf', $value)->where('id', '!=', $id)->first();
                     }else{
-                        $result = NegotiateClient::where('cpf', $value)->first();
+                        $result = Oka6Client::where('cpf', $value)->first();
                     }
 
                     if ($result) {
@@ -65,9 +65,9 @@ class ClientController extends BaseController {
                if($request->get('type')=="CNPJ"){
                    $id     = (int)$request->get('id');
                    if($id){
-                       $result = NegotiateClient::where('cnpj', $value)->where('id', '!=', $id)->first();
+                       $result = Oka6Client::where('cnpj', $value)->where('id', '!=', $id)->first();
                    }else{
-                       $result = NegotiateClient::where('cnpj', $value)->first();
+                       $result = Oka6Client::where('cnpj', $value)->first();
                    }
                    if ($result) {
                        $fail('CNPJ['.$value.'] já utilizado');
@@ -81,9 +81,9 @@ class ClientController extends BaseController {
         if($request->ajax()){
             $user   = Auth::user();
             if($user->profile_id== User::PROFILE_ID_ROOT){
-                $query = NegotiateClient::orderBy('name');
+                $query = Oka6Client::orderBy('name');
             }else{
-                $query = NegotiateClient::where('user_id', (int)$user->id);
+                $query = Oka6Client::where('user_id', (int)$user->id);
             }
 
             return Datatables($query)
@@ -123,13 +123,13 @@ class ClientController extends BaseController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(NegotiateClient $negotiateClient) {
+    public function create(Oka6Client $oka6Client) {
         $user       = Auth::user();
         $profiles   = [];
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.client.store');
-        $plans      = NegotiatePlans::getAllActives();
+        $plans      = Oka6Plans::getAllActives();
 
-        return view('Admin::backend.clients.create', compact('profiles','negotiateClient', 'hasSave', 'user', 'plans'));
+        return view('Admin::backend.clients.create', compact('profiles','oka6Client', 'hasSave', 'user', 'plans'));
     }
 
     /**
@@ -140,7 +140,7 @@ class ClientController extends BaseController {
      */
     public function store(Request $request) {
         $this->makeValidate($request);
-        $dataForm = NegotiateClient::createClient($request);
+        $dataForm = Oka6Client::createClient($request);
         toastr()->success('Cliente ['. $request->get('name').'] foi criado!','Sucesso');
         return redirect(route('admin.client.edit',[$dataForm['id']]));
     }
@@ -153,19 +153,19 @@ class ClientController extends BaseController {
     public function edit($id) {
         $user           = Auth::user();
         if($user->profile_id== User::PROFILE_ID_ROOT){
-            $negotiateClient= NegotiateClient::where('id', (int)$id)->first();
+            $oka6Client= Oka6Client::where('id', (int)$id)->first();
         }else{
-            $negotiateClient= NegotiateClient::where('id', (int)$id)->where('user_id', (int)$user->id)->first();
-            if(!$negotiateClient){
+            $oka6Client= Oka6Client::where('id', (int)$id)->where('user_id', (int)$user->id)->first();
+            if(!$oka6Client){
                 return view('Admin::errors.403');
             }
         }
 
-        $plans          = NegotiatePlans::getAllActives();
+        $plans          = Oka6Plans::getAllActives();
         $fieldsUpdate   = Config::get('admin.plan_fields_update');
         $profiles       = Profile::getProfilesByTypes(Config::get('admin.profile_type'));
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.client.update', [1]);
-        return view('Admin::backend.clients.edit', compact('negotiateClient', 'profiles', 'hasSave', 'user', 'plans', 'fieldsUpdate'));
+        return view('Admin::backend.clients.edit', compact('oka6Client', 'profiles', 'hasSave', 'user', 'plans', 'fieldsUpdate'));
     }
 
     /**
@@ -178,17 +178,17 @@ class ClientController extends BaseController {
     public function update(Request $request, $id) {
         $user       = Auth::user();
         if($user->profile_id == User::PROFILE_ID_ROOT){
-            $negotiateClient = NegotiateClient::where('id',(int)$id)->first();
+            $oka6Client = Oka6Client::where('id',(int)$id)->first();
         }else{
-            $negotiateClient = NegotiateClient::where('id',(int)$id)->where('user_id', (int)$user->id)->first();
+            $oka6Client = Oka6Client::where('id',(int)$id)->where('user_id', (int)$user->id)->first();
         }
 
-        if(!$negotiateClient){
+        if(!$oka6Client){
             return view('Admin::errors.403');
         }
         $request->request->add(['id'=>$id]);
         $this->makeValidate($request);
-        NegotiateClient::updateClient($request, $id);
+        Oka6Client::updateClient($request, $id);
         toastr()->success('Cliente Atualizado com sucesso','Sucesso');
         return redirect(route('admin.client.index'));
     }
@@ -233,7 +233,7 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 return response()->json(['message'=>'Esse cliente não pertence a você'], 400);
             }
@@ -289,7 +289,7 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 $idClient=0;
             }
@@ -327,15 +327,15 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 return response()->json(['message'=>'Cliente nao encontrado'], 400);
             }
         }else{
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->first();
         }
 
-        $plan = NegotiatePlans::getPlanById($isOwnerClient->plan_id);
+        $plan = Oka6Plans::getPlanById($isOwnerClient->plan_id);
         if($plan){
             return response()->json(['message'=>'success', 'data'=> $plan->toArray()], 200);
         }else{
@@ -348,23 +348,23 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 return response()->json(['message'=>'Cliente nao encontrado'], 400);
             }
         }else{
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->first();
         }
-        $plan = NegotiatePlans::getPlanById($isOwnerClient->plan_id);
+        $plan = Oka6Plans::getPlanById($isOwnerClient->plan_id);
         if($plan->type!="manual"){
             return response()->json(['message'=>'Não é permitido adicionar transações para esse plano'], 400);
         }
         /** Verifica se ja existe uma transação */
-        $lastTransaction = NegotiateWalletTransaction::getLast($idClient);
+        $lastTransaction = Oka6WalletTransaction::getLast($idClient);
         if($lastTransaction && ($lastTransaction->status=="pending" || $lastTransaction->status=="success")){
             return response()->json(['message'=>'Existe um pagamento em analise, aguarde para solicitar.'], 400);
         }
-        NegotiateWalletTransaction::insertPayment($plan, $idClient, $user);
+        Oka6WalletTransaction::insertPayment($plan, $idClient, $user);
         return response()->json(['message'=>'success'], 200);
     }
 
@@ -372,12 +372,12 @@ class ClientController extends BaseController {
         $user       = Auth::user();
         if($user->profile_id != User::PROFILE_ID_ROOT){
             /** Valida se esse cliente é do usuário logado */
-            $isOwnerClient = NegotiateClient::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
+            $isOwnerClient = Oka6Client::where('id', (int)$idClient)->where('user_id', (int)$user->id)->first();
             if(!$isOwnerClient){
                 $idClient=0;
             }
         }
-        $query  = NegotiateWalletTransaction::where('client_id', (int)$idClient);
+        $query  = Oka6WalletTransaction::where('client_id', (int)$idClient);
         return Datatables::of($query)
             ->setRowClass(function () {
                 return 'center';

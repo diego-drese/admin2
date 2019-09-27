@@ -1,12 +1,12 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Support\Facades\Config;
 use Jenssegers\Mongodb\Eloquent\Model;
-use Negotiate\Admin\Library\MongoUtils;
+use Oka6\Admin\Library\MongoUtils;
 
-class NegotiateWalletTransaction extends Model {
+class Oka6WalletTransaction extends Model {
     protected $fillable = [
         'id',
         'recurrence_days',
@@ -20,9 +20,9 @@ class NegotiateWalletTransaction extends Model {
         'token',
         'validate_at'
     ];
-    protected $connection   = 'negotiate_admin';
-    protected $table        = 'negotiate_wallet_transaction';
-    const TABLE             = 'negotiate_wallet_transaction';
+    protected $connection   = 'oka6_admin';
+    protected $table        = 'oka6_wallet_transaction';
+    const TABLE             = 'oka6_wallet_transaction';
     const STATUS            = [
         'pending'   => 'Aguardando confirmação',
         'success'   => 'Processado e aceito',

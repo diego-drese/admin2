@@ -1,14 +1,14 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers\Auth;
+namespace Oka6\Admin\Http\Controllers\Auth;
 
 use Illuminate\Validation\ValidationException;
-use Negotiate\Admin\Http\Controllers\Controller;
+use Oka6\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Negotiate\Admin\Resource;
-use Negotiate\Admin\User;
+use Oka6\Admin\Resource;
+use Oka6\Admin\User;
 
 class LoginController extends Controller
 {
@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('Negotiate\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedAdmin')->except('logout');
+        $this->middleware('Oka6\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedAdmin')->except('logout');
     }
     protected function sendFailedLoginResponse(Request $request)
     {

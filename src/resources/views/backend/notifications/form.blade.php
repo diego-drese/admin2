@@ -65,15 +65,15 @@
 
 @endsection
 @section('style_head')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/jquerysteps.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/form.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/select2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/jquerysteps.css')}}">
 
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/select2.js')}}></script>
 
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/jquerysteps.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/jquerysteps.js')}}></script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>

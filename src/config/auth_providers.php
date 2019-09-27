@@ -4,7 +4,7 @@ return [
 
     'users' => [
         'driver' => 'eloquent',
-        'model' => Negotiate\Admin\User::class
+        'model' => Oka6\Admin\User::class
     ]
 
 ];

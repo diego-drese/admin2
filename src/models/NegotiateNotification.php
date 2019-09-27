@@ -1,12 +1,12 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class NegotiateNotification extends Model {
+class Oka6Notification extends Model {
     protected $fillable = [
                             'alias', // - Identificador que relaciona mensagens
                             'subject', // - Titulo da mensagem
@@ -26,9 +26,9 @@ class NegotiateNotification extends Model {
                             'ui', // icones, ou qualquer coisa de layout
                             ];
 
-    protected $connection   = 'negotiate_notification';
-    protected $table        = 'negotiate_notification';
-    const TABLE             = 'negotiate_notification';
+    protected $connection   = 'oka6_notification';
+    protected $table        = 'oka6_notification';
+    const TABLE             = 'oka6_notification';
 
     public $rules = [
 

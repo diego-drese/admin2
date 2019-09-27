@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNegotiatePLan extends Migration {
+class CreateOka6PLan extends Migration {
 
-    protected $connection = 'negotiate_admin';
+    protected $connection = 'oka6_admin';
 
     public function up() {
         Schema::connection($this->connection)
-            ->table('negotiate_plan', function (Blueprint $collection){
+            ->table('oka6_plan', function (Blueprint $collection){
                 $collection->background(["id"]);
                 $collection->background(["recurrence_days"]);
                 $collection->background(["value"]);
@@ -24,6 +24,6 @@ class CreateNegotiatePLan extends Migration {
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('negotiate_plan');
+        Schema::connection($this->connection)->dropIfExists('oka6_plan');
     }
 }

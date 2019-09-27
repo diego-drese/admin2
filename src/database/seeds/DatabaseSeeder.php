@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Database\Seeder;
 

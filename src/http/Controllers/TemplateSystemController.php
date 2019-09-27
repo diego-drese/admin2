@@ -1,12 +1,12 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use Negotiate\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Library\ResourceAdmin;
 use Illuminate\Routing\Controller as BaseController;
-use Negotiate\Admin\TemplateSystem;
-use Negotiate\Admin\TutorialHelp;
+use Oka6\Admin\TemplateSystem;
+use Oka6\Admin\TutorialHelp;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 

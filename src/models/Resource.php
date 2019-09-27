@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Resource extends Model
     protected $fillable = ['id','name','menu','is_menu','icon','can_be_default','parent_id'];
     protected $table        = 'resource';
     const TABLE             = 'resource';
-    protected $connection   = 'negotiate_admin';
+    protected $connection   = 'oka6_admin';
 
 
     public static function getResourcesByProfiles($profile, $controller) {

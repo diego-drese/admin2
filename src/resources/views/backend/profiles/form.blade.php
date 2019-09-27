@@ -12,7 +12,7 @@
     <label for="title">Tipo de pefil</label>
     <select class="form-control " id="selectTypeUser" name="type">
         <option>Selecione</option>
-        @foreach($negotiateProfileTypes as $key=>$type_user)
+        @foreach($oka6ProfileTypes as $key=>$type_user)
             <option {{isset($profile->exists) && $type_user==$profile->type ? 'selected="selected"' : '' }} value="{{$type_user}}">{{$type_user}}</option>
         @endforeach
     </select>
@@ -49,8 +49,8 @@
 @endif
 </div>
 @section('style_head')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/form.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/select2.css')}}">
     <style>
         .select2-container--classic .select2-selection--single, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-selection__arrow, .select2-container--default .select2-selection--single .select2-selection__rendered {
             height: auto;
@@ -58,7 +58,7 @@
     </style>
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/select2.js')}}></script>
     <script>
         $(document).ready(function () {
             $('#selectResource').select2({ width: '100%'  });

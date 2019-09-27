@@ -1,8 +1,8 @@
 <?php
 
-namespace Negotiate\Admin\Library;
+namespace Oka6\Admin\Library;
 
-use Negotiate\Admin\Resource;
+use Oka6\Admin\Resource;
 use Illuminate\Support\Facades\Auth;
 
 class ResourceAdmin

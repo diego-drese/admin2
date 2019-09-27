@@ -1,5 +1,5 @@
 {
-    "name": "negotiate/admin",
+    "name": "oka6/admin",
     "description": "Admin admin PKG",
     "type": "package",
     "license": "MIT",
@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Negotiate\\Admin\\NegotiateServiceProvider"
+                "Oka6\\Admin\\Oka6ServiceProvider"
             ]
         }
     },
@@ -29,13 +29,11 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Negotiate\\Admin\\": "src/"
+            "Oka6\\Admin\\": "src/"
         }
     },
 
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "~5",
         "yoeunes/toastr": "^1.0",
         "yajra/laravel-datatables-oracle": "^8.7",
         "pimlie/laravel-datatables-mongodb": "^1.1",

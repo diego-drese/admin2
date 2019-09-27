@@ -1,14 +1,14 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
-use Negotiate\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Library\ResourceAdmin;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\Resource;
+use Oka6\Admin\Profile;
+use Oka6\Admin\Resource;
 use Illuminate\Http\Request;
-use Negotiate\Admin\Sequence;
+use Oka6\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 
 class ResourcesController extends BaseController {

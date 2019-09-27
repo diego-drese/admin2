@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-4 form-group {{$errors->has('name') ? 'has-error' : ''}} ">
                 <label for="title">Nome</label>
-                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{old('name',$negotiateClient->exists() ? $negotiateClient->name : '')}}" name="name"
+                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{old('name',$oka6Client->exists() ? $oka6Client->name : '')}}" name="name"
                        id="name" placeholder="">
                 @if($errors->has('name'))
                     <span class="help-block">{{$errors->first('name')}}</span>
@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('email') ? 'has-error' : ''}}">
                 <label for="slug">E-mail</label>
-                <input type="email" value="{{old('email',$negotiateClient->email)}}" name="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}"
+                <input type="email" value="{{old('email',$oka6Client->email)}}" name="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}"
                        id="email" placeholder="">
                 @if($errors->has('email'))
                     <span class="help-block">{{$errors->first('email')}}</span>
@@ -23,7 +23,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('phone') ? 'has-error' : ''}}">
                 <label for="phone">Telefone</label>
-                <input type="text" value="{{old('phone',$negotiateClient->exists() ? $negotiateClient->phone : '')}}" name="phone"
+                <input type="text" value="{{old('phone',$oka6Client->exists() ? $oka6Client->phone : '')}}" name="phone"
                        class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}"
                        id="phone" placeholder="(xx) xxx-xxxx">
                 @if($errors->has('phone'))
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('cellphone') ? 'has-error' : ''}}">
                 <label for="cellphone">Celular</label>
-                <input type="text" value="{{old('cellphone',$negotiateClient->exists() ? $negotiateClient->cellphone : '')}}" name="cellphone"
+                <input type="text" value="{{old('cellphone',$oka6Client->exists() ? $oka6Client->cellphone : '')}}" name="cellphone"
                        class="form-control {{$errors->has('cellphone') ? 'is-invalid' : ''}}"
                        id="cellphone" placeholder="(xx) xxxx-xxxx">
                 @if($errors->has('cellphone'))
@@ -43,7 +43,7 @@
                 <label for="active">Status</label>
                 <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}" id="active" >
                     <option value="1">Ativo</option>
-                    <option value="0" {{$negotiateClient->exists() && $negotiateClient->active == 0 ? 'selected' : ''}}>Desativado</option>
+                    <option value="0" {{$oka6Client->exists() && $oka6Client->active == 0 ? 'selected' : ''}}>Desativado</option>
                 </select>
                 @if($errors->has('active'))
                     <span class="help-block">{{$errors->first('active')}}</span>
@@ -52,13 +52,13 @@
 
             <div class="col-md-4 form-group {{$errors->has('type') ? 'has-error' : ''}}">
                 <label for="type">Usuário Administrador</label>
-                @if($user->profile_id==\Negotiate\Admin\User::PROFILE_ID_ROOT)
+                @if($user->profile_id==\Oka6\Admin\User::PROFILE_ID_ROOT)
                     <select type="text" name="user_id" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="user_id" >
-                        @if($negotiateClient->exists() && $negotiateClient->user_id)
-                            <option value="{{$negotiateClient->user_id}}">{{$negotiateClient->user_name}}</option>
+                        @if($oka6Client->exists() && $oka6Client->user_id)
+                            <option value="{{$oka6Client->user_id}}">{{$oka6Client->user_name}}</option>
                         @endif
                     </select>
-                    <input type="hidden" value="{{$negotiateClient->exists() && $negotiateClient->user_id ? $negotiateClient->user_name : ''}}" name="user_name" class="form-control" id ="user_name">
+                    <input type="hidden" value="{{$oka6Client->exists() && $oka6Client->user_id ? $oka6Client->user_name : ''}}" name="user_name" class="form-control" id ="user_name">
                 @else
                     <input type="text" value="{{$user->name}}" name="user_name" class="form-control" id="user_name" readonly>
                     <input type="hidden" value="{{$user->id}}" name="user_id" class="form-control" id="user_id" >
@@ -76,8 +76,8 @@
                         <input id="logo" name="logo" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
                     </span>
                     <span class="form-control"></span>
-                    @if($negotiateClient->exists() && $negotiateClient->logo)
-                        <img src="{{$negotiateClient->logo}}" alt="user" class="rounded-circle" width="40" height="40" style="  margin-left: 8px;  margin-top: -6px;">
+                    @if($oka6Client->exists() && $oka6Client->logo)
+                        <img src="{{$oka6Client->logo}}" alt="user" class="rounded-circle" width="40" height="40" style="  margin-left: 8px;  margin-top: -6px;">
                     @endif
                 </div>
                 @if($errors->has('logo'))
@@ -86,7 +86,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('domain') ? 'has-error' : ''}}">
                 <label for="street">Dominio</label>
-                <input type="text" value="{{old('cellphone',$negotiateClient->exists() ? $negotiateClient->domain : '')}}" name="domain"
+                <input type="text" value="{{old('cellphone',$oka6Client->exists() ? $oka6Client->domain : '')}}" name="domain"
                        class="form-control {{$errors->has('domain') ? 'is-invalid' : ''}}"
                        id="domain" placeholder="Dominio utilizado em páginas personalizadas">
                 @if($errors->has('domain'))
@@ -96,7 +96,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('address_street') ? 'has-error' : ''}}">
                 <label for="street">Rua</label>
-                <input type="text" value="{{old('address_street',$negotiateClient->exists() ? $negotiateClient->address_street : '')}}" name="address_street"
+                <input type="text" value="{{old('address_street',$oka6Client->exists() ? $oka6Client->address_street : '')}}" name="address_street"
                        class="form-control {{$errors->has('address_street') ? 'is-invalid' : ''}}"
                        id="address_street" placeholder="">
                 @if($errors->has('address_street'))
@@ -105,7 +105,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('address_number') ? 'has-error' : ''}}">
                 <label for="street">Número</label>
-                <input type="text" value="{{old('address_number',$negotiateClient->exists() ? $negotiateClient->address_number : '')}}" name="address_number"
+                <input type="text" value="{{old('address_number',$oka6Client->exists() ? $oka6Client->address_number : '')}}" name="address_number"
                        class="form-control {{$errors->has('address_number') ? 'is-invalid' : ''}}"
                        id="address_number" placeholder="">
                 @if($errors->has('address_number'))
@@ -115,7 +115,7 @@
 
                 <div class="col-md-4 form-group {{$errors->has('address_complement') ? 'has-error' : ''}}">
                 <label for="street">Complemento</label>
-                <input type="text" value="{{old('address_complement',$negotiateClient->exists() ? $negotiateClient->address_complement : '')}}" name="address_complement"
+                <input type="text" value="{{old('address_complement',$oka6Client->exists() ? $oka6Client->address_complement : '')}}" name="address_complement"
                        class="form-control {{$errors->has('address_complement') ? 'is-invalid' : ''}}"
                        id="address_complement" placeholder="">
                 @if($errors->has('address_complement'))
@@ -124,7 +124,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('address_neighborhood') ? 'has-error' : ''}}">
                 <label for="street">Bairro</label>
-                <input type="text" value="{{old('address_neighborhood',$negotiateClient->exists() ? $negotiateClient->address_neighborhood : '')}}" name="address_neighborhood"
+                <input type="text" value="{{old('address_neighborhood',$oka6Client->exists() ? $oka6Client->address_neighborhood : '')}}" name="address_neighborhood"
                        class="form-control {{$errors->has('address_neighborhood') ? 'is-invalid' : ''}}"
                        id="address_neighborhood" placeholder="">
                 @if($errors->has('address_neighborhood'))
@@ -134,7 +134,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('address_city') ? 'has-error' : ''}}">
                 <label for="street">Cidade</label>
-                <input type="text" value="{{old('address_city',$negotiateClient->exists() ? $negotiateClient->address_city : '')}}" name="address_city"
+                <input type="text" value="{{old('address_city',$oka6Client->exists() ? $oka6Client->address_city : '')}}" name="address_city"
                        class="form-control {{$errors->has('address_city') ? 'is-invalid' : ''}}"
                        id="address_city" placeholder="">
                 @if($errors->has('address_city'))
@@ -176,7 +176,7 @@
                 ?>
                 <select type="text" name="address_state" class="form-control {{$errors->has('address_state') ? 'is-invalid' : ''}}" id="address_state" placeholder="Estado">
                     @foreach($estadosBrasileiros as $uf=>$nome)
-                        <option value="{{$uf}}" {{isset($negotiateClient->exists) && $uf==$negotiateClient->address_state ? 'selected="selected"' : '' }}>{{$nome}}</option>
+                        <option value="{{$uf}}" {{isset($oka6Client->exists) && $uf==$oka6Client->address_state ? 'selected="selected"' : '' }}>{{$nome}}</option>
                     @endforeach
                 </select>
                 @if($errors->has('address_state'))
@@ -186,8 +186,8 @@
             <div class="col-md-4 form-group {{$errors->has('type') ? 'has-error' : ''}}">
                 <label for="type">Tipo</label>
                 <select type="text" name="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="type" placeholder="Cliente">
-                    <option value="CPF" {{$negotiateClient->exists() && $negotiateClient->type == 'CPF' ? 'selected' : ''}}>Pessoa Física</option>
-                    <option value="CNPJ" {{$negotiateClient->exists() && $negotiateClient->type == 'CNPJ' ? 'selected' : ''}}>Pesoa Júridica</option>
+                    <option value="CPF" {{$oka6Client->exists() && $oka6Client->type == 'CPF' ? 'selected' : ''}}>Pessoa Física</option>
+                    <option value="CNPJ" {{$oka6Client->exists() && $oka6Client->type == 'CNPJ' ? 'selected' : ''}}>Pesoa Júridica</option>
                 </select>
                 @if($errors->has('type'))
                     <span class="help-block">{{$errors->first('type')}}</span>
@@ -197,7 +197,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('cpf') ? 'has-error' : ''}}">
                 <label for="cpf">CPF</label>
-                <input type="text" value="{{old('cpf',$negotiateClient->exists() ? $negotiateClient->cpf : '')}}" name="cpf"
+                <input type="text" value="{{old('cpf',$oka6Client->exists() ? $oka6Client->cpf : '')}}" name="cpf"
                        class="form-control {{$errors->has('cpf') ? 'is-invalid' : ''}}"
                        id="cpf" placeholder="xxx.xxx.xxx-xx">
                 @if($errors->has('cpf'))
@@ -206,7 +206,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('cnpj') ? 'has-error' : ''}}">
                 <label for="cnpj">CNPJ</label>
-                <input type="text" value="{{old('cnpj',$negotiateClient->exists() ? $negotiateClient->cnpj : '')}}" name="cnpj"
+                <input type="text" value="{{old('cnpj',$oka6Client->exists() ? $oka6Client->cnpj : '')}}" name="cnpj"
                        class="form-control {{$errors->has('cnpj') ? 'is-invalid' : ''}}"
                        id="cnpj" placeholder="xx.xxx.xxx/xxxx-xx">
                 @if($errors->has('cnpj'))
@@ -216,7 +216,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('social_reason') ? 'has-error' : ''}}">
                 <label for="social_reason">Razão Social</label>
-                <input type="text" value="{{old('social_reason',$negotiateClient->exists() ? $negotiateClient->social_reason : '')}}" name="social_reason"
+                <input type="text" value="{{old('social_reason',$oka6Client->exists() ? $oka6Client->social_reason : '')}}" name="social_reason"
                        class="form-control {{$errors->has('social_reason') ? 'is-invalid' : ''}}"
                        id="social_reason" placeholder="">
                 @if($errors->has('social_reason'))
@@ -226,7 +226,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('fantasy_name') ? 'has-error' : ''}}">
                 <label for="fantasy_name">Nome Fantasia</label>
-                <input type="text" value="{{old('fantasy_name',$negotiateClient->exists() ? $negotiateClient->fantasy_name : '')}}" name="fantasy_name"
+                <input type="text" value="{{old('fantasy_name',$oka6Client->exists() ? $oka6Client->fantasy_name : '')}}" name="fantasy_name"
                        class="form-control {{$errors->has('fantasy_name') ? 'is-invalid' : ''}}"
                        id="fantasy_name" placeholder="">
                 @if($errors->has('fantasy_name'))
@@ -236,7 +236,7 @@
 
             <div class="col-md-4 form-group {{$errors->has('state_register') ? 'has-error' : ''}}">
                 <label for="state_register">Inscrição Estadual</label>
-                <input type="text" value="{{old('state_register', $negotiateClient->exists() ? $negotiateClient->state_register : '')}}" name="state_register"
+                <input type="text" value="{{old('state_register', $oka6Client->exists() ? $oka6Client->state_register : '')}}" name="state_register"
                        class="form-control {{$errors->has('state_register') ? 'is-invalid' : ''}}"
                        id="state_register" placeholder="">
                 @if($errors->has('state_register'))
@@ -247,7 +247,7 @@
                 <label for="type">Plano</label>
                 <select type="text" name="plan" class="form-control {{$errors->has('plan_id') ? 'is-invalid' : ''}}" id="plan" >
                     @foreach($plans as $plan)
-                        <option value="{{$plan->id}}" {{$negotiateClient->exists() && $negotiateClient->plan_id == $plan->id ? 'selected' : ''}}>{{$plan->name}}</option>
+                        <option value="{{$plan->id}}" {{$oka6Client->exists() && $oka6Client->plan_id == $plan->id ? 'selected' : ''}}>{{$plan->name}}</option>
                     @endforeach
                 </select>
                 @if($errors->has('plan_id'))
@@ -261,12 +261,12 @@
 
 
             <?php \Carbon\Carbon::setLocale('pt_BR');?>
-            @if($negotiateClient->exists() && $negotiateClient->id)
+            @if($oka6Client->exists() && $oka6Client->id)
                 <div class="col-md-3 form-group">
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">R$ {{$negotiateClient->last_payment_value ? $negotiateClient->last_payment_value : '0,00'}}</h3>
+                                <h3 class="m-b-0">R$ {{$oka6Client->last_payment_value ? $oka6Client->last_payment_value : '0,00'}}</h3>
                                 <span>Ultimo valor pago</span>
                             </div>
                             <div class="p-10  ml-auto">
@@ -279,7 +279,7 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{$negotiateClient->next_charging_attempt ?  \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
+                                <h3 class="m-b-0">{{$oka6Client->next_charging_attempt ?  \Carbon\Carbon::createFromTimeStamp(strtotime($oka6Client->next_charging_attempt))->format('d/m/Y') : 'Nenhuma'}}</h3>
                                 <span>Próxima tarifação</span>
                             </div>
                             <div class="p-10  ml-auto">
@@ -292,7 +292,7 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">R$ {{$negotiateClient->total_charging ? $negotiateClient->total_charging : '0,00'}}</h3>
+                                <h3 class="m-b-0">R$ {{$oka6Client->total_charging ? $oka6Client->total_charging : '0,00'}}</h3>
                                 <span>Total Tarifado</span>
                             </div>
                             <div class="p-10  ml-auto">
@@ -307,7 +307,7 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{$negotiateClient->current_plan ? $negotiateClient->current_plan : 'Nenhum'}} </h3>
+                                <h3 class="m-b-0">{{$oka6Client->current_plan ? $oka6Client->current_plan : 'Nenhum'}} </h3>
                                 <span>Plano Atual</span>
                             </div>
                             <div class="p-10  ml-auto">
@@ -321,7 +321,7 @@
                     <div class="card bg-cyan">
                         <div class="d-flex flex-row">
                             <div class="text-white align-self-center p-10">
-                                <h3 class="m-b-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($negotiateClient->created_at))->diffForHumans() }}</h3>
+                                <h3 class="m-b-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($oka6Client->created_at))->diffForHumans() }}</h3>
                                 <span>Cliente desde</span>
                             </div>
                             <div class="p-10  ml-auto">
@@ -335,7 +335,7 @@
                         <div class="card bg-cyan">
                             <div class="d-flex flex-row">
                                 <div class="text-white align-self-center p-10">
-                                    <h3 class="m-b-0">{{$negotiateClient->{$field['name']} ? $negotiateClient->{$field['name']} : 0}}</h3>
+                                    <h3 class="m-b-0">{{$oka6Client->{$field['name']} ? $oka6Client->{$field['name']} : 0}}</h3>
                                     <span>{{$field['label']}}</span>
                                 </div>
                                 <div class="p-10  ml-auto">
@@ -357,7 +357,7 @@
         </div>
     </div>
 </div>
-@if($negotiateClient->exists() && (int)$negotiateClient->id>0)
+@if($oka6Client->exists() && (int)$oka6Client->id>0)
     <div class="card">
         <div class="card-header bg-amber">
             <h6 class="m-b-0 text-black font-weight-bolder">Usuários</h6>
@@ -391,7 +391,7 @@
     </div>
 @endif
 
-@if($negotiateClient->exists() && (int)$negotiateClient->id>0)
+@if($oka6Client->exists() && (int)$oka6Client->id>0)
     <div class="card">
         <div class="card-header bg-amber">
             <h6 class="m-b-0 text-black font-weight-bolder">Transações de Pagamento</h6>
@@ -537,7 +537,7 @@
                     <div class="row" style="width: 100%">
                         <div class="col-md-12 text-right">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" id="savePay" class="btn btn-success" data-id="{{$negotiateClient->id}}">Solicitar</button>
+                            <button type="button" id="savePay" class="btn btn-success" data-id="{{$oka6Client->id}}">Solicitar</button>
                         </div>
                     </div>
                 </div>
@@ -546,9 +546,9 @@
     </div>
 @endif
 @section('style_head')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/sweetalert2.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/datatables.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/sweetalert2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/select2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/datatables.css')}}">
 
     <style>
         form .card-body{padding: 10px 0px;}
@@ -561,16 +561,16 @@
     </style>
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/sweetalert2.js')}}></script>
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/datatables.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/sweetalert2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/forms.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/datatables.js')}}></script>
 
     <script>
         var selectedOption      = 0;
         var resourceDefaultId   = 0;
-        var imageAvatar         = '/vendor/negotiate/admin/nice-admin/assets/images/users/user_avatar.svg';
-        var clientID            = '{{$negotiateClient->exists() && $negotiateClient->id ? $negotiateClient->id : 0}}';
+        var imageAvatar         = '/vendor/oka6/admin/nice-admin/assets/images/users/user_avatar.svg';
+        var clientID            = '{{$oka6Client->exists() && $oka6Client->id ? $oka6Client->id : 0}}';
         var urlSaveUser         = '{{route('admin.client.user.save', [':idClient'])}}';
         var urlGetUser          = '{{route('admin.client.user.get', [':idClient'])}}';
         var urlPaymentReq       = '{{route('admin.client.payment.request.get', [':idClient'])}}';

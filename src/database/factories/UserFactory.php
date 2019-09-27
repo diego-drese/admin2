@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 use App\User;
 use Faker\Generator as Faker;
 

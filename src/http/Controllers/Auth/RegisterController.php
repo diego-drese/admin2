@@ -1,9 +1,9 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers\Auth;
+namespace Oka6\Admin\Http\Controllers\Auth;
 
-use Negotiate\Admin\User;
-use Negotiate\Admin\Http\Controllers\Controller;
+use Oka6\Admin\User;
+use Oka6\Admin\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

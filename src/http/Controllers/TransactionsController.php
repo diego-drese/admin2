@@ -1,15 +1,15 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use Negotiate\Admin\Library\MongoUtils;
-use Negotiate\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Library\MongoUtils;
+use Oka6\Admin\Library\ResourceAdmin;
 use Illuminate\Routing\Controller as BaseController;
-use Negotiate\Admin\NegotiateClient;
-use Negotiate\Admin\NegotiatePlans;
-use Negotiate\Admin\NegotiateWalletTransaction;
+use Oka6\Admin\Oka6Client;
+use Oka6\Admin\Oka6Plans;
+use Oka6\Admin\Oka6WalletTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Yajra\Datatables\Datatables;
@@ -20,9 +20,9 @@ class TransactionsController extends BaseController {
     public function index(Request $request) {
 
         if($request->ajax()){
-            return Datatables::of(NegotiateWalletTransaction::query())
+            return Datatables::of(Oka6WalletTransaction::query())
                 ->addColumn('client_name', function($row){
-                   $client = NegotiateClient::getById($row->client_id);
+                   $client = Oka6Client::getById($row->client_id);
                    return $client->name;
                 })->addColumn('get_url', function($row){
                     return route('admin.transactions.get', [$row->id]);
@@ -46,9 +46,9 @@ class TransactionsController extends BaseController {
      * @return \Illuminate\Http\Response
      */
     public function get($id) {
-        $transaction    = NegotiateWalletTransaction::getById($id);
-        $client         = NegotiateClient::getById($transaction->client_id);
-        $plan           = NegotiatePlans::getPlanById($transaction->plan_id);
+        $transaction    = Oka6WalletTransaction::getById($id);
+        $client         = Oka6Client::getById($transaction->client_id);
+        $plan           = Oka6Plans::getPlanById($transaction->plan_id);
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.transactions.update',[1]);
         $fieldsUpdate   = Config::get('admin.plan_fields_update');
         return view('Admin::backend.transactions.form',compact('transaction','client', 'hasSave', 'fieldsUpdate', 'plan'));
@@ -59,7 +59,7 @@ class TransactionsController extends BaseController {
 
     public function update(Request $request, $id) {
 
-        $transactions    = NegotiateWalletTransaction::firstOrNew(['id'=>(int)$id]);
+        $transactions    = Oka6WalletTransaction::firstOrNew(['id'=>(int)$id]);
         if($transactions->status!="pending"){
             toastr()->error("Não é possivel atualziar essa transação.",'Erro');
             return redirect(route('admin.transactions.get',[$id]));
@@ -78,14 +78,14 @@ class TransactionsController extends BaseController {
         $user                               = Auth::user();
         $historic                           = $transactions->historic;
         $historic[]                         = ['user_id' =>($user ? $user->id : null),'user_name' =>($user ? $user->name : null), 'action'=> 'update', 'status'=> $request->get('status'), 'date_at'=> MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'))];
-        $transactions->status_description   = NegotiateWalletTransaction::STATUS[$request->get('status')];
+        $transactions->status_description   = Oka6WalletTransaction::STATUS[$request->get('status')];
         $transactions->status               = $request->get('status');
         $transactions->historic             = $historic;
         $transactions->save();
 
         if($request->get('status')=="complete"){
             /** Ajusta o cliente */
-            $client                         = NegotiateClient::getById($transactions->client_id);
+            $client                         = Oka6Client::getById($transactions->client_id);
             $client->total_charging         = (double)$client->total_charging+$transactions->value;
             $client->last_payment_value     = (double)$transactions->value;
             $client->current_plan           = $transactions->plan_name;

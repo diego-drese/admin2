@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNegotiateWalletTransaction extends Migration {
+class CreateOka6WalletTransaction extends Migration {
 
-    protected $connection = 'negotiate_admin';
+    protected $connection = 'oka6_admin';
 
     public function up() {
         Schema::connection($this->connection)
-            ->table('negotiate_wallet_transaction', function (Blueprint $collection){
+            ->table('oka6_wallet_transaction', function (Blueprint $collection){
                 $collection->background(["id"]);
                 $collection->background(["type"]);//Credit, debit, reversal
                 $collection->background(["client_id"]);
@@ -24,6 +24,6 @@ class CreateNegotiateWalletTransaction extends Migration {
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('negotiate_wallet_transaction');
+        Schema::connection($this->connection)->dropIfExists('oka6_wallet_transaction');
     }
 }

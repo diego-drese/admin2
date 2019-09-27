@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -95,7 +95,7 @@ class TemplateSystemSeed extends Seeder
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="card js-way-1">
-                    <img src="vendor/negotiate/templates/clinic/calendar.svg" class="img" alt="Agendamentos com Hclinic">
+                    <img src="vendor/oka6/templates/clinic/calendar.svg" class="img" alt="Agendamentos com Hclinic">
                     <div class="desc">
                         <h2 class="title">Agendamentos Online</h2>
                         <p>Agende e Gerencie as marcações de horários dos seus clientes, em qualquer lugar ou hora.</p>
@@ -104,7 +104,7 @@ class TemplateSystemSeed extends Seeder
             </div>
             <div class="col-md-4 col-sm-12">
                 <div class="card">
-                    <img src="vendor/negotiate/templates/clinic/schedule.svg" class="img" alt="Agendamentos com Hclinic">
+                    <img src="vendor/oka6/templates/clinic/schedule.svg" class="img" alt="Agendamentos com Hclinic">
                     <div class="desc">
                         <h2 class="title">Integrado ao Google Agenda</h2>
                         <p>Faça um agendamento no Hclinic e acompanhe-o pelo Google Calendar</p>
@@ -113,7 +113,7 @@ class TemplateSystemSeed extends Seeder
             </div>
             <div class="col-md-4 col-sm-12">
                 <div class="card">
-                    <img src="vendor/negotiate/templates/clinic/finance.svg" class="img" alt="Agendamentos com Hclinic">
+                    <img src="vendor/oka6/templates/clinic/finance.svg" class="img" alt="Agendamentos com Hclinic">
                     <div class="desc">
                         <h2 class="title">Gerencie sua clinica</h2>
                         <p>Acompanhe o rendimento dos seus atendimentos através de graficos</p>
@@ -129,50 +129,50 @@ class TemplateSystemSeed extends Seeder
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3 ">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/patient.svg" class="svg"/>
+                    <img src="vendor/oka6/templates/clinic/outline-icons/patient.svg" class="svg"/>
                     <p>Cadastro ilimitado de pacientes</p>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/doctor.svg" class="svg"/>
+                    <img src="vendor/oka6/templates/clinic/outline-icons/doctor.svg" class="svg"/>
                     <p>Cadastro ilimitado de médicos</p>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/calendar.svg" class="svg"/>
+                    <img src="vendor/oka6/templates/clinic/outline-icons/calendar.svg" class="svg"/>
                     <p>Agendamentos online integrado a agenda pessoal do profissional</p>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/result.svg" class="svg">/
+                    <img src="vendor/oka6/templates/clinic/outline-icons/result.svg" class="svg">/
                     <p>Relatórios de atendimentos e agendamentos</p>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/network.svg" class="svg"/>
+                    <img src="vendor/oka6/templates/clinic/outline-icons/network.svg" class="svg"/>
                     <p>Controle de Acessos e permissões para usuários</p>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/team.svg" class="svg">
+                    <img src="vendor/oka6/templates/clinic/outline-icons/team.svg" class="svg">
                     <p>Cadastre e gerencie os membros da sua Clinica.</p>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/analysis.svg" class="svg">
+                    <img src="vendor/oka6/templates/clinic/outline-icons/analysis.svg" class="svg">
                     <p>Acompanhe os rendimentos da sua clinica</p>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="simple-card-icon">
-                    <img src="vendor/negotiate/templates/clinic/outline-icons/shield.svg" class="svg">
+                    <img src="vendor/oka6/templates/clinic/outline-icons/shield.svg" class="svg">
                     <p>100% Online e Seguro</p>
                 </div>
             </div>
@@ -184,7 +184,7 @@ class TemplateSystemSeed extends Seeder
 <div class="container">
     <div class="row feature">
         <div class="col-7">
-            <img src="vendor/negotiate/templates/clinic/agendas-multiplas.png" alt="Multiplas agendas para profissionais" class="img-fluid">
+            <img src="vendor/oka6/templates/clinic/agendas-multiplas.png" alt="Multiplas agendas para profissionais" class="img-fluid">
         </div>
         <div class="col-5">
             <div class="featured-headline">
@@ -201,12 +201,12 @@ class TemplateSystemSeed extends Seeder
             </div>
         </div>
         <div class="col-7">
-            <img src="vendor/negotiate/templates/clinic/controle-total-agenda.png" alt="Controle total das agendas dos profissionais" class="img-fluid">
+            <img src="vendor/oka6/templates/clinic/controle-total-agenda.png" alt="Controle total das agendas dos profissionais" class="img-fluid">
         </div>
     </div>
     <div class="row feature">
         <div class="col-7">
-            <img src="vendor/negotiate/templates/clinic/relatorios-agendamentos.png" alt="Relatórios de agendamentos" class="img-fluid">
+            <img src="vendor/oka6/templates/clinic/relatorios-agendamentos.png" alt="Relatórios de agendamentos" class="img-fluid">
         </div>
         <div class="col-5">
             <div class="featured-headline">
@@ -257,7 +257,7 @@ class TemplateSystemSeed extends Seeder
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="agenda-ss" role="tabpanel" aria-labelledby="agenda-ss-tab">
                     <div class="nav-tab-gal"><a href="#">
-                        <img class="card-img" src="vendor/negotiate/templates/clinic/gallery/agenda.png"
+                        <img class="card-img" src="vendor/oka6/templates/clinic/gallery/agenda.png"
                              alt=""></a>
                     </div>
                 </div>
@@ -7218,7 +7218,7 @@ body {
     width: 1100px;
     height: 700px;
     transform: translate3d(-65px, 0, 0);
-    background: url(/vendor/negotiate/templates/clinic/bg-clinic.png) no-repeat;
+    background: url(/vendor/oka6/templates/clinic/bg-clinic.png) no-repeat;
     background-position: left top; }
 
 .footer-links {
@@ -7325,7 +7325,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(255, 255, 255, 0.6), #fff0), url(../vendor/negotiate/templates/clinic/bg/bg2.png) no-repeat center center/contain fixed; }
+  background: linear-gradient(rgba(255, 255, 255, 0.6), #fff0), url(../vendor/oka6/templates/clinic/bg/bg2.png) no-repeat center center/contain fixed; }
   .svgs .svg-detail {
     transform: rotate(180deg);
     fill: rgba(154, 122, 218, 0.03);
@@ -7379,7 +7379,7 @@ section.call {
   align-items: center;
   border-radius: 15px;
   box-shadow: 0px 3px 14px #a9a9a9;
-  background: linear-gradient(#9a74ec, #9b76ec82), url(../vendor/negotiate/templates/clinic/bg/bg3.png) no-repeat center center/cover;
+  background: linear-gradient(#9a74ec, #9b76ec82), url(../vendor/oka6/templates/clinic/bg/bg3.png) no-repeat center center/cover;
   color: #fff;
   text-shadow: 0px 0px 14px #a78deb; }
   section.call h1 {

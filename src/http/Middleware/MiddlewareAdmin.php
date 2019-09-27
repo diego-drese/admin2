@@ -1,13 +1,13 @@
 <?php
 
-namespace Negotiate\Admin\Http\Middleware;
+namespace Oka6\Admin\Http\Middleware;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Closure;
-use Negotiate\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Library\ResourceAdmin;
 
 
 class MiddlewareAdmin

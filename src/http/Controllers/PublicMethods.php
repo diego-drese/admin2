@@ -1,10 +1,10 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\Resource;
-use Negotiate\Admin\User;
+use Oka6\Admin\Profile;
+use Oka6\Admin\Resource;
+use Oka6\Admin\User;
 
 class PublicMethods extends Controller {
     public function getResourcesDefault($profileId){

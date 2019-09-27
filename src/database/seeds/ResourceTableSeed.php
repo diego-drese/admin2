@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;

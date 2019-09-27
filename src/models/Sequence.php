@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Support\Facades\Cache;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -8,7 +8,7 @@ use MongoDB\Operation\FindOneAndUpdate;
 
 class Sequence extends Model {
 
-    protected $connection   = "negotiate_admin";
+    protected $connection   = "oka6_admin";
     protected $table        = 'sequence';
     const TABLE             = 'sequence';
     protected $primaryKey   = '_id';

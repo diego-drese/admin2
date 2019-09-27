@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTemplateSystemTable extends Migration
 {
 
-    protected $connection = 'negotiate_admin_session';
+    protected $connection = 'oka6_admin_session';
 
     public function up()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 
@@ -8,7 +8,7 @@ class Profile extends Model
 {
 
     protected $fillable     = ['id', 'name', 'desc', 'resources_allow','type_user'];
-    protected $connection   = 'negotiate_admin';
+    protected $connection   = 'oka6_admin';
     protected $table        = 'profile';
     const TABLE             = 'profile';
 

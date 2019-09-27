@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProfileTable extends Migration {
 
-    protected $connection = 'negotiate_admin';
+    protected $connection = 'oka6_admin';
 
     public function up(){
         Schema::connection($this->connection)

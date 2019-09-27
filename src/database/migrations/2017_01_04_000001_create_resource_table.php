@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateResourceTable extends Migration {
 
-    protected $connection = 'negotiate_admin';
+    protected $connection = 'oka6_admin';
     public function up() {
         Schema::connection($this->connection)
             ->table('resource', function (Blueprint $collection){

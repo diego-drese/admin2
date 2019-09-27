@@ -5,7 +5,7 @@ use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreatePasswordResetsTable extends Migration {
-    protected $connection = 'negotiate_admin';
+    protected $connection = 'oka6_admin';
 
     public function up()
     {

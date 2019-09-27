@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin\Notifications;
+namespace Oka6\Admin\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

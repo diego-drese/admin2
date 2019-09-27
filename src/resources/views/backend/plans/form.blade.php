@@ -122,9 +122,9 @@
 </div>
 
 @section('style_head')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/basic.js')}}></script>
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/form.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/select2.css')}}">
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/basic.js')}}></script>
     <style>
         .select2-container--classic .select2-selection--single, .select2-container--default .select2-selection--multiple, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-selection__arrow, .select2-container--default .select2-selection--single .select2-selection__rendered {
             height: auto;
@@ -132,8 +132,8 @@
     </style>
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/forms.js')}}></script>
 
     <script>
         $(document).ready(function () {

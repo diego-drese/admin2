@@ -2,11 +2,11 @@
 
 Sistema de administração de sistemas com regras de permissões e acesso.
 
-php artisan migrate --database=negotiate_admin
+php artisan migrate --database=oka6_admin
 
-php artisan db:seed --class=Negotiate\\\Admin\\\DatabaseSeeder
+php artisan db:seed --class=Oka6\\\Admin\\\DatabaseSeeder
 
 php artisan vendor:publish --tag=public --force
 
-php artisan Negotiate:AdminRoutes
+php artisan Oka6:AdminRoutes
 

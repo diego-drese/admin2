@@ -1,9 +1,9 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Config;
-use Negotiate\Admin\TemplateSystem;
+use Oka6\Admin\TemplateSystem;
 
 class HomeController extends Controller
 {

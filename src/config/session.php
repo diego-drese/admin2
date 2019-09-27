@@ -2,5 +2,5 @@
 
 return [
         'driver' => 'mongodb',
-        'connection' => 'negotiate_admin_session'
+        'connection' => 'oka6_admin_session'
 ];

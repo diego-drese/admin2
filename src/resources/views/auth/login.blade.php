@@ -19,11 +19,11 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(/vendor/negotiate/admin/assets/images/big/auth-bg.jpg) no-repeat center center;">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(/vendor/oka6/admin/assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
-                        <span class="db"><img src="/vendor/negotiate/admin/assets/images/logo-icon.png" alt="logo" /></span>
+                        <span class="db"><img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="logo" /></span>
                         <h5 class="font-medium m-b-20">Entrar no Admin</h5>
                     </div>
                     <!-- Form -->

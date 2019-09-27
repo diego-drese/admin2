@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNegotiateTag extends Migration {
+class CreateOka6Tag extends Migration {
 
-    protected $connection = 'negotiate_admin';
+    protected $connection = 'oka6_admin';
 
     public function up() {
         Schema::connection($this->connection)
-            ->table('negotiate_tag', function (Blueprint $collection){
+            ->table('oka6_tag', function (Blueprint $collection){
 
                 $collection->background(["id"]);
                 $collection->background(["tag"]);
@@ -23,6 +23,6 @@ class CreateNegotiateTag extends Migration {
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('negotiate_tag');
+        Schema::connection($this->connection)->dropIfExists('oka6_tag');
     }
 }

@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNegotiateNotification extends Migration {
+class CreateOka6Notification extends Migration {
 
-    protected $connection = 'negotiate_notification';
+    protected $connection = 'oka6_notification';
 
     public function up() {
         Schema::connection($this->connection)
-            ->table('negotiate_notification', function (Blueprint $collection){
+            ->table('oka6_notification', function (Blueprint $collection){
 
                 $collection->background(["alias"]);
                 $collection->background(["status"]);
@@ -31,6 +31,6 @@ class CreateNegotiateNotification extends Migration {
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('negotiate_plan');
+        Schema::connection($this->connection)->dropIfExists('oka6_plan');
     }
 }

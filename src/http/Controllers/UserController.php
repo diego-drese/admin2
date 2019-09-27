@@ -1,13 +1,13 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
-use Negotiate\Admin\Library\ResourceAdmin;
-use Negotiate\Admin\NegotiateClient;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\Resource;
-use Negotiate\Admin\Sequence;
-use Negotiate\Admin\User;
+use Oka6\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Oka6Client;
+use Oka6\Admin\Profile;
+use Oka6\Admin\Resource;
+use Oka6\Admin\Sequence;
+use Oka6\Admin\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -59,7 +59,7 @@ class UserController extends BaseController {
      */
     public function create(User $user) {
         $profiles   = Profile::all('id', 'name');
-        $clients    = NegotiateClient::all('id', 'name');
+        $clients    = Oka6Client::all('id', 'name');
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.users.store');
         return view('Admin::backend.users.create', compact('profiles','user','clients', 'hasSave'));
     }
@@ -113,7 +113,7 @@ class UserController extends BaseController {
     public function edit($id) {
         $user           = User::where('id',(int)$id)->first();
         $profiles       = Profile::select('id','name')->get();
-        $clients        = NegotiateClient::all('id', 'name');
+        $clients        = Oka6Client::all('id', 'name');
         $profileCurrent = "";
         foreach ($profiles as $profile){
             if($profile->id == $user->profile_id){

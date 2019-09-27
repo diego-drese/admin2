@@ -1,12 +1,12 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class NegotiatePlans extends Model {
+class Oka6Plans extends Model {
     protected $fillable     = [
         'id',
         'name',
@@ -19,9 +19,9 @@ class NegotiatePlans extends Model {
         'type',
         'description',
     ];
-    protected $connection   = 'negotiate_admin';
-    protected $table        = 'negotiate_plans';
-    const TABLE             = 'negotiate_plans';
+    protected $connection   = 'oka6_admin';
+    protected $table        = 'oka6_plans';
+    const TABLE             = 'oka6_plans';
 
     public static function makeDataSave($dataForm, Request $request){
 
@@ -42,7 +42,7 @@ class NegotiatePlans extends Model {
     }
 
     public static function savePlan($dataForm){
-        $plan = NegotiatePlans::firstOrNew(['id'=>(int)$dataForm['id']]);
+        $plan = Oka6Plans::firstOrNew(['id'=>(int)$dataForm['id']]);
         foreach ($dataForm as $key=>$value){
             $plan->{$key} = $value;
         }
@@ -50,7 +50,7 @@ class NegotiatePlans extends Model {
     }
 
     public static function createPlan(Request $request){
-        $dataForm['id'] = Sequence::getSequence(NegotiatePlans::TABLE);
+        $dataForm['id'] = Sequence::getSequence(Oka6Plans::TABLE);
         self::savePlan(self::makeDataSave($dataForm, $request));
     }
 

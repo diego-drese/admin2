@@ -1,15 +1,15 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 use Jenssegers\Mongodb\Eloquent\Model;
 
 
-class NegotiateTag extends Model {
+class Oka6Tag extends Model {
 
     protected $fillable     = ['tag', 'type', 'client_id', 'group', 'id'];
-    protected $table        = 'negotiate_tag';
-    const TABLE             = 'negotiate_tag';
-    protected $connection   = 'negotiate_admin';
+    protected $table        = 'oka6_tag';
+    const TABLE             = 'oka6_tag';
+    protected $connection   = 'oka6_admin';
 
 
     public static function saveTag($dataForm){

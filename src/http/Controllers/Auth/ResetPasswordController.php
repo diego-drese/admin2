@@ -1,13 +1,13 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers\Auth;
+namespace Oka6\Admin\Http\Controllers\Auth;
 
 use Illuminate\Notifications\Messages\MailMessage;
-use Negotiate\Admin\Http\Controllers\Controller;
+use Oka6\Admin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
-use Negotiate\Admin\PasswordReset;
-use Negotiate\Admin\User;
+use Oka6\Admin\PasswordReset;
+use Oka6\Admin\User;
 
 class ResetPasswordController extends Controller
 {

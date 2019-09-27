@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -19,7 +19,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $table        = 'users';
     const TABLE             = 'users';
     const PROFILE_ID_ROOT   = 5047785;
-    protected $connection   = 'negotiate_admin';
+    protected $connection   = 'oka6_admin';
 
     /**
      * The attributes that are mass assignable.

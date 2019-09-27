@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class NegotiateClient extends Model {
+class Oka6Client extends Model {
     protected $fillable = [
                             'id',
                             'active',
@@ -39,9 +39,9 @@ class NegotiateClient extends Model {
                             'total_charging',
                             ];
     protected $dates        =['next_charging_attempt'];
-    protected $connection   = 'negotiate_admin';
-    protected $table        = 'negotiate_client';
-    const TABLE             = 'negotiate_client';
+    protected $connection   = 'oka6_admin';
+    protected $table        = 'oka6_client';
+    const TABLE             = 'oka6_client';
 
     public $rules = [
         'name'              => 'required',
@@ -114,7 +114,7 @@ class NegotiateClient extends Model {
         return $dataForm;
     }
     public static function saveClient($dataForm){
-        $client = NegotiateClient::firstOrNew(['id'=>(int)$dataForm['id']]);
+        $client = Oka6Client::firstOrNew(['id'=>(int)$dataForm['id']]);
         foreach ($dataForm as $key=>$value){
             $client->{$key} = $value;
         }
@@ -122,7 +122,7 @@ class NegotiateClient extends Model {
     }
 
     public static function createClient(Request $request){
-        $dataForm = self::makeDataSave(['id'=>Sequence::getSequence(NegotiateClient::TABLE)], $request);
+        $dataForm = self::makeDataSave(['id'=>Sequence::getSequence(Oka6Client::TABLE)], $request);
         self::saveClient($dataForm);
         return $dataForm;
     }

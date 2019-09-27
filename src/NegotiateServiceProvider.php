@@ -1,17 +1,17 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Support\Facades\App;
-use Negotiate\Admin\Http\ViewComposers;
-use Negotiate\Admin\Console\Commands\RefreshRoutes;
+use Oka6\Admin\Http\ViewComposers;
+use Oka6\Admin\Console\Commands\RefreshRoutes;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 
-class NegotiateServiceProvider extends ServiceProvider
+class Oka6ServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -74,9 +74,9 @@ class NegotiateServiceProvider extends ServiceProvider
     }
     protected function setObservers(){
 
-        Profile::observe("Negotiate\\Admin\\Observers\\ProfileObserver");
-        Resource::observe("Negotiate\\Admin\\Observers\\ResourcesObserver");
-        User::observe("Negotiate\\Admin\\Observers\\UserAdminObserver");
+        Profile::observe("Oka6\\Admin\\Observers\\ProfileObserver");
+        Resource::observe("Oka6\\Admin\\Observers\\ResourcesObserver");
+        User::observe("Oka6\\Admin\\Observers\\UserAdminObserver");
 
         Event::listen('log.createdRequest', function ($obj) {
 
@@ -118,7 +118,7 @@ class NegotiateServiceProvider extends ServiceProvider
             $this->app['config']->set($key, array_merge($config, require $path));
         }
 
-        if ($key == 'database.connections' && !isset($config['negotiate_admin'])) {
+        if ($key == 'database.connections' && !isset($config['oka6_admin'])) {
             $this->app['config']->set($key, array_merge($config, require $path));
         }
 

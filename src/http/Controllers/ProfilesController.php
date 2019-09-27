@@ -1,14 +1,14 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
-use Negotiate\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Library\ResourceAdmin;
 use Illuminate\Routing\Controller as BaseController;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\Resource;
+use Oka6\Admin\Profile;
+use Oka6\Admin\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Negotiate\Admin\Sequence;
+use Oka6\Admin\Sequence;
 use Yajra\Datatables\Datatables;
 
 class ProfilesController extends BaseController
@@ -53,8 +53,8 @@ class ProfilesController extends BaseController
         $resourcesMenu  = Resource::where('is_menu',1)->where('can_be_default',1)->get();
         $hasSave        = ResourceAdmin::hasResourceByRouteName('admin.profiles.store');
 
-        $negotiateProfileTypes = \Config::get('admin.profile_type');
-        return view('Admin::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave','negotiateProfileTypes'));
+        $oka6ProfileTypes = \Config::get('admin.profile_type');
+        return view('Admin::backend.profiles.create',compact('profile','resources','resourcesMenu', 'hasSave','oka6ProfileTypes'));
     }
 
     /**
@@ -90,8 +90,8 @@ class ProfilesController extends BaseController
        $profilesResources   = $profile->resources_allow;
        $resourcesMenu       = Resource::where('is_menu',1)->where('can_be_default',1)->get();
        $hasSave             = ResourceAdmin::hasResourceByRouteName('admin.profiles.update',[1]);
-       $negotiateProfileTypes = \Config::get('admin.profile_type');
-       return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave','negotiateProfileTypes'));
+       $oka6ProfileTypes = \Config::get('admin.profile_type');
+       return view('Admin::backend.profiles.edit',compact('profile','resources', 'profilesResources','resourcesMenu', 'hasSave','oka6ProfileTypes'));
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Negotiate\Admin\Observers;
+namespace Oka6\Admin\Observers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;

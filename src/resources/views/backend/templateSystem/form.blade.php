@@ -115,8 +115,8 @@
     </div>
 </div>
 @section('style_head')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/form.css')}}">
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/basic.js')}}></script>
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/form.css')}}">
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/basic.js')}}></script>
     <style>
         .editor {
             position: absolute;
@@ -253,7 +253,7 @@
         });
 
     </script>
-    {{--    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/forms.js')}}></script>--}}
+    {{--    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/forms.js')}}></script>--}}
     {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js"></script>--}}
     {{--    <script>--}}
     {{--        $(document).ready(function () {--}}

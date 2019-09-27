@@ -1,4 +1,4 @@
-<?php namespace Negotiate\Admin\Library;
+<?php namespace Oka6\Admin\Library;
 
 
 class MongoUtils {

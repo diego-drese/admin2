@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
 class LogViewController extends Controller
 {

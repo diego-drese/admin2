@@ -1,15 +1,15 @@
 <?php
 
-namespace Negotiate\Admin\Http\Controllers;
+namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use Negotiate\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Library\ResourceAdmin;
 use Illuminate\Routing\Controller as BaseController;
-use Negotiate\Admin\NegotiateClient;
-use Negotiate\Admin\NegotiateNotification;
+use Oka6\Admin\Oka6Client;
+use Oka6\Admin\Oka6Notification;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Negotiate\Admin\User;
+use Oka6\Admin\User;
 use Yajra\Datatables\Datatables;
 
 class NotificationsController extends BaseController
@@ -21,9 +21,9 @@ class NotificationsController extends BaseController
         if($request->ajax()){
             $user = Auth::user();
             if((int)$user->profile_id===(int)User::PROFILE_ID_ROOT){
-                $query = NegotiateNotification::query();
+                $query = Oka6Notification::query();
             }else{
-                $query = NegotiateNotification::client($user->client_id);
+                $query = Oka6Notification::client($user->client_id);
             }
             return Datatables::of($query)
                 ->setRowClass(function () {
@@ -40,7 +40,7 @@ class NotificationsController extends BaseController
     }
     public function create(){
         $hasSave    = ResourceAdmin::hasResourceByRouteName('admin.notifications.store');
-        $clients    = NegotiateClient::get();
+        $clients    = Oka6Client::get();
         return view('Admin::backend.notifications.create', compact( 'hasSave', 'clients'));
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Http\Request;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -9,7 +9,7 @@ class TutorialHelp extends Model
 {
 
     protected $fillable     = ['title', 'description'];
-    protected $connection   = 'negotiate_admin';
+    protected $connection   = 'oka6_admin';
     protected $table        = 'tutorial_help';
     const TABLE             = 'tutorial_help';
 

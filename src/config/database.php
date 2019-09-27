@@ -6,11 +6,11 @@
  * Time: 15:10
  */
 return [
-    'negotiate_admin' => [
+    'oka6_admin' => [
         'driver' => 'mongodb',
         'host' => env('NEGOTIATE_ADMIN_DB_HOST', '127.0.0.1'),
         'port' => env('NEGOTIATE_ADMIN_DB_PORT', 27017),
-        'database' => env('NEGOTIATE_ADMIN_DB_NAME', 'negotiate_admin'),
+        'database' => env('NEGOTIATE_ADMIN_DB_NAME', 'oka6_admin'),
         'username' => env('NEGOTIATE_ADMIN_DB_USERNAME', ''),
         'password' => env('NEGOTIATE_ADMIN_DB_PASSWORD', ''),
         'charset' => 'utf8',
@@ -21,11 +21,11 @@ return [
         'options' => [
             'db' => 'admin' // sets the authentication database required by mongo 3
         ]
-    ],'negotiate_admin_session' => [
+    ],'oka6_admin_session' => [
         'driver' => 'mongodb',
         'host' => env('NEGOTIATE_ADMIN_SESSION_DB_HOST', '127.0.0.1'),
         'port' => env('NEGOTIATE_ADMIN_SESSION_DB_PORT', 27017),
-        'database' => env('NEGOTIATE_ADMIN_SESSION_DB_NAME', 'negotiate_admin'),
+        'database' => env('NEGOTIATE_ADMIN_SESSION_DB_NAME', 'oka6_admin'),
         'username' => env('NEGOTIATE_ADMIN_SESSION_DB_USERNAME', ''),
         'password' => env('NEGOTIATE_ADMIN_SESSION_DB_PASSWORD', ''),
         'charset' => 'utf8',
@@ -36,11 +36,11 @@ return [
         'options' => [
             'db' => 'admin' // sets the authentication database required by mongo 3
         ]
-    ],'negotiate_notification' => [
+    ],'oka6_notification' => [
         'driver' => 'mongodb',
         'host' => env('NEGOTIATE_NOTIFICATION_DB_HOST', '127.0.0.1'),
         'port' => env('NEGOTIATE_NOTIFICATION_DB_PORT', 27017),
-        'database' => env('NEGOTIATE_NOTIFICATION_DB_NAME', 'negotiate_notification'),
+        'database' => env('NEGOTIATE_NOTIFICATION_DB_NAME', 'oka6_notification'),
         'username' => env('NEGOTIATE_NOTIFICATION_DB_USERNAME', ''),
         'password' => env('NEGOTIATE_NOTIFICATION_DB_PASSWORD', ''),
         'charset' => 'utf8',

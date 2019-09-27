@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin\Http\Middleware;
+namespace Oka6\Admin\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

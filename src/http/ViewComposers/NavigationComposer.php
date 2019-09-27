@@ -1,8 +1,8 @@
 <?php
 
-namespace Negotiate\Admin\Http\ViewComposers;
+namespace Oka6\Admin\Http\ViewComposers;
 
-use Negotiate\Admin\Resource;
+use Oka6\Admin\Resource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;

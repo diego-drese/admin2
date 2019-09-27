@@ -1,12 +1,12 @@
 <?php
 
-namespace Negotiate\Admin\Console\Commands;
+namespace Oka6\Admin\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Negotiate\Admin\Profile;
-use Negotiate\Admin\Sequence;
-use Negotiate\Admin\User;
+use Oka6\Admin\Profile;
+use Oka6\Admin\Sequence;
+use Oka6\Admin\User;
 
 class RefreshRoutes extends Command
 {
@@ -15,7 +15,7 @@ class RefreshRoutes extends Command
      *
      * @var string
      */
-    protected $signature = 'Negotiate:AdminRoutes';
+    protected $signature = 'Oka6:AdminRoutes';
 
     /**
      * The console command description.
@@ -73,10 +73,10 @@ class RefreshRoutes extends Command
 
         foreach ($routes as $key => $route) {
 
-            $res = \Negotiate\Admin\Resource::where('route_name', $route['routeName'])->first();
+            $res = \Oka6\Admin\Resource::where('route_name', $route['routeName'])->first();
 
             if (!$res) {
-                    $res = new \Negotiate\Admin\Resource();
+                    $res = new \Oka6\Admin\Resource();
                     $res->id                = Sequence::getSequence('resource');
                     $res->name              = $route['nameAdmin'];
                     $res->menu              = $route['menuAdmin'] ;
@@ -90,7 +90,7 @@ class RefreshRoutes extends Command
 
                     /** Busca o id do parent $res */
                     if($route['parentRouteNameAdmin']){
-                        $resParent = \Negotiate\Admin\Resource::getResourceIdByRouteName($route['parentRouteNameAdmin']);
+                        $resParent = \Oka6\Admin\Resource::getResourceIdByRouteName($route['parentRouteNameAdmin']);
                         if($resParent){
                             $res->parent_id         = $resParent->id;
                         }

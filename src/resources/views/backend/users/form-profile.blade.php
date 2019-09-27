@@ -94,10 +94,10 @@
     </div>
 </div>
 @section('style_head')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/select2.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/select2.css')}}">
 @endsection
 @section('script_footer_end')
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/select2.js')}}></script>
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/select2.js')}}></script>
     <script>
         var selectedOption      = "{{$user->exists ? $user->profile_id : 1}}";
         var resource_default_id = "{{$user->exists ? $user->resource_default_id : null}}";

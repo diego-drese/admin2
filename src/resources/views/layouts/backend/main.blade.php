@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="/vendor/negotiate/admin/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/vendor/oka6/admin/assets/images/favicon.png">
     <title>@yield('title')</title>
     @yield('style_head_start')
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/basic.css')}}">
-    <link rel="stylesheet" href="{{mix('/vendor/negotiate/admin/css/themes.css')}}">
-    <script type="text/javascript" src={{mix('/vendor/negotiate/admin/js/basic.js')}}></script>
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/basic.css')}}">
+    <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/themes.css')}}">
+    <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/basic.js')}}></script>
     @yield('style_head')
 </head>
 <body>
@@ -47,17 +47,17 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="/vendor/negotiate/admin/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="/vendor/negotiate/admin/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="/vendor/oka6/admin/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="/vendor/negotiate/admin/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="/vendor/oka6/admin/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                                <img src="/vendor/negotiate/admin/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                                <img src="/vendor/oka6/admin/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                             </span>
                     </a>
                     <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
@@ -116,7 +116,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -128,7 +128,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status busy pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -140,7 +140,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status away pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -152,7 +152,7 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
                                                     <span class="profile-status offline pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -262,7 +262,7 @@
                             @if(Auth::user()->picture != "")
                                 <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
                             @else
-                                <img class="avatar-default" src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" width="44" height="44">
+                                <img class="avatar-default" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" width="44" height="44">
                             @endif
                             <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span>
                         </a>
@@ -275,7 +275,7 @@
                                     @if(Auth::user()->picture != "")
                                         <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
                                     @else
-                                        <img class="avatar-default" src="/vendor/negotiate/admin/assets/images/users/user_avatar.svg" width="20" height="20">
+                                        <img class="avatar-default" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" width="20" height="20">
                                     @endif
                                 </div>
                                 <div class="m-l-10">
@@ -367,7 +367,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            Desenvolvido por <a href="https://negotiate.com.br" target="_blank" >Negotiate</a> SoftwareHouse
+            Desenvolvido por <a href="https://oka6.com.br" target="_blank" >Oka6</a> SoftwareHouse
             <a href="#" class="help-btn">
                 <i class="fa fa-question my-float"></i>
             </a>

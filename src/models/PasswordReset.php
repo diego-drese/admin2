@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin;
+namespace Oka6\Admin;
 
 use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -17,7 +17,7 @@ class PasswordReset extends Model {
 
     protected $table        = 'password_resets';
     const TABLE             = 'password_resets';
-    protected $connection   = 'negotiate_admin';
+    protected $connection   = 'oka6_admin';
 
     /**
      * The attributes that are mass assignable.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Negotiate\Admin\Console;
+namespace Oka6\Admin\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'Negotiate\Admin\Console\Commands\RefreshRoute'
+        'Oka6\Admin\Console\Commands\RefreshRoute'
     ];
 
     /**

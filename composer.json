@@ -35,7 +35,7 @@
 
     "require": {
         "yoeunes/toastr": "^1.0",
-        "yajra/laravel-datatables-oracle": "^8.7",
+        "yajra/laravel-datatables-oracle": "^9.6",
         "pimlie/laravel-datatables-mongodb": "^1.1",
         "doctrine/dbal": "^2.7",
         "intervention/image": "^2.4",

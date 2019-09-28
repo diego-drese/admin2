@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Oka6\Admin\Library\SessionManager;
 
 
 class Oka6ServiceProvider extends ServiceProvider
@@ -177,8 +178,13 @@ class Oka6ServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
+        $this->app->resolving('session', function($session) {
+            $session->extend('mongodb', function($app){
+                $manager = new SessionManager($app);
+                return $manager->driver('mongodb');
+            });
+        });
 
         $this->commands([
             RefreshRoutes::class

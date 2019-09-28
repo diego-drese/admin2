@@ -168,8 +168,7 @@ class Oka6ServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mergeViewComposer()
-    {
+    protected function mergeViewComposer() {
 
         view()->composer('*',ViewComposers\NavigationComposer::class);
     }
@@ -179,6 +178,7 @@ class Oka6ServiceProvider extends ServiceProvider
      * @return void
      */
     public function register() {
+        /** Ajusta a sessao para salvar no mongo */
         $this->app->resolving('session', function($session) {
             $session->extend('mongodb', function($app){
                 $manager = new SessionManager($app);

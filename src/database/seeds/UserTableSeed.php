@@ -4,7 +4,6 @@
 namespace Oka6\Admin;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class UserTableSeed extends Seeder{

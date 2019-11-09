@@ -9,7 +9,6 @@ mix.babel([
     'src/resources/assets/theme/nice-admin/dist/js/app.min.js',
     'src/resources/assets/theme/nice-admin/dist/js/app.init.js',
     'src/resources/assets/theme/nice-admin/dist/js/custom.min.js',
-
     'src/resources/assets/theme/nice-admin/libs/toastr/build/toastr.min.js',
     'src/resources/assets/theme/nice-admin/libs/tooltip/tooltip.js',
     'src/resources/assets/theme/nice-admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js',
@@ -155,6 +154,14 @@ mix.styles([
 mix.babel([
     'src/resources/assets/theme/nice-admin/libs/jquery-timepicker/jquery.datepair.min.js',
 ],'vendor/oka6/admin/js/datepair.js').version();
+
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/jquery.repeater/jquery.repeater.min.js',
+],'vendor/oka6/admin/js/jquery.repeater.min.js').version();
+
+mix.babel([
+    'src/resources/assets/theme/nice-admin/libs/typeahead.js/dist/typeahead.jquery.min.js',
+],'vendor/oka6/admin/js/typeahead.js').version();
 
 /** SummerNote */
 mix.babel([

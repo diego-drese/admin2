@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ResourceTableSeed::class);
         $this->call(TutorialTableSeed::class);
         $this->call(TemplateSystemSeed::class);
+        $this->call(PlanTableSeed::class);
+        $this->call(ClientTableSeed::class);
     }
 }

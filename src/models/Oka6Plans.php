@@ -20,8 +20,8 @@ class Oka6Plans extends Model {
         'description',
     ];
     protected $connection   = 'oka6_admin';
-    protected $table        = 'oka6_plans';
-    const TABLE             = 'oka6_plans';
+    protected $table        = 'oka6_plan';
+    const TABLE             = 'oka6_plan';
 
     public static function makeDataSave($dataForm, Request $request){
 

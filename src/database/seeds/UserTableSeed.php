@@ -9,9 +9,10 @@ use Carbon\Carbon;
 class UserTableSeed extends Seeder{
 
     public function run() {
+        User::where('id','<', 0)->delete();
         $faker = Factory::create();
         User::insert([
-            'id'   => Sequence::getSequence(User::TABLE),
+            'id'   => -1,
             'name' => "Admin",
             'lastname' => "Oka6",
             'cell_phone' => $faker->phoneNumber,
@@ -27,7 +28,7 @@ class UserTableSeed extends Seeder{
         ]);
 
         User::insert([
-            'id'   => Sequence::getSequence(User::TABLE),
+            'id'   => -2,
             'name' => "Cliente para teste",
             'lastname' => "Oka6",
             'cell_phone' => $faker->phoneNumber,
@@ -42,7 +43,7 @@ class UserTableSeed extends Seeder{
         ]);
 
         User::insert([
-            'id'   => Sequence::getSequence(User::TABLE),
+            'id'   => -3,
             'name' => "Usuário do Cliente para teste",
             'lastname' => "Oka6",
             'cell_phone' => $faker->phoneNumber,

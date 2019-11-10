@@ -10,15 +10,13 @@ use Carbon\Carbon;
 class TemplateSystemSeed extends Seeder
 {
 
-    public function run()
-    {
+    public function run() {
         $this->startDataTemplates();
     }
 
-    private function startDataTemplates()
-    {
+    private function startDataTemplates() {
+        TemplateSystem::where('id', '>' ,0)->delete();
         $id = Sequence::getSequence(TemplateSystem::TABLE);
-
         TemplateSystem::insert([
             [
                 'id' => 1,

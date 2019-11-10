@@ -9,13 +9,12 @@ use Carbon\Carbon;
 class TutorialTableSeed extends Seeder
 {
 
-    public function run()
-    {
+    public function run(){
         $this->startTutorialData();
     }
 
-    private function startTutorialData()
-    {
+    private function startTutorialData() {
+        TutorialHelp::where('id', '>' ,0)->delete();
         TutorialHelp::insert([
             [
                 'id' => 1,
@@ -60,11 +59,7 @@ class TutorialTableSeed extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]
         ]);
-        $profile = Profile::where('id', User::PROFILE_ID_ROOT)->first();
-        if(!count($profile->resources_allow)){
-            $profile->resources_allow = [$id];
-            $profile->save();
-        }
+
 
     }
 

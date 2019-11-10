@@ -10,6 +10,7 @@ class ProfileTableSeed extends Seeder
 {
 
     public function run() {
+        Profile::where('id',User::PROFILE_ID_ROOT)->delete();
         Profile::insert(
             [
                 'id'   => User::PROFILE_ID_ROOT,

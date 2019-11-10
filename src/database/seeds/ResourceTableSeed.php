@@ -9,14 +9,17 @@ use Carbon\Carbon;
 class ResourceTableSeed extends Seeder
 {
 
-    public function run()
-    {
+    public function run(){
         $this->startResources();
     }
 
 
-    private function startResources()
-    {
+    private function startResources(){
+        $profile = Profile::where('id', User::PROFILE_ID_ROOT)->first();
+        if(count($profile->resources_allow)){
+            return true;
+        }
+
         $id = Sequence::getSequence('resource');
         Resource::insert([
             [
@@ -35,7 +38,7 @@ class ResourceTableSeed extends Seeder
             ]
 
         ]);
-       $profile = Profile::where('id', User::PROFILE_ID_ROOT)->first();
+
        if(!count($profile->resources_allow)){
            $profile->resources_allow = [$id];
            $profile->save();

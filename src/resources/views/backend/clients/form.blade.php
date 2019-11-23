@@ -50,7 +50,7 @@
                 @endif
             </div>
 
-            <div class="col-md-4 form-group {{$errors->has('type') ? 'has-error' : ''}}">
+            <div class="col-md-4 form-group {{$errors->has('user_id') ? 'has-error' : ''}}">
                 <label for="type">Usuário Administrador</label>
                 @if($user->profile_id==\Oka6\Admin\User::PROFILE_ID_ROOT)
                     <select type="text" name="user_id" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}" id="user_id" >
@@ -64,8 +64,8 @@
                     <input type="hidden" value="{{$user->id}}" name="user_id" class="form-control" id="user_id" >
                 @endif
 
-                @if($errors->has('type'))
-                    <span class="help-block">{{$errors->first('type')}}</span>
+                @if($errors->has('user_id'))
+                    <span class="help-block">{{$errors->first('user_id')}}</span>
                 @endif
             </div>
             <div class="col-md-4 form-group {{$errors->has('logo') ? 'has-error' : ''}}">

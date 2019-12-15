@@ -7,6 +7,16 @@ $theme5: #948fec!important;
 
 @mixin themeBar($name, $bg) {
     .#{$name} {
+        .shepherd-header{
+            background-color: $bg;
+            h3,.shepherd-cancel-link {
+                color: #fff!important;
+            }
+        }
+        .shepherd-button{
+            background-color:#ececec!important;
+            color: $bg;
+        }
         #main-wrapper {
             .fc-button-primary:disabled, .btn-primary, .page-item.active .page-link, .page-link:hover,
             .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/themes.css')}}">
     <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/basic.js')}}></script>
     @yield('style_head')
+    @yield('style_components')
 </head>
 <body>
 <!-- ============================================================== -->
@@ -406,6 +407,8 @@
 
 @yield('script_footer_end')
 @toastr_render
+@yield('script_components')
+
 <script type="text/javascript">
     var openMenuActive = function (){
         let activeMenuId = "#"+$('.activeMenu').prop('id');

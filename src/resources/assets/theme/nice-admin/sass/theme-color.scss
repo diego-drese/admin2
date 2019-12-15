@@ -8,11 +8,16 @@ $theme5: #948fec!important;
 @mixin themeBar($name, $bg) {
     .#{$name} {
         #main-wrapper {
-            .fc-button-primary:disabled, .btn-primary, .btn-success:hover, .btn-success, .page-item.active .page-link, .page-link:hover, .bg-success,
+            .fc-button-primary:disabled, .btn-primary, .page-item.active .page-link, .page-link:hover,
             .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active
             {
                 background-color: $bg;
                 border-color: $bg;
+            }
+
+            .btn-success:hover, .btn-success, .bg-success{
+                background: #4caf50;
+                border-color: #4caf50;
             }
 
             .bg-primary{

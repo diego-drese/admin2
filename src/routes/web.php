@@ -16,7 +16,6 @@
 $prefix_url = \Config::get('admin.prefix_url');
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Oka6\Admin\Http\Middleware\MiddlewareAdmin']], function() {
-
     /** Private Resources  */
     Route::get('/dashboard', 'Oka6\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fas fa-bullseye', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
 
@@ -92,6 +91,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Oka6\Ad
 
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], function() {
+
 
     Route::get('/users/resources/{profileId}','Oka6\Admin\Http\Controllers\PublicMethods@getResourcesDefault')->name('admin.users.resourcesDefault');
     Route::get('/page-not-found', 'Oka6\Admin\Http\Controllers\ConsoleController@pageNotFound')->name('admin.page404get');

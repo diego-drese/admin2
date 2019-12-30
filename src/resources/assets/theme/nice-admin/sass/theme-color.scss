@@ -1,40 +1,93 @@
-$theme1: #4267b2!important;
-$theme2: #EE9D83!important;
-$theme3: #FF6B95!important;
-$theme4: #1EA69A!important;
-$theme5: #948fec!important;
+$theme1: #4267b2 !important;
+$theme2: #EE9D83 !important;
+$theme3: #FF6B95 !important;
+$theme4: #1EA69A !important;
+$theme5: #948fec !important;
 
 
 @mixin themeBar($name, $bg) {
     .#{$name} {
-        .shepherd-header{
+        .shepherd-header {
             background-color: $bg;
-            h3,.shepherd-cancel-link {
-                color: #fff!important;
+
+            h3, .shepherd-cancel-link {
+                color: #fff !important;
             }
         }
-        .shepherd-button{
-            background-color:#ececec!important;
+
+        .shepherd-button {
+            background-color: #ececec !important;
             color: $bg;
         }
+
         #main-wrapper {
             .fc-button-primary:disabled, .btn-primary, .page-item.active .page-link, .page-link:hover,
-            .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active
-            {
+            .btn-info,
+            .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active, .custom-control-input:checked ~ .custom-control-label::before {
                 background-color: $bg;
                 border-color: $bg;
             }
-
-            .btn-success:hover, .btn-success, .bg-success{
-                background: #4caf50;
-                border-color: #4caf50;
+            a{
+                color: $bg;
             }
 
-            .bg-primary{
+            .btn-success, .bg-success, .badge-success, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success {
+                background: linear-gradient(120deg, #1bbc81, #06905e);
+                border-color: #4caf50;
+                &:hover {
+                    background: linear-gradient(0deg, #06905e, #1bbc81);
+                    border-color: #4caf50;
+                    transition: all 1s;
+                    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .1);
+                }
+            }
+
+            #openModalWhats{
+                background: #009688!important;
+                border: 1px solid #019688!important;
+                i{
+                    font-size: 1.3em;
+                }
+            }
+
+
+            .dropdown-toggle-split{
+                opacity: 0.9
+            }
+            .dropdown-menu .show{
+                span{
+                    cursor: pointer;
+                }
+            }
+
+            .dropdown-item{
+                cursor: pointer;
+            }
+
+            .btn-danger {
+                background-color: #dc3545;
+                border-color: #dc3545;
+                &:hover {
+                    transition: all 1s;
+                    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .1);
+                }
+            }
+
+            .bg-primary {
                 background: $bg;
             }
 
-            .card{
+            .bg-warning {
+                background: linear-gradient(179deg, #ffc900, #f90) !important;
+                color: white;
+            }
+
+            .bg-info {
+                background: linear-gradient(180deg, #4857c0, #2d398c) !important;
+                color: white;
+            }
+
+            .card {
                 box-shadow: 0px 2px 5px rgba(68, 64, 64, 0.09);
             }
 
@@ -47,7 +100,7 @@ $theme5: #948fec!important;
             }
 
             .nav-item a, .nav-item a:hover {
-                color: rgba(130, 119, 116, 0.89)!important;
+                color: rgba(130, 119, 116, 0.89) !important;
             }
 
             .left-sidebar {

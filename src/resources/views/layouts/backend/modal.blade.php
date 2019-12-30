@@ -25,7 +25,7 @@
         <div class="lds-pos"></div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid" id="main-wrapper">
     @yield('content')
 </div>
 
@@ -41,6 +41,21 @@
 @yield('script_footer_end')
 @toastr_render
 @yield('script_components')
+    <script type="text/javascript">
+        function themeSet(){
+            getStorage('theme-set').then((res) => {
+                if(res) {
+                    $('body').addClass(res);
+                }
+            })
+        }
+        async function getStorage(key){
+            return await new Promise((resolve, reject) => {
+                resolve(window.localStorage.getItem(key));
+            })
+        }
+        themeSet();
+    </script>
 </body>
 
 </html>

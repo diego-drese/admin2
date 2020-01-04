@@ -1,1 +1,492 @@
-var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t};!function(t){"function"==typeof define&&define.amd?define([],t):"object"==("undefined"==typeof exports?"undefined":_typeof(exports))?module.exports=t():window.noUiSlider=t()}(function(){"use strict";function t(t){t.parentElement.removeChild(t)}function e(t){return null!=t}function r(t){t.preventDefault()}function n(t){return"number"==typeof t&&!isNaN(t)&&isFinite(t)}function i(t,e,r){0<r&&(l(t,e),setTimeout(function(){u(t,e)},r))}function o(t){return Math.max(Math.min(t,100),0)}function a(t){return Array.isArray(t)?t:[t]}function s(t){var e=(t=String(t)).split(".");return 1<e.length?e[1].length:0}function l(t,e){t.classList?t.classList.add(e):t.className+=" "+e}function u(t,e){t.classList?t.classList.remove(e):t.className=t.className.replace(new RegExp("(^|\\b)"+e.split(" ").join("|")+"(\\b|$)","gi")," ")}function c(t){var e=void 0!==window.pageXOffset,r="CSS1Compat"===(t.compatMode||"");return{x:e?window.pageXOffset:r?t.documentElement.scrollLeft:t.body.scrollLeft,y:e?window.pageYOffset:r?t.documentElement.scrollTop:t.body.scrollTop}}function p(t,e){return 100/(e-t)}function f(t,e){return 100*e/(t[1]-t[0])}function d(t,e){for(var r=1;t>=e[r];)r+=1;return r}function h(t,e,r){if(r>=t.slice(-1)[0])return 100;var n,i,o=d(r,t),a=t[o-1],s=t[o],l=e[o-1],u=e[o];return l+(i=r,f(n=[a,s],n[0]<0?i+Math.abs(n[0]):i-n[0])/p(l,u))}function m(t,e,r,n){if(100===n)return n;var i,o,a=d(n,t),s=t[a-1],l=t[a];return r?(l-s)/2<n-s?l:s:e[a-1]?t[a-1]+(i=n-t[a-1],o=e[a-1],Math.round(i/o)*o):n}function g(t,e,r){var i;if("number"==typeof e&&(e=[e]),!Array.isArray(e))throw new Error("noUiSlider ("+B+"): 'range' contains invalid value.");if(!n(i="min"===t?0:"max"===t?100:parseFloat(t))||!n(e[0]))throw new Error("noUiSlider ("+B+"): 'range' value isn't numeric.");r.xPct.push(i),r.xVal.push(e[0]),i?r.xSteps.push(!isNaN(e[1])&&e[1]):isNaN(e[1])||(r.xSteps[0]=e[1]),r.xHighestCompleteStep.push(0)}function v(t,e,r){if(e)if(r.xVal[t]!==r.xVal[t+1]){r.xSteps[t]=f([r.xVal[t],r.xVal[t+1]],e)/p(r.xPct[t],r.xPct[t+1]);var n=(r.xVal[t+1]-r.xVal[t])/r.xNumSteps[t],i=Math.ceil(Number(n.toFixed(3))-1),o=r.xVal[t]+r.xNumSteps[t]*i;r.xHighestCompleteStep[t]=o}else r.xSteps[t]=r.xHighestCompleteStep[t]=r.xVal[t]}function b(t,e,r){var n;this.xPct=[],this.xVal=[],this.xSteps=[r||!1],this.xNumSteps=[!1],this.xHighestCompleteStep=[],this.snap=e;var i=[];for(n in t)t.hasOwnProperty(n)&&i.push([t[n],n]);for(i.length&&"object"==_typeof(i[0][0])?i.sort(function(t,e){return t[0][0]-e[0][0]}):i.sort(function(t,e){return t[0]-e[0]}),n=0;n<i.length;n++)g(i[n][1],i[n][0],this);for(this.xNumSteps=this.xSteps.slice(0),n=0;n<this.xNumSteps.length;n++)v(n,this.xNumSteps[n],this)}function S(t){if("object"==_typeof(e=t)&&"function"==typeof e.to&&"function"==typeof e.from)return!0;var e;throw new Error("noUiSlider ("+B+"): 'format' requires 'to' and 'from' methods.")}function y(t,e){if(!n(e))throw new Error("noUiSlider ("+B+"): 'step' is not numeric.");t.singleStep=e}function x(t,e){if("object"!=(void 0===e?"undefined":_typeof(e))||Array.isArray(e))throw new Error("noUiSlider ("+B+"): 'range' is not an object.");if(void 0===e.min||void 0===e.max)throw new Error("noUiSlider ("+B+"): Missing 'min' or 'max' in 'range'.");if(e.min===e.max)throw new Error("noUiSlider ("+B+"): 'range' 'min' and 'max' cannot be equal.");t.spectrum=new b(e,t.snap,t.singleStep)}function w(t,e){if(e=a(e),!Array.isArray(e)||!e.length)throw new Error("noUiSlider ("+B+"): 'start' option is incorrect.");t.handles=e.length,t.start=e}function E(t,e){if("boolean"!=typeof(t.snap=e))throw new Error("noUiSlider ("+B+"): 'snap' option must be a boolean.")}function C(t,e){if("boolean"!=typeof(t.animate=e))throw new Error("noUiSlider ("+B+"): 'animate' option must be a boolean.")}function N(t,e){if("number"!=typeof(t.animationDuration=e))throw new Error("noUiSlider ("+B+"): 'animationDuration' option must be a number.")}function U(t,e){var r,n=[!1];if("lower"===e?e=[!0,!1]:"upper"===e&&(e=[!1,!0]),!0===e||!1===e){for(r=1;r<t.handles;r++)n.push(e);n.push(!1)}else{if(!Array.isArray(e)||!e.length||e.length!==t.handles+1)throw new Error("noUiSlider ("+B+"): 'connect' option doesn't match handle count.");n=e}t.connect=n}function k(t,e){switch(e){case"horizontal":t.ort=0;break;case"vertical":t.ort=1;break;default:throw new Error("noUiSlider ("+B+"): 'orientation' option is invalid.")}}function P(t,e){if(!n(e))throw new Error("noUiSlider ("+B+"): 'margin' option must be numeric.");if(0!==e&&(t.margin=t.spectrum.getMargin(e),!t.margin))throw new Error("noUiSlider ("+B+"): 'margin' option is only supported on linear sliders.")}function A(t,e){if(!n(e))throw new Error("noUiSlider ("+B+"): 'limit' option must be numeric.");if(t.limit=t.spectrum.getMargin(e),!t.limit||t.handles<2)throw new Error("noUiSlider ("+B+"): 'limit' option is only supported on linear sliders with 2 or more handles.")}function V(t,e){if(!n(e)&&!Array.isArray(e))throw new Error("noUiSlider ("+B+"): 'padding' option must be numeric or array of exactly 2 numbers.");if(Array.isArray(e)&&2!==e.length&&!n(e[0])&&!n(e[1]))throw new Error("noUiSlider ("+B+"): 'padding' option must be numeric or array of exactly 2 numbers.");if(0!==e){if(Array.isArray(e)||(e=[e,e]),!(t.padding=[t.spectrum.getMargin(e[0]),t.spectrum.getMargin(e[1])])===t.padding[0]||!1===t.padding[1])throw new Error("noUiSlider ("+B+"): 'padding' option is only supported on linear sliders.");if(t.padding[0]<0||t.padding[1]<0)throw new Error("noUiSlider ("+B+"): 'padding' option must be a positive number(s).");if(100<t.padding[0]+t.padding[1])throw new Error("noUiSlider ("+B+"): 'padding' option must not exceed 100% of the range.")}}function M(t,e){switch(e){case"ltr":t.dir=0;break;case"rtl":t.dir=1;break;default:throw new Error("noUiSlider ("+B+"): 'direction' option was not recognized.")}}function O(t,e){if("string"!=typeof e)throw new Error("noUiSlider ("+B+"): 'behaviour' must be a string containing options.");var r=0<=e.indexOf("tap"),n=0<=e.indexOf("drag"),i=0<=e.indexOf("fixed"),o=0<=e.indexOf("snap"),a=0<=e.indexOf("hover"),s=0<=e.indexOf("unconstrained");if(i){if(2!==t.handles)throw new Error("noUiSlider ("+B+"): 'fixed' behaviour must be used with 2 handles");P(t,t.start[1]-t.start[0])}if(s&&(t.margin||t.limit))throw new Error("noUiSlider ("+B+"): 'unconstrained' behaviour cannot be used with margin or limit");t.events={tap:r||o,drag:n,fixed:i,snap:o,hover:a,unconstrained:s}}function L(t,e){if(!1!==e)if(!0===e){t.tooltips=[];for(var r=0;r<t.handles;r++)t.tooltips.push(!0)}else{if(t.tooltips=a(e),t.tooltips.length!==t.handles)throw new Error("noUiSlider ("+B+"): must pass a formatter for all handles.");t.tooltips.forEach(function(t){if("boolean"!=typeof t&&("object"!=(void 0===t?"undefined":_typeof(t))||"function"!=typeof t.to))throw new Error("noUiSlider ("+B+"): 'tooltips' must be passed a formatter or 'false'.")})}}function z(t,e){S(t.ariaFormat=e)}function j(t,e){S(t.format=e)}function H(t,e){if("boolean"!=typeof(t.keyboardSupport=e))throw new Error("noUiSlider ("+B+"): 'keyboardSupport' option must be a boolean.")}function F(t,e){t.documentElement=e}function D(t,e){if("string"!=typeof e&&!1!==e)throw new Error("noUiSlider ("+B+"): 'cssPrefix' must be a string or `false`.");t.cssPrefix=e}function T(t,e){if("object"!=(void 0===e?"undefined":_typeof(e)))throw new Error("noUiSlider ("+B+"): 'cssClasses' must be an object.");if("string"==typeof t.cssPrefix)for(var r in t.cssClasses={},e)e.hasOwnProperty(r)&&(t.cssClasses[r]=t.cssPrefix+e[r]);else t.cssClasses=e}function R(t){var r={margin:0,limit:0,padding:0,animate:!0,animationDuration:300,ariaFormat:q,format:q},n={step:{r:!1,t:y},start:{r:!0,t:w},connect:{r:!0,t:U},direction:{r:!0,t:M},snap:{r:!1,t:E},animate:{r:!1,t:C},animationDuration:{r:!1,t:N},range:{r:!0,t:x},orientation:{r:!1,t:k},margin:{r:!1,t:P},limit:{r:!1,t:A},padding:{r:!1,t:V},behaviour:{r:!0,t:O},ariaFormat:{r:!1,t:z},format:{r:!1,t:j},tooltips:{r:!1,t:L},keyboardSupport:{r:!0,t:H},documentElement:{r:!1,t:F},cssPrefix:{r:!0,t:D},cssClasses:{r:!0,t:T}},i={connect:!1,direction:"ltr",behaviour:"tap",orientation:"horizontal",keyboardSupport:!0,cssPrefix:"noUi-",cssClasses:{target:"target",base:"base",origin:"origin",handle:"handle",handleLower:"handle-lower",handleUpper:"handle-upper",touchArea:"touch-area",horizontal:"horizontal",vertical:"vertical",background:"background",connect:"connect",connects:"connects",ltr:"ltr",rtl:"rtl",draggable:"draggable",drag:"state-drag",tap:"state-tap",active:"active",tooltip:"tooltip",pips:"pips",pipsHorizontal:"pips-horizontal",pipsVertical:"pips-vertical",marker:"marker",markerHorizontal:"marker-horizontal",markerVertical:"marker-vertical",markerNormal:"marker-normal",markerLarge:"marker-large",markerSub:"marker-sub",value:"value",valueHorizontal:"value-horizontal",valueVertical:"value-vertical",valueNormal:"value-normal",valueLarge:"value-large",valueSub:"value-sub"}};t.format&&!t.ariaFormat&&(t.ariaFormat=t.format),Object.keys(n).forEach(function(o){if(!e(t[o])&&void 0===i[o]){if(n[o].r)throw new Error("noUiSlider ("+B+"): '"+o+"' is required.");return!0}n[o].t(r,e(t[o])?t[o]:i[o])}),r.pips=t.pips;var o=document.createElement("div"),a=void 0!==o.style.msTransform,s=void 0!==o.style.transform;return r.transformRule=s?"transform":a?"msTransform":"webkitTransform",r.style=[["left","top"],["right","bottom"]][r.dir][r.ort],r}function _(e,n,s){function p(t,e){var r=ct.createElement("div");return e&&l(r,e),t.appendChild(r),r}function f(t,e){var r=p(t,n.cssClasses.origin),i=p(r,n.cssClasses.handle);return p(i,n.cssClasses.touchArea),i.setAttribute("data-handle",e),n.keyboardSupport&&(i.setAttribute("tabindex","0"),i.addEventListener("keydown",function(t){return function(t,e){if(m()||g(e))return!1;var r=["Left","Right"],i=["Down","Up"];n.dir&&!n.ort?r.reverse():n.ort&&!n.dir&&i.reverse();var o=t.key.replace("Arrow",""),a=o===i[0]||o===r[0],s=o===i[1]||o===r[1];if(!a&&!s)return!0;t.preventDefault();var l=a?0:1,u=I(e)[l];return null!==u&&(!1===u&&(u=it.getDefaultStep(at[e],a,10)),u=Math.max(u,1e-7),u*=a?-1:1,T(e,it.toStepping(ot[e]+u),!0,!0),L("slide",e),L("update",e),L("change",e),L("set",e),!1)}(t,e)})),i.setAttribute("role","slider"),i.setAttribute("aria-orientation",n.ort?"vertical":"horizontal"),0===e?l(i,n.cssClasses.handleLower):e===n.handles-1&&l(i,n.cssClasses.handleUpper),r}function d(t,e){return!!e&&p(t,n.cssClasses.connect)}function h(t,e){return!!n.tooltips[e]&&p(t.firstChild,n.cssClasses.tooltip)}function m(){return nt.hasAttribute("disabled")}function g(t){return $[t].hasAttribute("disabled")}function v(){K&&(O("update.tooltips"),K.forEach(function(e){e&&t(e)}),K=null)}function b(){v(),K=$.map(h),M("update.tooltips",function(t,e,r){if(K[e]){var i=t[e];!0!==n.tooltips[e]&&(i=n.tooltips[e].to(r[e])),K[e].innerHTML=i}})}function S(t,e,r){function i(t,e){var r=e===n.cssClasses.value,i=r?a:s;return e+" "+(r?u:c)[n.ort]+" "+i[t]}var o=ct.createElement("div"),a=[];a[ht]=n.cssClasses.valueNormal,a[mt]=n.cssClasses.valueLarge,a[gt]=n.cssClasses.valueSub;var s=[];s[ht]=n.cssClasses.markerNormal,s[mt]=n.cssClasses.markerLarge,s[gt]=n.cssClasses.markerSub;var u=[n.cssClasses.valueHorizontal,n.cssClasses.valueVertical],c=[n.cssClasses.markerHorizontal,n.cssClasses.markerVertical];return l(o,n.cssClasses.pips),l(o,0===n.ort?n.cssClasses.pipsHorizontal:n.cssClasses.pipsVertical),Object.keys(t).forEach(function(a){!function(t,a,s){if((s=e?e(a,s):s)!==dt){var l=p(o,!1);l.className=i(s,n.cssClasses.marker),l.style[n.style]=t+"%",ht<s&&((l=p(o,!1)).className=i(s,n.cssClasses.value),l.setAttribute("data-value",a),l.style[n.style]=t+"%",l.innerHTML=r.to(a))}}(a,t[a][0],t[a][1])}),o}function y(){J&&(t(J),J=null)}function x(t){y();var e,r,n,i,o,a,s,l,u,c=t.mode,p=t.density||1,f=t.filter||!1,d=function(t,e,r){if("range"===t||"steps"===t)return it.xVal;if("count"===t){if(e<2)throw new Error("noUiSlider ("+B+"): 'values' (>= 2) required for mode 'count'.");var n=e-1,i=100/n;for(e=[];n--;)e[n]=n*i;e.push(100),t="positions"}return"positions"===t?e.map(function(t){return it.fromStepping(r?it.getStep(t):t)}):"values"===t?r?e.map(function(t){return it.fromStepping(it.getStep(it.toStepping(t)))}):e:void 0}(c,t.values||!1,t.stepped||!1),h=(e=p,r=c,n=d,i={},o=it.xVal[0],a=it.xVal[it.xVal.length-1],l=s=!1,u=0,(n=n.slice().sort(function(t,e){return t-e}).filter(function(t){return!this[t]&&(this[t]=!0)},{}))[0]!==o&&(n.unshift(o),s=!0),n[n.length-1]!==a&&(n.push(a),l=!0),n.forEach(function(t,o){var a,c,p,f,d,h,m,g,v,b,S=t,y=n[o+1],x="steps"===r;if(x&&(a=it.xNumSteps[o]),a||(a=y-S),!1!==S&&void 0!==y)for(a=Math.max(a,1e-7),c=S;c<=y;c=(c+a).toFixed(7)/1){for(g=(d=(f=it.toStepping(c))-u)/e,b=d/(v=Math.round(g)),p=1;p<=v;p+=1)i[(h=u+p*b).toFixed(5)]=[it.fromStepping(h),0];m=-1<n.indexOf(c)?mt:x?gt:ht,!o&&s&&(m=0),c===y&&l||(i[f.toFixed(5)]=[c,m]),u=f}}),i),m=t.format||{to:Math.round};return J=nt.appendChild(S(h,f,m))}function w(){var t=W.getBoundingClientRect(),e="offset"+["Width","Height"][n.ort];return 0===n.ort?t.width||W[e]:t.height||W[e]}function E(t,e,r,i){var o=function(o){return!!(o=function(t,e,r){var n,i,o=0===t.type.indexOf("touch"),a=0===t.type.indexOf("mouse"),s=0===t.type.indexOf("pointer");if(0===t.type.indexOf("MSPointer")&&(s=!0),o){var l=function(t){return t.target===r||r.contains(t.target)};if("touchstart"===t.type){var u=Array.prototype.filter.call(t.touches,l);if(1<u.length)return!1;n=u[0].pageX,i=u[0].pageY}else{var p=Array.prototype.find.call(t.changedTouches,l);if(!p)return!1;n=p.pageX,i=p.pageY}}return e=e||c(ct),(a||s)&&(n=t.clientX+e.x,i=t.clientY+e.y),t.pageOffset=e,t.points=[n,i],t.cursor=a||s,t}(o,i.pageOffset,i.target||e))&&!(m()&&!i.doNotReject)&&(a=nt,s=n.cssClasses.tap,!((a.classList?a.classList.contains(s):new RegExp("\\b"+s+"\\b").test(a.className))&&!i.doNotReject)&&!(t===et.start&&void 0!==o.buttons&&1<o.buttons)&&(!i.hover||!o.buttons)&&(rt||o.preventDefault(),o.calcPoint=o.points[n.ort],void r(o,i)));var a,s},a=[];return t.split(" ").forEach(function(t){e.addEventListener(t,o,!!rt&&{passive:!0}),a.push([t,o])}),a}function C(t){var e,r,i,a,s,l,u=100*(t-(e=W,r=n.ort,i=e.getBoundingClientRect(),a=e.ownerDocument,s=a.documentElement,l=c(a),/webkit.*Chrome.*Mobile/i.test(navigator.userAgent)&&(l.x=0),r?i.top+l.y-s.clientTop:i.left+l.x-s.clientLeft))/w();return u=o(u),n.dir?100-u:u}function N(t,e){"mouseout"===t.type&&"HTML"===t.target.nodeName&&null===t.relatedTarget&&k(t,e)}function U(t,e){if(-1===navigator.appVersion.indexOf("MSIE 9")&&0===t.buttons&&0!==e.buttonsProperty)return k(t,e);var r=(n.dir?-1:1)*(t.calcPoint-e.startCalcPoint);H(0<r,100*r/e.baseSize,e.locations,e.handleNumbers)}function k(t,e){e.handle&&(u(e.handle,n.cssClasses.active),lt-=1),e.listeners.forEach(function(t){pt.removeEventListener(t[0],t[1])}),0===lt&&(u(nt,n.cssClasses.drag),D(),t.cursor&&(ft.style.cursor="",ft.removeEventListener("selectstart",r))),e.handleNumbers.forEach(function(t){L("change",t),L("set",t),L("end",t)})}function P(t,e){if(e.handleNumbers.some(g))return!1;var i;1===e.handleNumbers.length&&(i=$[e.handleNumbers[0]].children[0],lt+=1,l(i,n.cssClasses.active)),t.stopPropagation();var o=[],a=E(et.move,pt,U,{target:t.target,handle:i,listeners:o,startCalcPoint:t.calcPoint,baseSize:w(),pageOffset:t.pageOffset,handleNumbers:e.handleNumbers,buttonsProperty:t.buttons,locations:at.slice()}),s=E(et.end,pt,k,{target:t.target,handle:i,listeners:o,doNotReject:!0,handleNumbers:e.handleNumbers}),u=E("mouseout",pt,N,{target:t.target,handle:i,listeners:o,doNotReject:!0,handleNumbers:e.handleNumbers});o.push.apply(o,a.concat(s,u)),t.cursor&&(ft.style.cursor=getComputedStyle(t.target).cursor,1<$.length&&l(nt,n.cssClasses.drag),ft.addEventListener("selectstart",r,!1)),e.handleNumbers.forEach(function(t){L("start",t)})}function A(t){t.stopPropagation();var e,r,o,a=C(t.calcPoint),s=(e=a,o=!(r=100),$.forEach(function(t,n){if(!g(n)){var i=at[n],a=Math.abs(i-e);(a<r||a<=r&&i<e||100===a&&100===r)&&(o=n,r=a)}}),o);if(!1===s)return!1;n.events.snap||i(nt,n.cssClasses.tap,n.animationDuration),T(s,a,!0,!0),D(),L("slide",s,!0),L("update",s,!0),L("change",s,!0),L("set",s,!0),n.events.snap&&P(t,{handleNumbers:[s]})}function V(t){var e=C(t.calcPoint),r=it.getStep(e),n=it.fromStepping(r);Object.keys(ut).forEach(function(t){"hover"===t.split(".")[0]&&ut[t].forEach(function(t){t.call(Q,n)})})}function M(t,e){ut[t]=ut[t]||[],ut[t].push(e),"update"===t.split(".")[0]&&$.forEach(function(t,e){L("update",e)})}function O(t){var e=t&&t.split(".")[0],r=e&&t.substring(e.length);Object.keys(ut).forEach(function(t){var n=t.split(".")[0],i=t.substring(n.length);e&&e!==n||r&&r!==i||delete ut[t]})}function L(t,e,r){Object.keys(ut).forEach(function(i){var o=i.split(".")[0];t===o&&ut[i].forEach(function(t){t.call(Q,ot.map(n.format.to),e,ot.slice(),r||!1,at.slice())})})}function z(t,e,r,i,a,s){return 1<$.length&&!n.events.unconstrained&&(i&&0<e&&(r=Math.max(r,t[e-1]+n.margin)),a&&e<$.length-1&&(r=Math.min(r,t[e+1]-n.margin))),1<$.length&&n.limit&&(i&&0<e&&(r=Math.min(r,t[e-1]+n.limit)),a&&e<$.length-1&&(r=Math.max(r,t[e+1]-n.limit))),n.padding&&(0===e&&(r=Math.max(r,n.padding[0])),e===$.length-1&&(r=Math.min(r,100-n.padding[1]))),!((r=o(r=it.getStep(r)))===t[e]&&!s)&&r}function j(t,e){var r=n.ort;return(r?e:t)+", "+(r?t:e)}function H(t,e,r,n){var i=r.slice(),o=[!t,t],a=[t,!t];n=n.slice(),t&&n.reverse(),1<n.length?n.forEach(function(t,r){var n=z(i,t,i[t]+e,o[r],a[r],!1);!1===n?e=0:(e=n-i[t],i[t]=n)}):o=a=[!0];var s=!1;n.forEach(function(t,n){s=T(t,r[t]+e,o[n],a[n])||s}),s&&n.forEach(function(t){L("update",t),L("slide",t)})}function F(t,e){return n.dir?100-t-e:t}function D(){st.forEach(function(t){var e=50<at[t]?-1:1,r=3+($.length+e*t);$[t].style.zIndex=r})}function T(t,e,r,i){return!1!==(e=z(at,t,e,r,i,!1))&&(function(t,e){at[t]=e,ot[t]=it.fromStepping(e);var r="translate("+j(10*(F(e,0)-vt)+"%","0")+")";$[t].style[n.transformRule]=r,_(t),_(t+1)}(t,e),!0)}function _(t){if(G[t]){var e=0,r=100;0!==t&&(e=at[t-1]),t!==G.length-1&&(r=at[t]);var i=r-e,o="translate("+j(F(e,i)+"%","0")+")",a="scale("+j(i/100,"1")+")";G[t].style[n.transformRule]=o+" "+a}}function q(t,e){return null===t||!1===t||void 0===t?at[e]:("number"==typeof t&&(t=String(t)),t=n.format.from(t),!1===(t=it.toStepping(t))||isNaN(t)?at[e]:t)}function X(t,e){var r=a(t),o=void 0===at[0];e=void 0===e||!!e,n.animate&&!o&&i(nt,n.cssClasses.tap,n.animationDuration),st.forEach(function(t){T(t,q(r[t],t),!0,!1)}),st.forEach(function(t){T(t,at[t],!0,!0)}),D(),st.forEach(function(t){L("update",t),null!==r[t]&&e&&L("set",t)})}function Y(){var t=ot.map(n.format.to);return 1===t.length?t[0]:t}function I(t){var e=at[t],r=it.getNearbySteps(e),i=ot[t],o=r.thisStep.step,a=null;if(n.snap)return[i-r.stepBefore.startValue||null,r.stepAfter.startValue-i||null];!1!==o&&i+o>r.stepAfter.startValue&&(o=r.stepAfter.startValue-i),a=i>r.thisStep.startValue?r.thisStep.step:!1!==r.stepBefore.step&&i-r.stepBefore.highestStep,100===e?o=null:0===e&&(a=null);var s=it.countStepDecimals();return null!==o&&!1!==o&&(o=Number(o.toFixed(s))),null!==a&&!1!==a&&(a=Number(a.toFixed(s))),[a,o]}var W,$,G,J,K,Q,Z,tt,et=window.navigator.pointerEnabled?{start:"pointerdown",move:"pointermove",end:"pointerup"}:window.navigator.msPointerEnabled?{start:"MSPointerDown",move:"MSPointerMove",end:"MSPointerUp"}:{start:"mousedown touchstart",move:"mousemove touchmove",end:"mouseup touchend"},rt=window.CSS&&CSS.supports&&CSS.supports("touch-action","none")&&function(){var t=!1;try{var e=Object.defineProperty({},"passive",{get:function(){t=!0}});window.addEventListener("test",null,e)}catch(t){}return t}(),nt=e,it=n.spectrum,ot=[],at=[],st=[],lt=0,ut={},ct=e.ownerDocument,pt=n.documentElement||ct.documentElement,ft=ct.body,dt=-1,ht=0,mt=1,gt=2,vt="rtl"===ct.dir||1===n.ort?0:100;return l(Z=nt,n.cssClasses.target),0===n.dir?l(Z,n.cssClasses.ltr):l(Z,n.cssClasses.rtl),0===n.ort?l(Z,n.cssClasses.horizontal):l(Z,n.cssClasses.vertical),W=p(Z,n.cssClasses.base),function(t,e){var r=p(e,n.cssClasses.connects);$=[],(G=[]).push(d(r,t[0]));for(var i=0;i<n.handles;i++)$.push(f(e,i)),st[i]=i,G.push(d(r,t[i+1]))}(n.connect,W),(tt=n.events).fixed||$.forEach(function(t,e){E(et.start,t.children[0],P,{handleNumbers:[e]})}),tt.tap&&E(et.start,W,A,{}),tt.hover&&E(et.move,W,V,{hover:!0}),tt.drag&&G.forEach(function(t,e){if(!1!==t&&0!==e&&e!==G.length-1){var r=$[e-1],i=$[e],o=[t];l(t,n.cssClasses.draggable),tt.fixed&&(o.push(r.children[0]),o.push(i.children[0])),o.forEach(function(t){E(et.start,t,P,{handles:[r,i],handleNumbers:[e-1,e]})})}}),X(n.start),n.pips&&x(n.pips),n.tooltips&&b(),M("update",function(t,e,r,i,o){st.forEach(function(t){var e=$[t],i=z(at,t,0,!0,!0,!0),a=z(at,t,100,!0,!0,!0),s=o[t],l=n.ariaFormat.to(r[t]);i=it.fromStepping(i).toFixed(1),a=it.fromStepping(a).toFixed(1),s=it.fromStepping(s).toFixed(1),e.children[0].setAttribute("aria-valuemin",i),e.children[0].setAttribute("aria-valuemax",a),e.children[0].setAttribute("aria-valuenow",s),e.children[0].setAttribute("aria-valuetext",l)})}),Q={destroy:function(){for(var t in n.cssClasses)n.cssClasses.hasOwnProperty(t)&&u(nt,n.cssClasses[t]);for(;nt.firstChild;)nt.removeChild(nt.firstChild);delete nt.noUiSlider},steps:function(){return st.map(I)},on:M,off:O,get:Y,set:X,setHandle:function(t,e,r){if(!(0<=(t=Number(t))&&t<st.length))throw new Error("noUiSlider ("+B+"): invalid handle number, got: "+t);T(t,q(e,t),!0,!0),L("update",t),r&&L("set",t)},reset:function(t){X(n.start,t)},__moveHandles:function(t,e,r){H(t,e,at,r)},options:s,updateOptions:function(t,e){var r=Y(),i=["margin","limit","padding","range","animate","snap","step","format","pips","tooltips"];i.forEach(function(e){void 0!==t[e]&&(s[e]=t[e])});var o=R(s);i.forEach(function(e){void 0!==t[e]&&(n[e]=o[e])}),it=o.spectrum,n.margin=o.margin,n.limit=o.limit,n.padding=o.padding,n.pips?x(n.pips):y(),n.tooltips?b():v(),at=[],X(t.start||r,e)},target:nt,removePips:y,removeTooltips:v,pips:x}}var B="14.0.2";b.prototype.getMargin=function(t){var e=this.xNumSteps[0];if(e&&t/e%1!=0)throw new Error("noUiSlider ("+B+"): 'limit', 'margin' and 'padding' must be divisible by step.");return 2===this.xPct.length&&f(this.xVal,t)},b.prototype.toStepping=function(t){return t=h(this.xVal,this.xPct,t)},b.prototype.fromStepping=function(t){return function(t,e,r){if(100<=r)return t.slice(-1)[0];var n,i=d(r,e),o=t[i-1],a=t[i],s=e[i-1],l=e[i];return n=[o,a],(r-s)*p(s,l)*(n[1]-n[0])/100+n[0]}(this.xVal,this.xPct,t)},b.prototype.getStep=function(t){return t=m(this.xPct,this.xSteps,this.snap,t)},b.prototype.getDefaultStep=function(t,e,r){var n=d(t,this.xPct);return(100===t||e&&t===this.xPct[n-1])&&(n=Math.max(n-1,1)),(this.xVal[n]-this.xVal[n-1])/r},b.prototype.getNearbySteps=function(t){var e=d(t,this.xPct);return{stepBefore:{startValue:this.xVal[e-2],step:this.xNumSteps[e-2],highestStep:this.xHighestCompleteStep[e-2]},thisStep:{startValue:this.xVal[e-1],step:this.xNumSteps[e-1],highestStep:this.xHighestCompleteStep[e-1]},stepAfter:{startValue:this.xVal[e],step:this.xNumSteps[e],highestStep:this.xHighestCompleteStep[e]}}},b.prototype.countStepDecimals=function(){var t=this.xNumSteps.map(s);return Math.max.apply(null,t)},b.prototype.convert=function(t){return this.getStep(this.toStepping(t))};var q={to:function(t){return void 0!==t&&t.toFixed(2)},from:Number};return{__spectrum:b,version:B,create:function(t,e){if(!t||!t.nodeName)throw new Error("noUiSlider ("+B+"): create requires a single element, got: "+t);if(t.noUiSlider)throw new Error("noUiSlider ("+B+"): Slider was already initialized.");var r=_(t,R(e),e);return t.noUiSlider=r}}});
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*! nouislider - 14.0.2 - 6/28/2019 */
+!function (t) {
+  "function" == typeof define && define.amd ? define([], t) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? module.exports = t() : window.noUiSlider = t();
+}(function () {
+  "use strict";
+  var lt = "14.0.2";function ut(t) {
+    t.parentElement.removeChild(t);
+  }function s(t) {
+    return null != t;
+  }function ct(t) {
+    t.preventDefault();
+  }function i(t) {
+    return "number" == typeof t && !isNaN(t) && isFinite(t);
+  }function pt(t, e, r) {
+    0 < r && (ht(t, e), setTimeout(function () {
+      mt(t, e);
+    }, r));
+  }function ft(t) {
+    return Math.max(Math.min(t, 100), 0);
+  }function dt(t) {
+    return Array.isArray(t) ? t : [t];
+  }function e(t) {
+    var e = (t = String(t)).split(".");return 1 < e.length ? e[1].length : 0;
+  }function ht(t, e) {
+    t.classList ? t.classList.add(e) : t.className += " " + e;
+  }function mt(t, e) {
+    t.classList ? t.classList.remove(e) : t.className = t.className.replace(new RegExp("(^|\\b)" + e.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+  }function gt(t) {
+    var e = void 0 !== window.pageXOffset,
+        r = "CSS1Compat" === (t.compatMode || "");return { x: e ? window.pageXOffset : r ? t.documentElement.scrollLeft : t.body.scrollLeft, y: e ? window.pageYOffset : r ? t.documentElement.scrollTop : t.body.scrollTop };
+  }function c(t, e) {
+    return 100 / (e - t);
+  }function p(t, e) {
+    return 100 * e / (t[1] - t[0]);
+  }function f(t, e) {
+    for (var r = 1; t >= e[r];) {
+      r += 1;
+    }return r;
+  }function r(t, e, r) {
+    if (r >= t.slice(-1)[0]) return 100;var n,
+        i,
+        o = f(r, t),
+        a = t[o - 1],
+        s = t[o],
+        l = e[o - 1],
+        u = e[o];return l + (i = r, p(n = [a, s], n[0] < 0 ? i + Math.abs(n[0]) : i - n[0]) / c(l, u));
+  }function n(t, e, r, n) {
+    if (100 === n) return n;var i,
+        o,
+        a = f(n, t),
+        s = t[a - 1],
+        l = t[a];return r ? (l - s) / 2 < n - s ? l : s : e[a - 1] ? t[a - 1] + (i = n - t[a - 1], o = e[a - 1], Math.round(i / o) * o) : n;
+  }function o(t, e, r) {
+    var n;if ("number" == typeof e && (e = [e]), !Array.isArray(e)) throw new Error("noUiSlider (" + lt + "): 'range' contains invalid value.");if (!i(n = "min" === t ? 0 : "max" === t ? 100 : parseFloat(t)) || !i(e[0])) throw new Error("noUiSlider (" + lt + "): 'range' value isn't numeric.");r.xPct.push(n), r.xVal.push(e[0]), n ? r.xSteps.push(!isNaN(e[1]) && e[1]) : isNaN(e[1]) || (r.xSteps[0] = e[1]), r.xHighestCompleteStep.push(0);
+  }function a(t, e, r) {
+    if (e) if (r.xVal[t] !== r.xVal[t + 1]) {
+      r.xSteps[t] = p([r.xVal[t], r.xVal[t + 1]], e) / c(r.xPct[t], r.xPct[t + 1]);var n = (r.xVal[t + 1] - r.xVal[t]) / r.xNumSteps[t],
+          i = Math.ceil(Number(n.toFixed(3)) - 1),
+          o = r.xVal[t] + r.xNumSteps[t] * i;r.xHighestCompleteStep[t] = o;
+    } else r.xSteps[t] = r.xHighestCompleteStep[t] = r.xVal[t];
+  }function l(t, e, r) {
+    var n;this.xPct = [], this.xVal = [], this.xSteps = [r || !1], this.xNumSteps = [!1], this.xHighestCompleteStep = [], this.snap = e;var i = [];for (n in t) {
+      t.hasOwnProperty(n) && i.push([t[n], n]);
+    }for (i.length && "object" == _typeof(i[0][0]) ? i.sort(function (t, e) {
+      return t[0][0] - e[0][0];
+    }) : i.sort(function (t, e) {
+      return t[0] - e[0];
+    }), n = 0; n < i.length; n++) {
+      o(i[n][1], i[n][0], this);
+    }for (this.xNumSteps = this.xSteps.slice(0), n = 0; n < this.xNumSteps.length; n++) {
+      a(n, this.xNumSteps[n], this);
+    }
+  }l.prototype.getMargin = function (t) {
+    var e = this.xNumSteps[0];if (e && t / e % 1 != 0) throw new Error("noUiSlider (" + lt + "): 'limit', 'margin' and 'padding' must be divisible by step.");return 2 === this.xPct.length && p(this.xVal, t);
+  }, l.prototype.toStepping = function (t) {
+    return t = r(this.xVal, this.xPct, t);
+  }, l.prototype.fromStepping = function (t) {
+    return function (t, e, r) {
+      if (100 <= r) return t.slice(-1)[0];var n,
+          i = f(r, e),
+          o = t[i - 1],
+          a = t[i],
+          s = e[i - 1],
+          l = e[i];return n = [o, a], (r - s) * c(s, l) * (n[1] - n[0]) / 100 + n[0];
+    }(this.xVal, this.xPct, t);
+  }, l.prototype.getStep = function (t) {
+    return t = n(this.xPct, this.xSteps, this.snap, t);
+  }, l.prototype.getDefaultStep = function (t, e, r) {
+    var n = f(t, this.xPct);return (100 === t || e && t === this.xPct[n - 1]) && (n = Math.max(n - 1, 1)), (this.xVal[n] - this.xVal[n - 1]) / r;
+  }, l.prototype.getNearbySteps = function (t) {
+    var e = f(t, this.xPct);return { stepBefore: { startValue: this.xVal[e - 2], step: this.xNumSteps[e - 2], highestStep: this.xHighestCompleteStep[e - 2] }, thisStep: { startValue: this.xVal[e - 1], step: this.xNumSteps[e - 1], highestStep: this.xHighestCompleteStep[e - 1] }, stepAfter: { startValue: this.xVal[e], step: this.xNumSteps[e], highestStep: this.xHighestCompleteStep[e] } };
+  }, l.prototype.countStepDecimals = function () {
+    var t = this.xNumSteps.map(e);return Math.max.apply(null, t);
+  }, l.prototype.convert = function (t) {
+    return this.getStep(this.toStepping(t));
+  };var u = { to: function to(t) {
+      return void 0 !== t && t.toFixed(2);
+    }, from: Number };function d(t) {
+    if ("object" == _typeof(e = t) && "function" == typeof e.to && "function" == typeof e.from) return !0;var e;throw new Error("noUiSlider (" + lt + "): 'format' requires 'to' and 'from' methods.");
+  }function h(t, e) {
+    if (!i(e)) throw new Error("noUiSlider (" + lt + "): 'step' is not numeric.");t.singleStep = e;
+  }function m(t, e) {
+    if ("object" != (typeof e === "undefined" ? "undefined" : _typeof(e)) || Array.isArray(e)) throw new Error("noUiSlider (" + lt + "): 'range' is not an object.");if (void 0 === e.min || void 0 === e.max) throw new Error("noUiSlider (" + lt + "): Missing 'min' or 'max' in 'range'.");if (e.min === e.max) throw new Error("noUiSlider (" + lt + "): 'range' 'min' and 'max' cannot be equal.");t.spectrum = new l(e, t.snap, t.singleStep);
+  }function g(t, e) {
+    if (e = dt(e), !Array.isArray(e) || !e.length) throw new Error("noUiSlider (" + lt + "): 'start' option is incorrect.");t.handles = e.length, t.start = e;
+  }function v(t, e) {
+    if ("boolean" != typeof (t.snap = e)) throw new Error("noUiSlider (" + lt + "): 'snap' option must be a boolean.");
+  }function b(t, e) {
+    if ("boolean" != typeof (t.animate = e)) throw new Error("noUiSlider (" + lt + "): 'animate' option must be a boolean.");
+  }function S(t, e) {
+    if ("number" != typeof (t.animationDuration = e)) throw new Error("noUiSlider (" + lt + "): 'animationDuration' option must be a number.");
+  }function x(t, e) {
+    var r,
+        n = [!1];if ("lower" === e ? e = [!0, !1] : "upper" === e && (e = [!1, !0]), !0 === e || !1 === e) {
+      for (r = 1; r < t.handles; r++) {
+        n.push(e);
+      }n.push(!1);
+    } else {
+      if (!Array.isArray(e) || !e.length || e.length !== t.handles + 1) throw new Error("noUiSlider (" + lt + "): 'connect' option doesn't match handle count.");n = e;
+    }t.connect = n;
+  }function w(t, e) {
+    switch (e) {case "horizontal":
+        t.ort = 0;break;case "vertical":
+        t.ort = 1;break;default:
+        throw new Error("noUiSlider (" + lt + "): 'orientation' option is invalid.");}
+  }function y(t, e) {
+    if (!i(e)) throw new Error("noUiSlider (" + lt + "): 'margin' option must be numeric.");if (0 !== e && (t.margin = t.spectrum.getMargin(e), !t.margin)) throw new Error("noUiSlider (" + lt + "): 'margin' option is only supported on linear sliders.");
+  }function E(t, e) {
+    if (!i(e)) throw new Error("noUiSlider (" + lt + "): 'limit' option must be numeric.");if (t.limit = t.spectrum.getMargin(e), !t.limit || t.handles < 2) throw new Error("noUiSlider (" + lt + "): 'limit' option is only supported on linear sliders with 2 or more handles.");
+  }function C(t, e) {
+    if (!i(e) && !Array.isArray(e)) throw new Error("noUiSlider (" + lt + "): 'padding' option must be numeric or array of exactly 2 numbers.");if (Array.isArray(e) && 2 !== e.length && !i(e[0]) && !i(e[1])) throw new Error("noUiSlider (" + lt + "): 'padding' option must be numeric or array of exactly 2 numbers.");if (0 !== e) {
+      if (Array.isArray(e) || (e = [e, e]), !(t.padding = [t.spectrum.getMargin(e[0]), t.spectrum.getMargin(e[1])]) === t.padding[0] || !1 === t.padding[1]) throw new Error("noUiSlider (" + lt + "): 'padding' option is only supported on linear sliders.");if (t.padding[0] < 0 || t.padding[1] < 0) throw new Error("noUiSlider (" + lt + "): 'padding' option must be a positive number(s).");if (100 < t.padding[0] + t.padding[1]) throw new Error("noUiSlider (" + lt + "): 'padding' option must not exceed 100% of the range.");
+    }
+  }function N(t, e) {
+    switch (e) {case "ltr":
+        t.dir = 0;break;case "rtl":
+        t.dir = 1;break;default:
+        throw new Error("noUiSlider (" + lt + "): 'direction' option was not recognized.");}
+  }function U(t, e) {
+    if ("string" != typeof e) throw new Error("noUiSlider (" + lt + "): 'behaviour' must be a string containing options.");var r = 0 <= e.indexOf("tap"),
+        n = 0 <= e.indexOf("drag"),
+        i = 0 <= e.indexOf("fixed"),
+        o = 0 <= e.indexOf("snap"),
+        a = 0 <= e.indexOf("hover"),
+        s = 0 <= e.indexOf("unconstrained");if (i) {
+      if (2 !== t.handles) throw new Error("noUiSlider (" + lt + "): 'fixed' behaviour must be used with 2 handles");y(t, t.start[1] - t.start[0]);
+    }if (s && (t.margin || t.limit)) throw new Error("noUiSlider (" + lt + "): 'unconstrained' behaviour cannot be used with margin or limit");t.events = { tap: r || o, drag: n, fixed: i, snap: o, hover: a, unconstrained: s };
+  }function k(t, e) {
+    if (!1 !== e) if (!0 === e) {
+      t.tooltips = [];for (var r = 0; r < t.handles; r++) {
+        t.tooltips.push(!0);
+      }
+    } else {
+      if (t.tooltips = dt(e), t.tooltips.length !== t.handles) throw new Error("noUiSlider (" + lt + "): must pass a formatter for all handles.");t.tooltips.forEach(function (t) {
+        if ("boolean" != typeof t && ("object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) || "function" != typeof t.to)) throw new Error("noUiSlider (" + lt + "): 'tooltips' must be passed a formatter or 'false'.");
+      });
+    }
+  }function P(t, e) {
+    d(t.ariaFormat = e);
+  }function A(t, e) {
+    d(t.format = e);
+  }function V(t, e) {
+    if ("boolean" != typeof (t.keyboardSupport = e)) throw new Error("noUiSlider (" + lt + "): 'keyboardSupport' option must be a boolean.");
+  }function M(t, e) {
+    t.documentElement = e;
+  }function O(t, e) {
+    if ("string" != typeof e && !1 !== e) throw new Error("noUiSlider (" + lt + "): 'cssPrefix' must be a string or `false`.");t.cssPrefix = e;
+  }function L(t, e) {
+    if ("object" != (typeof e === "undefined" ? "undefined" : _typeof(e))) throw new Error("noUiSlider (" + lt + "): 'cssClasses' must be an object.");if ("string" == typeof t.cssPrefix) for (var r in t.cssClasses = {}, e) {
+      e.hasOwnProperty(r) && (t.cssClasses[r] = t.cssPrefix + e[r]);
+    } else t.cssClasses = e;
+  }function vt(e) {
+    var r = { margin: 0, limit: 0, padding: 0, animate: !0, animationDuration: 300, ariaFormat: u, format: u },
+        n = { step: { r: !1, t: h }, start: { r: !0, t: g }, connect: { r: !0, t: x }, direction: { r: !0, t: N }, snap: { r: !1, t: v }, animate: { r: !1, t: b }, animationDuration: { r: !1, t: S }, range: { r: !0, t: m }, orientation: { r: !1, t: w }, margin: { r: !1, t: y }, limit: { r: !1, t: E }, padding: { r: !1, t: C }, behaviour: { r: !0, t: U }, ariaFormat: { r: !1, t: P }, format: { r: !1, t: A }, tooltips: { r: !1, t: k }, keyboardSupport: { r: !0, t: V }, documentElement: { r: !1, t: M }, cssPrefix: { r: !0, t: O }, cssClasses: { r: !0, t: L } },
+        i = { connect: !1, direction: "ltr", behaviour: "tap", orientation: "horizontal", keyboardSupport: !0, cssPrefix: "noUi-", cssClasses: { target: "target", base: "base", origin: "origin", handle: "handle", handleLower: "handle-lower", handleUpper: "handle-upper", touchArea: "touch-area", horizontal: "horizontal", vertical: "vertical", background: "background", connect: "connect", connects: "connects", ltr: "ltr", rtl: "rtl", draggable: "draggable", drag: "state-drag", tap: "state-tap", active: "active", tooltip: "tooltip", pips: "pips", pipsHorizontal: "pips-horizontal", pipsVertical: "pips-vertical", marker: "marker", markerHorizontal: "marker-horizontal", markerVertical: "marker-vertical", markerNormal: "marker-normal", markerLarge: "marker-large", markerSub: "marker-sub", value: "value", valueHorizontal: "value-horizontal", valueVertical: "value-vertical", valueNormal: "value-normal", valueLarge: "value-large", valueSub: "value-sub" } };e.format && !e.ariaFormat && (e.ariaFormat = e.format), Object.keys(n).forEach(function (t) {
+      if (!s(e[t]) && void 0 === i[t]) {
+        if (n[t].r) throw new Error("noUiSlider (" + lt + "): '" + t + "' is required.");return !0;
+      }n[t].t(r, s(e[t]) ? e[t] : i[t]);
+    }), r.pips = e.pips;var t = document.createElement("div"),
+        o = void 0 !== t.style.msTransform,
+        a = void 0 !== t.style.transform;r.transformRule = a ? "transform" : o ? "msTransform" : "webkitTransform";return r.style = [["left", "top"], ["right", "bottom"]][r.dir][r.ort], r;
+  }function z(t, f, o) {
+    var l,
+        u,
+        a,
+        c,
+        i,
+        s,
+        e,
+        p,
+        d = window.navigator.pointerEnabled ? { start: "pointerdown", move: "pointermove", end: "pointerup" } : window.navigator.msPointerEnabled ? { start: "MSPointerDown", move: "MSPointerMove", end: "MSPointerUp" } : { start: "mousedown touchstart", move: "mousemove touchmove", end: "mouseup touchend" },
+        h = window.CSS && CSS.supports && CSS.supports("touch-action", "none") && function () {
+      var t = !1;try {
+        var e = Object.defineProperty({}, "passive", { get: function get() {
+            t = !0;
+          } });window.addEventListener("test", null, e);
+      } catch (t) {}return t;
+    }(),
+        y = t,
+        E = f.spectrum,
+        m = [],
+        g = [],
+        v = [],
+        b = 0,
+        S = {},
+        x = t.ownerDocument,
+        w = f.documentElement || x.documentElement,
+        C = x.body,
+        N = -1,
+        U = 0,
+        k = 1,
+        P = 2,
+        A = "rtl" === x.dir || 1 === f.ort ? 0 : 100;function V(t, e) {
+      var r = x.createElement("div");return e && ht(r, e), t.appendChild(r), r;
+    }function M(t, e) {
+      var r = V(t, f.cssClasses.origin),
+          n = V(r, f.cssClasses.handle);return V(n, f.cssClasses.touchArea), n.setAttribute("data-handle", e), f.keyboardSupport && (n.setAttribute("tabindex", "0"), n.addEventListener("keydown", function (t) {
+        return function (t, e) {
+          if (L() || z(e)) return !1;var r = ["Left", "Right"],
+              n = ["Down", "Up"];f.dir && !f.ort ? r.reverse() : f.ort && !f.dir && n.reverse();var i = t.key.replace("Arrow", ""),
+              o = i === n[0] || i === r[0],
+              a = i === n[1] || i === r[1];if (!o && !a) return !0;t.preventDefault();var s = o ? 0 : 1,
+              l = st(e)[s];if (null === l) return !1;!1 === l && (l = E.getDefaultStep(g[e], o, 10));return l = Math.max(l, 1e-7), l *= o ? -1 : 1, rt(e, E.toStepping(m[e] + l), !0, !0), J("slide", e), J("update", e), J("change", e), J("set", e), !1;
+        }(t, e);
+      })), n.setAttribute("role", "slider"), n.setAttribute("aria-orientation", f.ort ? "vertical" : "horizontal"), 0 === e ? ht(n, f.cssClasses.handleLower) : e === f.handles - 1 && ht(n, f.cssClasses.handleUpper), r;
+    }function O(t, e) {
+      return !!e && V(t, f.cssClasses.connect);
+    }function r(t, e) {
+      return !!f.tooltips[e] && V(t.firstChild, f.cssClasses.tooltip);
+    }function L() {
+      return y.hasAttribute("disabled");
+    }function z(t) {
+      return u[t].hasAttribute("disabled");
+    }function j() {
+      i && (G("update.tooltips"), i.forEach(function (t) {
+        t && ut(t);
+      }), i = null);
+    }function H() {
+      j(), i = u.map(r), $("update.tooltips", function (t, e, r) {
+        if (i[e]) {
+          var n = t[e];!0 !== f.tooltips[e] && (n = f.tooltips[e].to(r[e])), i[e].innerHTML = n;
+        }
+      });
+    }function F(e, i, o) {
+      var a = x.createElement("div"),
+          s = [];s[U] = f.cssClasses.valueNormal, s[k] = f.cssClasses.valueLarge, s[P] = f.cssClasses.valueSub;var l = [];l[U] = f.cssClasses.markerNormal, l[k] = f.cssClasses.markerLarge, l[P] = f.cssClasses.markerSub;var u = [f.cssClasses.valueHorizontal, f.cssClasses.valueVertical],
+          c = [f.cssClasses.markerHorizontal, f.cssClasses.markerVertical];function p(t, e) {
+        var r = e === f.cssClasses.value,
+            n = r ? s : l;return e + " " + (r ? u : c)[f.ort] + " " + n[t];
+      }return ht(a, f.cssClasses.pips), ht(a, 0 === f.ort ? f.cssClasses.pipsHorizontal : f.cssClasses.pipsVertical), Object.keys(e).forEach(function (t) {
+        !function (t, e, r) {
+          if ((r = i ? i(e, r) : r) !== N) {
+            var n = V(a, !1);n.className = p(r, f.cssClasses.marker), n.style[f.style] = t + "%", U < r && ((n = V(a, !1)).className = p(r, f.cssClasses.value), n.setAttribute("data-value", e), n.style[f.style] = t + "%", n.innerHTML = o.to(e));
+          }
+        }(t, e[t][0], e[t][1]);
+      }), a;
+    }function D() {
+      c && (ut(c), c = null);
+    }function T(t) {
+      D();var m,
+          g,
+          v,
+          b,
+          e,
+          r,
+          S,
+          x,
+          w,
+          n = t.mode,
+          i = t.density || 1,
+          o = t.filter || !1,
+          a = function (t, e, r) {
+        if ("range" === t || "steps" === t) return E.xVal;if ("count" === t) {
+          if (e < 2) throw new Error("noUiSlider (" + lt + "): 'values' (>= 2) required for mode 'count'.");var n = e - 1,
+              i = 100 / n;for (e = []; n--;) {
+            e[n] = n * i;
+          }e.push(100), t = "positions";
+        }return "positions" === t ? e.map(function (t) {
+          return E.fromStepping(r ? E.getStep(t) : t);
+        }) : "values" === t ? r ? e.map(function (t) {
+          return E.fromStepping(E.getStep(E.toStepping(t)));
+        }) : e : void 0;
+      }(n, t.values || !1, t.stepped || !1),
+          s = (m = i, g = n, v = a, b = {}, e = E.xVal[0], r = E.xVal[E.xVal.length - 1], x = S = !1, w = 0, (v = v.slice().sort(function (t, e) {
+        return t - e;
+      }).filter(function (t) {
+        return !this[t] && (this[t] = !0);
+      }, {}))[0] !== e && (v.unshift(e), S = !0), v[v.length - 1] !== r && (v.push(r), x = !0), v.forEach(function (t, e) {
+        var r,
+            n,
+            i,
+            o,
+            a,
+            s,
+            l,
+            u,
+            c,
+            p,
+            f = t,
+            d = v[e + 1],
+            h = "steps" === g;if (h && (r = E.xNumSteps[e]), r || (r = d - f), !1 !== f && void 0 !== d) for (r = Math.max(r, 1e-7), n = f; n <= d; n = (n + r).toFixed(7) / 1) {
+          for (u = (a = (o = E.toStepping(n)) - w) / m, p = a / (c = Math.round(u)), i = 1; i <= c; i += 1) {
+            b[(s = w + i * p).toFixed(5)] = [E.fromStepping(s), 0];
+          }l = -1 < v.indexOf(n) ? k : h ? P : U, !e && S && (l = 0), n === d && x || (b[o.toFixed(5)] = [n, l]), w = o;
+        }
+      }), b),
+          l = t.format || { to: Math.round };return c = y.appendChild(F(s, o, l));
+    }function R() {
+      var t = l.getBoundingClientRect(),
+          e = "offset" + ["Width", "Height"][f.ort];return 0 === f.ort ? t.width || l[e] : t.height || l[e];
+    }function B(n, i, o, a) {
+      var e = function e(t) {
+        return !!(t = function (t, e, r) {
+          var n,
+              i,
+              o = 0 === t.type.indexOf("touch"),
+              a = 0 === t.type.indexOf("mouse"),
+              s = 0 === t.type.indexOf("pointer");0 === t.type.indexOf("MSPointer") && (s = !0);if (o) {
+            var l = function l(t) {
+              return t.target === r || r.contains(t.target);
+            };if ("touchstart" === t.type) {
+              var u = Array.prototype.filter.call(t.touches, l);if (1 < u.length) return !1;n = u[0].pageX, i = u[0].pageY;
+            } else {
+              var c = Array.prototype.find.call(t.changedTouches, l);if (!c) return !1;n = c.pageX, i = c.pageY;
+            }
+          }e = e || gt(x), (a || s) && (n = t.clientX + e.x, i = t.clientY + e.y);return t.pageOffset = e, t.points = [n, i], t.cursor = a || s, t;
+        }(t, a.pageOffset, a.target || i)) && !(L() && !a.doNotReject) && (e = y, r = f.cssClasses.tap, !((e.classList ? e.classList.contains(r) : new RegExp("\\b" + r + "\\b").test(e.className)) && !a.doNotReject) && !(n === d.start && void 0 !== t.buttons && 1 < t.buttons) && (!a.hover || !t.buttons) && (h || t.preventDefault(), t.calcPoint = t.points[f.ort], void o(t, a)));var e, r;
+      },
+          r = [];return n.split(" ").forEach(function (t) {
+        i.addEventListener(t, e, !!h && { passive: !0 }), r.push([t, e]);
+      }), r;
+    }function q(t) {
+      var e,
+          r,
+          n,
+          i,
+          o,
+          a,
+          s = 100 * (t - (e = l, r = f.ort, n = e.getBoundingClientRect(), i = e.ownerDocument, o = i.documentElement, a = gt(i), /webkit.*Chrome.*Mobile/i.test(navigator.userAgent) && (a.x = 0), r ? n.top + a.y - o.clientTop : n.left + a.x - o.clientLeft)) / R();return s = ft(s), f.dir ? 100 - s : s;
+    }function X(t, e) {
+      "mouseout" === t.type && "HTML" === t.target.nodeName && null === t.relatedTarget && _(t, e);
+    }function Y(t, e) {
+      if (-1 === navigator.appVersion.indexOf("MSIE 9") && 0 === t.buttons && 0 !== e.buttonsProperty) return _(t, e);var r = (f.dir ? -1 : 1) * (t.calcPoint - e.startCalcPoint);Z(0 < r, 100 * r / e.baseSize, e.locations, e.handleNumbers);
+    }function _(t, e) {
+      e.handle && (mt(e.handle, f.cssClasses.active), b -= 1), e.listeners.forEach(function (t) {
+        w.removeEventListener(t[0], t[1]);
+      }), 0 === b && (mt(y, f.cssClasses.drag), et(), t.cursor && (C.style.cursor = "", C.removeEventListener("selectstart", ct))), e.handleNumbers.forEach(function (t) {
+        J("change", t), J("set", t), J("end", t);
+      });
+    }function I(t, e) {
+      if (e.handleNumbers.some(z)) return !1;var r;1 === e.handleNumbers.length && (r = u[e.handleNumbers[0]].children[0], b += 1, ht(r, f.cssClasses.active));t.stopPropagation();var n = [],
+          i = B(d.move, w, Y, { target: t.target, handle: r, listeners: n, startCalcPoint: t.calcPoint, baseSize: R(), pageOffset: t.pageOffset, handleNumbers: e.handleNumbers, buttonsProperty: t.buttons, locations: g.slice() }),
+          o = B(d.end, w, _, { target: t.target, handle: r, listeners: n, doNotReject: !0, handleNumbers: e.handleNumbers }),
+          a = B("mouseout", w, X, { target: t.target, handle: r, listeners: n, doNotReject: !0, handleNumbers: e.handleNumbers });n.push.apply(n, i.concat(o, a)), t.cursor && (C.style.cursor = getComputedStyle(t.target).cursor, 1 < u.length && ht(y, f.cssClasses.drag), C.addEventListener("selectstart", ct, !1)), e.handleNumbers.forEach(function (t) {
+        J("start", t);
+      });
+    }function n(t) {
+      t.stopPropagation();var i,
+          o,
+          a,
+          e = q(t.calcPoint),
+          r = (i = e, a = !(o = 100), u.forEach(function (t, e) {
+        if (!z(e)) {
+          var r = g[e],
+              n = Math.abs(r - i);(n < o || n <= o && r < i || 100 === n && 100 === o) && (a = e, o = n);
+        }
+      }), a);if (!1 === r) return !1;f.events.snap || pt(y, f.cssClasses.tap, f.animationDuration), rt(r, e, !0, !0), et(), J("slide", r, !0), J("update", r, !0), J("change", r, !0), J("set", r, !0), f.events.snap && I(t, { handleNumbers: [r] });
+    }function W(t) {
+      var e = q(t.calcPoint),
+          r = E.getStep(e),
+          n = E.fromStepping(r);Object.keys(S).forEach(function (t) {
+        "hover" === t.split(".")[0] && S[t].forEach(function (t) {
+          t.call(s, n);
+        });
+      });
+    }function $(t, e) {
+      S[t] = S[t] || [], S[t].push(e), "update" === t.split(".")[0] && u.forEach(function (t, e) {
+        J("update", e);
+      });
+    }function G(t) {
+      var n = t && t.split(".")[0],
+          i = n && t.substring(n.length);Object.keys(S).forEach(function (t) {
+        var e = t.split(".")[0],
+            r = t.substring(e.length);n && n !== e || i && i !== r || delete S[t];
+      });
+    }function J(r, n, i) {
+      Object.keys(S).forEach(function (t) {
+        var e = t.split(".")[0];r === e && S[t].forEach(function (t) {
+          t.call(s, m.map(f.format.to), n, m.slice(), i || !1, g.slice());
+        });
+      });
+    }function K(t, e, r, n, i, o) {
+      return 1 < u.length && !f.events.unconstrained && (n && 0 < e && (r = Math.max(r, t[e - 1] + f.margin)), i && e < u.length - 1 && (r = Math.min(r, t[e + 1] - f.margin))), 1 < u.length && f.limit && (n && 0 < e && (r = Math.min(r, t[e - 1] + f.limit)), i && e < u.length - 1 && (r = Math.max(r, t[e + 1] - f.limit))), f.padding && (0 === e && (r = Math.max(r, f.padding[0])), e === u.length - 1 && (r = Math.min(r, 100 - f.padding[1]))), !((r = ft(r = E.getStep(r))) === t[e] && !o) && r;
+    }function Q(t, e) {
+      var r = f.ort;return (r ? e : t) + ", " + (r ? t : e);
+    }function Z(t, n, r, e) {
+      var i = r.slice(),
+          o = [!t, t],
+          a = [t, !t];e = e.slice(), t && e.reverse(), 1 < e.length ? e.forEach(function (t, e) {
+        var r = K(i, t, i[t] + n, o[e], a[e], !1);!1 === r ? n = 0 : (n = r - i[t], i[t] = r);
+      }) : o = a = [!0];var s = !1;e.forEach(function (t, e) {
+        s = rt(t, r[t] + n, o[e], a[e]) || s;
+      }), s && e.forEach(function (t) {
+        J("update", t), J("slide", t);
+      });
+    }function tt(t, e) {
+      return f.dir ? 100 - t - e : t;
+    }function et() {
+      v.forEach(function (t) {
+        var e = 50 < g[t] ? -1 : 1,
+            r = 3 + (u.length + e * t);u[t].style.zIndex = r;
+      });
+    }function rt(t, e, r, n) {
+      return !1 !== (e = K(g, t, e, r, n, !1)) && (function (t, e) {
+        g[t] = e, m[t] = E.fromStepping(e);var r = "translate(" + Q(10 * (tt(e, 0) - A) + "%", "0") + ")";u[t].style[f.transformRule] = r, nt(t), nt(t + 1);
+      }(t, e), !0);
+    }function nt(t) {
+      if (a[t]) {
+        var e = 0,
+            r = 100;0 !== t && (e = g[t - 1]), t !== a.length - 1 && (r = g[t]);var n = r - e,
+            i = "translate(" + Q(tt(e, n) + "%", "0") + ")",
+            o = "scale(" + Q(n / 100, "1") + ")";a[t].style[f.transformRule] = i + " " + o;
+      }
+    }function it(t, e) {
+      return null === t || !1 === t || void 0 === t ? g[e] : ("number" == typeof t && (t = String(t)), t = f.format.from(t), !1 === (t = E.toStepping(t)) || isNaN(t) ? g[e] : t);
+    }function ot(t, e) {
+      var r = dt(t),
+          n = void 0 === g[0];e = void 0 === e || !!e, f.animate && !n && pt(y, f.cssClasses.tap, f.animationDuration), v.forEach(function (t) {
+        rt(t, it(r[t], t), !0, !1);
+      }), v.forEach(function (t) {
+        rt(t, g[t], !0, !0);
+      }), et(), v.forEach(function (t) {
+        J("update", t), null !== r[t] && e && J("set", t);
+      });
+    }function at() {
+      var t = m.map(f.format.to);return 1 === t.length ? t[0] : t;
+    }function st(t) {
+      var e = g[t],
+          r = E.getNearbySteps(e),
+          n = m[t],
+          i = r.thisStep.step,
+          o = null;if (f.snap) return [n - r.stepBefore.startValue || null, r.stepAfter.startValue - n || null];!1 !== i && n + i > r.stepAfter.startValue && (i = r.stepAfter.startValue - n), o = n > r.thisStep.startValue ? r.thisStep.step : !1 !== r.stepBefore.step && n - r.stepBefore.highestStep, 100 === e ? i = null : 0 === e && (o = null);var a = E.countStepDecimals();return null !== i && !1 !== i && (i = Number(i.toFixed(a))), null !== o && !1 !== o && (o = Number(o.toFixed(a))), [o, i];
+    }return ht(e = y, f.cssClasses.target), 0 === f.dir ? ht(e, f.cssClasses.ltr) : ht(e, f.cssClasses.rtl), 0 === f.ort ? ht(e, f.cssClasses.horizontal) : ht(e, f.cssClasses.vertical), l = V(e, f.cssClasses.base), function (t, e) {
+      var r = V(e, f.cssClasses.connects);u = [], (a = []).push(O(r, t[0]));for (var n = 0; n < f.handles; n++) {
+        u.push(M(e, n)), v[n] = n, a.push(O(r, t[n + 1]));
+      }
+    }(f.connect, l), (p = f.events).fixed || u.forEach(function (t, e) {
+      B(d.start, t.children[0], I, { handleNumbers: [e] });
+    }), p.tap && B(d.start, l, n, {}), p.hover && B(d.move, l, W, { hover: !0 }), p.drag && a.forEach(function (t, e) {
+      if (!1 !== t && 0 !== e && e !== a.length - 1) {
+        var r = u[e - 1],
+            n = u[e],
+            i = [t];ht(t, f.cssClasses.draggable), p.fixed && (i.push(r.children[0]), i.push(n.children[0])), i.forEach(function (t) {
+          B(d.start, t, I, { handles: [r, n], handleNumbers: [e - 1, e] });
+        });
+      }
+    }), ot(f.start), f.pips && T(f.pips), f.tooltips && H(), $("update", function (t, e, a, r, s) {
+      v.forEach(function (t) {
+        var e = u[t],
+            r = K(g, t, 0, !0, !0, !0),
+            n = K(g, t, 100, !0, !0, !0),
+            i = s[t],
+            o = f.ariaFormat.to(a[t]);r = E.fromStepping(r).toFixed(1), n = E.fromStepping(n).toFixed(1), i = E.fromStepping(i).toFixed(1), e.children[0].setAttribute("aria-valuemin", r), e.children[0].setAttribute("aria-valuemax", n), e.children[0].setAttribute("aria-valuenow", i), e.children[0].setAttribute("aria-valuetext", o);
+      });
+    }), s = { destroy: function destroy() {
+        for (var t in f.cssClasses) {
+          f.cssClasses.hasOwnProperty(t) && mt(y, f.cssClasses[t]);
+        }for (; y.firstChild;) {
+          y.removeChild(y.firstChild);
+        }delete y.noUiSlider;
+      }, steps: function steps() {
+        return v.map(st);
+      }, on: $, off: G, get: at, set: ot, setHandle: function setHandle(t, e, r) {
+        if (!(0 <= (t = Number(t)) && t < v.length)) throw new Error("noUiSlider (" + lt + "): invalid handle number, got: " + t);rt(t, it(e, t), !0, !0), J("update", t), r && J("set", t);
+      }, reset: function reset(t) {
+        ot(f.start, t);
+      }, __moveHandles: function __moveHandles(t, e, r) {
+        Z(t, e, g, r);
+      }, options: o, updateOptions: function updateOptions(e, t) {
+        var r = at(),
+            n = ["margin", "limit", "padding", "range", "animate", "snap", "step", "format", "pips", "tooltips"];n.forEach(function (t) {
+          void 0 !== e[t] && (o[t] = e[t]);
+        });var i = vt(o);n.forEach(function (t) {
+          void 0 !== e[t] && (f[t] = i[t]);
+        }), E = i.spectrum, f.margin = i.margin, f.limit = i.limit, f.padding = i.padding, f.pips ? T(f.pips) : D(), f.tooltips ? H() : j(), g = [], ot(e.start || r, t);
+      }, target: y, removePips: D, removeTooltips: j, pips: T };
+  }return { __spectrum: l, version: lt, create: function create(t, e) {
+      if (!t || !t.nodeName) throw new Error("noUiSlider (" + lt + "): create requires a single element, got: " + t);if (t.noUiSlider) throw new Error("noUiSlider (" + lt + "): Slider was already initialized.");var r = z(t, vt(e), e);return t.noUiSlider = r;
+    } };
+});

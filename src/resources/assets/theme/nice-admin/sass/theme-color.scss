@@ -3,6 +3,7 @@ $theme2: #EE9D83 !important;
 $theme3: #FF6B95 !important;
 $theme4: #1EA69A !important;
 $theme5: #948fec !important;
+$theme6: #233242 !important;
 
 
 @mixin themeBar($name, $bg) {
@@ -17,6 +18,10 @@ $theme5: #948fec !important;
                 color: #0a3576;
                 text-decoration: none;
             }
+        }
+
+        .select2-container--default .select2-results__option--highlighted{
+            background-color: $bg;
         }
 
         .tippy-popper.shepherd-popper[x-placement^="bottom"] .tippy-arrow{
@@ -194,6 +199,7 @@ $theme5: #948fec !important;
 @include themeBar(theme3, $theme3);
 @include themeBar(theme4, $theme4);
 @include themeBar(theme5, $theme5);
+@include themeBar(theme6, $theme6);
 
 /*List colors*/
 
@@ -237,7 +243,7 @@ $theme5: #948fec !important;
                     background: $theme5;
                 }
 
-                &.default-theme {
+                &.theme6{
                     background: #233242;
                 }
             }

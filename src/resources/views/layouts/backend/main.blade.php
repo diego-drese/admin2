@@ -48,20 +48,24 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="homepage" class="dark-logo"/>
                             <!-- Light Logo icon -->
-                            <img src="/vendor/oka6/admin/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="/vendor/oka6/admin/assets/images/logo-light-icon.png" alt="homepage"
+                                 class="light-logo"/>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="/vendor/oka6/admin/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="/vendor/oka6/admin/assets/images/logo-text.png" alt="homepage"
+                                     class="dark-logo"/>
                             <!-- Light Logo text -->
-                                <img src="/vendor/oka6/admin/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                                <img src="/vendor/oka6/admin/assets/images/logo-light-text.png" class="light-logo"
+                                     alt="homepage"/>
                             </span>
                     </a>
-                    <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
+                    <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)"
+                       data-sidebartype="mini-sidebar">
                         <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>
                     </a>
                 </div>
@@ -71,12 +75,12 @@
                 <!-- ============================================================== -->
                 <!-- Toggle which is visible on mobile only -->
                 <!-- ============================================================== -->
-                <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
+                <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                   data-toggle="collapse" data-target="#navbarSupportedContent"
                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="ti-more"></i>
                 </a>
             </div>
-
 
 
             <!-- ============================================================== -->
@@ -101,7 +105,8 @@
                         {{--                            <i class="fas fa-info-circle" style="font-size: 22px;margin-top: 22px;"></i>--}}
                         {{--                            <span class="badge badge-pill badge-danger ml-auto m-r-15" style="position: absolute;top: 14px;right: -12px;">0</span>--}}
                         {{--                        </a>--}}
-                        <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                        <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown"
+                             aria-labelledby="2">
                                 <span class="with-arrow">
                                     <span class="bg-danger"></span>
                                 </span>
@@ -117,7 +122,8 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
+                                                         alt="user" class="rounded-circle">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -129,7 +135,8 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
+                                                         alt="user" class="rounded-circle">
                                                     <span class="profile-status busy pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -141,7 +148,8 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
+                                                         alt="user" class="rounded-circle">
                                                     <span class="profile-status away pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -153,7 +161,8 @@
                                         <!-- Message -->
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
-                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" alt="user" class="rounded-circle">
+                                                    <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
+                                                         alt="user" class="rounded-circle">
                                                     <span class="profile-status offline pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -259,24 +268,31 @@
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(Auth::user()->picture != "")
                                 <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
                             @else
-                                <img class="avatar-default" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" width="44" height="44">
+                                <img class="avatar-default" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
+                                     width="44" height="44">
                             @endif
-                            <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i></span>
+                            <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i
+                                    class="mdi mdi-chevron-down"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow">
                                     <span class="bg-primary"></span>
                                 </span>
-                            <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10 user-conf-bg">
+                            <div
+                                class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10 user-conf-bg">
                                 <div class="">
                                     @if(Auth::user()->picture != "")
-                                        <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="60">
+                                        <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle"
+                                             width="60">
                                     @else
-                                        <img class="avatar-default" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" width="20" height="20">
+                                        <img class="avatar-default"
+                                             src="/vendor/oka6/admin/assets/images/users/user_avatar.svg" width="20"
+                                             height="20">
                                     @endif
                                 </div>
                                 <div class="m-l-10">
@@ -298,7 +314,8 @@
                                         <li class="color-change" data-color="theme3"><span class="theme3"></span></li>
                                         <li class="color-change" data-color="theme4"><span class="theme4"></span></li>
                                         <li class="color-change" data-color="theme5"><span class="theme5"></span></li>
-                                        <li class="color-change" data-color="remove"><span class="default-theme"></span></li>
+                                        <li class="color-change" data-color="theme6"><span class="theme6"></span></li>
+                                        {{--                                        <li class="color-change" data-color="remove"><span class="default-theme"></span></li>--}}
                                     </ul>
                                 </div>
 
@@ -306,8 +323,10 @@
 
                                 @yield('admin-menu-item-client')
 
-                                <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                     <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
@@ -333,7 +352,7 @@
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
             <!-- Sidebar navigation-->
-            <nav  class="sidebar-nav">
+            <nav class="sidebar-nav">
                 @include('Admin::layouts.backend.menu')
             </nav>
             <!-- End Sidebar navigation -->
@@ -368,7 +387,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            Desenvolvido por <a href="https://oka6.com.br" target="_blank" >Oka6</a> SoftwareHouse
+            Desenvolvido por <a href="https://oka6.com.br" target="_blank">Oka6</a> SoftwareHouse
             <a href="#" class="help-btn">
                 <i class="fa fa-question my-float"></i>
             </a>
@@ -410,38 +429,38 @@
 @yield('script_components')
 
 <script type="text/javascript">
-    var openMenuActive = function (){
-        let activeMenuId = "#"+$('.activeMenu').prop('id');
-        let count       = 0;
-        if(activeMenuId){
-            while($(activeMenuId).closest('ul').length){
-                let parent  = $(activeMenuId).closest('ul');
+    var openMenuActive = function () {
+        let activeMenuId = "#" + $('.activeMenu').prop('id');
+        let count = 0;
+        if (activeMenuId) {
+            while ($(activeMenuId).closest('ul').length) {
+                let parent = $(activeMenuId).closest('ul');
                 parent.addClass('in');
                 parent.prev().addClass('active');
                 activeMenuId = parent.prop('id');
                 count++;
-                if(count>50){
+                if (count > 50) {
                     break;
                 }
             }
         }
     };
 
-    var confTheme = function() {
+    var confTheme = function () {
         const colorList = $('.color-list');
-        $('.theme-btn').on('click', function(event) {
+        $('.theme-btn').on('click', function (event) {
             colorList.toggle();
             event.stopPropagation();
         });
 
-        $('.color-change').on('click', function(event) {
-            let color =  $(this).data("color");
-            if(color != 'remove') {
+        $('.color-change').on('click', function (event) {
+            let color = $(this).data("color");
+            if (color != 'remove') {
                 removeColorsClass();
                 $('body').addClass(color);
                 window.localStorage.setItem('theme-set', color);
                 event.stopPropagation();
-            }else{
+            } else {
                 removeColorsClass();
                 window.localStorage.removeItem('theme-set');
                 event.stopPropagation();
@@ -449,41 +468,43 @@
         })
     };
 
-    function removeColorsClass(){
+    function removeColorsClass() {
         for (let i = 0; i < 10; i++) {
             $('body').removeClass(`theme${i}`)
         }
     }
 
-    async function getStorage(key){
+    async function getStorage(key) {
         return await new Promise((resolve, reject) => {
             resolve(window.localStorage.getItem(key));
         })
     }
 
-    function themeSet(){
+    function themeSet() {
         getStorage('theme-set').then((res) => {
-            if(res) {
+            if (res) {
                 $('body').addClass(res);
+            } else {
+                window.localStorage.setItem('theme-set', 'theme1');
+                $('body').addClass('theme1');
             }
         })
     }
 
-    $(document).on('click','.sidebartoggler',function () {
+    $(document).on('click', '.sidebartoggler', function () {
         var wrapper = $('#main-wrapper').attr('class');
-        if(wrapper == 'mini-sidebar'){
+        if (wrapper == 'mini-sidebar') {
             window.localStorage.setItem('sidebar-mini', 'on')
-        }
-        else{
+        } else {
             window.localStorage.setItem('sidebar-mini', 'off')
         }
     });
 
-    function  setSidebar(){
+    function setSidebar() {
         getStorage('sidebar-mini').then((res) => {
-            if(res == 'on') {
-                $(function() {
-                    $('#main-wrapper').attr('data-sidebartype','mini-sidebar');
+            if (res == 'on') {
+                $(function () {
+                    $('#main-wrapper').attr('data-sidebartype', 'mini-sidebar');
                     $('#main-wrapper').addClass('mini-sidebar')
                 })
             }
@@ -491,12 +512,10 @@
     }
 
 
-
-
     themeSet();
     confTheme();
     openMenuActive();
-    $(function() {
+    $(function () {
         setSidebar();
     });
 </script>

@@ -2,7 +2,10 @@
 
 namespace Oka6\Admin\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
+use Oka6\Admin\Mails\SendContactFormSite;
 use Oka6\Admin\TemplateSystem;
 
 class HomeController extends Controller
@@ -18,6 +21,19 @@ class HomeController extends Controller
         $title = $theme->title;
         $description = $theme->description;
         return view('Admin::template.index', compact('html', 'slug', 'title', 'description'));
+    }
+
+    public function sendMail(Request $request)
+    {
+        Mail::to('contato@hclinic.com.br')
+         //  ->cc(['pvargatt@gmail.com', 'diego.neumann.drese@gmail.com', 'luan.garcia@aggregando.com.br'])
+           ->cc(['pvargatt@gmail.com'])
+            ->send(new SendContactFormSite($request->name, $request->email, $request->phone, $request->msg));
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Mensagem enviada com sucesso!'
+        ]);
     }
 
     public function getCssFile($slug)

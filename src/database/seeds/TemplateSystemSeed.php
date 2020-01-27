@@ -182,7 +182,7 @@ class TemplateSystemSeed extends Seeder
 <div class="container">
     <div class="row feature">
         <div class="col-sm-12 col-md-7">
-            <img src="assets/agendas-multiplas.png" alt="Multiplas agendas para profissionais" class="img-fluid">
+            <img src="vendor/oka6/templates/clinic/agendas-multiplas.png" alt="Multiplas agendas para profissionais" class="img-fluid">
         </div>
         <div class="col-sm-12 col-md-5">
             <div class="featured-headline">
@@ -200,13 +200,13 @@ class TemplateSystemSeed extends Seeder
             </div>
         </div>
         <div class="col-sm-12 col-md-7">
-            <img src="assets/controle-total-agenda.png" alt="Controle total das agendas dos profissionais"
+            <img src="vendor/oka6/templates/clinic/controle-total-agenda.png" alt="Controle total das agendas dos profissionais"
                  class="img-fluid">
         </div>
     </div>
     <div class="row feature">
         <div class="col-sm-12 col-md-7">
-            <img src="assets/relatorios-agendamentos.png" alt="Relatórios de agendamentos" class="img-fluid">
+            <img src="vendor/oka6/templates/clinic/relatorios-agendamentos.png" alt="Relatórios de agendamentos" class="img-fluid">
         </div>
         <div class="col-sm-12 col-md-5">
             <div class="featured-headline">
@@ -243,7 +243,10 @@ class TemplateSystemSeed extends Seeder
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="button" name="btnSubmit" class="btnContact" value="Enviar Mensagem" />
+                       <button type="button" class="btnContact">
+                        <div class="lds-ellipsis d-none"><div></div><div></div><div></div><div></div></div>
+                        <span class="txt">Enviar Mensagem</span>
+                       </button>
                 </div>
             </div>
         </div>

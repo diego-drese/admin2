@@ -25,9 +25,16 @@ class HomeController extends Controller
 
     public function sendMail(Request $request)
     {
+
+        if(!$request->name || !$request->email || !$request->phone || !$request->msg){
+            return response()->json([
+                'status' => 500,
+                'message' => 'Favor preencher todos os campos'
+            ]);
+        }
+
         Mail::to('contato@hclinic.com.br')
-         //  ->cc(['pvargatt@gmail.com', 'diego.neumann.drese@gmail.com', 'luan.garcia@aggregando.com.br'])
-           ->cc(['pvargatt@gmail.com'])
+            ->cc(['pvargatt@gmail.com', 'diego.neumann.drese@gmail.com', 'luan.garcia@aggregando.com.br'])
             ->send(new SendContactFormSite($request->name, $request->email, $request->phone, $request->msg));
 
         return response()->json([

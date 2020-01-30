@@ -163,6 +163,9 @@ $theme6: #233242 !important;
         .navbar-brand, #navbarSupportedContent {
             background: $bg;
         }
+        .navbar-brand, #navbarSupportedContent ,#contentTag{
+            background: $bg;
+        }
 
         a.pro-pic {
             span {

@@ -273,8 +273,9 @@
                             @if(Auth::user()->picture != "")
                                 <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
                             @else
-                                <img class="avatar-default" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
+                                <img class="avatar-default hide-mobile " src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
                                      width="44" height="44">
+                                <i class="fa fa-user link-configuration "></i>
                             @endif
                             <span class="m-l-5 font-medium d-none d-sm-inline-block"> {{Auth::user()->name}} <i
                                     class="mdi mdi-chevron-down"></i></span>

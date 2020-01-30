@@ -14,6 +14,23 @@
     <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/basic.js')}}></script>
     @yield('style_head')
     @yield('style_components')
+    <style>
+        .logo{width: 100%;text-align: center;}
+        .logo-text {
+            position: relative;
+            display: inline-flex;
+        }.logo-name{
+            font-weight: bold;
+            font-size: 1.5em;
+            color: white;
+            width: 209px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: poiret-one, sans-serif;
+        }
+    </style>
+    <script src="//use.edgefonts.net/poiret-one.js"></script>
 </head>
 <body>
 <!-- ============================================================== -->
@@ -48,21 +65,26 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+
+
                             <img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="homepage" class="dark-logo"/>
                             <!-- Light Logo icon -->
-                            <img src="/vendor/oka6/admin/assets/images/logo-light-icon.png" alt="homepage"
-                                 class="light-logo"/>
+{{--                            <img src="/vendor/oka6/admin/assets/images/logo-light-icon.png" alt="homepage"--}}
+{{--                                 class="light-logo"/>--}}
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="/vendor/oka6/admin/assets/images/logo-text.png" alt="homepage"
-                                     class="dark-logo"/>
+{{--                               <img src="/vendor/oka6/admin/assets/images/logo-text.png" alt="homepage" class="dark-logo"/>--}}
                             <!-- Light Logo text -->
-                                <img src="/vendor/oka6/admin/assets/images/logo-light-text.png" class="light-logo"
-                                     alt="homepage"/>
-                            </span>
+{{--                               <img src="/vendor/oka6/admin/assets/images/logo-light-text.png" class="light-logo" alt="homepage"/>--}}
+                            @if (Auth::user()->ClinicName)
+                                <span class="logo-name">{{Auth::user()->ClinicName }}</span>
+                                @else
+                                <span class="logo-name">Hclinic</span>
+                            @endif
+                         </span>
                     </a>
                     <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)"
                        data-sidebartype="mini-sidebar">
@@ -520,6 +542,8 @@
         setSidebar();
     });
 </script>
+
+<script src="//use.edgefonts.net/sail.js"></script>
 </body>
 
 </html>

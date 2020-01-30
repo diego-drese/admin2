@@ -117,6 +117,8 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'Oka6\Admin\Http\Controllers\HomeController@index')->name('index');
+    Route::post('contact/send-mail', 'Oka6\Admin\Http\Controllers\HomeController@sendMail')->name('sendMail');
+
     Route::get('/tema/{template}', 'Oka6\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('index');
     Route::get('/tema/style/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getCssFile')->name('index');
     Route::get('/tema/js/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getJsFile')->name('index');

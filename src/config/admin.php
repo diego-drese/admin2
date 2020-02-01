@@ -7,5 +7,6 @@ return [
     "cache_prefix"          => 'oka6',
     'profile_type'          => ['admin' => 'Admin'],
     'plan_fields_update'    => [],
-    'template_theme'        => env('TEMPLATE_THEME', 'clinic')
+    'template_theme'        => env('TEMPLATE_THEME', 'clinic'),
+    'sendgrid_api_key'      => env('SENDGRID_API_KEY', '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'),
 ];

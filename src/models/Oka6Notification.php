@@ -16,6 +16,7 @@ class Oka6Notification extends Model {
                             'date_sent_at', // - Data que foi disparada
                             'origin', // - Pacote que originou a mensagem
                             'user_id', // - Id do usuário que criou, em alguns casos não se aplica
+                            'schedule_id', // - Id do agendamento, em alguns casos não se aplica
                             'client_id', // - Id do cliente que criou, em alguns casos não se aplica
                             'from', // - Quem enviou
                             'to',// - Quem receberá
@@ -37,10 +38,12 @@ class Oka6Notification extends Model {
     static function scopeClient($query, $clientId){
         return $query->where('client_id', (int)$clientId);
     }
+    static function createByJob($data){
+       return self::create($data);
+    }
 
     public static function makeDataSave($dataForm, Request $request){
-        $dataForm['name']                           = $request->get('name');
-
+        $dataForm['name'] = $request->get('name');
         return $dataForm;
     }
     public static function saveItem($dataForm){
@@ -64,6 +67,32 @@ class Oka6Notification extends Model {
     }
     public static function getById($id){
       return self::where('_id', new \MongoDB\BSON\ObjectId($id))->first();
+    }
+
+    static function loadEmailSchedulingToNotify($whoIsIt, $limit){
+        $now        = new \DateTime();
+        $limitDate  = new \DateTime();
+        $now->sub(new \DateInterval('PT10M'));
+        $limitDate->sub(new \DateInterval('P1D'));
+
+        $schedules = self::where('status', 'schedule')
+            ->where('who_is_it', 'exists', false)
+            ->select('id')
+            ->orderBy('created_at', 'asc')
+            ->limit($limit)
+            ->get();
+
+        if($schedules){
+            self::whereIn('id', $schedules->pluck('id'))
+                ->where('who_is_it', 'exists', false)
+                ->update([
+                        'who_is_it'  => $whoIsIt,
+                        'status'     =>'processing'
+                    ]
+                );
+            return self::where('who_is_it', $whoIsIt)->get();
+        }
+        return null;
     }
 }
 

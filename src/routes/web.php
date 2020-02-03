@@ -45,6 +45,17 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Oka6\Ad
     Route::delete('/tutorial-help/{id}','Oka6\Admin\Http\Controllers\TutorialHelpController@destroy')->name('admin.tutorial-help.destroy')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Delete']);
 
 
+    Route::get('/blog','Oka6\Admin\Http\Controllers\BlogController@index')->name('admin.blog.index')->where(['iconAdmin'=>'fa fa-rss', 'menuAdmin'=> "Blog", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Blog', 'isDefaultAdmin'=>'1']);
+    Route::get('/blog/create','Oka6\Admin\Http\Controllers\BlogController@create')->name('admin.blog.create')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.create', 'nameAdmin'=>'Blog Create',]);
+
+    Route::get('/blog/{id}/edit','Oka6\Admin\Http\Controllers\BlogController@editPost')->name('admin.blog.edit')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.edit', 'nameAdmin'=>'Blog edit',]);
+    Route::DELETE('/blog/{id}/destroy','Oka6\Admin\Http\Controllers\BlogController@destroy')->name('admin.blog.destroy')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.destroy', 'nameAdmin'=>'Blog destroy',]);
+    Route::post('/blog/{id}/update','Oka6\Admin\Http\Controllers\BlogController@update')->name('admin.blog.update')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.update', 'nameAdmin'=>'Blog update',]);
+
+    Route::post('/blog/store','Oka6\Admin\Http\Controllers\BlogController@store')->name('admin.blog.store')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.store', 'nameAdmin'=>'Blog store',]);
+    Route::post('/blog/category-add','Oka6\Admin\Http\Controllers\BlogController@categoryNew')->name('admin.blog.categoryNew')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.categoryNew', 'nameAdmin'=>'Blog categoryNew',]);
+
+
     Route::get('/template-system','Oka6\Admin\Http\Controllers\TemplateSystemController@index')->name('admin.template-system.index')->where(['iconAdmin'=>'fas fa-code', 'menuAdmin'=> "Template", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Template System', 'isDefaultAdmin'=>'1']);
     Route::get('/template-system/create','Oka6\Admin\Http\Controllers\TemplateSystemController@create')->name('admin.template-system.create')->where(['iconAdmin'=>'fa-code',  'parentRouteNameAdmin' => 'admin.template-system.index', 'nameAdmin'=>'Template System Create',]);
     Route::get('/template-system/{id}','Oka6\Admin\Http\Controllers\TemplateSystemController@edit')->name('admin.template-system.edit')->where(['iconAdmin'=>'fa-code',  'nameAdmin'=>'Template System Edit',]);
@@ -117,6 +128,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'Oka6\Admin\Http\Controllers\HomeController@index')->name('index');
+    Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');
     Route::post('contact/send-mail', 'Oka6\Admin\Http\Controllers\HomeController@sendMail')->name('sendMail');
 
     Route::get('/tema/{template}', 'Oka6\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('index');

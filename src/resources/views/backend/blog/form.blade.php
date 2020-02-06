@@ -21,7 +21,7 @@
 
     <div class="col-md-4 form-group {{$errors->has('slug') ? 'has-error' : ''}}">
         <label for="slug">Url</label>
-        <input type="text" value="{{old('title',$post->exists() ? $post->slug : '')}}" name="slug" class="form-control" id="slug" placeholder="Url">
+        <input type="text" value="{{old('slug',$post->exists() ? $post->slug : '')}}" name="slug" class="form-control" id="slug" placeholder="Url">
         @if($errors->has('slug'))
             <span class="help-block">{{$errors->first('slug')}}</span>
         @endif
@@ -32,7 +32,7 @@
         <label for="category">Categoria</label>
         <select class="category-select form-control" name="category">
             @foreach($category as $cat)
-                <option value="{{$cat->_id}}" {{$post->exists() ? $post->category == $cat->_id ? 'selected' : '' : null}}>{{$cat->title}}</option>
+                <option value="{{$cat}}" {{$post->exists() ? $post->category['slug'] == $cat->slug ? 'selected' : '' : null}}>{{$cat->title}}</option>
             @endforeach
         </select>
         @if($errors->has('category'))
@@ -56,7 +56,7 @@
 
     <div class="col-md-4 form-group {{$errors->has('image') ? 'has-error' : ''}}">
         <label for="image">Imagem</label>
-        <input type="text" value="{{old('title',$post->exists() ? $post->image : '')}}" name="image" class="form-control" id="image" placeholder="image">
+        <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image" class="form-control" id="image" placeholder="image">
         @if($errors->has('image'))
             <span class="help-block">{{$errors->first('image')}}</span>
         @endif
@@ -73,9 +73,22 @@
         @endif
     </div>
 
+    <div class="col-md-12 form-group {{$errors->has('resume') ? 'has-error' : ''}}">
+        <label for="resume">Resumo do Post</label>
+        <textarea class="form-control" name="resume" placeholder="Faça um resumo da história (ajuda no SEO)"
+                  id="resume">{{old('resume',$post->exists() ? $post->resume : '')}}</textarea>
+        @if($errors->has('resume'))
+            <span class="help-block">{{$errors->first('resume')}}</span>
+        @endif
+    </div>
+
+
+
+
     <div class="col-md-12 form-group {{$errors->has('description') ? 'has-error' : ''}} ">
         <textarea class="form-control" name="description" placeholder="Descrição"
-                  id="description">{{$post->exists() ? $post->description : ''}}</textarea>
+                  id="description">{{old('description',$post->exists() ? $post->description : '')}}
+        </textarea>
 
         @if($errors->has('description'))
             <span class="help-block">{{$errors->first('description')}}</span>
@@ -202,6 +215,11 @@
 
 
             function addCategoryFetch(catName) {
+
+                var slug = catName.toLowerCase().trim().replace(/&/g, '-e-')
+                            .replace(/[^a-z0-9-]+/g, '-')
+                            .replace(/\-\-+/g, '-')
+                            .replace(/^-+|-+$/g, '');
                 $.ajax({
                     url: "/adm/blog/category-add",
                     type: "POST",
@@ -211,7 +229,8 @@
                         </div>`)
                     },
                     data: {
-                        title: catName
+                        title: catName,
+                        slug,
                     },
                     success: function(res) {
                         var data = res.data;
@@ -219,9 +238,10 @@
                         if(select.find("option[value='" + data._id + "']").length) {
                             $('.category-select').val(data._id).trigger('change');
                         }else{
-                            var newOption = new Option(data.title, data._id, false, false);
+                            console.log(data)
+                            var newOption = new Option(data.title, JSON.stringify(data), false, false);
                             select.append(newOption).trigger('change');
-                            select.val(data._id).trigger('change');
+                            select.val(JSON.stringify(data)).trigger('change');
                         }
 
                         swal("Sucesso!", "Categoria criada com sucesso" , "success");

@@ -128,8 +128,14 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'Oka6\Admin\Http\Controllers\HomeController@index')->name('index');
-    Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');
     Route::post('contact/send-mail', 'Oka6\Admin\Http\Controllers\HomeController@sendMail')->name('sendMail');
+
+    /*Blog*/
+    Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');
+    Route::get('/post/{slug}', 'Oka6\Admin\Http\Controllers\BlogController@blogPost')->name('blogPost');
+    Route::get('/tag/{tag}', 'Oka6\Admin\Http\Controllers\BlogController@blogTag')->name('blogPost');
+
+    Route::get('/categoria/{cat}', 'Oka6\Admin\Http\Controllers\BlogController@blogCategory')->name('blogPost');
 
     Route::get('/tema/{template}', 'Oka6\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('index');
     Route::get('/tema/style/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getCssFile')->name('index');

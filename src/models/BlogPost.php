@@ -24,9 +24,10 @@ class BlogPost extends Model
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->status = $request->status;
-        $post->category = $request->category;
+        $post->category = json_decode($request->category);
         $post->tags = $tags;
         $post->image = $request->image;
+        $post->resume = $request->resume;
         $post->description = $request->description;
         $post->save();
     }
@@ -35,16 +36,20 @@ class BlogPost extends Model
     {
 
         $tags = Oka6Tag::createTag(Auth::user()->client_id, $request->tags, 'blog', 'post');
-
         $post =  self::where('_id', $id)->first();
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->status = $request->status;
-        $post->category = $request->category;
+        $post->category = json_decode($request->category);
         $post->tags = $tags;
+        $post->resume = $request->resume;
         $post->image = $request->image;
         $post->description = $request->description;
         $post->save();
+    }
+
+    public static function verifySlug($slug){
+      return self::where('slug', $slug)->first();
     }
 
 

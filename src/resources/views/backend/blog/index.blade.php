@@ -63,11 +63,13 @@
            overflow-y: auto;
            border-bottom: 0;
            overflow-x: hidden;
+           max-width: 600px;
        }
        td.title-table{
            vertical-align: middle;
            font-size: 1.2em;
            text-align: center;
+           width: 210px;
        }
        td.actions-table{
            vertical-align: middle;

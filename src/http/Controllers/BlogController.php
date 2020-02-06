@@ -3,6 +3,7 @@
 namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Oka6\Admin\BlogCategory;
 use Oka6\Admin\BlogPost;
 use Illuminate\Routing\Controller as BaseController;
@@ -32,9 +33,15 @@ class BlogController extends BaseController
     public function store(Request $request)
     {
         $this->makeValidatePost($request);
-        BlogPost::newPost($request);
-        toastr()->success('Post Criado com sucesso', 'Sucesso');
-        return redirect(route('admin.blog.index'));
+        if (BlogPost::verifySlug($request->slug)) {
+            toastr()->error('Slug (URL) já utilizada', 'Erro');
+            return redirect()->back()->withInput($request->input());
+        } else {
+            BlogPost::newPost($request);
+            toastr()->success('Post Criado com sucesso', 'Sucesso');
+            return redirect(route('admin.blog.index'));
+        }
+
     }
 
     public function editPost($id)
@@ -77,6 +84,7 @@ class BlogController extends BaseController
         } else {
             $cat = new BlogCategory();
             $cat->title = $request->title;
+            $cat->slug = $request->slug;
             $cat->save();
             return response()->json([
                 'status' => 200,
@@ -89,9 +97,40 @@ class BlogController extends BaseController
     public function blogFront()
     {
 
-        $posts = BlogPost::where('status','1')->latest()->paginate(5);
+        $cats = BlogCategory::all();
+        $posts = BlogPost::where('status', '1')
+            ->latest()
+            ->simplePaginate(8);
+        //  return $posts;
 
-        return view('Admin::backend.blog.front.index', compact('posts'));
+        return view('Admin::backend.blog.front.index', compact('posts', 'cats'));
+    }
+
+    public function blogPost($slug)
+    {
+        $cats = BlogCategory::all();
+        $post =  BlogPost::where('slug', (string)$slug)->first();
+
+
+        return view('Admin::backend.blog.front.post', compact('post', 'cats'));
+
+    }
+
+    public function blogTag($tag)
+    {
+       $posts =  BlogPost::whereIn('tags', [$tag])->get();
+       return $posts;
+    }
+
+    public function blogCategory($cat)
+    {
+        $cats = BlogCategory::all();
+
+        $posts = BlogPost::where('category.slug', $cat)->simplePaginate(5);
+
+        return view('Admin::backend.blog.front.category', compact('posts', 'cats'));
+
+
     }
 
     protected function makeValidatePost(Request $request)

@@ -3,8 +3,8 @@
         <div class="card">
             @if($post->image)
                 <a href="/post/{{$post->slug}}"><img class="card-img"
-                                                    src="{{$post->image}}"
-                                                    alt="{{$post->title}}"></a>
+                                                     src="{{$post->image}}"
+                                                     alt="{{$post->title}}"></a>
             @else
                 <a href="/post/{{$post->slug}}" alt="{{$post->title}}">
                     <img class="card-img" src="https://via.placeholder.com/300x192/9572db/ffffff?text={{$post->title}}"
@@ -17,12 +17,12 @@
                     @endforeach
                 </div>
             @endif
-                <a href="/post/{{$post->slug}}" class="link-pt">
-                    <div class="card-body">
-                        <h4 class="card-title" title="{{$post->title}}">{{$post->title}}</h4>
-                        <p class="card-text">{{$post->resume}}</p>
-                    </div>
-                </a>
+            <a href="/post/{{$post->slug}}" class="link-pt">
+                <div class="card-body">
+                    <h4 class="card-title" title="{{$post->title}}">{{$post->title}}</h4>
+                    <p class="card-text">{{$post->resume}}</p>
+                </div>
+            </a>
             <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                 <div class="views"><i class="fa fa-clock-o"></i> {{$post->created_at->diffForHumans()}}
                 </div>
@@ -39,10 +39,14 @@
     </div>
 @endforelse
 
+    <div class="col-md-12 text-center paginate">
+        {{ $data->links() }}
+    </div>
+
 @section('style_head')
 
     <style>
-        .card{
+        .card {
             margin-bottom: 15px;
             min-height: 365px;
             max-height: 365px;
@@ -50,7 +54,21 @@
             box-shadow: 0 1px 32px rgb(247, 244, 255), 0 1px 16px rgb(236, 231, 253);
         }
 
-        .not-results{
+        .paginate{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .paginate .page-link{
+            border: 0;
+            box-shadow: 1px 1px 1px #ececec;
+            margin: 0 3px;
+            color: #9572db;
+            border-radius: 3px;
+            font-size: 1.4em;
+        }
+
+        .not-results {
             font-size: 2em;
             width: 100%;
             padding: 70px;
@@ -63,25 +81,27 @@
             object-fit: cover;
             border-radius: 5px 5px 0 0;
         }
-        .card-img-overlay{
-            position: relative!important;
+
+        .card-img-overlay {
+            position: relative !important;
         }
 
-        .link-pt{
+        .link-pt {
             color: #868686;
             font-size: 1.1em;
         }
 
-        .link-pt:hover{
+        .link-pt:hover {
             transition: 1s ease;
             color: #9572db;
             text-decoration: none;
         }
 
-        .tags{
+        .tags {
             padding: 7px 1.25rem;
         }
-        .tags a{
+
+        .tags a {
             background: #9572db;
             color: #fff;
             margin-right: 5px;
@@ -93,22 +113,22 @@
         .card-title {
             margin-bottom: 0.3rem;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif!important;
+            font-family: 'Montserrat', sans-serif !important;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
-            line-height: 16px;     /* fallback */
-            max-height: 32px;      /* fallback */
+            line-height: 16px; /* fallback */
+            max-height: 32px; /* fallback */
             -webkit-line-clamp: 2; /* number of lines to show */
             -webkit-box-orient: vertical;
         }
 
-        .card-text{
+        .card-text {
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
-            line-height: 16px;     /* fallback */
-            max-height: 32px;      /* fallback */
+            line-height: 16px; /* fallback */
+            max-height: 32px; /* fallback */
             -webkit-line-clamp: 2; /* number of lines to show */
             -webkit-box-orient: vertical;
             margin-top: 10px;
@@ -123,11 +143,12 @@
             margin-left: 1rem;
         }
 
-        .card-footer .views{
+        .card-footer .views {
             display: flex;
             align-items: center;
         }
-        .card-footer .views i{
+
+        .card-footer .views i {
             margin-right: 6px;
             margin-top: 1px;
         }
@@ -136,7 +157,8 @@
             font-size: 1.4em;
             text-transform: capitalize;
         }
-        .card-footer .stats a{
+
+        .card-footer .stats a {
             color: #9572db;
         }
     </style>

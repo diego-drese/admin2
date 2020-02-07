@@ -136,6 +136,8 @@
             width: 352px;
             margin-bottom: 25px;
             border-radius: 6px;
+            max-height: 228px;
+            object-fit: cover;
         }
 
     </style>

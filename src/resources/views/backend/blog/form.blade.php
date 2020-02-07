@@ -40,9 +40,9 @@
         @endif
     </div>
 
-    <div class="col-md-4 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
+    <div class="col-md-7 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
         <label for="slug">tags</label>
-        <select class="form-control tags" name="tags[]"  data-tags="true" multiple="multiple">
+        <select class="form-control tags" name="tags[]"  data-tags="true" multiple="multiple" data-width="100%">
             @if ($post->exists() && $post->tags)
                 @foreach( $post->tags as $tag)
                     <option selected value="{{$tag}}">{{$tag}}</option>
@@ -54,7 +54,7 @@
         @endif
     </div>
 
-    <div class="col-md-4 form-group {{$errors->has('image') ? 'has-error' : ''}}">
+    <div class="col-md-3 form-group {{$errors->has('image') ? 'has-error' : ''}}">
         <label for="image">Imagem</label>
         <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image" class="form-control" id="image" placeholder="image">
         @if($errors->has('image'))
@@ -62,7 +62,7 @@
         @endif
     </div>
 
-    <div class="col-md-4 form-group {{$errors->has('status') ? 'has-error' : ''}}">
+    <div class="col-md-2 form-group {{$errors->has('status') ? 'has-error' : ''}}">
         <label for="status">Status do Post</label>
         <select class="form-control" name="status">
                 <option value="0" {{$post->exists() ? $post->status == 0 ? 'selected' : '' : null}}>Rascunho</option>
@@ -175,9 +175,45 @@
 
             });
 
+            //
             $('.tags').select2({
                 tags: true,
-                tokenSeparators: [',']
+                tokenSeparators: [','],
+                createSearchChoice: function(term, data) {
+                    if ($(data).filter(function() {
+                        return this.text.localeCompare(term) === 0;
+                    }).length === 0) {
+                        return {
+                            id: term,
+                            text: term
+                        };
+                    }
+                },
+                multiple: true,
+                ajax: {
+                    url: '/adm/blog/tags-blog',
+                    type: 'post',
+                    dataType: "json",
+                    data: function(term, page) {
+                        console.log(term)
+                        return {
+                            term
+                        };
+                    },
+                    processResults: function(data, page) {
+                        console.log(data)
+                        return {
+                            results: $.map(data, function (item) {
+                                console.log(item)
+                                return {
+                                    text: item.tag,
+                                    id: item.tag
+                                }
+                            })
+                            //results: data
+                        };
+                    }
+                }
             });
 
             $('.category-select').select2().on('select2:open', function () {

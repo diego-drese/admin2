@@ -118,18 +118,23 @@ class BlogController extends BaseController
 
     public function blogTag($tag)
     {
-       $posts =  BlogPost::whereIn('tags', [$tag])->get();
-       return $posts;
+        $cats = BlogCategory::all();
+        $posts =  BlogPost::whereIn('tags', [$tag])->get();
+
+        return view('Admin::backend.blog.front.tag', compact('posts', 'cats'));
+
     }
 
     public function blogCategory($cat)
     {
         $cats = BlogCategory::all();
-
         $posts = BlogPost::where('category.slug', $cat)->simplePaginate(5);
-
         return view('Admin::backend.blog.front.category', compact('posts', 'cats'));
+    }
 
+    public function tagsBlogAjax(Request $request)
+    {
+        return Oka6Tag::searchTagsByType(Auth::user()->client_id,'blog',$request->term['term']);
 
     }
 

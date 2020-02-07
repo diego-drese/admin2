@@ -15,6 +15,7 @@
     <meta name="og:locale" content="pt_BR">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/tema/style/clinic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     @yield('style_head')
     @yield('style_head_components')
 </head>

@@ -10,6 +10,10 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 class="headline">{{$post->title}}</h1>
 
+                    <div class="image">
+                        <img class="d-none" src="{{$post->image}}" alt="{{$post->title}}">
+                    </div>
+
                     <div class="post_info">
                         <div class="date">
                             <p>Postado dia {{$post->created_at->format('d/m/Y')}} em  <a href="/categoria/{{$post->category['slug']}}"> {{$post->category['title']}}</a></p>
@@ -37,6 +41,23 @@
 <style>
     .text, p,h2,h3, span{
         font-family: 'Montserrat', sans-serif!important;
+    }
+
+    .image{
+        background-image: url({{$post->image}});
+        height: 250px;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        border-radius: 7px;
+        margin-bottom: 12px;
+    }
+
+    @media only screen and (max-device-width: 550px) {
+        .image {
+            background-attachment: scroll;
+        }
     }
 
     p, li, span{

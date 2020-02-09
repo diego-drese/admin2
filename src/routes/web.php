@@ -45,16 +45,18 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Oka6\Ad
     Route::delete('/tutorial-help/{id}','Oka6\Admin\Http\Controllers\TutorialHelpController@destroy')->name('admin.tutorial-help.destroy')->where(['iconAdmin'=>'fa-pencil-square-o ', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin'=>'Tutorial Delete']);
 
 
+    /*BLOG ADMIN*/
     Route::get('/blog','Oka6\Admin\Http\Controllers\BlogController@index')->name('admin.blog.index')->where(['iconAdmin'=>'fa fa-rss', 'menuAdmin'=> "Blog", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Blog', 'isDefaultAdmin'=>'1']);
     Route::get('/blog/create','Oka6\Admin\Http\Controllers\BlogController@create')->name('admin.blog.create')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.create', 'nameAdmin'=>'Blog Create',]);
-
     Route::get('/blog/{id}/edit','Oka6\Admin\Http\Controllers\BlogController@editPost')->name('admin.blog.edit')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.edit', 'nameAdmin'=>'Blog edit',]);
     Route::DELETE('/blog/{id}/destroy','Oka6\Admin\Http\Controllers\BlogController@destroy')->name('admin.blog.destroy')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.destroy', 'nameAdmin'=>'Blog destroy',]);
     Route::post('/blog/{id}/update','Oka6\Admin\Http\Controllers\BlogController@update')->name('admin.blog.update')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.update', 'nameAdmin'=>'Blog update',]);
     Route::post('/blog/tags-blog','Oka6\Admin\Http\Controllers\BlogController@tagsBlogAjax')->name('admin.blog.tagsBlogAjax')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.tagsBlogAjax', 'nameAdmin'=>'Blog tagsBlogAjax',]);
-
     Route::post('/blog/store','Oka6\Admin\Http\Controllers\BlogController@store')->name('admin.blog.store')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.store', 'nameAdmin'=>'Blog store',]);
+   /*BLOG CATEGORIES*/
     Route::post('/blog/category-add','Oka6\Admin\Http\Controllers\BlogController@categoryNew')->name('admin.blog.categoryNew')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.categoryNew', 'nameAdmin'=>'Blog categoryNew',]);
+    Route::get('/blog/categories','Oka6\Admin\Http\Controllers\BlogController@getCategories')->name('admin.blog.getCategories')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.getCategories', 'nameAdmin'=>'Blog getCategories',]);
+    Route::post('/blog/update-or-destroy-category','Oka6\Admin\Http\Controllers\BlogController@updateOrDestroyCategory')->name('admin.blog.updateOrDestroyCategory')->where(['iconAdmin'=>'fa-rss',  'parentRouteNameAdmin' => 'admin.blog.updateOrDestroyCategory', 'nameAdmin'=>'Blog updateOrDestroyCategory',]);
 
 
     Route::get('/template-system','Oka6\Admin\Http\Controllers\TemplateSystemController@index')->name('admin.template-system.index')->where(['iconAdmin'=>'fas fa-code', 'menuAdmin'=> "Template", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'Template System', 'isDefaultAdmin'=>'1']);

@@ -65,6 +65,20 @@ class BlogController extends BaseController
         return view('Admin::backend.blog.edit');
     }
 
+    public function getCategories()
+    {
+        $cats = BlogCategory::all();
+        $posts = collect();
+        foreach ($cats as $c) {
+            $posts->push($c, $c['count_posts'] = BlogPost::where('category.slug', $c->slug)->count());
+        }
+        return response()->json([
+            'status' => 200,
+            'message' => 'success',
+            'data' => $posts
+        ]);
+    }
+
     public function categoryNew(Request $request)
     {
         if (!$request->title) {
@@ -74,11 +88,11 @@ class BlogController extends BaseController
             ]);
         }
 
-        $findCat = BlogCategory::where('title', $request->title)->first();
+        $findCat = BlogCategory::where('slug', $request->slug)->first();
         if ($findCat) {
             return response()->json([
                 'status' => 200,
-                'message' => 'sucess',
+                'message' => 'category_found',
                 'data' => $findCat
             ]);
         } else {
@@ -88,8 +102,46 @@ class BlogController extends BaseController
             $cat->save();
             return response()->json([
                 'status' => 200,
-                'message' => 'sucess',
+                'message' => 'success',
                 'data' => $cat
+            ]);
+        }
+    }
+
+    public function updateOrDestroyCategory(Request $request)
+    {
+        if ($request->type === 'delete') {
+            $findCat = BlogPost::where('slug', $request->slug)->first();
+            if($findCat){
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'Não é possivel excluir uma categoria com posts',
+                ]);
+            }else{
+                BlogCategory::where('slug', $request->slug)->delete();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Categoria deletada',
+                ]);
+            }
+        }
+
+        if ($request->type === 'edit') {
+            $cat = BlogCategory::where('slug', $request->slug)->first();
+            $cat->title = $request->title;
+            $cat->save();
+            $ct = json_encode($cat);
+
+            $findPosts = BlogPost::where('category.slug', $request->slug)->get();
+            foreach ($findPosts as $p){
+                $p->category = json_decode($ct);
+                $p->save();
+            }
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Categoria atualizada',
+                'cat' => $cat,
             ]);
         }
     }
@@ -109,7 +161,7 @@ class BlogController extends BaseController
     public function blogPost($slug)
     {
         $cats = BlogCategory::all();
-        $post =  BlogPost::where('slug', (string)$slug)->first();
+        $post = BlogPost::where('slug', (string)$slug)->first();
 
 
         return view('Admin::backend.blog.front.post', compact('post', 'cats'));
@@ -119,7 +171,7 @@ class BlogController extends BaseController
     public function blogTag($tag)
     {
         $cats = BlogCategory::all();
-        $posts =  BlogPost::whereIn('tags', [$tag])->get();
+        $posts = BlogPost::whereIn('tags', [$tag])->get();
 
         return view('Admin::backend.blog.front.tag', compact('posts', 'cats'));
 
@@ -134,7 +186,7 @@ class BlogController extends BaseController
 
     public function tagsBlogAjax(Request $request)
     {
-        return Oka6Tag::searchTagsByType(Auth::user()->client_id,'blog',$request->term['term']);
+        return Oka6Tag::searchTagsByType(Auth::user()->client_id, 'blog', $request->term['term']);
 
     }
 

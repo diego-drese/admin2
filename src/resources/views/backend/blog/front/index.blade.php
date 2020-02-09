@@ -3,7 +3,7 @@
 @section('content_blog')
     @component('Admin::layouts.blog.header',['data' => $cats])
     @endcomponent
-    <div class="container">
+    <div class="container posts">
 
         <div class="row">
 
@@ -16,3 +16,10 @@
 @endsection
 
 
+@section('style_page')
+    <style>
+        .container.posts {
+            min-height: 52.2vh;
+        }
+    </style>
+@endsection

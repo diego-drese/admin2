@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/tema/style/clinic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     @yield('style_head')
+    @yield('style_page')
     @yield('style_head_components')
 </head>
 <body class="bg-fl-oka">

@@ -9,7 +9,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class BlogPost extends Model
 {
 
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'category'];
     protected $connection = 'oka6_admin';
     protected $table = 'oka6_blog_post';
     const TABLE = 'oka6_blog_post';

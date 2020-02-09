@@ -3,10 +3,9 @@
         <div class="col-md-12 image_post">
             <img src="{{$post->image}}" alt="">
         </div>
-        @else
+    @else
         <div class="_form col-md-12"></div>
     @endif
-
 
 
     <div class="col-md-4 form-group {{$errors->has('title') ? 'has-error' : ''}} ">
@@ -21,7 +20,8 @@
 
     <div class="col-md-4 form-group {{$errors->has('slug') ? 'has-error' : ''}}">
         <label for="slug">Url</label>
-        <input type="text" value="{{old('slug',$post->exists() ? $post->slug : '')}}" name="slug" class="form-control" id="slug" placeholder="Url">
+        <input type="text" value="{{old('slug',$post->exists() ? $post->slug : '')}}" name="slug" class="form-control"
+               id="slug" placeholder="Url">
         @if($errors->has('slug'))
             <span class="help-block">{{$errors->first('slug')}}</span>
         @endif
@@ -30,9 +30,14 @@
 
     <div class="col-md-4 form-group {{$errors->has('slug') ? 'has-error' : ''}}">
         <label for="category">Categoria</label>
+        <button type="button" class="btn btn-primary btn-categories-edit" data-toggle="modal"
+                data-target="#categoryModal">
+            Launch demo modal
+        </button>
         <select class="category-select form-control" name="category">
             @foreach($category as $cat)
-                <option value="{{$cat}}" {{$post->exists() ? $post->category['slug'] == $cat->slug ? 'selected' : '' : null}}>{{$cat->title}}</option>
+                <option
+                    value="{{$cat}}" {{$post->exists() ? $post->category['slug'] == $cat->slug ? 'selected' : '' : null}}>{{$cat->title}}</option>
             @endforeach
         </select>
         @if($errors->has('category'))
@@ -42,7 +47,7 @@
 
     <div class="col-md-7 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
         <label for="slug">tags</label>
-        <select class="form-control tags" name="tags[]"  data-tags="true" multiple="multiple" data-width="100%">
+        <select class="form-control tags" name="tags[]" data-tags="true" multiple="multiple" data-width="100%">
             @if ($post->exists() && $post->tags)
                 @foreach( $post->tags as $tag)
                     <option selected value="{{$tag}}">{{$tag}}</option>
@@ -56,7 +61,8 @@
 
     <div class="col-md-3 form-group {{$errors->has('image') ? 'has-error' : ''}}">
         <label for="image">Imagem</label>
-        <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image" class="form-control" id="image" placeholder="image">
+        <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image"
+               class="form-control" id="image" placeholder="image">
         @if($errors->has('image'))
             <span class="help-block">{{$errors->first('image')}}</span>
         @endif
@@ -65,8 +71,8 @@
     <div class="col-md-2 form-group {{$errors->has('status') ? 'has-error' : ''}}">
         <label for="status">Status do Post</label>
         <select class="form-control" name="status">
-                <option value="0" {{$post->exists() ? $post->status == 0 ? 'selected' : '' : null}}>Rascunho</option>
-                <option value="1" {{$post->exists() ? $post->status == 1 ? 'selected' : '' : null}}>Ativo</option>
+            <option value="0" {{$post->exists() ? $post->status == 0 ? 'selected' : '' : null}}>Rascunho</option>
+            <option value="1" {{$post->exists() ? $post->status == 1 ? 'selected' : '' : null}}>Ativo</option>
         </select>
         @if($errors->has('status'))
             <span class="help-block">{{$errors->first('status')}}</span>
@@ -83,8 +89,6 @@
     </div>
 
 
-
-
     <div class="col-md-12 form-group {{$errors->has('description') ? 'has-error' : ''}} ">
         <textarea class="form-control" name="description" placeholder="Descrição"
                   id="description">{{old('description',$post->exists() ? $post->description : '')}}
@@ -96,11 +100,34 @@
     </div>
 
 
-
     <div class="col-md-12 form-group">
         <button type="submit" class="btn btn-primary ">Salvar</button>
     </div>
 </div>
+
+
+<!-- MODALS -->
+
+<div class="modal" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Categorias (Editar titulo ou excluir)</h5><br>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 @section('style_head')
@@ -111,33 +138,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
     <style>
-        .showSweetAlert  h2{
-            font-size: 2em!important;
+        .showSweetAlert h2 {
+            font-size: 2em !important;
             padding: 8px;
         }
-        .select2-link{
+
+        .select2-link {
             cursor: pointer;
             padding: 10px;
             background: rgba(148, 143, 236, 0.05);
             font-weight: bold;
         }
 
-        ._form{
+        ._form {
             height: 0px;
             transition: height 0.3s;
         }
 
-        .image_post{
+        .image_post {
             text-align: center;
             transition: height 2s;
         }
 
-        .image_post img{
+        .image_post img {
             width: 352px;
             margin-bottom: 25px;
             border-radius: 6px;
             max-height: 228px;
             object-fit: cover;
+        }
+
+        .form-cat-modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        .form-cat-modal button {
+            margin: 10px 5px;
         }
 
     </style>
@@ -151,6 +190,80 @@
         $(document).ready(function () {
             $('#description').trumbowyg();
 
+            $('.btn-categories-edit').on('click', () => {
+                $.ajax({
+                    url: '/adm/blog/categories',
+                    type: 'get',
+                    dataType: "json",
+                    success: function (res) {
+                        var ct = $('#categoryModal .modal-body');
+                        ct.empty();
+                        res.data.map((r) => {
+                            ct.append(`
+                                <div class="form-cat-modal">
+                                      <button class="btn btn-info btn-xs" type="button" disabled title="Quantidade de posts nessa categoria">${r.count_posts} </button>
+                                      <input  class="form-control" data-oldtitle="${r.title}" data-slug="${r.slug}" value="${r.title}">
+                                      <button type="button" class="btn btn-xs btn-primary btn-save-cat"><i class="fa fas fa-edit"></i></button>
+                                      <button type="button" ${r.count_posts > 0 ? 'disabled' : ''} class="btn btn-xs btn-danger btn-remove-cat"><i class="fa fas fa-trash"></i></button>
+                                </div>
+
+                           `)
+                        })
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-save-cat', function () {
+                var item = $(this).parent().children()[1];
+                console.log(item.dataset.slug, item.value)
+
+                $.ajax({
+                    url: '/adm/blog/update-or-destroy-category',
+                    type: 'post',
+                    data: {
+                        type: 'edit',
+                        title: item.value,
+                        slug: item.dataset.slug,
+                    },
+                    success: function (res) {
+                       // console.log(res, 'cat updated', JSON.stringify(res.cat));
+                        var select = $('.category-select');
+                        Array.from(select[0].getElementsByTagName('option')).filter((res) => {
+                            if(res.text == item.dataset.oldtitle){
+                               // res.value = JSON.stringify(res.cat);
+                                res.text = item.value
+                                $('.category-select').select2();
+                            }
+                        });
+
+                        window.toastr.success('Blog Categorias', res.message)
+                    }
+                });
+            })
+
+            $(document).on('click', '.btn-remove-cat', function () {
+                var itemLine = $(this).parent();
+                console.log(itemLine);
+                var item = $(this).parent().children()[1];
+                $.ajax({
+                    url: '/adm/blog/update-or-destroy-category',
+                    type: 'post',
+                    data: {
+                        type: 'delete',
+                        title: item.value,
+                        slug: item.dataset.slug,
+                    },
+                    success: function (res) {
+                        if(res.status === 400){
+                            window.toastr.error('', res.message)
+                        }else{
+                            itemLine.remove();
+                            window.toastr.success('', res.message)
+                        }
+                    }
+                });
+
+            })
 
             $('#title').on('keyup keypress blur change', function () {
                 var title = this.value.toLowerCase().trim(),
@@ -166,12 +279,12 @@
             $('#image').on('change', function () {
                 $('._form').empty();
                 var url = $('#image').val();
-                if(url.length){
+                if (url.length) {
                     $('._form').append(`<div class="col-md-12 image_post">
                             <img src="${url}" alt="">
                         </div>`
                     ).css('height', '250')
-                }else{
+                } else {
                     $('._form').empty().css('height', '0')
                 }
 
@@ -181,8 +294,8 @@
             $('.tags').select2({
                 tags: true,
                 tokenSeparators: [','],
-                createSearchChoice: function(term, data) {
-                    if ($(data).filter(function() {
+                createSearchChoice: function (term, data) {
+                    if ($(data).filter(function () {
                         return this.text.localeCompare(term) === 0;
                     }).length === 0) {
                         return {
@@ -196,13 +309,13 @@
                     url: '/adm/blog/tags-blog',
                     type: 'post',
                     dataType: "json",
-                    data: function(term, page) {
+                    data: function (term, page) {
                         console.log(term)
                         return {
                             term
                         };
                     },
-                    processResults: function(data, page) {
+                    processResults: function (data, page) {
                         console.log(data)
                         return {
                             results: $.map(data, function (item) {
@@ -240,28 +353,27 @@
                     closeOnConfirm: false,
                     inputPlaceholder: "Nome da categoria"
                 }, function (inputValue) {
-                   // if (inputValue === false) return false;
+                    // if (inputValue === false) return false;
                     if (inputValue == "" || inputValue === false) {
                         swal.showInputError("You need to write something!");
                         return false
-                    }else{
+                    } else {
                         addCategoryFetch(inputValue)
                     }
                 });
             }
 
 
-
             function addCategoryFetch(catName) {
 
                 var slug = catName.toLowerCase().trim().replace(/&/g, '-e-')
-                            .replace(/[^a-z0-9-]+/g, '-')
-                            .replace(/\-\-+/g, '-')
-                            .replace(/^-+|-+$/g, '');
+                    .replace(/[^a-z0-9-]+/g, '-')
+                    .replace(/\-\-+/g, '-')
+                    .replace(/^-+|-+$/g, '');
                 $.ajax({
                     url: "/adm/blog/category-add",
                     type: "POST",
-                    beforeSend: function() {
+                    beforeSend: function () {
                         $('.lead.text-muted').append(`<div class="spinner-border" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>`)
@@ -270,21 +382,22 @@
                         title: catName,
                         slug,
                     },
-                    success: function(res) {
+                    success: function (res) {
                         var data = res.data;
                         var select = $('.category-select');
-                        if(select.find("option[value='" + data._id + "']").length) {
-                            $('.category-select').val(data._id).trigger('change');
-                        }else{
-                            console.log(data)
-                            var newOption = new Option(data.title, JSON.stringify(data), false, false);
-                            select.append(newOption).trigger('change');
+                        if (select.find("option[value='" + data.slug + "']").length) {
+                            $('.category-select').val(data.slug).trigger('change');
+                        } else {
+                            if (res.message !== 'category_found') {
+                                var newOption = new Option(data.title, JSON.stringify(data), false, false);
+                                select.append(newOption).trigger('change');
+                            }
                             select.val(JSON.stringify(data)).trigger('change');
                         }
 
-                        swal("Sucesso!", "Categoria criada com sucesso" , "success");
+                        swal("Sucesso!", "Categoria criada com sucesso", "success");
                     },
-                    error: function(e) {
+                    error: function (e) {
                         console.log(e)
                     }
                 })

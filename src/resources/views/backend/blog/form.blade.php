@@ -54,7 +54,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
+            <div class="col-md-12 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
                 <label for="slug">tags</label>
                 <select class="form-control tags" name="tags[]" data-tags="true" multiple="multiple" data-width="100%">
                     @if ($post->exists() && $post->tags)
@@ -68,6 +68,15 @@
                 @endif
             </div>
 
+            <div class="col-md-9 form-group {{$errors->has('resume') ? 'has-error' : ''}}">
+                <label for="resume">Resumo do Post</label>
+                <textarea class="form-control" name="resume" placeholder="Faça um resumo da história (ajuda no SEO)"
+                          id="resume">{{old('resume',$post->exists() ? $post->resume : '')}}</textarea>
+                @if($errors->has('resume'))
+                    <span class="help-block">{{$errors->first('resume')}}</span>
+                @endif
+            </div>
+
             <div class="col-md-3 form-group {{$errors->has('status') ? 'has-error' : ''}}">
                 <label for="status">Status do Post</label>
                 <select class="form-control" name="status">
@@ -76,15 +85,6 @@
                 </select>
                 @if($errors->has('status'))
                     <span class="help-block">{{$errors->first('status')}}</span>
-                @endif
-            </div>
-
-            <div class="col-md-9 form-group {{$errors->has('resume') ? 'has-error' : ''}}">
-                <label for="resume">Resumo do Post</label>
-                <textarea class="form-control" name="resume" placeholder="Faça um resumo da história (ajuda no SEO)"
-                          id="resume">{{old('resume',$post->exists() ? $post->resume : '')}}</textarea>
-                @if($errors->has('resume'))
-                    <span class="help-block">{{$errors->first('resume')}}</span>
                 @endif
             </div>
         </div>

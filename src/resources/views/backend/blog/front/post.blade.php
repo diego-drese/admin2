@@ -11,7 +11,7 @@
                     <h1 class="headline">{{$post->title}}</h1>
 
                     <div class="image">
-                        <img class="d-none" src="{{$post->image}}" alt="{{$post->title}}">
+                        <img class="d-none" src="/storage/blog-images/{{$post->image}}" alt="{{$post->title}}">
                     </div>
 
                     <div class="post_info">
@@ -44,7 +44,7 @@
     }
 
     .image{
-        background-image: url({{$post->image}});
+        background-image: url(/storage/blog-images/{{$post->image}});
         height: 250px;
         background-position: bottom;
         background-repeat: no-repeat;

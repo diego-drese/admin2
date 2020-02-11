@@ -22,6 +22,7 @@
                                 <th>Título</th>
                                 <th>Post</th>
                                 <th>status</th>
+                                <th>Categoria</th>
                                 <th>Ações</th>
                             </tr>
                             </thead>
@@ -31,6 +32,7 @@
                                 <td class="title-table">{{$post->title}}</td>
                                 <td class="max-height-table">{!! $post->description!!}</td>
                                 <td class="">{{$post->status == 0 ? 'Rascunho' : 'Ativo'}}</td>
+                                <td class="">{{$post->category['title']}}</td>
                                 <td class="actions-table">
                                     <a href="{{route('admin.blog.edit', ['id' => $post->_id])}}"
                                        class="btn btn-xs btn-secondary" role="button" aria-pressed="true">

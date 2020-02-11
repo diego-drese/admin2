@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body ">
-                    <form id="form" method="post" action="{{route('admin.blog.store')}}">
+                    <form id="form" method="post" enctype="multipart/form-data" action="{{route('admin.blog.store')}}">
                         {{ csrf_field() }}
                         @include('Admin::backend.blog.form')
                     </form>

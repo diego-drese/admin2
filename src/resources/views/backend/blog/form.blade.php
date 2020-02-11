@@ -1,92 +1,109 @@
 <div class="row ">
-    @if ($post->exists() && $post->image)
-        <div class="col-md-12 image_post">
-            <img src="{{$post->image}}" alt="">
+
+        <div class="col-md-4 image_post">
+            <div class="form-group {{$errors->has('image') ? 'has-error' : ''}}">
+                <label for="image">Imagem Destaque</label><br>
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-preview thumbnail" data-trigger="fileinput">
+                        <img src="{{$post->exists() && $post->image ? '/storage/blog-images/'.$post->image : 'https://placehold.it/430x250&text=Selecione+Uma+Imagem'}}" style="width: 100%;max-height: 228px; ">
+                    </div>
+                    <div>
+                     <span class="btn btn-default btn-file"><span class="fileinput-new">Procurar</span><span class="fileinput-exists">Trocar</span>
+                      <input value="{{old('image')}}" name="image" id="image" type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    @else
-        <div class="_form col-md-12"></div>
-    @endif
 
-
-    <div class="col-md-4 form-group {{$errors->has('title') ? 'has-error' : ''}} ">
-        <label for="title">Titulo</label>
-        <input type="text" class="form-control" value="{{old('title',$post->exists() ? $post->title : '')}}"
-               name="title"
-               id="title" placeholder="Titulo">
-        @if($errors->has('title'))
-            <span class="help-block">{{$errors->first('title')}}</span>
-        @endif
-    </div>
-
-    <div class="col-md-4 form-group {{$errors->has('slug') ? 'has-error' : ''}}">
-        <label for="slug">Url</label>
-        <input type="text" value="{{old('slug',$post->exists() ? $post->slug : '')}}" name="slug" class="form-control"
-               id="slug" placeholder="Url">
-        @if($errors->has('slug'))
-            <span class="help-block">{{$errors->first('slug')}}</span>
-        @endif
-    </div>
-
-
-    <div class="col-md-4 form-group {{$errors->has('slug') ? 'has-error' : ''}}">
-        <label for="category">Categoria</label>
-        <button type="button" class="btn btn-primary btn-categories-edit" data-toggle="modal"
-                data-target="#categoryModal">
-            Launch demo modal
-        </button>
-        <select class="category-select form-control" name="category">
-            @foreach($category as $cat)
-                <option
-                    value="{{$cat}}" {{$post->exists() ? $post->category['slug'] == $cat->slug ? 'selected' : '' : null}}>{{$cat->title}}</option>
-            @endforeach
-        </select>
-        @if($errors->has('category'))
-            <span class="help-block">{{$errors->first('category')}}</span>
-        @endif
-    </div>
-
-    <div class="col-md-7 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
-        <label for="slug">tags</label>
-        <select class="form-control tags" name="tags[]" data-tags="true" multiple="multiple" data-width="100%">
-            @if ($post->exists() && $post->tags)
-                @foreach( $post->tags as $tag)
-                    <option selected value="{{$tag}}">{{$tag}}</option>
-                @endforeach
+    <div class="col-md-8">
+        <div class="row">
+        <div class="col-md-4 form-group {{$errors->has('title') ? 'has-error' : ''}} ">
+            <label for="title">Titulo</label>
+            <input type="text" class="form-control" value="{{old('title',$post->exists() ? $post->title : '')}}"
+                   name="title"
+                   id="title" placeholder="Titulo">
+            @if($errors->has('title'))
+                <span class="help-block">{{$errors->first('title')}}</span>
             @endif
-        </select>
-        @if($errors->has('tags'))
-            <span class="help-block">{{$errors->first('tags')}}</span>
-        @endif
+        </div>
+
+        <div class="col-md-4 form-group {{$errors->has('slug') ? 'has-error' : ''}}">
+            <label for="slug">Url</label>
+            <input type="text" value="{{old('slug',$post->exists() ? $post->slug : '')}}" name="slug" class="form-control"
+                   id="slug" placeholder="Url">
+            @if($errors->has('slug'))
+                <span class="help-block">{{$errors->first('slug')}}</span>
+            @endif
+        </div>
+
+            <div class="col-md-4 form-group flex-cat {{$errors->has('slug') ? 'has-error' : ''}}">
+                <label for="category">Categoria</label>
+                <button type="button" class="btn btn-xs btn-primary btn-categories-edit" data-toggle="modal"
+                        data-target="#categoryModal">
+                    Gerenciar categorias
+                </button>
+                <select class="category-select form-control" name="category">
+                    @foreach($category as $cat)
+                        <option
+                            value="{{$cat}}" {{$post->exists() ? $post->category['slug'] == $cat->slug ? 'selected' : '' : null}}>{{$cat->title}}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('category'))
+                    <span class="help-block">{{$errors->first('category')}}</span>
+                @endif
+            </div>
+
+            <div class="col-md-6 form-group {{$errors->has('tags') ? 'has-error' : ''}}">
+                <label for="slug">tags</label>
+                <select class="form-control tags" name="tags[]" data-tags="true" multiple="multiple" data-width="100%">
+                    @if ($post->exists() && $post->tags)
+                        @foreach( $post->tags as $tag)
+                            <option selected value="{{$tag}}">{{$tag}}</option>
+                        @endforeach
+                    @endif
+                </select>
+                @if($errors->has('tags'))
+                    <span class="help-block">{{$errors->first('tags')}}</span>
+                @endif
+            </div>
+
+            <div class="col-md-3 form-group {{$errors->has('status') ? 'has-error' : ''}}">
+                <label for="status">Status do Post</label>
+                <select class="form-control" name="status">
+                    <option value="0" {{$post->exists() ? $post->status == 0 ? 'selected' : '' : null}}>Rascunho</option>
+                    <option value="1" {{$post->exists() ? $post->status == 1 ? 'selected' : '' : null}}>Ativo</option>
+                </select>
+                @if($errors->has('status'))
+                    <span class="help-block">{{$errors->first('status')}}</span>
+                @endif
+            </div>
+
+            <div class="col-md-9 form-group {{$errors->has('resume') ? 'has-error' : ''}}">
+                <label for="resume">Resumo do Post</label>
+                <textarea class="form-control" name="resume" placeholder="Faça um resumo da história (ajuda no SEO)"
+                          id="resume">{{old('resume',$post->exists() ? $post->resume : '')}}</textarea>
+                @if($errors->has('resume'))
+                    <span class="help-block">{{$errors->first('resume')}}</span>
+                @endif
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-3 form-group {{$errors->has('image') ? 'has-error' : ''}}">
-        <label for="image">Imagem</label>
-        <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image"
-               class="form-control" id="image" placeholder="image">
-        @if($errors->has('image'))
-            <span class="help-block">{{$errors->first('image')}}</span>
-        @endif
-    </div>
 
-    <div class="col-md-2 form-group {{$errors->has('status') ? 'has-error' : ''}}">
-        <label for="status">Status do Post</label>
-        <select class="form-control" name="status">
-            <option value="0" {{$post->exists() ? $post->status == 0 ? 'selected' : '' : null}}>Rascunho</option>
-            <option value="1" {{$post->exists() ? $post->status == 1 ? 'selected' : '' : null}}>Ativo</option>
-        </select>
-        @if($errors->has('status'))
-            <span class="help-block">{{$errors->first('status')}}</span>
-        @endif
-    </div>
 
-    <div class="col-md-12 form-group {{$errors->has('resume') ? 'has-error' : ''}}">
-        <label for="resume">Resumo do Post</label>
-        <textarea class="form-control" name="resume" placeholder="Faça um resumo da história (ajuda no SEO)"
-                  id="resume">{{old('resume',$post->exists() ? $post->resume : '')}}</textarea>
-        @if($errors->has('resume'))
-            <span class="help-block">{{$errors->first('resume')}}</span>
-        @endif
-    </div>
+{{--    <div class="col-md-3 form-group {{$errors->has('image') ? 'has-error' : ''}}">--}}
+{{--        <label for="image">Imagem</label>--}}
+{{--        <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image"--}}
+{{--               class="form-control" id="image" placeholder="image">--}}
+{{--        @if($errors->has('image'))--}}
+{{--            <span class="help-block">{{$errors->first('image')}}</span>--}}
+{{--        @endif--}}
+{{--    </div>--}}
+
+
+
+
 
 
     <div class="col-md-12 form-group {{$errors->has('description') ? 'has-error' : ''}} ">
@@ -137,10 +154,22 @@
     <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/basic.js')}}></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/4.0.0/css/jasny-bootstrap.min.css">
+
     <style>
         .showSweetAlert h2 {
             font-size: 2em !important;
             padding: 8px;
+        }
+
+        .flex-cat{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .flex-cat button{
+            margin-bottom: 4px;
+            height: 22px;
         }
 
         .select2-link {
@@ -148,6 +177,10 @@
             padding: 10px;
             background: rgba(148, 143, 236, 0.05);
             font-weight: bold;
+        }
+
+        .select2-container--default .select2-selection--multiple{
+            height: auto;
         }
 
         ._form {
@@ -160,19 +193,19 @@
             transition: height 2s;
         }
 
-        .image_post img {
-            width: 352px;
-            margin-bottom: 25px;
-            border-radius: 6px;
-            max-height: 228px;
-            object-fit: cover;
-        }
-
         .form-cat-modal {
             display: flex;
             justify-content: center;
             align-items: center;
             align-content: center;
+        }
+
+        .image_post img {
+            margin-bottom: 25px;
+            border-radius: 6px;
+            width: 100%;
+            max-height: 228px;
+            object-fit: cover;
         }
 
         .form-cat-modal button {
@@ -186,6 +219,8 @@
     <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/forms.js')}}></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/4.0.0/js/jasny-bootstrap.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#description').trumbowyg();
@@ -230,7 +265,7 @@
                         var select = $('.category-select');
                         Array.from(select[0].getElementsByTagName('option')).filter((res) => {
                             if(res.text == item.dataset.oldtitle){
-                               // res.value = JSON.stringify(res.cat);
+                                res.value = JSON.stringify(res.cat);
                                 res.text = item.value
                                 $('.category-select').select2();
                             }

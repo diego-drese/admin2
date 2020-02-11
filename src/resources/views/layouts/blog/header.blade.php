@@ -31,7 +31,7 @@
 
     <style>
         .bg-fl-oka{
-            background: url(https://formito.com/assets/img/bg-header.png) no-repeat
+            background: url(https://i.imgur.com/NbhWS93.png) no-repeat
             right -59px top -116px,
             linear-gradient(123deg, #fff 0%, #fff 50%, #f3f0fc 100%) no-repeat right top;
         }

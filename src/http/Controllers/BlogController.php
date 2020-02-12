@@ -171,7 +171,7 @@ class BlogController extends BaseController
     public function blogTag($tag)
     {
         $cats = BlogCategory::all();
-        $posts = BlogPost::whereIn('tags', [$tag])->get();
+        $posts = BlogPost::whereIn('tags', [$tag])->simplePaginate(5);
 
         return view('Admin::backend.blog.front.tag', compact('posts', 'cats'));
 

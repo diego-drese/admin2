@@ -4,6 +4,7 @@ namespace Oka6\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -37,6 +38,7 @@ class Oka6Client extends Model {
                             'total_scheduling_remaining',
                             'next_charging_attempt',
                             'total_charging',
+                            'api_key',
                             ];
     protected $dates        =['next_charging_attempt'];
     protected $connection   = 'oka6_admin';
@@ -91,6 +93,11 @@ class Oka6Client extends Model {
         $dataForm['total_scheduling_remaining']     = 0;
         $dataForm['next_charging_attempt']          = null;
         $dataForm['total_charging']                 = 0;
+
+        if( $request->get('api_key')==""){
+            $dataForm['api_key']                        = Crypt::encrypt($dataForm['id']);
+        }
+
         if( $request->hasFile('logo')){
             $image              = $request->file('logo');
             $input['logo']      = time().'.'.$image->getClientOriginalExtension();

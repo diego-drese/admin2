@@ -1,5 +1,5 @@
-@forelse($data as $post)
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+@forelse($posts as $post)
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 blog-oka">
         <div class="card">
             @if($post->image)
                 <a href="/post/{{$post->slug}}"><img class="card-img"
@@ -38,8 +38,4 @@
         <p>Sem posts no momento, aguarde novidades!</p>
     </div>
 @endforelse
-
-    <div class="col-md-12 text-center paginate">
-        {{ $data->links() }}
-    </div>
 

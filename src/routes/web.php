@@ -137,6 +137,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');
     Route::get('/post/{slug}', 'Oka6\Admin\Http\Controllers\BlogController@blogPost')->name('blogPost');
     Route::get('/tag/{tag}', 'Oka6\Admin\Http\Controllers\BlogController@blogTag')->name('blogPost');
+    Route::get('/latest-posts', 'Oka6\Admin\Http\Controllers\BlogController@getLatestPosts')->name('blogPost');
 
     Route::get('/categoria/{cat}', 'Oka6\Admin\Http\Controllers\BlogController@blogCategory')->name('blogPost');
 

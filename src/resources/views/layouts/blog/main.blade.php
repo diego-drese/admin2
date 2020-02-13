@@ -20,7 +20,7 @@
     @yield('style_page')
     @yield('style_head_components')
 </head>
-<body class="bg-fl-oka">
+<body class="bg-fl-oka blog-oka">
 
 
 @yield('content_blog')

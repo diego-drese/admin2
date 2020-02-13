@@ -61,8 +61,10 @@ class BlogController extends BaseController
 
     public function destroy($id)
     {
-        return $id;
-        return view('Admin::backend.blog.edit');
+        BlogPost::deletePost($id);
+
+        return redirect(route('admin.blog.index'));
+
     }
 
     public function getCategories()
@@ -172,8 +174,20 @@ class BlogController extends BaseController
     {
         $cats = BlogCategory::all();
         $posts = BlogPost::whereIn('tags', [$tag])->simplePaginate(5);
-
         return view('Admin::backend.blog.front.tag', compact('posts', 'cats'));
+    }
+
+    public function getLatestPosts()
+    {
+        $posts = BlogPost::latest()->where('status', '1')->limit(3)->get();
+        if($posts->count() >= 1){
+            return view('Admin::backend.blog.front.ajaxTpl', compact('posts'));
+        }else{
+            return response()->json([
+                'status' => 200,
+                'message' => 'SemPosts'
+            ]);
+        }
 
     }
 

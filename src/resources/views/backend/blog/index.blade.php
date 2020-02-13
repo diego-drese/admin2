@@ -50,7 +50,7 @@
                     </table>
                     </div>
                 </div>
-                {{ $posts->links() }}
+                {{ $posts ?? ''->links() }}
             </div>
         </div>
     </div>

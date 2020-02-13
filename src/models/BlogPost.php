@@ -37,7 +37,6 @@ class BlogPost extends Model
     public static function updatePost($request, $id)
     {
 
-
         $tags = Oka6Tag::createTag(Auth::user()->client_id, $request->tags, 'blog', 'post');
         $post = self::where('_id', $id)->first();
         $post->title = $request->title;
@@ -51,6 +50,13 @@ class BlogPost extends Model
         $post->save();
     }
 
+    public static function deletePost($id)
+    {
+        $post = self::where('_id', $id)->first();
+        Storage::delete("public/blog-images/{$post->image}");
+        $post->delete();
+    }
+
     public static function verifySlug($slug)
     {
         return self::where('slug', $slug)->first();
@@ -59,14 +65,20 @@ class BlogPost extends Model
 
     public static function imageTransform($request, $update = false)
     {
-        $image = $request->image;
-        $ext = $image->getClientOriginalExtension();
-        $filename = $request->slug.'.'. $ext;
-        if($update){
-            Storage::delete("public/blog-images/{$update->image}");
-        }
-        $image->storeAs('public/blog-images', $filename);
+        if ($request->hasFile('image')) {
+            $image = $request->image;
+            $ext = $image->getClientOriginalExtension();
+            $filename = $request->slug . '.' . $ext;
+            if ($update) {
+                Storage::delete("public/blog-images/{$update->image}");
+            }
+            $image->storeAs('public/blog-images', $filename);
 
-        return  $filename;
+            return $filename;
+        }else{
+            if($update){
+                return $update->image;
+            }
+        }
     }
 }

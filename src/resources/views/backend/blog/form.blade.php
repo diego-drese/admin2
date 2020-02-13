@@ -91,21 +91,6 @@
     </div>
 
 
-
-{{--    <div class="col-md-3 form-group {{$errors->has('image') ? 'has-error' : ''}}">--}}
-{{--        <label for="image">Imagem</label>--}}
-{{--        <input type="text" value="{{old('image',$post->exists() ? $post->image : '')}}" name="image"--}}
-{{--               class="form-control" id="image" placeholder="image">--}}
-{{--        @if($errors->has('image'))--}}
-{{--            <span class="help-block">{{$errors->first('image')}}</span>--}}
-{{--        @endif--}}
-{{--    </div>--}}
-
-
-
-
-
-
     <div class="col-md-12 form-group {{$errors->has('description') ? 'has-error' : ''}} ">
         <textarea class="form-control" name="description" placeholder="Descrição"
                   id="description">{{old('description',$post->exists() ? $post->description : '')}}

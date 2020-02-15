@@ -39,6 +39,10 @@ class Oka6Client extends Model {
                             'next_charging_attempt',
                             'total_charging',
                             'api_key',
+                            'type_send_sms',
+                            'automatic_remember_sms',
+                            'automatic_remember_email',
+
                             ];
     protected $dates        =['next_charging_attempt'];
     protected $connection   = 'oka6_admin';
@@ -88,6 +92,9 @@ class Oka6Client extends Model {
         $dataForm['address_neighborhood']           = $request->get('address_neighborhood');
         $dataForm['address_city']                   = $request->get('address_city');
         $dataForm['address_state']                  = $request->get('address_state');
+        $dataForm['type_send_sms']                  = $request->get('type_send_sms');
+        $dataForm['automatic_remember_sms']         = $request->get('automatic_remember_sms') ? 1 : 0;
+        $dataForm['automatic_remember_email']       = $request->get('automatic_remember_email') ? 1 : 0;
         $dataForm['last_payment_value']             = null;
         $dataForm['current_plan']                   = null;
         $dataForm['total_scheduling_remaining']     = 0;
@@ -140,6 +147,10 @@ class Oka6Client extends Model {
     }
     public static function getById($id){
       return self::where('id', (int)$id)->first();
+    }
+
+    public static function generatedHashFireBase($id){
+        return $id.'#'.Config::get('app.clinic_domain');
     }
 }
 

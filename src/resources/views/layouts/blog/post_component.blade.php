@@ -1,5 +1,5 @@
 @forelse($data as $post)
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 ">
         <div class="card">
             @if($post->image)
                 <a href="/post/{{$post->slug}}"><img class="card-img"

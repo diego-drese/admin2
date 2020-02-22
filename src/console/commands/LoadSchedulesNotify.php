@@ -49,7 +49,6 @@ class LoadSchedulesNotify extends Command
 
         if($notificationEmail){
             foreach ($notificationEmail as $notification){
-
                 $email = new \SendGrid\Mail\Mail();
                 $email->setFrom("no-reply@hclinic.com.br", "Hclinic");
                 $email->setSubject($notification->subject);
@@ -62,17 +61,20 @@ class LoadSchedulesNotify extends Command
                     $statusHeader   = $response->headers();
                     $statusBody     = $response->body();
                     Log::info('LoadSchedulesNotify handle success', ['statusCode' => $statusCode, 'statusHeader' => $statusHeader, 'statusBody' => $statusBody,]);
-                    $notification->status = 'sent';
+                    $notification->status       = 'sent';
                     $notification->date_sent_at = MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'));
                     $notification->save();
                 } catch (Exception $e) {
                     Log::error('LoadSchedulesNotify handle ERROR', [$e->getMessage()]);
-                    $notification->status = 'error';
+                    $notification->status       = 'error';
                     $notification->date_sent_at = MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'));
                     $notification->save();
                 }
             }
         }
+
+
+
 
 
     }

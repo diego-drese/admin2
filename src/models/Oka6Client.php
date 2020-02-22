@@ -66,6 +66,7 @@ class Oka6Client extends Model {
     ];
 
     public static function makeDataSave($dataForm, Request $request){
+
         $dataForm['name']                           = $request->get('name');
         $dataForm['email']                          = $request->get('email');
         $dataForm['phone']                          = $request->get('phone');

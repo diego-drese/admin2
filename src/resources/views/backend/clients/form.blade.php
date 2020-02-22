@@ -86,7 +86,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('domain') ? 'has-error' : ''}}">
                 <label for="street">Dominio</label>
-                <input type="text" value="{{old('cellphone',$oka6Client->exists() ? $oka6Client->domain : '')}}" name="domain"
+                <input type="text" value="{{old('domain',$oka6Client->exists() ? $oka6Client->domain : '')}}" name="domain"
                        class="form-control {{$errors->has('domain') ? 'is-invalid' : ''}}"
                        id="domain" placeholder="Dominio utilizado em páginas personalizadas">
                 @if($errors->has('domain'))

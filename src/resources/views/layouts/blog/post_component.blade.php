@@ -3,7 +3,7 @@
         <div class="card">
             @if($post->image)
                 <a href="/post/{{$post->slug}}"><img class="card-img"
-                                                     src="/storage/blog-images/{{$post->image}}"
+                                                     src="/blog-images/{{$post->image}}"
                                                      alt="{{$post->title}}"></a>
             @else
                 <a href="/post/{{$post->slug}}" alt="{{$post->title}}">

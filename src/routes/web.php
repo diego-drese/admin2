@@ -17,7 +17,7 @@ $prefix_url = \Config::get('admin.prefix_url');
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Oka6\Admin\Http\Middleware\MiddlewareAdmin']], function() {
     /** Private Resources  */
-    //Route::get('/dashboard', 'Oka6\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fas fa-bullseye', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
+    Route::get('/dashboard', 'Oka6\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fas fa-bullseye', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
 
     Route::get('/users','Oka6\Admin\Http\Controllers\UserController@index')->name('admin.users.index')->where(['iconAdmin'=>'fa-users', 'menuAdmin'=> "Users", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'User Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/users/create','Oka6\Admin\Http\Controllers\UserController@create')->name('admin.users.create')->where(['iconAdmin'=>'fa-plus-square', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'User Create']);

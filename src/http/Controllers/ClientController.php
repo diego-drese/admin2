@@ -2,6 +2,7 @@
 
 namespace Oka6\Admin\Http\Controllers;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Oka6\Admin\Library\ResourceAdmin;
@@ -23,8 +24,6 @@ class ClientController extends BaseController {
     use ValidatesRequests;
     protected function makeValidate(Request $request){
         $this->validate($request, [
-
-
             'address_street'         => 'required',
             'address_number'         => 'required',
             'address_neighborhood'   => 'required',

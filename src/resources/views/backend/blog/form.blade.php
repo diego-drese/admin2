@@ -5,7 +5,7 @@
                 <label for="image">Imagem Destaque</label><br>
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput">
-                        <img src="{{$post->exists() && $post->image ? '/storage/blog-images/'.$post->image : 'https://placehold.it/430x250&text=Selecione+Uma+Imagem'}}" style="width: 100%;max-height: 228px; ">
+                        <img src="{{$post->exists() && $post->image ? '/blog-images/'.$post->image : 'https://placehold.it/430x250&text=Selecione+Uma+Imagem'}}" style="width: 100%;max-height: 228px; ">
                     </div>
                     <div>
                      <span class="btn btn-default btn-file"><span class="fileinput-new">Procurar</span><span class="fileinput-exists">Trocar</span>

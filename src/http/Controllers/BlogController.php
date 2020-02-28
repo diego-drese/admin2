@@ -25,7 +25,6 @@ class BlogController extends BaseController
     public function create(BlogPost $post, BlogCategory $category)
     {
         $category = BlogCategory::all();
-//        Oka6Tag::getTagsByType()
         return view('Admin::backend.blog.create', compact('post', 'category'));
     }
 

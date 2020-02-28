@@ -21,5 +21,6 @@
         .container.posts {
             min-height: 52.2vh;
         }
+
     </style>
 @endsection

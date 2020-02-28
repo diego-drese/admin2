@@ -6,19 +6,12 @@
  * Time: 17:42
  */
 
-namespace Oka6\Clinic\Commands;
+namespace Oka6\Admin\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Config;
 use Oka6\Admin\Library\MongoUtils;
-use Oka6\Admin\Oka6Client;
 use Oka6\Admin\Oka6Notification;
-use Oka6\Clinic\ClinicPatient;
-use Oka6\Clinic\ClinicProfessional;
-use Oka6\Clinic\ClinicScheduleling;
-use Oka6\Clinic\Service;
-use Oka6\Clinic\Helpers\Helper;
-use Oka6\Clinic\Services\GoogleCalendar as Calendar;
 use Illuminate\Support\Facades\Log;
 
 class LoadSchedulesNotify extends Command
@@ -53,28 +46,35 @@ class LoadSchedulesNotify extends Command
         /**  Load new scheduling*/
         $whoisIt            = uniqid();
         $notificationEmail  = Oka6Notification::loadEmailSchedulingToNotify($whoisIt, 1000);
+
         if($notificationEmail){
             foreach ($notificationEmail as $notification){
-
-//                $email = new \SendGrid\Mail\Mail();
-//                $email->setFrom("test@example.com", "Example User");
-//                $email->setSubject("Sending with SendGrid is Fun");
-//                $email->addTo("test@example.com", "Example User");
-//                $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-//                $email->addContent(
-//                    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
-//                );
-//                $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-//                try {
-//                    $response = $sendgrid->send($email);
-//                    print $response->statusCode() . "\n";
-//                    print_r($response->headers());
-//                    print $response->body() . "\n";
-//                } catch (Exception $e) {
-//                    echo 'Caught exception: '. $e->getMessage() ."\n";
-//                }
+                $email = new \SendGrid\Mail\Mail();
+                $email->setFrom("no-reply@hclinic.com.br", "Hclinic");
+                $email->setSubject($notification->subject);
+                $email->addTo($notification->to, $notification->name);
+                $email->addContent("text/html", $notification->body);
+                $sendgrid = new \SendGrid(Config::get('admin.sendgrid_api_key'));
+                try {
+                    $response       = $sendgrid->send($email);
+                    $statusCode     = $response->statusCode();
+                    $statusHeader   = $response->headers();
+                    $statusBody     = $response->body();
+                    Log::info('LoadSchedulesNotify handle success', ['statusCode' => $statusCode, 'statusHeader' => $statusHeader, 'statusBody' => $statusBody,]);
+                    $notification->status       = 'sent';
+                    $notification->date_sent_at = MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'));
+                    $notification->save();
+                } catch (Exception $e) {
+                    Log::error('LoadSchedulesNotify handle ERROR', [$e->getMessage()]);
+                    $notification->status       = 'error';
+                    $notification->date_sent_at = MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'));
+                    $notification->save();
+                }
             }
         }
+
+
+
 
 
     }

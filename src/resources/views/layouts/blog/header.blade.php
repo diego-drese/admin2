@@ -11,7 +11,7 @@
             <ul class="navbar-nav mr-auto">
                 @foreach($data as $cat)
                 <li class="nav-item">
-                    <a class="nav-link " href="/categoria/{{$cat->slug}}">{{$cat->title}}</a>
+                    <a class="nav-link " href="{{route('blogCategory', [$cat->slug])}}">{{$cat->title}}</a>
                 </li>
                 @endforeach
             </ul>

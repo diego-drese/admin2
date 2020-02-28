@@ -17,7 +17,7 @@ $prefix_url = \Config::get('admin.prefix_url');
 
 Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth', 'Oka6\Admin\Http\Middleware\MiddlewareAdmin']], function() {
     /** Private Resources  */
-    //Route::get('/dashboard', 'Oka6\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fas fa-bullseye', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
+    Route::get('/dashboard', 'Oka6\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin'=>'fas fa-bullseye', 'menuAdmin'=> "Dashboard", 'nameAdmin'=>'Dashboard', 'isDefaultAdmin'=>'1']);
 
     Route::get('/users','Oka6\Admin\Http\Controllers\UserController@index')->name('admin.users.index')->where(['iconAdmin'=>'fa-users', 'menuAdmin'=> "Users", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin'=>'User Listing', 'isDefaultAdmin'=>'1']);
     Route::get('/users/create','Oka6\Admin\Http\Controllers\UserController@create')->name('admin.users.create')->where(['iconAdmin'=>'fa-plus-square', 'parentRouteNameAdmin' => 'admin.users.index', 'nameAdmin'=>'User Create']);
@@ -135,15 +135,14 @@ Route::group(['middleware' => ['web']], function () {
 
     /*Blog*/
     Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');
-    Route::get('/post/{slug}', 'Oka6\Admin\Http\Controllers\BlogController@blogPost')->name('blogPost');
-    Route::get('/tag/{tag}', 'Oka6\Admin\Http\Controllers\BlogController@blogTag')->name('blogPost');
-    Route::get('/latest-posts', 'Oka6\Admin\Http\Controllers\BlogController@getLatestPosts')->name('blogPost');
+    Route::get('/blog/post/{slug}', 'Oka6\Admin\Http\Controllers\BlogController@blogPost')->name('blogPost');
+    Route::get('/blog/tag/{tag}', 'Oka6\Admin\Http\Controllers\BlogController@blogTag')->name('blogTag');
+    Route::get('/blog/ultimos-posts', 'Oka6\Admin\Http\Controllers\BlogController@getLatestPosts')->name('blogLatestPost');
+    Route::get('/blog/categoria/{cat}', 'Oka6\Admin\Http\Controllers\BlogController@blogCategory')->name('blogCategory');
 
-    Route::get('/categoria/{cat}', 'Oka6\Admin\Http\Controllers\BlogController@blogCategory')->name('blogPost');
-
-    Route::get('/tema/{template}', 'Oka6\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('index');
-    Route::get('/tema/style/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getCssFile')->name('index');
-    Route::get('/tema/js/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getJsFile')->name('index');
+    Route::get('/tema/{template}', 'Oka6\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('template');
+    Route::get('/tema/style/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getCssFile')->name('templateStyle');
+    Route::get('/tema/js/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getJsFile')->name('templateJs');
     ///** Authentication Routes...  */
     Route::get('login', 'Oka6\Admin\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Oka6\Admin\Http\Controllers\Auth\LoginController@login');

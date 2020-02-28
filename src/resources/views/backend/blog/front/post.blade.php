@@ -11,18 +11,18 @@
                     <h1 class="headline">{{$post->title}}</h1>
 
                     <div class="image">
-                        <img class="d-none" src="/storage/blog-images/{{$post->image}}" alt="{{$post->title}}">
+                        <img class="d-none" src="/blog-images/{{$post->image}}" alt="{{$post->title}}">
                     </div>
 
                     <div class="post_info">
                         <div class="date">
-                            <p>Postado dia {{$post->created_at->format('d/m/Y')}} em  <a href="/categoria/{{$post->category['slug']}}"> {{$post->category['title']}}</a></p>
+                            <p>Postado dia {{$post->created_at->format('d/m/Y')}} em  <a href="{{route('blogPost', [$post->category['slug']])}}"> {{$post->category['title']}}</a></p>
                         </div>
 
                         <div class="tags">
                             @if($post->tags)
                                     @foreach($post->tags as $tag)
-                                        <a href="/tag/{{$tag}}" class="btn btn-light btn-sm">{{$tag}}</a>
+                                        <a href="{{route('blogTag', [$tag])}}" class="btn btn-light btn-sm">{{$tag}}</a>
                                     @endforeach
                             @endif
                         </div>

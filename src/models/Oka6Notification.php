@@ -5,10 +5,12 @@ namespace Oka6\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Oka6\Admin\Library\MongoUtils;
 
 class Oka6Notification extends Model {
     protected $fillable = [
                             'alias', // - Identificador que relaciona mensagens
+                            'name', // - Nome para enviar no email
                             'subject', // - Titulo da mensagem
                             'body', // - Corpo da mensagem
                             'status', // - schedule, sent, cancel, error - Status da mensagem
@@ -17,6 +19,7 @@ class Oka6Notification extends Model {
                             'origin', // - Pacote que originou a mensagem
                             'user_id', // - Id do usuário que criou, em alguns casos não se aplica
                             'schedule_id', // - Id do agendamento, em alguns casos não se aplica
+                            'patient_id', // - Id do patient, em alguns casos não se aplica
                             'client_id', // - Id do cliente que criou, em alguns casos não se aplica
                             'from', // - Quem enviou
                             'to',// - Quem receberá
@@ -71,19 +74,16 @@ class Oka6Notification extends Model {
 
     static function loadEmailSchedulingToNotify($whoIsIt, $limit){
         $now        = new \DateTime();
-        $limitDate  = new \DateTime();
-        $now->sub(new \DateInterval('PT10M'));
-        $limitDate->sub(new \DateInterval('P1D'));
-
         $schedules = self::where('status', 'schedule')
             ->where('who_is_it', 'exists', false)
-            ->select('id')
-            ->orderBy('created_at', 'asc')
+            ->where('type', 'email')
+            ->where('date_schedule_at','<=', MongoUtils::convertDatePhpToMongo($now))
+            ->select('_id')
+            ->orderBy('priority', 'asc')
             ->limit($limit)
             ->get();
-
         if($schedules){
-            self::whereIn('id', $schedules->pluck('id'))
+            self::whereIn('_id', $schedules->pluck('_id'))
                 ->where('who_is_it', 'exists', false)
                 ->update([
                         'who_is_it'  => $whoIsIt,

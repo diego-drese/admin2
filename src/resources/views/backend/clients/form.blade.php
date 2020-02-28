@@ -86,7 +86,7 @@
             </div>
             <div class="col-md-4 form-group {{$errors->has('domain') ? 'has-error' : ''}}">
                 <label for="street">Dominio</label>
-                <input type="text" value="{{old('cellphone',$oka6Client->exists() ? $oka6Client->domain : '')}}" name="domain"
+                <input type="text" value="{{old('domain',$oka6Client->exists() ? $oka6Client->domain : '')}}" name="domain"
                        class="form-control {{$errors->has('domain') ? 'is-invalid' : ''}}"
                        id="domain" placeholder="Dominio utilizado em páginas personalizadas">
                 @if($errors->has('domain'))
@@ -255,6 +255,41 @@
                 @endif
             </div>
 
+            <div class="col-md-4 form-group {{$errors->has('plan_id') ? 'has-error' : ''}}">
+                <label for="type">Envio de SMS</label>
+                <select type="text" name="type_send_sms" class="form-control {{$errors->has('type_send_sms') ? 'is-invalid' : ''}}" id="type_send_sms" >
+                    <option value="api" {{$oka6Client->exists() && $oka6Client->type_send_sms == 'api' ? 'selected' : ''}}>Api</option>
+                    <option value="client" {{$oka6Client->exists() && $oka6Client->type_send_sms == 'client' ? 'selected' : ''}}>Client</option>
+                </select>
+                @if($errors->has('type_send_sms'))
+                    <span class="help-block">{{$errors->first('type_send_sms')}}</span>
+                @endif
+            </div>
+
+            <div class="col-md-4 form-group {{$errors->has('automatic_remember_sms') ? 'has-error' : ''}}">
+                <label for="type">Notificacoes de sms automaticas</label>
+                <select type="text" name="automatic_remember_sms" class="form-control {{$errors->has('automatic_remember_sms') ? 'is-invalid' : ''}}" id="automatic_remember_sms" >
+                    <option value="1" {{$oka6Client->exists() && $oka6Client->automatic_remember_sms == 1 ? 'selected' : ''}}>Sim</option>
+                    <option value="0" {{$oka6Client->exists() && $oka6Client->automatic_remember_sms == 0 ? 'selected' : ''}}>Nao</option>
+                </select>
+                @if($errors->has('automatic_remember_sms'))
+                    <span class="help-block">{{$errors->first('automatic_remember_sms')}}</span>
+                @endif
+            </div>
+
+            <div class="col-md-4 form-group {{$errors->has('automatic_remember_email') ? 'has-error' : ''}}">
+                <label for="type">Notificacoes de emails automaticas</label>
+                <select type="text" name="automatic_remember_email" class="form-control {{$errors->has('automatic_remember_email') ? 'is-invalid' : ''}}" id="automatic_remember_email" >
+                    <option value="1" {{$oka6Client->exists() && $oka6Client->automatic_remember_email == 1 ? 'selected' : ''}}>Sim</option>
+                    <option value="0" {{$oka6Client->exists() && $oka6Client->automatic_remember_email == 0 ? 'selected' : ''}}>Nao</option>
+                </select>
+                @if($errors->has('automatic_remember_email'))
+                    <span class="help-block">{{$errors->first('automatic_remember_email')}}</span>
+                @endif
+            </div>
+
+
+
             <div class="col-md-12 form-group">
 
             </div>
@@ -357,6 +392,7 @@
         </div>
     </div>
 </div>
+
 <div class="card">
     <div class="card-header bg-amber">
         <h6 class="m-b-0 text-black font-weight-bolder" >Api            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-primary m-l-20" ><i class="fa fa-key"></i></a></h6>

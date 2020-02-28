@@ -357,6 +357,21 @@
         </div>
     </div>
 </div>
+<div class="card">
+    <div class="card-header bg-amber">
+        <h6 class="m-b-0 text-black font-weight-bolder" >Api            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-primary m-l-20" ><i class="fa fa-key"></i></a></h6>
+    </div>
+    <div class="card-body collapse" id="collapseExample">
+        <label for="state_register">Access Key</label>
+        <input type="text" readonly="readonly" value="{{old('api_key', $oka6Client->exists() ? $oka6Client->api_key : '')}}" name="api_key"
+               class="form-control {{$errors->has('api_key') ? 'is-invalid' : ''}}"
+               id="api_key" placeholder="">
+        @if($errors->has('api_key'))
+            <span class="help-block">{{$errors->first('api_key')}}</span>
+        @endif
+    </div>
+</div>
+
 @if($oka6Client->exists() && (int)$oka6Client->id>0)
     <div class="card">
         <div class="card-header bg-amber">
@@ -391,7 +406,10 @@
     </div>
 @endif
 
+
+
 @if($oka6Client->exists() && (int)$oka6Client->id>0)
+
     <div class="card">
         <div class="card-header bg-amber">
             <h6 class="m-b-0 text-black font-weight-bolder">Transações de Pagamento</h6>
@@ -558,6 +576,15 @@
             background-color: #fff;
             color: black;
         }
+
+        [data-toggle=collapse].collapsed .fa:before {
+            content: "\f0c5";
+        }
+
+        [data-toggle=collapse] .fa:before {
+            content: "\f0c5";
+        }
+
     </style>
 @endsection
 @section('script_footer_end')

@@ -164,8 +164,14 @@ $theme6: #233242 !important;
         }
 
         a.pro-pic {
+            .avatar-default{
+                position:relative;
+                top: 9px;
+            }
             span {
                 color: #fff;
+                position: relative;
+                top: -8px;
             }
         }
 

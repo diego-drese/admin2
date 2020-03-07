@@ -30,7 +30,7 @@
             font-family: poiret-one, sans-serif;
         }
     </style>
-    <script src="//use.edgefonts.net/poiret-one.js"></script>
+    <!--script src="//use.edgefonts.net/poiret-one.js"></script-->
 </head>
 <body>
 <!-- ============================================================== -->
@@ -543,7 +543,7 @@
     });
 </script>
 
-<script src="//use.edgefonts.net/sail.js"></script>
+<!--script src="//use.edgefonts.net/sail.js"></script-->
 </body>
 
 </html>

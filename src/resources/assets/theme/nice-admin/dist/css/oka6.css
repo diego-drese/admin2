@@ -167,3 +167,7 @@ form .card-body {
     -moz-transition-duration: 0.3s;
     transition-duration: 0.3s;
 }
+
+span.select2.select2-container.select2-container--default {
+    width: 100% !important;
+}

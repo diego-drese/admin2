@@ -19,7 +19,8 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background: #948fec">
+
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image: linear-gradient(141deg, #8fcaec7d 0%, #1fc8db 51%, #948fec 75%);background: #8fcaec7d">
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">

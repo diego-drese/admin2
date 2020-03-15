@@ -12805,13 +12805,14 @@ Padding margin property
   min-height: 100vh;
   position: relative; }
   .auth-wrapper .auth-box {
+    border-radius: 7px;
     background: #fff;
     padding: 20px;
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
     max-width: 400px;
     width: 90%;
     margin: 10% 0; }
-    .auth-wrapper .auth-box .logo {
+    .auth-wrapper .auth-boxcd .logo {
       text-align: center; }
     .auth-wrapper .auth-box.on-sidebar {
       top: 0px;
@@ -14374,7 +14375,7 @@ File: scss
 /*==============================================================
  For Laptop & above all (1370px)
  ============================================================== */
-/*-- ==============================================================
+/*-- ==============================auth-wrapper .auth-box================================
  Small Desktop & above all (1024px)
  ============================================================== */
 /*-- ==============================================================

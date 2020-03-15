@@ -19,11 +19,14 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background: #4267b2!important">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #f1f1f1;">
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
-                        <span class="db"><img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="logo" /></span>
+                        <span class="db"><img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="logo" style="border-style: none;
+    position: absolute;
+    margin-top: -93px;
+    margin-left: -60px;"/></span>
                         <h5 class="font-medium m-b-20">Entrar no Admin</h5>
                     </div>
                     <!-- Form -->
@@ -63,7 +66,7 @@
                                 </div>
                                 <div class="form-group text-center">
                                     <div class="col-xs-12 p-b-20">
-                                        <button class="btn btn-block btn-lg btn-info" type="submit">Entrar</button>
+                                        <button class="btn btn-block btn-lg btn-dark" type="submit">Entrar</button>
                                     </div>
                                 </div>
 

@@ -42,6 +42,10 @@ class Oka6Client extends Model {
                             'type_send_sms',
                             'automatic_remember_sms',
                             'automatic_remember_email',
+                            'template_sms',
+                            'template_email',
+                            'template_whats',
+
 
                             ];
     protected $dates        =['next_charging_attempt'];
@@ -101,6 +105,9 @@ class Oka6Client extends Model {
         $dataForm['total_scheduling_remaining']     = 0;
         $dataForm['next_charging_attempt']          = null;
         $dataForm['total_charging']                 = 0;
+        $dataForm['template_sms']                   = $request->get('template_sms');
+        $dataForm['template_email']                 = $request->get('template_email');
+        $dataForm['template_whats']                 = $request->get('template_whats');
 
         if( $request->get('api_key')==""){
             $dataForm['api_key']                        = Crypt::encrypt($dataForm['id']);
@@ -137,7 +144,13 @@ class Oka6Client extends Model {
     }
 
     public static function createClient(Request $request){
-        $dataForm = self::makeDataSave(['id'=>Sequence::getSequence(Oka6Client::TABLE)], $request);
+        $dataCreate = [
+            'id'            => Sequence::getSequence(Oka6Client::TABLE),
+            'template_sms'  => 'Olá {NOME_CLIENTE}, seu horário com {NOME_PROFISSIONAL} agendado para {DIA} às {HORARIO} está confirmado? Para confirmar acesse o link: {LINK_CONFIRMACAO}',
+            'template_email'=> 'Olá {NOME_CLIENTE}, seu horário com {NOME_PROFISSIONAL} agendado para {DIA} às {HORARIO} está confirmado? Para confirmar acesse o link: {LINK_CONFIRMACAO}',
+            'template_whats'=> 'Olá {NOME_CLIENTE}, seu horário com {NOME_PROFISSIONAL} agendado para {DIA} às {HORARIO} está confirmado? Para confirmar acesse o link: {LINK_CONFIRMACAO}',
+        ];
+        $dataForm = self::makeDataSave($dataCreate, $request);
         self::saveClient($dataForm);
         return $dataForm;
     }

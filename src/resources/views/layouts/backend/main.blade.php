@@ -145,7 +145,7 @@
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
                                                     <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
-                                                         alt="user" class="rounded-circle">
+                                                         alt="user" class="rounded-circle avatar-default  d-xs-none">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -158,7 +158,7 @@
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
                                                     <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
-                                                         alt="user" class="rounded-circle">
+                                                         alt="user" class="avatar-default  d-xs-none rounded-circle">
                                                     <span class="profile-status busy pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -171,7 +171,7 @@
                                         <a href="javascript:void(0)" class="message-item">
                                                 <span class="user-img">
                                                     <img src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
-                                                         alt="user" class="rounded-circle">
+                                                         alt="user" class="avatar-default  d-xs-none rounded-circle">
                                                     <span class="profile-status away pull-right"></span>
                                                 </span>
                                             <div class="mail-contnet">
@@ -293,7 +293,7 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(Auth::user()->picture != "")
-                                <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle" width="40">
+                                <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle avatar-default  d-xs-none" width="40">
                             @else
                                 <img class="avatar-default  d-xs-none" src="/vendor/oka6/admin/assets/images/users/user_avatar.svg"
                                      width="44" height="44">
@@ -310,7 +310,7 @@
                                 class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10 user-conf-bg">
                                 <div class="">
                                     @if(Auth::user()->picture != "")
-                                        <img src="{{Auth::user()->picture}}" alt="user" class="rounded-circle"
+                                        <img src="{{Auth::user()->picture}}" alt="user" class=" avatar-default  d-xs-none rounded-circle"
                                              width="60">
                                     @else
                                         <img class="avatar-default"
@@ -410,8 +410,8 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            Desenvolvido por <a href="https://oka6.com.br" target="_blank">Oka6</a> SoftwareHouse
-            <a href="#" class="help-btn">
+            Desenvolvido por <a href="https://oka6.com.br" target="_blank">Oka6</a> Software House
+            <a href="#" class="help-btn hide ">
                 <i class="fa fa-question my-float"></i>
             </a>
         </footer>
@@ -421,6 +421,7 @@
 
         <!--HELP PopUp -->
         <div class="popup-help" role="alert">
+
             <div class="popup-help-container">
                 <div class="head"><span>Ajuda</span></div>
                 <div class="popup-container-content">

@@ -14,18 +14,18 @@ class MiddlewareAdmin
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function handle(Request $request, Closure $next, $ability = null, $boundModelName = null)
-    {
+    public function handle(Request $request, Closure $next, $ability = null, $boundModelName = null) {
         $routeArray         = app('request')->route()->getAction();
         $prefix_url         = \Config::get('admin.prefix_url');
         $controllerAction   = $routeArray['controller'];
         $controller         = explode('@', $controllerAction);
         $ajax               = $request->ajax();
+        $json               = $request->wantsJson();
         $request->headers->set('controller' , $controller);
         $resources          = ResourceAdmin::verifyUser($controllerAction);
 
         if($resources === false){
-            if($ajax){
+            if($ajax || $json){
                 return response()->json(['message'=>'Recurso não cadastrado'],404);
             }
 
@@ -33,12 +33,11 @@ class MiddlewareAdmin
         }
 
         if(!count($resources)){
-            if($ajax){
+            if($ajax || $json){
                 return response()->json(['message'=>'Desculpe, você não tem permissão!'],403);
             }
             return redirect("/$prefix_url/page-not-allowed");
         }
-
 
         return $next($request);
     }

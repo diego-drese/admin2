@@ -189,5 +189,11 @@ class Oka6ServiceProvider extends ServiceProvider
         $this->commands([
             RefreshRoutes::class
         ]);
+
+
+        $this->app->bind(
+            \Illuminate\Contracts\Debug\ExceptionHandler::class,
+            'Oka6\Admin\Oka6Handler'
+        );
     }
 }

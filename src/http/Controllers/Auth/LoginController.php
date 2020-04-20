@@ -41,21 +41,18 @@ class LoginController extends Controller
     {
         $this->middleware('Oka6\\Admin\\Http\\Middleware\\RedirectIfAuthenticatedAdmin')->except('logout');
     }
-    protected function sendFailedLoginResponse(Request $request)
-    {
+    protected function sendFailedLoginResponse(Request $request) {
         throw ValidationException::withMessages([
             $this->username() => ['failed' => 'Essas credenciais não correspondem aos nossos registros.'],
         ]);
     }
-    public function logout(Request $request)
-    {
+    public function logout(Request $request){
         $this->guard()->logout();
         $request->session()->invalidate();
         return redirect('/login');
     }
 
-    protected function authenticated(Request $request, $user)
-    {
+    protected function authenticated(Request $request, $user) {
         $prefix_url = \Config::get('admin.prefix_url');
         if(Auth::User()->active === 0){
             $this->logout($request);
@@ -65,8 +62,14 @@ class LoginController extends Controller
 
         $redirect = Resource::where('id', (int)Auth::User()->resource_default_id)->first();
         if(!isset($redirect->route_name)){
-            return redirect("$prefix_url/dashboard");
+            return redirect("$prefix_url/page-not-found");
         }
+
+        $path = $request->get('path');
+        if (filter_var($path, FILTER_VALIDATE_URL) && !strpos($path, 'logout')) {
+            return redirect($path);
+        }
+
         return redirect(route($redirect->route_name));
     }
     /**
@@ -74,10 +77,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showLoginForm()
-    {
-
-        return view('Admin::auth.login');
+    public function showLoginForm(Request $request){
+        $path = $request->get('path');
+        return view('Admin::auth.login', compact('path'));
     }
 
 }

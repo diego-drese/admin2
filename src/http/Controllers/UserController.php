@@ -35,7 +35,12 @@ class UserController extends BaseController {
                 })
                 ->addColumn('profileName', function($row){
                     $profile = Profile::where('id', (int)$row->profile_id)->first();
-                    return $profile->name;
+                    if($profile){
+                        return $profile->name;
+                    }else{
+                        return '';
+                    }
+
                 })
                 ->addColumn('resourceName', function($row){
                     $resource = Resource::where('id', (int)$row->resource_default_id)->first();

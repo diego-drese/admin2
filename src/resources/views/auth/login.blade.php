@@ -34,6 +34,7 @@
                         <div class="col-12">
                                 <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('login') }}">
                                     {{ csrf_field() }}
+                                    <input type="hidden" value="{{$path}}" name="path">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>

@@ -21,7 +21,7 @@ class RedirectIfAuthenticatedAdmin
 
         if (Auth::guard($guard)->check()) {
             $redirect = Resource::where('id', (int)Auth::User()->resource_default_id)->first();
-            if(isset($redirect->route_name)){
+            if($redirect && isset($redirect->route_name)) {
                 return redirect(route($redirect->route_name));
             }
             return redirect("/$prefix_url/page-not-found");

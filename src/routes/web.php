@@ -130,8 +130,7 @@ Route::group(['prefix' => $prefix_url,  'middleware' => ['web', 'auth']], functi
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', 'Oka6\Admin\Http\Controllers\HomeController@index')->name('index');
-    Route::post('contact/send-mail', 'Oka6\Admin\Http\Controllers\HomeController@sendMail')->name('sendMail');
+   // Route::get('/', 'Oka6\Admin\Http\Controllers\HomeController@index')->name('index');
 
 //    /*Blog*/
 //    Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');

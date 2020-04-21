@@ -8,7 +8,12 @@ php artisan db:seed --class=Oka6\\\Admin\\\DatabaseSeeder
 
 php artisan db:seed --class=Oka6\\\Clinic\\\DatabaseSeeder
 
-php artisan vendor:publish --tag=public --force
+php artisan db:seed --class=Oka6\\\Blog\\\DatabaseSeeder
+
+php artisan vendor:publish --tag=0 --force
 
 php artisan Oka6:AdminRoutes
+
+php artisan db:seed --class=Oka6\\\Admin\\\UserDefaultPage
+
 

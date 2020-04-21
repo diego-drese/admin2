@@ -4,6 +4,7 @@ namespace Oka6\Admin\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Oka6\Admin\Resource;
 
 class RedirectIfAuthenticatedAdmin
 {
@@ -19,12 +20,11 @@ class RedirectIfAuthenticatedAdmin
         $prefix_url         = \Config::get('admin.prefix_url');
 
         if (Auth::guard($guard)->check()) {
-            $redirect = '';
-            $redirect = Auth::User()->resourceDefault->route_name;
-            if($redirect){
-                return redirect(route($redirect));
+            $redirect = Resource::where('id', (int)Auth::User()->resource_default_id)->first();
+            if(isset($redirect->route_name)){
+                return redirect(route($redirect->route_name));
             }
-            return redirect("/$prefix_url/dashboard");
+            return redirect("/$prefix_url/page-not-found");
         }
 
         return $next($request);

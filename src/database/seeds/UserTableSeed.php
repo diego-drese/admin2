@@ -10,7 +10,7 @@ class UserTableSeed extends Seeder{
 
     public function run() {
         User::where('id','<', 0)->delete();
-        $faker = Factory::create();
+        $faker      = Factory::create();
         User::insert([
             'id'   => -1,
             'name' => "Admin",
@@ -18,7 +18,7 @@ class UserTableSeed extends Seeder{
             'cell_phone' => $faker->phoneNumber,
             'active' => 1,
             'profile_id' => User::PROFILE_ID_ROOT,
-            'resource_default_id' => 2,
+            'resource_default_id' => 0,
             "client_id" =>null,
             'email' => 'admin@oka6.com.br',
             'password' => bcrypt('oka6'),
@@ -26,36 +26,5 @@ class UserTableSeed extends Seeder{
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-
-        User::insert([
-            'id'   => -2,
-            'name' => "Cliente para teste",
-            'lastname' => "Oka6",
-            'cell_phone' => $faker->phoneNumber,
-            'active' => 1,
-            'profile_id' => 2,
-            'resource_default_id' => 1,
-            "client_id" =>null,
-            'email' => 'client@oka6.com.br',
-            'password' => bcrypt('oka6'),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
-        User::insert([
-            'id'   => -3,
-            'name' => "Usuário do Cliente para teste",
-            'lastname' => "Oka6",
-            'cell_phone' => $faker->phoneNumber,
-            'active' => 1,
-            'profile_id' => 3,
-            'resource_default_id' => 1,
-            "client_id" =>null,
-            'email' => 'client.user@oka6.com.br',
-            'password' => bcrypt('oka6'),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
     }
 }

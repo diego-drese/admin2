@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="/vendor/oka6/admin/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{\Illuminate\Support\Facades\Config::get('admin.favicon')}}">
     <title>@yield('title')</title>
     @yield('style_head_start')
     <link rel="stylesheet" href="{{mix('/vendor/oka6/admin/css/basic.css')}}">

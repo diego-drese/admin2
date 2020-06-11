@@ -19,16 +19,14 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
+
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #f1f1f1;">
             <div class="auth-box">
+                <div class="logo">
+                    <span class="db"><img src="{{\Illuminate\Support\Facades\Config::get('admin.logo')}}" alt="logo" style="max-width: 200px;padding-bottom: 20px"></span>
+
+                </div>
                 <div id="loginform">
-                    <div class="logo">
-                        <span class="db"><img src="/vendor/oka6/admin/assets/images/logo-icon.png" alt="logo" style="border-style: none;
-    position: absolute;
-    margin-top: -93px;
-    margin-left: -60px;"/></span>
-                        <h5 class="font-medium m-b-20">Entrar no Admin</h5>
-                    </div>
                     <!-- Form -->
                     <div class="row">
                         <div class="col-12">

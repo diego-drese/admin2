@@ -23,8 +23,8 @@
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
-                        <span class="db"><img src="/vendor/oka6/admin/nice-admin/assets/images/logo-icon.png" alt="logo" /></span>
-                        <h5 class="font-medium m-b-20">Entrar no Admin</h5>
+                        <span class="db"><img src="{{\Illuminate\Support\Facades\Config::get('admin.logo')}}" alt="logo" style="max-width: 200px;padding-bottom: 20px"></span>
+                        <h5 class="font-medium m-b-20">Recuperar senha</h5>
                     </div>
                     <!-- Form -->
                     <div class="row">
@@ -47,9 +47,13 @@
                                     <label class="text-danger" for="email">{{ $errors->first('email') }}</label>
                                 @endif
 
+                                <div class="custom-control custom-checkbox">
+                                    <a href="{{route('login')}}" id="to-recover" class="text-dark float-right"><i class="fas fa-arrow-alt-circle-left m-r-5"></i> Voltar </a>
+                                </div>
+
                                 <div class="form-group text-center">
                                     <div class="col-xs-12 p-b-20">
-                                        <button class="btn btn-block btn-lg btn-info" type="submit">Alterar Senha</button>
+                                        <button class="btn btn-block btn-lg btn-dark" type="submit">Solicitar</button>
                                     </div>
                                 </div>
 

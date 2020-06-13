@@ -23,8 +23,8 @@
             <div class="auth-box">
                 <div id="loginform">
                     <div class="logo">
-                        <span class="db"><img src="/vendor/oka6/admin/nice-admin/assets/images/logo-icon.png" alt="logo" /></span>
-                        <h5 class="font-medium m-b-20">Entrar no Admin</h5>
+                        <span class="db"> <img src="{{\Illuminate\Support\Facades\Config::get('admin.logo')}}" alt="logo" style="max-width: 200px;padding-bottom: 20px"> </span>
+                        <h5 class="font-medium m-b-20">Redefinir senha</h5>
                     </div>
                     <!-- Form -->
                     <div class="row">
@@ -83,8 +83,8 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-12 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-block btn-lg btn-dark">
                                             {{ __('Alterar Senha') }}
                                         </button>
                                     </div>

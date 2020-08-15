@@ -21,7 +21,7 @@
         <!-- ============================================================== -->
 
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #f1f1f1;">
-            <div class="auth-box">
+            <div class="auth-box" style="background: {{\Illuminate\Support\Facades\Config::get('admin.background_login')}}">
                 <div class="logo">
                     <span class="db"><img src="{{\Illuminate\Support\Facades\Config::get('admin.logo')}}" alt="logo" style="max-width: 200px;padding-bottom: 20px"></span>
 

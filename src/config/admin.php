@@ -5,6 +5,7 @@ return [
     'favicon'               => env('OKA6_ADMIN_FAVICON', '/vendor/oka6/admin/assets/images/favicon.png'),
     'logo'               	=> env('OKA6_ADMIN_LOGO', '/vendor/oka6/admin/assets/images/logo-icon.png'),
     'logo_label'            => env('OKA6_ADMIN_LOGO_LABEL', 'Oka6'),
+    'background_login'      => env('OKA6_ADMIN_BACKGROUND_LOGIN', '#fff'),
     "cache_prefix"          => 'oka6',
     'profile_type'          => ['admin' => 'Admin'],
     'plan_fields_update'    => [],

@@ -6,7 +6,7 @@ $menu       = isset($adminResourcesMenu) ? $adminResourcesMenu : [];
 function create_menu($item, &$idCurrent, &$ctrl) {
 $controllerReceive  = $ctrl;
 $routeName          = $item['route_name'] ? $item['route_name'] : '#';
-$route              = $routeName != '#' ? route($routeName) : $routeName;
+$route              = $routeName != '#' && $item['controller']!=''  ? route($routeName) : '#';
 $controllerLink     = $item['controller'];
 $menu               = $item['menu'];
 $icon               = $item['icon'];

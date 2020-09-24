@@ -105,11 +105,12 @@ class RefreshRoutes extends Command
             if(isset($currentResorces->resources_allow) && count($currentResorces->resources_allow)>0){
                 $oldResorces = $currentResorces->resources_allow;
             }
-            $newResources = array_unique(array_merge ($resources, $oldResorces));
-            Profile::where('id',User::PROFILE_ID_ROOT)->update(['resources_allow'=>$newResources]);
+            $resourcesObj = array_unique(array_merge ($resources, $oldResorces));
+            foreach ($resourcesObj as $req){
+	            $newResources[] = $req;
+            }
+            Profile::where('id',User::PROFILE_ID_ROOT)->update(['resources_allow'=>array_map('intval', $newResources)]);
             $bar->finish();
-
-
     }
 
 }

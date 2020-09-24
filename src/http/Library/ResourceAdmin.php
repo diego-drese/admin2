@@ -27,15 +27,13 @@ class ResourceAdmin
     }
 
     public static function hasResourceByRouteName($routeName, $params = []){
-        $route          = route($routeName, $params);
         $findResource   = Resource::where('route_name','=',$routeName)->first();
         if($findResource == null){
             return false;
         }
         $userResources  = Resource::getResourcesByRouteName(Auth::user()->profile_id, $routeName);
-
         if(count($userResources)){
-            return true;
+            return route($routeName, $params);;
         }
         return false;
     }

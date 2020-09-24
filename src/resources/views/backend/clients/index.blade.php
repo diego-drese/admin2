@@ -93,10 +93,10 @@
                     {data: "created_at", 'name': 'created_at'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-                        //var edit_button = "";
-                        //if (hasEdit == '1') {
+                        var edit_button = "";
+                        if(hasEdit) {
                           var  edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true"><b>Editar</b></a>';
-                        //}
+                        }
                         return edit_button
                     }
                     }

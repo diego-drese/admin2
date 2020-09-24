@@ -72,7 +72,6 @@
 @endsection
 @section('script_footer_end')
     <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/select2.js')}}></script>
-
     <script type="text/javascript" src={{mix('/vendor/oka6/admin/js/jquerysteps.js')}}></script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">

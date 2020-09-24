@@ -44,7 +44,7 @@ class Resource extends Model
     public static function buildBreadCrumb($resource, $profileId){
         return self::where('id', $resource->parent_id)
             //->join('profile_has_resources', 'profile_has_resources.resource_id','resources.id')
-            ->where('profile_id', $profileId)
+            //->where('profile_id', $profileId)
             ->first();
     }
     public static function getResourceIdByRouteName($routeName){

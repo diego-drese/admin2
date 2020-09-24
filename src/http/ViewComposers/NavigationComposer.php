@@ -51,18 +51,19 @@ class NavigationComposer
         $result = [];
 
         if($resource){
-            $result = array($resource->toArray());
+            $result[]=$resource->toArray();
         }else{
             $resource = false;
         }
 
         while($resource){
-            $resource = Resource::buildBreadCrumb($resource,$profileId);
+            $resource = Resource::buildBreadCrumb($resource, $profileId);
+            
             if($resource){
                 $result[] = $resource->toArray();
             }
         }
-
+		
         return array_reverse($result);
     }
 }

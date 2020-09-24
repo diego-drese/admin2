@@ -10,10 +10,14 @@ php artisan Oka6:AdminRoutes
 
 php artisan vendor:publish --tag=0 --force
 
-php artisan db:seed --class=Oka6\\\Clinic\\\DatabaseSeeder
 
-php artisan db:seed --class=Oka6\\\Blog\\\DatabaseSeeder
 
-php artisan db:seed --class=Oka6\\\Admin\\\UserDefaultPage
+Caso ocorra erro:
+
+Error: pngquant failed to build, make sure that libpng-dev is installed
+
+Execute o seguinte comando:
+
+npm install imagemin-pngquant@5.0.1 --save
 
 

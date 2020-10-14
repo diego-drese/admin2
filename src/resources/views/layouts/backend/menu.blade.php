@@ -20,13 +20,13 @@ if(count($item['sub'])) {
 ?>
 <li id="li-{{$id}}" class="sidebar-item {{$controllerLink == $controllerReceive ? ' activeMenu': ''}}">
     <a id="a-{{$id}}" aria-expanded="false" class="sidebar-link {{$children ? 'nav-parent has-arrow': ''}} {{$controllerLink == $controllerReceive ? ' active ': ''}}" href="{{$route}}">
-        <i class="fa {{$icon}}"></i>
+        <i class="{{$icon}}"></i>
         <span class="hide-menu">{{$menu}}</span>
     </a>
 
     <?php
     if($children){
-        echo "<ul aria-expanded=\"false\" class=\"collapse  first-level\" >";
+        echo "<ul aria-expanded=\"false\" class=\"collapse first-level\" id=\"ul-{$item['id']}\">";
         foreach ($children as $child) {
             create_menu($child, $idCurrent, $ctrl);
         }

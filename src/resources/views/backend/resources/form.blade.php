@@ -132,7 +132,7 @@
 
         });
 
-        $(document).on('click', '.fas', function (e) {
+        $(document).on('click', '.fas, .mdi', function (e) {
             var classeFonte = $(this).attr('class');
             var inputText = $('#icon-select');
 

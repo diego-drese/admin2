@@ -31,6 +31,6 @@ class CreateOka6Notification extends Migration {
     }
 
     public function down() {
-        Schema::connection($this->connection)->dropIfExists('oka6_plan');
+        Schema::connection($this->connection)->dropIfExists('oka6_notification');
     }
 }

@@ -390,10 +390,12 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            Desenvolvido por <a href="https://oka6.com.br" target="_blank">Oka6</a> Software House
-            <a href="#" class="help-btn hide ">
-                <i class="fa fa-question my-float"></i>
-            </a>
+            @if(!\Illuminate\Support\Facades\Config::get('admin.hide_footer'))
+                Desenvolvido por <a href="https://oka6.com.br" target="_blank">Oka6</a> Software House
+                <a href="#" class="help-btn hide ">
+                    <i class="fa fa-question my-float"></i>
+                </a>
+            @endif
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
@@ -441,7 +443,10 @@
                 let parent = $(activeMenuId).closest('ul');
                 parent.addClass('in');
                 parent.prev().addClass('active');
-                activeMenuId = parent.prop('id');
+                activeMenuId = '#'+parent.prop('id');
+
+                parent = $(activeMenuId).closest('li');
+                activeMenuId = '#'+parent.prop('id');
                 count++;
                 if (count > 50) {
                     break;

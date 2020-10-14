@@ -25,7 +25,7 @@
 						'menu' => 'System',
 						'is_menu' => 1,
 						'route_name' => 'System',
-						'icon' => 'fa-folder',
+						'icon' => 'fas fa-folder',
 						'controller_method' => '',
 						'can_be_default' => 0,
 						'parent_id' => 0,

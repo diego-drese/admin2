@@ -1,9 +1,11 @@
 <?php
 
 
-namespace Oka6\Admin;
+namespace Oka6\Admin\Database\Seeds;
 
 use Illuminate\Database\Seeder;
+use Oka6\Admin\Models\Resource;
+use Oka6\Admin\Models\User;
 
 class UserDefaultPage extends Seeder {
 	

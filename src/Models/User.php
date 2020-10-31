@@ -71,11 +71,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 		return self::where('id', (int)$id)->first();
 	}
 	
-	public function getClinicNameAttribute() {
-		$user = Auth::user();
-		$query = Oka6Client::where('id', (int)$user->client_id)->select('domain')->first();
-		return $query->domain;
-	}
 	
 	/**
 	 * Send the password reset notification.

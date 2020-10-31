@@ -3,7 +3,7 @@
 namespace Oka6\Admin\Http\Library;
 
 use Illuminate\Support\Facades\Auth;
-use Oka6\Admin\Models\Re;
+use Oka6\Admin\Models\Resource;
 
 class ResourceAdmin {
 	public static function verifyUser($controllerAction) {

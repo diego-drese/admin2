@@ -6,10 +6,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
-use Oka6\Admin\Library\ResourceAdmin;
-use Oka6\Admin\Profile;
-use Oka6\Admin\Resource;
-use Oka6\Admin\Sequence;
+use Oka6\Admin\Http\Library\ResourceAdmin;
+use Oka6\Admin\Models\Profile;
+use Oka6\Admin\Models\Resource;
+use Oka6\Admin\Models\Sequence;
 use Yajra\Datatables\Datatables;
 
 class ResourcesController extends BaseController {

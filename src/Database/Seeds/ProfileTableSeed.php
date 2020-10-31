@@ -1,11 +1,13 @@
 <?php
 
 
-namespace Oka6\Admin;
+namespace Oka6\Admin\Database\Seeds;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
+use Oka6\Admin\Models\Profile;
+use Oka6\Admin\Models\User;
 
 class ProfileTableSeed extends Seeder {
 	

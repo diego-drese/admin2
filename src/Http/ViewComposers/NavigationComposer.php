@@ -5,7 +5,7 @@ namespace Oka6\Admin\Http\ViewComposers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
-use Oka6\Admin\Resource;
+use Oka6\Admin\Models\Resource;
 
 class NavigationComposer {
 	// Injeção de metodos nas Views
@@ -17,7 +17,7 @@ class NavigationComposer {
 	
 	private function composeController(View $view) {
 		
-		$adminController = array_first(explode("@", Route::getCurrentRoute()->getAction()['controller']));
+		$adminController = explode("@", Route::getCurrentRoute()->getAction()['controller'])[0];
 		$adminResourcesMenu = $this->buildMenuRecursive(0, Auth::user()->profile_id);
 		$adminCurrentResource = Resource::getResourcesByControllerMethod(Route::getCurrentRoute()->getAction()['controller']);
 		$adminBreadCrumb = $this->buildBreadCrumb($adminCurrentResource, Auth::user()->profile_id);
@@ -31,7 +31,8 @@ class NavigationComposer {
 		$menus = Resource::getItensMenuByParentAndProfile($parentID, $profileId);
 		
 		foreach ($menus as $key => $value) {
-			$ctrl = array_first(explode("@", $value->controller_method));
+			$ctrl = explode("@", $value->controller_method)[0];
+			
 			$result[$key] = array(
 				'menu' => $value->menu,
 				'route_name' => $value->route_name,

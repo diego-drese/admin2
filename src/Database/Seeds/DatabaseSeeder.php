@@ -1,6 +1,6 @@
 <?php
 
-namespace Oka6\Admin;
+namespace Oka6\Admin\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 
@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call(ProfileTableSeed::class);
 		$this->call(ResourceTableSeed::class);
 		$this->call(TutorialTableSeed::class);
-		$this->call(PlanTableSeed::class);
-		$this->call(ClientTableSeed::class);
 		
 	}
 }

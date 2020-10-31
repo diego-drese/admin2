@@ -3,9 +3,9 @@
 namespace Oka6\Admin\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use Oka6\Admin\Profile;
-use Oka6\Admin\Resource;
-use Oka6\Admin\User;
+use Oka6\Admin\Models\Profile;
+use Oka6\Admin\Models\Resource;
+use Oka6\Admin\Models\User;
 
 class PublicMethods extends Controller {
 	public function getResourcesDefault($profileId) {

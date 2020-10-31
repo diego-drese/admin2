@@ -10,6 +10,9 @@ class SessionManager extends Manager {
 	 *
 	 * @return string
 	 */
+	public function __construct($app) {
+		$this->app = $app;
+	}
 	public function getDefaultDriver() {
 		return 'mongodb';
 	}

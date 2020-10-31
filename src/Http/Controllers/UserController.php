@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Image;
-use Oka6\Admin\Library\ResourceAdmin;
-use Oka6\Admin\Oka6Client;
-use Oka6\Admin\Profile;
-use Oka6\Admin\Resource;
-use Oka6\Admin\Sequence;
-use Oka6\Admin\User;
+
+use Oka6\Admin\Http\Library\ResourceAdmin;
+use Oka6\Admin\Models\Profile;
+use Oka6\Admin\Models\Resource;
+use Oka6\Admin\Models\Sequence;
+use Oka6\Admin\Models\User;
+
 use Yajra\Datatables\Datatables;
 
 
@@ -65,7 +66,7 @@ class UserController extends BaseController {
 	 */
 	public function create(User $user) {
 		$profiles = Profile::all('id', 'name');
-		$clients = Oka6Client::all('id', 'name');
+		$clients = [];
 		$hasSave = ResourceAdmin::hasResourceByRouteName('admin.users.store');
 		return view('Admin::backend.users.create', compact('profiles', 'user', 'clients', 'hasSave'));
 	}
@@ -119,8 +120,9 @@ class UserController extends BaseController {
 	public function edit($id) {
 		$user = User::where('id', (int)$id)->first();
 		$profiles = Profile::select('id', 'name')->get();
-		$clients = Oka6Client::all('id', 'name');
+		$clients = [];
 		$profileCurrent = "";
+		$clientCurrent = [];
 		foreach ($profiles as $profile) {
 			if ($profile->id == $user->profile_id) {
 				$profileCurrent = $profile->name;

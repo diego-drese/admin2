@@ -3,7 +3,6 @@
 namespace Oka6\Admin\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Routing\RouteCollection;
 use Oka6\Admin\Models\Profile;
 use Oka6\Admin\Models\Resource;
 use Oka6\Admin\Models\Sequence;
@@ -40,7 +39,7 @@ class RefreshRoutes extends Command {
 	 */
 	public function handle() {
 		
-		$routeCollection = RouteCollection::getRoutes();
+		$routeCollection = \Route::getRoutes();
 		$routes = [];
 		$bar = $this->output->createProgressBar(count($routeCollection));
 		

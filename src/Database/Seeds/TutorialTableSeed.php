@@ -1,10 +1,11 @@
 <?php
 
 
-namespace Oka6\Admin;
+namespace Oka6\Admin\Database\Seeds;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Oka6\Admin\Models\TutorialHelp;
 
 class TutorialTableSeed extends Seeder {
 	

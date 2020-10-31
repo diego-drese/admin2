@@ -2,17 +2,17 @@
 
 namespace Oka6\Admin\Http\Controllers\Auth;
 
-use Config;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Oka6\Admin\Http\Controllers\Controller;
-use Oka6\Admin\Profile;
-use Oka6\Admin\Resource;
-use Oka6\Admin\User;
+use Oka6\Admin\Models\Profile;
+use Oka6\Admin\Models\Resource;
+use Oka6\Admin\Models\User;
 
 class LoginController extends Controller {
 	/*

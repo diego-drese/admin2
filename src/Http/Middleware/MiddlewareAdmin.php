@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Oka6\Admin\Library\ResourceAdmin;
+use Oka6\Admin\Http\Library\ResourceAdmin;
 
 
 class MiddlewareAdmin {

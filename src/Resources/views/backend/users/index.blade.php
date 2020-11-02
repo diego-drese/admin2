@@ -91,6 +91,7 @@
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
+                            console.log('okkkk');
                             var edit_button = "";
                             if (hasEdit) {
                                 edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true"><b>Editar</b></a>';

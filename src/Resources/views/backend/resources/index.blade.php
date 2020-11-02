@@ -92,6 +92,7 @@
                     {data: 'controller_method', 'name': 'controller_method'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
+
                             if (data !== null) {
                                 var span = "";
                                 $.each(data.profiles, function (k, v) {
@@ -107,6 +108,7 @@
 
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
+
                             var edit_button = "";
                             if (hasEdit) {
                                 edit_button = '<a href="' + data.edit_url + '" class="btn btn-xs btn-secondary" role="button" aria-pressed="true"><b>Editar</b></a>';

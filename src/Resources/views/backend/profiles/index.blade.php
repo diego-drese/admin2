@@ -77,10 +77,12 @@
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
-                    {data: "created_at", 'name': 'created_at'},
+                    {data: "created_at", 'name': 'created_at', render: function (data){
+                        console.log(data);
+                        return moment(data).format('DD/MM/YYYY HH:mm');
+                    }},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
-
                             if (data !== null) {
                                 var span = "";
                                 $.each(data.resources, function (k, v) {

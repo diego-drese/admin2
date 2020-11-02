@@ -2,15 +2,16 @@
 
 namespace Oka6\Admin\Http\Controllers;
 
-use Config;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Config;
 use Oka6\Admin\Http\Library\ResourceAdmin;
 use Oka6\Admin\Models\Profile;
 use Oka6\Admin\Models\Resource;
 use Oka6\Admin\Models\Sequence;
+use Oka6\Admin\Models\User;
 use Yajra\Datatables\Datatables;
 
 class ProfilesController extends BaseController {
@@ -50,7 +51,7 @@ class ProfilesController extends BaseController {
 	 * @return Response
 	 */
 	public function create(Profile $profile) {
-		$resources = Resource::all('name', 'id', 'route_name');
+		$resources = Resource::all('name', 'id', 'route_name', 'menu','icon');
 		$resourcesMenu = Resource::where('is_menu', 1)->where('can_be_default', 1)->get();
 		$hasSave = ResourceAdmin::hasResourceByRouteName('admin.profiles.store');
 		
@@ -86,8 +87,8 @@ class ProfilesController extends BaseController {
 	 * @return Response
 	 */
 	public function edit($id) {
-		$profile = Profile::firstOrNew(['id' => (int)$id]);
-		$resources = Resource::all('name', 'id', 'route_name');
+		$profile = Profile::getById((int)$id);
+		$resources = Resource::all('name', 'id', 'route_name', 'menu','icon');
 		$profilesResources = $profile->resources_allow;
 		$resourcesMenu = Resource::where('is_menu', 1)->where('can_be_default', 1)->get();
 		$hasSave = ResourceAdmin::hasResourceByRouteName('admin.profiles.update', [1]);
@@ -103,12 +104,16 @@ class ProfilesController extends BaseController {
 	 * @return Response
 	 */
 	public function update(Request $request, $id) {
-		$profile = Profile::firstOrNew(['id' => (int)$id]);
+		if($id==User::PROFILE_ID_ROOT){
+			toastr()->error("Esse perfil está bloqueado para edições", 'Erro');
+			return redirect(route('admin.profiles.index'));
+		}
+		$profile = Profile::getById([(int)$id]);
 		$dataForm = $request->all();
 		$this->validate($request, [
 			'name' => 'required'
 		]);
-		$dataForm['resources_allow'] = array_map('intval', $dataForm['resources']);
+		$dataForm['resources_allow'] = array_map('intval', isset($dataForm['resources']) ? $dataForm['resources'] : []);
 		$profile->fill($dataForm);
 		$profile->save();
 		

@@ -29,8 +29,6 @@ Route::group(['prefix' => $prefix_url, 'middleware' => ['web', 'auth', 'Oka6\Adm
 	Route::post('/profiles/{id}', 'Oka6\Admin\Http\Controllers\ProfilesController@update')->name('admin.profiles.update')->where(['iconAdmin' => 'fas fa-edit', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin' => 'Profile Update']);
 	
 	
-	
-	
 	Route::get('/resources', 'Oka6\Admin\Http\Controllers\ResourcesController@index')->name('admin.resources.index')->where(['iconAdmin' => 'fas fa-key', 'menuAdmin' => "Resources", 'parentRouteNameAdmin' => 'System Admin', 'nameAdmin' => 'Resource Listing', 'isDefaultAdmin' => '1']);
 	Route::get('/resources/create', 'Oka6\Admin\Http\Controllers\ResourcesController@create')->name('admin.resources.create')->where(['iconAdmin' => 'fas fa-plus-square', 'parentRouteNameAdmin' => 'admin.profiles.index', 'nameAdmin' => 'Resource Create',]);
 	Route::post('/resources', 'Oka6\Admin\Http\Controllers\ResourcesController@store')->name('admin.resources.store')->where(['iconAdmin' => 'fas fa-floppy-o', 'nameAdmin' => 'Save Resource']);
@@ -38,7 +36,8 @@ Route::group(['prefix' => $prefix_url, 'middleware' => ['web', 'auth', 'Oka6\Adm
 	Route::post('/resources/{id}', 'Oka6\Admin\Http\Controllers\ResourcesController@update')->name('admin.resources.update')->where(['iconAdmin' => 'fas fa-edit', 'parentRouteNameAdmin' => 'admin.resources.index', 'nameAdmin' => 'Resource Update']);
 	
 	Route::fallback(function () {
-		die('Nao encontrou');
+		$prefix_url = \Illuminate\Support\Facades\Config::get('admin.prefix_url');
+		return redirect("/$prefix_url/page-not-found");
 	});
 });
 

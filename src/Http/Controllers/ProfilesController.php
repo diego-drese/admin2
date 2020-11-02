@@ -105,7 +105,7 @@ class ProfilesController extends BaseController {
 	 */
 	public function update(Request $request, $id) {
 		if($id==User::PROFILE_ID_ROOT && !$request->get('resources')){
-			toastr()->error("Esse perfil está bloqueado para edições", 'Erro');
+			toastr()->error("Não é permitido remover todos os recursos desse perfil", 'Erro');
 			return redirect(route('admin.profiles.index'));
 		}
 		

@@ -104,11 +104,12 @@ class ProfilesController extends BaseController {
 	 * @return Response
 	 */
 	public function update(Request $request, $id) {
-		if($id==User::PROFILE_ID_ROOT){
+		if($id==User::PROFILE_ID_ROOT && !$request->get('resources')){
 			toastr()->error("Esse perfil está bloqueado para edições", 'Erro');
 			return redirect(route('admin.profiles.index'));
 		}
-		$profile = Profile::getById([(int)$id]);
+		
+		$profile = Profile::getById((int)$id);
 		$dataForm = $request->all();
 		$this->validate($request, [
 			'name' => 'required'

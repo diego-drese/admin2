@@ -49,7 +49,7 @@ class ResourcesController extends BaseController {
 	 * @return Response
 	 */
 	public function create(Resource $resource) {
-		$parentsDefault = Resource::where('is_menu', 1)->whereNull('route_name')->get();
+		$parentsDefault = Resource::where('is_menu', 1)->where('controller_method', '')->get();
 		$hasSave = ResourceAdmin::hasResourceByRouteName('admin.resources.store');
 		return view('Admin::backend.resources.create', compact('resource', 'parentsDefault', 'hasSave'));
 	}
@@ -67,13 +67,13 @@ class ResourcesController extends BaseController {
 			'is_menu' => 'required',
 		]);
 		
-		$resource = new Resource();
-		$resource->id = Sequence::getSequence('resource');
-		$resource->name = $request->name;
-		$resource->menu = $request->menu;
-		$resource->is_menu = (int)$request->is_menu;
-		$resource->route_name = null;
-		$resource->icon = $request->icon;
+		$resource               = new Resource();
+		$resource->id           = Sequence::getSequence('resource');
+		$resource->name         = $request->name;
+		$resource->menu         = $request->menu;
+		$resource->is_menu      = (int)$request->is_menu;
+		$resource->route_name   = null;
+		$resource->icon         = $request->icon;
 		$resource->controller_method = '';
 		$resource->can_be_default = (int)($request->can_be_default ? $request->can_be_default : 0);
 		$resource->parent_id = (int)$request->parent_id;

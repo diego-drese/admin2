@@ -45,7 +45,7 @@
 <div class="form-group pos-relative">
     <label class="d-block">É um menu?</label>
 
-    <div class="custom-control custom-radio mb-3 float-left">
+    <div class="custom-control custom-radio mb-3 float-left mr-2">
         <input type="radio" class="custom-control-input" id="is_menu1" name="is_menu"
                value="1" {{$resource->is_menu == 1 ? 'checked' : ''}}>
         <label class="custom-control-label" for="is_menu1">Sim</label>

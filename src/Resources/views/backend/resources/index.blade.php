@@ -22,15 +22,15 @@
                                role="grid">
                             <thead>
                             <tr class="center">
-                                <td role="row">#</td>
-                                <td role="row">Nome</td>
-                                <td role="row">Menu</td>
-                                <td>Rota</td>
-                                <td>Icone</td>
-                                <td role="row">Controller Method</td>
-                                <td>Perfil</td>
-                                <td>Criado em</td>
-                                <td>Ações</td>
+                                <th role="row">#</th>
+                                <th role="row">Nome</th>
+                                <th role="row">Menu</th>
+                                <th>Icone</th>
+                                <th>Rota</th>
+                                <th role="row">Controller Method</th>
+                                <th>Perfil</th>
+                                <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
+                                <th>Ações</th>
                             </tr>
                             </thead>
                         </table>
@@ -81,14 +81,13 @@
                 columns: [
                     {data: "id", 'name': 'name', searchable: false},
                     {data: "name", 'name': 'name'},
-                    {data: "menu", 'name': 'menu'},
+                    {data: "menu", 'name': 'menu', render:function (data){
+                            return data ? data : '---';
+                        }},
+                    {data: "icon", 'name': 'icon', render:function (data){
+                            return data ? '<i class="'+data+'"></i>': '---'
+                    }},
                     {data: "route_name", 'name': 'route_name'},
-                    {
-                        data: null, searchable: false, orderable: false, render: function (data) {
-                            var icon = '<i class="font-gradient icon-font fa ${data.icon}"></i>';
-                            return icon
-                        }
-                    },
                     {data: 'controller_method', 'name': 'controller_method'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
@@ -104,8 +103,9 @@
                             }
                         }
                     },
-                    {data: "created_at", 'name': 'created_at'},
-
+                    {data: "created_at", 'name': 'created_at', render:function (data){
+                            return moment(data).format('YYYY-MM-DD HH:mm')
+                    }},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
 

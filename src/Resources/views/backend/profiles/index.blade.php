@@ -25,8 +25,8 @@
                             <tr>
                                 <th role="row">#</th>
                                 <th>Nome</th>
-                                <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
                                 <th>Recursos</th>
+                                <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
                                 <th>Ações</th>
                             </tr>
                             </thead>
@@ -77,10 +77,7 @@
                 columns: [
                     {data: "id", 'name': 'id', searchable: false},
                     {data: "name", 'name': 'name'},
-                    {data: "created_at", 'name': 'created_at', render: function (data){
-                        console.log(data);
-                        return moment(data).format('DD/MM/YYYY HH:mm');
-                    }},
+
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             if (data !== null) {
@@ -94,6 +91,9 @@
                             }
                         }
                     },
+                    {data: "created_at", 'name': 'created_at', render: function (data){
+                            return moment(data).format('YYYY-MM-DD HH:mm')
+                        }},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             var edit_button = "";

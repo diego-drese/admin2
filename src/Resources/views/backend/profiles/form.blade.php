@@ -33,7 +33,7 @@
                 </span>
 
                 <div class="table-responsive">
-                    <table id="resource_available" class="table table-striped table-bordered" role="grid">
+                    <table id="resource_available" class="table table-striped table-bordered font-10" role="grid">
                         <thead class="">
                         <tr>
                             <th>Nome</th>
@@ -58,7 +58,7 @@
                     </span>
                 </div>
                 <div class="table-responsive">
-                    <table id="resource_selected" class="table table-bordered table-striped dataTable table-hover" role="grid">
+                    <table id="resource_selected" class="table table-striped table-bordered font-10" role="grid">
                         <thead class="">
                         <tr>
                             <th>Nome</th>

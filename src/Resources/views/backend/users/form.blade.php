@@ -66,24 +66,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
-        <div class="form-group {{$errors->has('client_id') ? 'has-danger' : ''}}">
-            <label for="active">Cliente</label>
-            <select class="form-control {{$errors->has('client_id') ? 'is-invalid' : ''}}" id="clientID"
-                    name="client_id">
-                <option value="">Selecione</option>
-                @foreach ($clients as $key => $client)
-                    <option name="client_id"
-                            @if($client->exists){{$user->client_id==$client->id ? 'selected="selected"' : ''}} @endif value="{{$client->id}}">{{$client->name}} </option>
-                @endforeach
-            </select>
-            @if($errors->has('client_id'))
-                <span class="text-danger">{{$errors->first('client_id')}}</span>
-            @endif
-        </div>
-    </div>
-
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group {{$errors->has('active') ? 'has-danger' : ''}}">
             <label for="active">Status</label>
             <select type="text" name="active" class="form-control {{$errors->has('active') ? 'is-invalid' : ''}}"
@@ -99,7 +82,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group {{$errors->has('password') ? 'has-danger' : ''}}">
             <label for="slug">Senha</label>
             <input type="password" name="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}"
@@ -109,7 +92,7 @@
             @endif
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group {{$errors->has('password_confirmation') ? 'has-danger' : ''}}">
             <label for="slug">Confirmar Senha</label>
             <input type="password" name="password_confirmation"

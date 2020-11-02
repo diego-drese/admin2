@@ -27,7 +27,7 @@
                                 <th>Status</th>
                                 <th>Contato</th>
                                 <th>Pagina Inicial</th>
-                                <th>Criado em:</th>
+                                <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
                                 <th>Ações</th>
                             </tr>
                             </thead>
@@ -87,8 +87,9 @@
                     },
                     {data: 'cell_phone', 'name': 'cell_phone'},
                     {data: "resourceName", 'name': 'resourceName'},
-                    {data: "created_at", 'name': 'created_at'},
-
+                    {data: "created_at", 'name': 'created_at', render: function (data){
+                            return moment(data).format('YYYY-MM-DD HH:mm')
+                    }},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             console.log('okkkk');

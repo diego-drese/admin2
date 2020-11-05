@@ -29,19 +29,23 @@ class Oka6ServiceProvider extends ServiceProvider {
 		$this->publishes([
 			__DIR__ . '/Resources/lang' => resource_path('lang'),
 		]);
-		
-		
+
 		$this->publishes([
 			__DIR__ . '/../vendor' => public_path('vendor'),
 		], 'public');
 		
-		$this->mergeConfigFrom(
-			__DIR__ . '/../mix-manifest.json', 'app.merge-mix-admin'
-		);
-		
+
 		$this->mergeConfigFrom(
 			__DIR__ . '/Config/admin.php', 'admin'
 		);
+        $this->mergeConfigFrom(
+			__DIR__ . '/Config/profile_type.php', 'admin.profile_type'
+		);
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/../mix-manifest.json', 'app.merge-mix-admin'
+        );
+
 		$this->mergeConfigFrom(
 			__DIR__ . '/Config/database.php', 'database.connections'
 		);
@@ -112,15 +116,19 @@ class Oka6ServiceProvider extends ServiceProvider {
 	protected function mergeConfigFrom($path, $key) {
 		
 		$config = $this->app['config']->get($key, []);
-		
-		if ($key == 'admin' && !isset($config['profile_type'])) {
+
+		if ($key == 'admin' && !isset($config['prefix_url'])) {
 			$this->app['config']->set($key, array_merge($config, require $path));
 		}
-		
+
 		if ($key == 'database.connections' && !isset($config['oka6_admin'])) {
 			$this->app['config']->set($key, array_merge($config, require $path));
 		}
-		
+
+        if ($key == 'admin.profile_type') {
+            $this->app['config']->set($key, array_merge($config, require $path));
+        }
+
 		if ($key == 'auth.providers') {
 			$this->app['config']->set($key, array_merge($config, require $path));
 		}

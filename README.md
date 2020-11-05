@@ -4,7 +4,7 @@ Sistema de administração de sistemas com regras de permissões e acesso.
 
 php artisan migrate --database=oka6_admin
 
-php artisan db:seed --class=Oka6\\\Admin\\\DatabaseSeeder
+php artisan db:seed --class=Oka6\\\Admin\\\Database\\\Seeds\\\DatabaseSeeder
 
 php artisan Oka6:AdminRoutes
 

@@ -121,7 +121,7 @@ class Oka6ServiceProvider extends ServiceProvider {
 			$this->app['config']->set($key, array_merge($config, require $path));
 		}
 
-		if ($key == 'database.connections' && !isset($config['oka6_admin'])) {
+		if ($key == 'database.connections' && !isset($config['oka6_admin_session'])) {
 			$this->app['config']->set($key, array_merge($config, require $path));
 		}
 

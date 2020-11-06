@@ -4,11 +4,9 @@ namespace Oka6\Admin\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ResetPasswordNotification extends Notification
-{
+class ResetPasswordNotification extends Notification {
     use Queueable;
 
     /**
@@ -16,8 +14,7 @@ class ResetPasswordNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct()  {
     }
 
     /**
@@ -28,8 +25,7 @@ class ResetPasswordNotification extends Notification
      */
 
 
-    public function via($notifiable)
-    {
+    public function via($notifiable){
         return ['mail'];
     }
 
@@ -39,8 +35,7 @@ class ResetPasswordNotification extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
-    {
+    public function toMail($notifiable) {
 
         return (new MailMessage)
             ->subject('Alterar Senha ')
@@ -58,8 +53,7 @@ class ResetPasswordNotification extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
-    {
+    public function toArray($notifiable) {
         return [
             //
         ];

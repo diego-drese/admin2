@@ -2,7 +2,6 @@
 
 namespace Oka6\Admin\Models;
 
-use App\Notifications\ResetPasswordNotification;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -10,8 +9,8 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Oka6\Admin\Notifications\ResetPasswordNotification;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
 	use Authenticatable, Authorizable, CanResetPassword, Notifiable;
@@ -80,7 +79,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 	 * @return void
 	 */
 	public function sendPasswordResetNotification($token) {
-		$this->notify(new ResetPasswordNotification($token));
+		$this->notify(new ResetPasswordNotification());
 	}
 	
 }

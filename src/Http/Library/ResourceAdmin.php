@@ -32,6 +32,9 @@ class ResourceAdmin {
 		}
 		$userResources = Resource::getResourcesByRouteName(Auth::user()->profile_id, $routeName);
 		if (count($userResources)) {
+			if($findResource->controller_method==''){
+				return true;
+			}
 			return route($routeName, $params);
 		}
 		return false;

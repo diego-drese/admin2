@@ -70,6 +70,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 		return self::where('id', (int)$id)->first();
 	}
 	
+	public static function getByIdStatic($id) {
+		$user = self::where('id', (int)$id)->first();
+		$profile = Profile::getById($user->profile_id);
+		$user->profile_name = $profile->name;
+		$user->profile_desc = $profile->desc;
+		return $user;
+	}
+	
 	
 	/**
 	 * Send the password reset notification.

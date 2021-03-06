@@ -15,6 +15,10 @@ class Profile extends Model {
 		return self::where('id', (int)$id)->first();
 	}
 	
+	public static function getByArrayId($arrayId) {
+		return self::whereIn('id', array_map('intval', $arrayId))->get();
+	}
+	
 	public static function getProfilesByTypes($type) {
 		if (is_array($type)) {
 			if (($key = array_search('Admin', $type)) !== false) {

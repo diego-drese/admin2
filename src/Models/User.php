@@ -2,6 +2,7 @@
 
 namespace Oka6\Admin\Models;
 
+use Carbon\Traits\Creator;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -9,7 +10,9 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Oka6\Admin\Library\MongoUtils;
 use Oka6\Admin\Notifications\ResetPasswordNotification;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
@@ -47,6 +50,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 		'resource_default_id',
 		'picture',
 		'type',
+		'last_login_at',
 		'client_id'
 	];
 	/**
@@ -60,6 +64,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 	
 	public static function hasUserCreated() {
 		return self::count();
+	}
+	
+	public function getLastLoginAtAttribute($value) {
+		return $value && !empty($value) ? MongoUtils::convertDateMongoToPhpDateTime($value)->format('d/m/Y H:i') : '';
 	}
 	
 	public function resourceDefault() {

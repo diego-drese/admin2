@@ -47,6 +47,8 @@ class UserController extends BaseController {
 				->addColumn('resourceName', function ($row) {
 					$resource = Resource::where('id', (int)$row->resource_default_id)->first();
 					return isset($resource->name) ? $resource->name : '';
+				})->addColumn('last_login_at', function ($row) {
+					return $row->last_login_at ? $row->last_login_at : '---';
 				})
 				->setRowClass(function () {
 					return 'center';

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Oka6\Admin\Http\Controllers\Controller;
+use Oka6\Admin\Library\MongoUtils;
 use Oka6\Admin\Models\Profile;
 use Oka6\Admin\Models\Resource;
 use Oka6\Admin\Models\User;
@@ -62,17 +63,21 @@ class LoginController extends Controller {
 	
 	protected function authenticated(Request $request, $user) {
 		$prefix_url = Config::get('admin.prefix_url');
-		if (Auth::User()->active === 0) {
+		$userAuth = Auth::User();
+		if ($userAuth->active === 0) {
 			$this->logout($request);
 			toastr()->error('Desculpe, não é possível acessar o sistema! Entre em contato com o administrador', 'error');
 			return redirect(route('login'));
 		}
+		$userAuth->last_login_at = MongoUtils::convertDatePhpToMongo(date('Y-m-d H:i:s'));
+		$userAuth->save();
+		
 		$path = $request->get('path');
 		if (filter_var($path, FILTER_VALIDATE_URL) && !strpos($path, 'logout')) {
 			return redirect($path);
 		}
 		
-		$redirect = Resource::where('id', (int)Auth::User()->resource_default_id)->first();
+		$redirect = Resource::where('id', (int)$userAuth->resource_default_id)->first();
 		if (!isset($redirect->route_name)) {
 			$profile = Profile::getById(Auth::User()->profile_id);
 			$resource = Resource::whereIn('id', $profile->resources_allow)
@@ -82,7 +87,7 @@ class LoginController extends Controller {
 			if ($resource && $resource->id) {
 				User::where('id', Auth::User()->id)
 					->update(['resource_default_id' => $resource->id]);
-				Log::info('LoginController, update resource default', ['user_id' => Auth::User()->id, 'resource' => $resource->name, 'resource_id' => $resource->id]);
+				Log::info('LoginController, update resource default', ['user_id' => $userAuth->id, 'resource' => $resource->name, 'resource_id' => $resource->id]);
 				return redirect(route($resource->route_name));
 			}
 			if (!$resource) {

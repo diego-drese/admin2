@@ -27,7 +27,8 @@
                                 <th>Status</th>
                                 <th>Contato</th>
                                 <th>Pagina Inicial</th>
-                                <th style="width: 100px">&nbsp;Criado&nbsp;em&nbsp;</th>
+                                <th style="width: 100px">Criado&nbsp;em</th>
+                                <th style="width: 100px">Último Login</th>
                                 <th>Ações</th>
                             </tr>
                             </thead>
@@ -90,6 +91,7 @@
                     {data: "created_at", 'name': 'created_at', render: function (data){
                             return moment(data).format('YYYY-MM-DD HH:mm')
                     }},
+                    {data: "last_login_at", 'name': 'last_login_at'},
                     {
                         data: null, searchable: false, orderable: false, render: function (data) {
                             console.log('okkkk');

@@ -52,25 +52,6 @@
                 <label for="active">Página incial</label>
                 <select class="form-control" id="selectResourceDefault" name="resource_default_id"> </select>
             </div>
-
-            <div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
-                <label for="slug">Senha</label>
-                <input type="password" name="password" class="form-control"
-                       id="password" value="">
-                @if($errors->has('password'))
-                    <span class="text-danger">{{$errors->first('password')}}</span>
-                @endif
-            </div>
-
-            <div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
-                <label for="slug">Confirmar Senha</label>
-                <input type="password" name="password_confirmation" class="form-control"
-                       id="password_confirmation" value="">
-                @if($errors->has('password_confirmation'))
-                    <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
-                @endif
-            </div>
-
             <div class="col-md-4 form-group {{$errors->has('old_password') ? 'has-error' : ''}}">
                 <label for="old_password">Senha atual</label>
                 <input type="password" name="old_password" class="form-control"
@@ -79,6 +60,26 @@
                     <span class="text-danger">{{$errors->first('old_password')}}</span>
                 @endif
             </div>
+
+            <div class="col-md-4 form-group {{$errors->has('password') ? 'has-error' : ''}}">
+                <label for="slug">Nova Senha</label>
+                <input type="password" name="password" class="form-control"
+                       id="password" value="">
+                @if($errors->has('password'))
+                    <span class="text-danger">{{$errors->first('password')}}</span>
+                @endif
+            </div>
+
+            <div class="col-md-4 form-group {{$errors->has('password_confirmation') ? 'has-error' : ''}}">
+                <label for="slug">Confirmar Nova Senha</label>
+                <input type="password" name="password_confirmation" class="form-control"
+                       id="password_confirmation" value="">
+                @if($errors->has('password_confirmation'))
+                    <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+                @endif
+            </div>
+
+
             <div class="col-md-12 form-group">
                 <label for="title">Foto Perfil</label>
                 <div class="input-group">

@@ -6,8 +6,8 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Oka6\Admin\Http\Controllers\Controller;
 use Oka6\Admin\Notifications\ResetPasswordNotification;
-use Oka6\Admin\PasswordReset;
-use Oka6\Admin\User;
+use  Oka6\Admin\Models\PasswordReset;
+use  Oka6\Admin\Models\User;
 
 class ForgotPasswordController extends Controller {
 	/*

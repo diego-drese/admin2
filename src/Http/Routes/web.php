@@ -59,27 +59,14 @@ Route::group(['prefix' => $prefix_url, 'middleware' => ['web', 'auth']], functio
 
 Route::group(['middleware' => ['web']], function () {
 	
-	// Route::get('/', 'Oka6\Admin\Http\Controllers\HomeController@index')->name('index');
-
-//    /*Blog*/
-//    Route::get('/blog', 'Oka6\Admin\Http\Controllers\BlogController@blogFront')->name('blog');
-//    Route::get('/blog/post/{slug}', 'Oka6\Admin\Http\Controllers\BlogController@blogPost')->name('blogPost');
-//    Route::get('/blog/tag/{tag}', 'Oka6\Admin\Http\Controllers\BlogController@blogTag')->name('blogTag');
-//    Route::get('/blog/ultimos-posts', 'Oka6\Admin\Http\Controllers\BlogController@getLatestPosts')->name('blogLatestPost');
-//    Route::get('/blog/categoria/{cat}', 'Oka6\Admin\Http\Controllers\BlogController@blogCategory')->name('blogCategory');
-	
-	Route::get('/tema/{template}', 'Oka6\Admin\Http\Controllers\HomeController@returnLandingDefault')->name('template');
-	Route::get('/tema/style/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getCssFile')->name('templateStyle');
-	Route::get('/tema/js/{template}', 'Oka6\Admin\Http\Controllers\HomeController@getJsFile')->name('templateJs');
 	///** Authentication Routes...  */
 	Route::get('login', 'Oka6\Admin\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
 	Route::post('login', 'Oka6\Admin\Http\Controllers\Auth\LoginController@login');
 	Route::post('logout', 'Oka6\Admin\Http\Controllers\Auth\LoginController@logout')->name('logout');
-///** Password Reset Routes...  */
+	///** Password Reset Routes...  */
 	Route::post('password/reset', 'Oka6\Admin\Http\Controllers\Auth\ResetPasswordController@reset')->name('passwords.reset');
 	Route::get('password/reset', 'Oka6\Admin\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 	Route::post('password/email', 'Oka6\Admin\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 	Route::get('password/reset/{token}', 'Oka6\Admin\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
-	
 	
 });

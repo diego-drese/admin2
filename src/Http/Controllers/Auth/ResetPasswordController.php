@@ -6,8 +6,8 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Messages\MailMessage;
 use Oka6\Admin\Http\Controllers\Controller;
-use Oka6\Admin\PasswordReset;
-use Oka6\Admin\User;
+use Oka6\Admin\Models\PasswordReset;
+use Oka6\Admin\Models\User;
 
 class ResetPasswordController extends Controller {
 	/*

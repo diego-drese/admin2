@@ -2,7 +2,6 @@
 
 namespace Oka6\Admin\Models;
 
-use Carbon\Traits\Creator;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -10,7 +9,6 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Carbon;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Oka6\Admin\Library\MongoUtils;
 use Oka6\Admin\Notifications\ResetPasswordNotification;
@@ -51,7 +49,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 		'picture',
 		'type',
 		'last_login_at',
-		'client_id'
+		'last_notification_at',
+		'client_id',
 	];
 	/**
 	 * The attributes that should be hidden for arrays.
@@ -67,7 +66,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 	}
 	
 	public function getLastLoginAtAttribute($value) {
-		return $value && !empty($value) ? MongoUtils::convertDateMongoToPhpDateTime($value)->format('d/m/Y H:i') : '';
+		return $value && !empty($value) ? MongoUtils::convertDateMongoToPhpDateTime($value)->format('d/m/Y H:i') : '---';
 	}
 	
 	public function resourceDefault() {
@@ -85,7 +84,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 		$user->profile_desc = $profile->desc;
 		return $user;
 	}
-	
 	
 	/**
 	 * Send the password reset notification.

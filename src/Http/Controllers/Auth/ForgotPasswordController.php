@@ -4,6 +4,7 @@ namespace Oka6\Admin\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Oka6\Admin\Http\Controllers\Controller;
 use Oka6\Admin\Notifications\ResetPasswordNotification;
 use  Oka6\Admin\Models\PasswordReset;
@@ -38,7 +39,11 @@ class ForgotPasswordController extends Controller {
 			toastr()->error('não foi encontrado usuário com este e-mail.');
 			return back();
 		}
-		$passwordReset = PasswordReset::create(['email' => $user->email, 'token' => $user->remember_token]);
+		if(!$user->remember_token){
+			$user->remember_token = Str::random(60);
+			$user->save();
+		}
+		$passwordReset = PasswordReset::create(['email' => $user->email, 'token' => $user->remember_token, 'new_account' => false]);
 		$user->notify(new ResetPasswordNotification($passwordReset));
 		
 		

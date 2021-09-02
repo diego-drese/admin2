@@ -19208,7 +19208,6 @@ File: scss
 .mailbox .drop-title:after {
     content: "";
     position: absolute;
-    background: url(../../assets/images/background/img5.png) no-repeat;
     opacity: 0.2;
     top: 0px;
     left: 0px;

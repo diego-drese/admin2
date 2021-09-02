@@ -12,6 +12,7 @@
 
 $prefix_url = \Illuminate\Support\Facades\Config::get('admin.prefix_url');
 
+
 Route::group(['prefix' => $prefix_url, 'middleware' => ['web', 'auth', 'Oka6\Admin\Http\Middleware\MiddlewareAdmin']], function () {
 	/** Private Resources  */
 	Route::get('/dashboard', 'Oka6\Admin\Http\Controllers\ConsoleController@dashboard')->name('admin.dashboard')->where(['iconAdmin' => 'fas fas fa-bullseye', 'menuAdmin' => "Dashboard", 'nameAdmin' => 'Dashboard', 'isDefaultAdmin' => '1']);

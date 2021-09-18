@@ -25,7 +25,7 @@ class NavigationComposer {
 		$view->with(compact('adminController', 'adminResourcesMenu', 'adminBreadCrumb', 'adminCurrentResource'));
 	}
 	
-	public function buildMenuRecursive($parentID = 0, $profileId) {
+	public function buildMenuRecursive($parentID, $profileId) {
 		$result = array();
 		
 		$menus = Resource::getItensMenuByParentAndProfile($parentID, $profileId);

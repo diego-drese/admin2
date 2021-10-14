@@ -102,7 +102,7 @@ class UserController extends BaseController {
 		$dataForm['cell_phone'] = $request->get('cell_phone');
 		$dataForm['profile_id'] = $request->get('profile_id');
 		$dataForm['resource_default_id'] = $request->get('resource_default_id');
-		$dataForm['client_id'] = $request->get('client_id');
+		$dataForm['client_id'] = $request->get('client_id')? (int)$request->get('client_id') : null;
 		$dataForm['active'] = $request->get('active') ? 1 : 0;
 		$dataForm['password'] = bcrypt($request->get('password_confirmation'));
 		$dataForm['type'] = 'root';
@@ -168,7 +168,9 @@ class UserController extends BaseController {
 		$dataForm['cell_phone'] = $request->get('cell_phone');
 		$dataForm['profile_id'] = $request->get('profile_id');
 		$dataForm['resource_default_id'] = $request->get('resource_default_id');
-		$dataForm['client_id'] = $request->get('client_id');
+		if(!$user->client_id){
+			$dataForm['client_id'] = $request->get('client_id') ? (int)$request->get('client_id') : null;
+		}
 		$dataForm['active'] = $request->get('active') ? 1 : 0;
 		if ($request->get('password_confirmation')) {
 			$dataForm['password'] = bcrypt($request->get('password_confirmation'));

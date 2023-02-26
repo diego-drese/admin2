@@ -79,6 +79,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 	
 	public static function getByIdStatic($id) {
 		$user = self::where('id', (int)$id)->first();
+        if(!$user){
+           return null;
+        }
 		$profile = Profile::getById($user->profile_id);
 		$user->profile_name = $profile->name;
 		$user->profile_desc = $profile->desc;

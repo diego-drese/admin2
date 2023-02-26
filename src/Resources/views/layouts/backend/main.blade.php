@@ -35,6 +35,29 @@
             text-overflow: ellipsis;
             font-family: poiret-one, sans-serif;
         }
+        div.dataTables_wrapper div.dataTables_processing{
+            border-radius: 6px;
+            color: #fff;
+            opacity: 0.8;
+        }
+        .theme1 div.dataTables_wrapper div.dataTables_processing{
+            background: #4267b2!important;
+        }
+        .theme2 div.dataTables_wrapper div.dataTables_processing{
+            background: #ee9d83!important;
+        }
+        .theme3 div.dataTables_wrapper div.dataTables_processing{
+            background: #ff6b95!important;
+        }
+        .theme4 div.dataTables_wrapper div.dataTables_processing{
+            background: #1ea69a!important;
+        }
+        .theme5 div.dataTables_wrapper div.dataTables_processing{
+            background: #948fec!important;
+        }
+        .theme6 div.dataTables_wrapper div.dataTables_processing{
+            background: #233242!important;
+        }
     </style>
     <!--script src="//use.edgefonts.net/poiret-one.js"></script-->
 </head>

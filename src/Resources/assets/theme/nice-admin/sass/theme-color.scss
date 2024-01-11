@@ -1,0 +1,348 @@
+$theme1: #4267b2 !important;
+$theme2: #EE9D83 !important;
+$theme3: #FF6B95 !important;
+$theme4: #1EA69A !important;
+$theme5: #948fec !important;
+$theme6: #233242 !important;
+
+
+@mixin themeBar($name, $bg) {
+    .#{$name} {
+        .shepherd-content {
+            border-radius: 7px !important;
+        }
+
+        .shepherd-text {
+            text-align: left!important;
+            p a{
+                color: #0a3576;
+                text-decoration: none;
+            }
+        }
+
+        .select2-container--default .select2-results__option--highlighted{
+            background-color: $bg;
+        }
+
+        .tippy-popper.shepherd-popper[x-placement^="bottom"] .tippy-arrow{
+            border-bottom-color: $bg;
+            z-index: 15;
+        }
+
+        .shepherd-header {
+            background-color: $bg;
+
+            h3, .shepherd-cancel-link {
+                color: #fff !important;
+            }
+        }
+
+        .shepherd-button {
+            background-color: #ececec !important;
+            color: $bg;
+        }
+
+        #main-wrapper {
+            .fc-button-primary:disabled, .btn-primary, .page-item.active .page-link, .page-link:hover,
+            .btn-info,
+            .fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active, .custom-control-input:checked ~ .custom-control-label::before {
+                background-color: $bg;
+                border-color: $bg;
+            }
+
+            .btn-success, .bg-success, .badge-success, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success {
+                background: linear-gradient(120deg, #1bbc81, #06905e);
+                border-color: #4caf50;
+
+                &:hover {
+                    background: linear-gradient(0deg, #06905e, #1bbc81);
+                    border-color: #4caf50;
+                    transition: all 1s;
+                    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .1);
+                }
+            }
+
+            #openModalWhats {
+                background: #009688 !important;
+                border: 1px solid #019688 !important;
+
+                i {
+                    font-size: 1.3em;
+                }
+            }
+
+
+            .dropdown-toggle-split {
+                opacity: 0.9
+            }
+
+            .dropdown-menu .show {
+                span {
+                    cursor: pointer;
+                }
+            }
+
+            .dropdown-item {
+                cursor: pointer;
+            }
+
+            .btn-danger {
+                background-color: #dc3545;
+                border-color: #dc3545;
+
+                &:hover {
+                    transition: all 1s;
+                    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .1);
+                }
+            }
+
+            .bg-primary {
+                background: $bg;
+            }
+
+            .bg-warning {
+                background: linear-gradient(179deg, #ffc900, #f90) !important;
+                color: white;
+            }
+
+            .bg-info {
+                background: linear-gradient(180deg, #4857c0, #2d398c) !important;
+                color: white;
+            }
+            .page-wrapper {
+                background: rgba(247, 247, 247, 0.64);
+            }
+
+            .dropdown-item.active, .dropdown-item:active {
+                background-color: #f9f9f9;
+            }
+
+            .nav-item a, .nav-item a:hover {
+                color: rgba(130, 119, 116, 0.89) !important;
+            }
+
+            .left-sidebar {
+                background: #fff !important;
+
+                ul.first-level.in {
+                    background: #f3f3f3;
+                    border-color: $bg;
+                }
+            }
+
+            #sidebarnav {
+                background: transparent !important;
+
+                .sidebar-link {
+                    opacity: 01;
+                    color: #8c8787;
+                    font-weight: 500;
+
+                    &.active {
+                        background: #f7f7f7 !important;
+                        border-left: 2px solid $bg;
+                    }
+
+                    &:hover {
+                        background: rgba(148, 143, 236, 0.07) !important;
+                        border-left: 2px solid $bg;
+                    }
+                }
+
+                i {
+                    color: $bg;
+                    font-size: 23px;
+                }
+            }
+        }
+
+        .navbar-brand, #navbarSupportedContent {
+            background: $bg;
+        }
+        .navbar-brand, #navbarSupportedContent ,#contentTag{
+            background: $bg !important;
+        }
+
+        a.pro-pic {
+            .avatar-default{
+                position:relative;
+                top: 9px;
+            }
+            span {
+                color: #fff;
+                position: relative;
+                top: -8px;
+            }
+        }
+
+        #openTag {
+            font-size: 15px;
+            background: transparent;
+            border: 0px;
+            color: white;
+        }
+
+        #nav-bar-left .input-group-text {
+            background: transparent;
+            border: 0;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .user-conf-bg, .navbar-brand {
+            background: $bg;
+        }
+
+        .next-schedule-card-header {
+            background: $bg;
+        }
+    }
+}
+
+@include themeBar(theme1, $theme1);
+@include themeBar(theme2, $theme2);
+@include themeBar(theme3, $theme3);
+@include themeBar(theme4, $theme4);
+@include themeBar(theme5, $theme5);
+@include themeBar(theme6, $theme6);
+
+/*List colors*/
+
+.color-list {
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0px 20px;
+
+        li {
+            margin-top: 10px;
+            margin-right: 5px;
+
+            span {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                border: 3px solid #dfdfdf;
+                display: block;
+                cursor: pointer;
+
+                &.theme1 {
+                    background: $theme1;
+                }
+
+                &.theme2 {
+                    background: $theme2;
+                }
+
+                &.theme3 {
+                    background: $theme3;
+                }
+
+                &.theme4 {
+                    background: $theme4;
+                }
+
+                &.theme5 {
+                    background: $theme5;
+                }
+
+                &.theme6{
+                    background: #233242;
+                }
+            }
+        }
+    }
+}
+
+// CONSTANTS COLORS
+.bg-confirmed{
+    background: linear-gradient(to right, #8BC34A, #8cbd53); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    color: #fff!important;
+    width: auto;
+    min-width: fit-content;
+    height: auto;
+    min-height: auto;
+    div{
+        color: #fff!important;
+    }
+}
+
+.bg-answered{
+    background: #009688!important;
+    color: #fff!important;
+    width: auto;
+    min-width: fit-content;
+    height: auto;
+    min-height: auto;
+    div{
+        color: #fff!important;
+    }
+}
+
+.bg-missed{
+    background: linear-gradient(to right, #bd2a3b, #ED213A);
+    color: #fff!important;
+    width: auto;
+    min-width: fit-content;
+    height: auto;
+    min-height: auto;
+    div{
+        color: #fff!important;
+    }
+}
+
+.bg-scheduling{
+    background: #00B4DB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff!important;
+    width: auto;
+    min-width: fit-content;
+    height: auto;
+    min-height: auto;
+    div{
+        color: #fff!important;
+    }
+}
+
+.bg-waiting{
+    background: linear-gradient(to right, #f7b733, #ff8058);
+    color: #fff!important;
+    width: auto;
+    min-width: fit-content;
+    height: auto;
+    min-height: auto;
+
+    div{
+        color: #fff!important;
+    }
+}
+
+.bg-attendance{
+    background: linear-gradient(to right, #512DA8, #6843a7);
+    color: #fff!important;
+    width: auto;
+    min-width: fit-content;
+    height: auto;
+    min-height: auto;
+    animation: gradientBG 2.2s ease infinite;
+    background-size: 50% 200%;
+    div{
+        color: #fff!important;
+    }
+}
+
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

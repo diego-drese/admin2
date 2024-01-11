@@ -1,0 +1,50 @@
+/* main colors */
+/* main fonts */
+/* main breakpoint */
+/* display */
+/* position */
+/* float */
+/* text align */
+/* vertical align */
+/*-- 
+    Margin & Padding
+-----------------------------------------*/
+/*
+	This mixin can be used to set the object-fit:
+	@include object-fit(contain);
+
+	or object-fit and object-position:
+	@include object-fit(cover, top);
+*/
+/* .box { @include transition(width, height 0.3s ease-in-out); } */
+/* .box { @include border-radius(10px); } */
+/* CSS3 calc() function to perform calculations */
+a { color: #5b65bd; }
+
+a:hover, a:focus { color: #5b65bd; }
+
+main ::-moz-selection { background-color: #5b65bd; }
+
+main ::selection { background-color: #5b65bd; }
+
+main ::-moz-selection { background-color: #5b65bd; }
+
+.top-bar--dark .top-bar__navigation a:after { background-color: #5b65bd; }
+
+.top-bar__navigation .submenu a:after { background-color: #5b65bd !important; }
+
+.top-bar--dark .top-bar__auth-btns a:after { background-color: #5b65bd; }
+
+.top-bar__choose-lang .list-wrap li.is-active span:after { background-color: #5b65bd; }
+
+.section-heading:not(.section-heading--white) .__subtitle { color: #5b65bd; }
+
+.btn-play { background-color: #5b65bd; }
+
+.custom-btn.custom-btn--style-1:before, .custom-btn.custom-btn--style-2:before, .custom-btn.custom-btn--style-3:before { background: -o-linear-gradient(0deg, #5441b7 0%, #3fa4f4 100%); background: -webkit-gradient(linear, left top, right top, from(#5441b7), to(#3fa4f4)); background: -o-linear-gradient(left, #5441b7 0%, #3fa4f4 100%); background: linear-gradient(90deg, #5441b7 0%, #3fa4f4 100%); }
+
+.custom-btn.custom-btn--style-2 { background-color: #ece7f7; border-color: #ece7f7; color: #5b65bd; }
+
+.custom-btn.custom-btn--style-3 { border-color: #5b65bd; }
+
+#btn-to-top { background-color: #4954b5; }

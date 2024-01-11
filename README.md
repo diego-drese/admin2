@@ -21,3 +21,5 @@ Execute o seguinte comando:
 npm install imagemin-pngquant@5.0.1 --save
 
 
+
+

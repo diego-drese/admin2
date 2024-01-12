@@ -161,6 +161,7 @@ class Oka6ServiceProvider extends ServiceProvider {
 			$file = fopen(public_path('/mix-manifest.json'), 'w');
 			fwrite($file, json_encode($jsonMerge, JSON_UNESCAPED_SLASHES));
 			fclose($file);
+			chmod(public_path('/mix-manifest.json'), 0644);
 			$this->app['config']->set($key, true);
 		}
 		

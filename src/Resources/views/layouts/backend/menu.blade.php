@@ -39,6 +39,7 @@ if (count($item['sub'])) {
 </li>
 <?php
 }
+}
 echo '<ul id="sidebarnav" class=" sidebarnav nav nav-pills flex-column" >';
 foreach ($menu as $key => $item) {
 	create_menu($item, $idCurrent, $ctrl);

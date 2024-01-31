@@ -2,6 +2,7 @@
 $idCurrent = null;
 $ctrl = isset($adminController) ? $adminController : '';
 $menu = isset($adminResourcesMenu) ? $adminResourcesMenu : [];
+if (!function_exists('create_menu')) {
 
 function create_menu($item, &$idCurrent, &$ctrl) {
 $controllerReceive = $ctrl;
@@ -14,7 +15,7 @@ $id = $item['id'];
 
 $children = null;
 if (count($item['sub'])) {
-	$children = $item['sub'];
+    $children = $item['sub'];
 }
 
 ?>
@@ -26,15 +27,15 @@ if (count($item['sub'])) {
         <span class="hide-menu">{{$menu}}</span>
     </a>
 
-	<?php
-	if ($children) {
-		echo "<ul aria-expanded=\"false\" class=\"collapse first-level\" id=\"ul-{$item['id']}\">";
-		foreach ($children as $child) {
-			create_menu($child, $idCurrent, $ctrl);
-		}
-		echo "</ul>";
-	}
-	?>
+    <?php
+    if ($children) {
+        echo "<ul aria-expanded=\"false\" class=\"collapse first-level\" id=\"ul-{$item['id']}\">";
+        foreach ($children as $child) {
+            create_menu($child, $idCurrent, $ctrl);
+        }
+        echo "</ul>";
+    }
+    ?>
 </li>
 <?php
 }
@@ -43,6 +44,3 @@ foreach ($menu as $key => $item) {
 	create_menu($item, $idCurrent, $ctrl);
 }
 echo "</ul>";
-
-
-

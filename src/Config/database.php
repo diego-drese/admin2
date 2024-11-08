@@ -19,7 +19,7 @@ return [
 		'strict' => false,
 		'engine' => null,
 		'options' => [
-			'database' => env('OKA6_ADMIN_DB_NAME', 'sulradio') // sets the authentication database required by mongo 3
+			'database' => env('OKA6_ADMIN_DB_NAME', 'admin') // sets the authentication database required by mongo 3
 		]
 	], 'oka6_admin_session' => [
 		'driver' => 'mongodb',
@@ -34,7 +34,7 @@ return [
 		'strict' => false,
 		'engine' => null,
 		'options' => [
-			'database' => env('OKA6_ADMIN_SESSION_DB_NAME', 'sulradio') // sets the authentication database required by mongo 3
+			'database' => env('OKA6_ADMIN_SESSION_DB_NAME', 'admin') // sets the authentication database required by mongo 3
 		]
 	], 'oka6_notification' => [
 		'driver' => 'mongodb',
@@ -49,7 +49,7 @@ return [
 		'strict' => false,
 		'engine' => null,
 		'options' => [
-			'database' => env('OKA6_NOTIFICATION_DB_NAME', 'sulradio') // sets the authentication database required by mongo 3
+			'database' => env('OKA6_NOTIFICATION_DB_NAME', 'admin') // sets the authentication database required by mongo 3
 		]
 	]
 ];

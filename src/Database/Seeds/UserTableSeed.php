@@ -11,12 +11,11 @@ class UserTableSeed extends Seeder {
 	
 	public function run() {
 		User::where('id', '<', 0)->delete();
-		$faker = Factory::create();
 		User::insert([
 			'id' => -1,
 			'name' => "Admin",
 			'lastname' => "Oka6",
-			'cell_phone' => (51) 99999-9999,
+			'cell_phone' => "(51) 99999-9999",
 			'active' => 1,
 			'profile_id' => User::PROFILE_ID_ROOT,
 			'resource_default_id' => 0,

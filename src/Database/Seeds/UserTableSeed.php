@@ -4,7 +4,6 @@
 namespace Oka6\Admin\Database\Seeds;
 
 use Carbon\Carbon;
-use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Oka6\Admin\Models\User;
 
@@ -17,7 +16,7 @@ class UserTableSeed extends Seeder {
 			'id' => -1,
 			'name' => "Admin",
 			'lastname' => "Oka6",
-			'cell_phone' => $faker->phoneNumber,
+			'cell_phone' => (51) 99999-9999,
 			'active' => 1,
 			'profile_id' => User::PROFILE_ID_ROOT,
 			'resource_default_id' => 0,
